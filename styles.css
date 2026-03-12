@@ -1,0 +1,51 @@
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #FF851B;
+    animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate {
+    0% { transform: translate(0) rotate(0); }
+    100% { transform: translate(0) rotate(360deg); }
+}
+
+body {
+    background-color: #001F3F;
+    color: white;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+h1, h2, h3 {
+    color: #FF851B;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    .hero .circle {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (min-width: 769px) {
+    .hero .circle {
+        width: 100px;
+        height: 100px;
+    }
+}
