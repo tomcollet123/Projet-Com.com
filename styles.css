@@ -1,51 +1,90 @@
-.hero {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero .circle {
-    position: absolute;
-    border-radius: 50%;
-    background-color: #FF851B;
-    animation: rotate 10s infinite linear;
-}
-
-@keyframes rotate {
-    0% { transform: translate(0) rotate(0); }
-    100% { transform: translate(0) rotate(360deg); }
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: #001F3F;
-    color: white;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.5s, color 0.5s;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-image: url('bg.png');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-h1, h2, h3 {
+.hero {
+    background: rgba(0, 31, 63, 0.85);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.logo {
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 10px 30px rgba(255, 133, 27, 0.3));
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+}
+
+.hero h1 .cecmed {
     color: #FF851B;
 }
 
+.tagline {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 .container {
-    width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 60px 20px;
 }
 
-/* Responsive Design */
+footer {
+    background-color: rgba(0, 8, 20, 0.95);
+    text-align: center;
+    padding: 30px 20px;
+    color: rgba(255, 255, 255, 0.6);
+    border-top: 2px solid #FF851B;
+}
+
 @media (max-width: 768px) {
-    .container {
-        width: 100%;
+    .hero {
+        min-height: 80vh;
+        padding: 30px 15px;
     }
-    .hero .circle {
-        width: 50px;
-        height: 50px;
-    }
-}
 
-@media (min-width: 769px) {
-    .hero .circle {
-        width: 100px;
-        height: 100px;
+    .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .logo {
+        max-width: 200px;
     }
 }
