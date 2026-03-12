@@ -1,21 +1,78 @@
-.logo {
-    width: 500px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
+body {
+    background-color: #001F3F;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-image: url('./bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.hero {
+    background: rgba(0, 31, 63, 0.4);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.logo {
+    max-width: 500px;
+    width: 100%;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 15px 40px rgba(255, 133, 27, 0.5));
+}
+
+.hero h1 {
     display: none;
 }
 
-.overlay {
-    opacity: 0.4;
+.tagline {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 20px;
 }
 
-/* Additional CSS rules for improved background clarity and responsive design */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+footer {
+    background-color: rgba(0, 8, 20, 0.95);
+    text-align: center;
+    padding: 30px 20px;
+    color: rgba(255, 255, 255, 0.6);
+    border-top: 2px solid #FF851B;
+}
 
 @media (max-width: 768px) {
-    .background {
-        /* Example improvements for mobile */
-        background-size: cover;
-        background-position: center;
+    .hero {
+        min-height: 80vh;
+        padding: 30px 15px;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .logo {
+        max-width: 350px;
     }
 }
