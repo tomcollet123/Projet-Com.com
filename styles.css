@@ -44,10 +44,10 @@ body::before {
 @keyframes floatShip {
     0%, 100% {
         transform: translateX(0px) translateY(0px) rotate(0deg);
-        opacity: 0.08;
+        opacity: 0.09;
     }
     50% {
-        transform: translateX(15px) translateY(-15px) rotate(-3deg);
+        transform: translateX(20px) translateY(-15px) rotate(-2deg);
         opacity: 0.2;
     }
 }
@@ -55,11 +55,11 @@ body::before {
 @keyframes floatSatellite {
     0%, 100% {
         transform: translateY(0px) rotate(0deg);
-        opacity: 0.07;
+        opacity: 0.08;
     }
     50% {
-        transform: translateY(-25px) rotate(10deg);
-        opacity: 0.25;
+        transform: translateY(-25px) rotate(15deg);
+        opacity: 0.22;
     }
 }
 
@@ -108,64 +108,78 @@ body::before {
     animation-duration: 7s;
 }
 
-/* Frégates minimalistes */
+/* Frégates minimalistes dessinées */
 .frigate {
     position: fixed;
     pointer-events: none;
-    opacity: 0.08;
     z-index: 0;
-    font-size: 2.5rem;
+    width: 60px;
+    height: 40px;
 }
 
 .frigate-1 {
-    top: 25%;
-    left: 15%;
-    animation: floatShip 12s ease-in-out infinite;
+    top: 20%;
+    left: 12%;
+    animation: floatShip 13s ease-in-out infinite;
     animation-delay: 0s;
 }
 
 .frigate-2 {
-    top: 75%;
-    right: 12%;
-    animation: floatShip 14s ease-in-out infinite;
-    animation-delay: 3s;
+    top: 70%;
+    right: 15%;
+    animation: floatShip 15s ease-in-out infinite;
+    animation-delay: 4s;
 }
 
 .frigate-3 {
-    top: 50%;
-    left: 3%;
-    animation: floatShip 13s ease-in-out infinite;
-    animation-delay: 6s;
+    top: 45%;
+    left: 2%;
+    animation: floatShip 14s ease-in-out infinite;
+    animation-delay: 7s;
 }
 
-/* Satellites minimalistes */
+/* SVG Frigate minimaliste */
+.frigate svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(255, 133, 27, 0.3));
+}
+
+/* Satellites minimalistes dessinés */
 .satellite {
     position: fixed;
     pointer-events: none;
-    opacity: 0.07;
     z-index: 0;
-    font-size: 2rem;
+    width: 50px;
+    height: 50px;
 }
 
 .satellite-1 {
-    top: 15%;
-    right: 20%;
-    animation: floatSatellite 15s ease-in-out infinite;
+    top: 12%;
+    right: 18%;
+    animation: floatSatellite 16s ease-in-out infinite;
     animation-delay: 0s;
 }
 
 .satellite-2 {
-    bottom: 30%;
-    left: 25%;
-    animation: floatSatellite 16s ease-in-out infinite;
-    animation-delay: 4s;
+    bottom: 35%;
+    left: 20%;
+    animation: floatSatellite 17s ease-in-out infinite;
+    animation-delay: 5s;
 }
 
 .satellite-3 {
-    top: 65%;
-    right: 3%;
-    animation: floatSatellite 14s ease-in-out infinite;
-    animation-delay: 8s;
+    top: 60%;
+    right: 8%;
+    animation: floatSatellite 15s ease-in-out infinite;
+    animation-delay: 10s;
+}
+
+/* SVG Satellite minimaliste */
+.satellite svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(0, 204, 68, 0.3));
 }
 
 .hero {
@@ -216,16 +230,6 @@ body::before {
     width: 100%;
     margin-bottom: 30px;
     filter: drop-shadow(0 15px 40px rgba(255, 133, 27, 0.5));
-    animation: bounce 3s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
 }
 
 .hero h1 {
