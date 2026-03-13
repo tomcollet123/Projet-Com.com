@@ -75,16 +75,22 @@ body {
     border-left: 5px solid #FF851B;
     box-shadow: 0 15px 50px rgba(255, 133, 27, 0.2);
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 50px;
 }
 
 .logo-section {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    width: 140px;
-    height: 140px;
+    flex-shrink: 0;
+    width: 350px;
+    height: 280px;
     object-fit: contain;
-    opacity: 0.9;
+    opacity: 0.95;
+    background: transparent;
+}
+
+.presentation-inner {
+    flex: 1;
 }
 
 .presentation h2 {
@@ -136,13 +142,13 @@ body {
     .presentation-content {
         padding: 50px 30px;
         max-width: 100%;
+        flex-direction: column;
+        gap: 30px;
     }
 
     .logo-section {
-        width: 110px;
-        height: 110px;
-        top: 20px;
-        right: 20px;
+        width: 250px;
+        height: 200px;
     }
 
     .presentation h2 {
