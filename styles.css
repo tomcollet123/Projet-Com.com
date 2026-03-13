@@ -184,6 +184,16 @@ body {
     height: 700px;
 }
 
+.orbit-system:last-child .center-bubble {
+    background: linear-gradient(135deg, rgba(0, 204, 68, 0.3) 0%, rgba(0, 100, 50, 0.1) 100%);
+    border-color: #00CC44;
+    box-shadow: 0 0 40px rgba(0, 204, 68, 0.3), inset 0 0 40px rgba(0, 204, 68, 0.1);
+}
+
+.orbit-system:last-child .center-bubble h3 {
+    color: #00CC44;
+}
+
 .orbit-center {
     position: absolute;
     top: 50%;
@@ -224,6 +234,10 @@ body {
     height: 600px;
     border: 2px dashed rgba(255, 133, 27, 0.2);
     border-radius: 50%;
+}
+
+.orbit-system:last-child .orbit {
+    border-color: rgba(0, 204, 68, 0.2);
 }
 
 /* Bulles qui tournent */
