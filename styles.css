@@ -36,15 +36,7 @@ body {
 }
 
 .hero h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-    color: #FFFFFF;
-}
-
-.hero h1 .cecmed {
-    color: #FF851B;
+    display: none;
 }
 
 .tagline {
@@ -66,11 +58,6 @@ body {
     .hero {
         min-height: 80vh;
         padding: 30px 15px;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-        letter-spacing: 1px;
     }
 
     .tagline {
