@@ -474,7 +474,10 @@ function displayProjects() {
     const orbitEnCours = document.getElementById('orbitEnCours');
     const orbitOperationnels = document.getElementById('orbitOperationnels');
 
-    if (!orbitEnCours || !orbitOperationnels) return;
+    if (!orbitEnCours || !orbitOperationnels) {
+        console.error('Erreur: Les éléments orbites n\'existent pas');
+        return;
+    }
 
     orbitEnCours.innerHTML = '';
     orbitOperationnels.innerHTML = '';
