@@ -32,6 +32,58 @@
                 </div>
             </div>
         </section>
+
+        <!-- Section Projets -->
+        <section class="projects-section">
+            <div class="projects-header">
+                <h2>Nos Projets</h2>
+                <div class="divider-projects"></div>
+                <button class="admin-btn" id="toggleAdminPanel">🔒 Admin</button>
+            </div>
+
+            <!-- Panel Admin (caché par défaut) -->
+            <div class="admin-panel" id="adminPanel">
+                <h3>Ajouter un Projet</h3>
+                <form id="projectForm">
+                    <input type="text" id="projectName" placeholder="Nom du projet" required>
+                    <textarea id="projectDesc" placeholder="Description du projet" required></textarea>
+                    <select id="projectStatus" required>
+                        <option value="">Sélectionner un statut</option>
+                        <option value="En cours">En cours</option>
+                        <option value="Terminé">Terminé</option>
+                    </select>
+                    <button type="submit">Ajouter Projet</button>
+                </form>
+            </div>
+
+            <!-- Projets En Cours -->
+            <div class="projects-category">
+                <h3>En Cours</h3>
+                <div class="projects-grid" id="projectsEnCours">
+                    <!-- Les projets seront ajoutés ici -->
+                </div>
+            </div>
+
+            <!-- Projets Terminés -->
+            <div class="projects-category">
+                <h3>Terminés</h3>
+                <div class="projects-grid" id="projectsTermines">
+                    <!-- Les projets seront ajoutés ici -->
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Modal pour afficher les détails du projet -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc"></p>
+            <p id="modalStatus"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
