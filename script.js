@@ -2,6 +2,8 @@
 let projects = JSON.parse(localStorage.getItem('projects')) || [];
 let isLoggedIn = false;
 let currentEditingId = null;
+let tempImages = [];
+let tempLinks = [];
 
 // Données par défaut
 const defaultProjects = [
@@ -49,7 +51,7 @@ const defaultProjects = [
         id: 6,
         title: "Aurora Technologia",
         description: "Primus lux innovationis in tenebris erat. Hoc proiectum initium nostri itineris gloriosissimi fuit.",
-        status: "Terminé",
+        status: "Opérationnel",
         images: [],
         links: []
     },
@@ -57,7 +59,7 @@ const defaultProjects = [
         id: 7,
         title: "Triumpbus Antiquus",
         description: "Sicut Ulysses Troiam vicit, nos quoque victoriam obtinuimus in procella digitali.",
-        status: "Terminé",
+        status: "Opérationnel",
         images: [],
         links: []
     },
@@ -65,7 +67,7 @@ const defaultProjects = [
         id: 8,
         title: "Sapientia Aeterna",
         description: "Omnium sapientiarum collectio quae aeterna permanebit. Templum cognitionis humanae.",
-        status: "Terminé",
+        status: "Opérationnel",
         images: [],
         links: []
     },
@@ -73,7 +75,7 @@ const defaultProjects = [
         id: 9,
         title: "Pax et Securitas",
         description: "Pacem civium defenimus. Securitas omnium nostrum est finis nobilissimus.",
-        status: "Terminé",
+        status: "Opérationnel",
         images: [],
         links: []
     },
@@ -81,7 +83,7 @@ const defaultProjects = [
         id: 10,
         title: "Memoria Gloriosa",
         description: "Recordatio omnium victoriarum nostrarum et triumphorum qui aeterna sunt.",
-        status: "Terminé",
+        status: "Opérationnel",
         images: [],
         links: []
     }
@@ -145,6 +147,8 @@ function resetForm() {
     document.getElementById('projectForm').reset();
     document.getElementById('imagesList').innerHTML = '';
     document.getElementById('linksList').innerHTML = '';
+    tempImages = [];
+    tempLinks = [];
     currentEditingId = null;
 }
 
@@ -183,12 +187,14 @@ function editProject(id) {
 
     // Afficher les images
     document.getElementById('imagesList').innerHTML = '';
+    tempImages = [...project.images];
     project.images.forEach((img, index) => {
         addImageToDOM(img, index);
     });
 
     // Afficher les liens
     document.getElementById('linksList').innerHTML = '';
+    tempLinks = JSON.parse(JSON.stringify(project.links));
     project.links.forEach((link, index) => {
         addLinkToDOM(link.label, link.url, index);
     });
@@ -228,29 +234,23 @@ function handleFiles(files) {
         if (file.type.startsWith('image/')) {
             const reader = new FileReader();
             reader.onload = (e) => {
-                const project = currentEditingId ? projects.find(p => p.id === currentEditingId) : null;
-                if (project) {
-                    project.images.push(e.target.result);
-                } else {
-                    // Pour un nouveau projet, on stocke dans une variable temp
-                    document.tempImages = document.tempImages || [];
-                    document.tempImages.push(e.target.result);
+                tempImages.push(e.target.result);
+                if (currentEditingId) {
+                    const project = projects.find(p => p.id === currentEditingId);
+                    project.images = tempImages;
                 }
-                addImageToDOM(e.target.result, getCurrentImageCount());
+                addImageToDOM(e.target.result, tempImages.length - 1);
             };
             reader.readAsDataURL(file);
         }
     });
 }
 
-function getCurrentImageCount() {
-    return document.getElementById('imagesList').children.length;
-}
-
 function addImageToDOM(src, index) {
     const list = document.getElementById('imagesList');
     const item = document.createElement('div');
     item.className = 'image-item';
+    item.id = `image-${index}`;
     item.innerHTML = `
         <img src="${src}" alt="Image ${index + 1}">
         <button type="button" class="image-delete" onclick="deleteImage(${index})">✕</button>
@@ -259,13 +259,20 @@ function addImageToDOM(src, index) {
 }
 
 function deleteImage(index) {
-    const project = currentEditingId ? projects.find(p => p.id === currentEditingId) : null;
-    if (project) {
-        project.images.splice(index, 1);
-    } else {
-        document.tempImages.splice(index, 1);
+    tempImages.splice(index, 1);
+    if (currentEditingId) {
+        const project = projects.find(p => p.id === currentEditingId);
+        project.images = tempImages;
     }
-    document.getElementById('imagesList').children[index].remove();
+    displayImagesInForm();
+}
+
+function displayImagesInForm() {
+    const list = document.getElementById('imagesList');
+    list.innerHTML = '';
+    tempImages.forEach((img, index) => {
+        addImageToDOM(img, index);
+    });
 }
 
 // ===== LIENS =====
@@ -274,27 +281,22 @@ function addLink() {
     const url = document.getElementById('linkUrl').value;
 
     if (label && url) {
-        const project = currentEditingId ? projects.find(p => p.id === currentEditingId) : null;
-        if (project) {
-            project.links.push({ label, url });
-        } else {
-            document.tempLinks = document.tempLinks || [];
-            document.tempLinks.push({ label, url });
+        tempLinks.push({ label, url });
+        if (currentEditingId) {
+            const project = projects.find(p => p.id === currentEditingId);
+            project.links = tempLinks;
         }
-        addLinkToDOM(label, url, getCurrentLinkCount() - 1);
+        displayLinksInForm();
         document.getElementById('linkLabel').value = '';
         document.getElementById('linkUrl').value = '';
     }
-}
-
-function getCurrentLinkCount() {
-    return document.getElementById('linksList').children.length;
 }
 
 function addLinkToDOM(label, url, index) {
     const list = document.getElementById('linksList');
     const item = document.createElement('div');
     item.className = 'link-item';
+    item.id = `link-${index}`;
     item.innerHTML = `
         <div class="link-item-info">
             <div class="link-label">${label}</div>
@@ -306,13 +308,20 @@ function addLinkToDOM(label, url, index) {
 }
 
 function deleteLink(index) {
-    const project = currentEditingId ? projects.find(p => p.id === currentEditingId) : null;
-    if (project) {
-        project.links.splice(index, 1);
-    } else {
-        document.tempLinks.splice(index, 1);
+    tempLinks.splice(index, 1);
+    if (currentEditingId) {
+        const project = projects.find(p => p.id === currentEditingId);
+        project.links = tempLinks;
     }
-    document.getElementById('linksList').children[index].remove();
+    displayLinksInForm();
+}
+
+function displayLinksInForm() {
+    const list = document.getElementById('linksList');
+    list.innerHTML = '';
+    tempLinks.forEach((link, index) => {
+        addLinkToDOM(link.label, link.url, index);
+    });
 }
 
 // ===== SAUVEGARDER PROJET =====
@@ -329,6 +338,8 @@ document.getElementById('projectForm').addEventListener('submit', (e) => {
         project.title = title;
         project.description = desc;
         project.status = status;
+        project.images = tempImages;
+        project.links = tempLinks;
     } else {
         // Créer un nouveau projet
         const newProject = {
@@ -336,12 +347,10 @@ document.getElementById('projectForm').addEventListener('submit', (e) => {
             title,
             description: desc,
             status,
-            images: document.tempImages || [],
-            links: document.tempLinks || []
+            images: tempImages,
+            links: tempLinks
         };
         projects.push(newProject);
-        document.tempImages = [];
-        document.tempLinks = [];
     }
 
     localStorage.setItem('projects', JSON.stringify(projects));
@@ -363,31 +372,41 @@ document.getElementById('deleteBtn').addEventListener('click', () => {
 
 // ===== AFFICHER PROJETS SUR LA PAGE =====
 function displayProjects() {
-    const enCours = document.getElementById('projectsEnCours');
-    const termines = document.getElementById('projectsTermines');
+    const orbitEnCours = document.getElementById('orbitEnCours');
+    const orbitOperationnels = document.getElementById('orbitOperationnels');
 
-    enCours.innerHTML = '';
-    termines.innerHTML = '';
+    orbitEnCours.innerHTML = '';
+    orbitOperationnels.innerHTML = '';
 
-    projects.forEach(project => {
-        const bubble = createProjectBubble(project);
+    const enCours = projects.filter(p => p.status === 'En cours');
+    const operationnels = projects.filter(p => p.status === 'Opérationnel');
 
-        if (project.status === 'En cours') {
-            enCours.appendChild(bubble);
-        } else if (project.status === 'Terminé') {
-            termines.appendChild(bubble);
-        }
+    enCours.forEach((project, index) => {
+        const bubble = createOrbitBubble(project, index, enCours.length);
+        orbitEnCours.appendChild(bubble);
+    });
+
+    operationnels.forEach((project, index) => {
+        const bubble = createOrbitBubble(project, index, operationnels.length);
+        orbitOperationnels.appendChild(bubble);
     });
 }
 
-function createProjectBubble(project) {
+function createOrbitBubble(project, index, total) {
+    const item = document.createElement('div');
+    item.className = 'orbit-item';
+    
+    const angle = (index / total) * 360;
+    item.style.transform = `rotate(${angle}deg) translateY(-250px) rotate(-${angle}deg)`;
+
     const bubble = document.createElement('div');
-    bubble.className = 'project-bubble' + (project.status === 'Terminé' ? ' completed' : '');
+    bubble.className = 'orbit-bubble';
     bubble.innerHTML = `<h4>${project.title}</h4>`;
 
     bubble.addEventListener('click', () => openProjectModal(project));
 
-    return bubble;
+    item.appendChild(bubble);
+    return item;
 }
 
 // ===== MODAL PROJET =====
@@ -401,9 +420,17 @@ function openProjectModal(project) {
     imagesDiv.innerHTML = '';
     if (project.images && project.images.length > 0) {
         project.images.forEach(img => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'modal-image-wrapper';
             const imgEl = document.createElement('img');
             imgEl.src = img;
-            imagesDiv.appendChild(imgEl);
+            const zoom = document.createElement('div');
+            zoom.className = 'modal-image-zoom';
+            zoom.textContent = '🔍 Agrandir';
+            wrapper.appendChild(imgEl);
+            wrapper.appendChild(zoom);
+            wrapper.addEventListener('click', () => openImageModal(img));
+            imagesDiv.appendChild(wrapper);
         });
     }
 
@@ -430,21 +457,16 @@ function closeModal() {
     document.getElementById('projectModal').classList.remove('active');
 }
 
-// Fermer le modal en cliquant dehors
-window.addEventListener('click', (e) => {
-    const modal = document.getElementById('projectModal');
-    if (e.target === modal) {
-        closeModal();
-    }
-});
+// Modal Image Agrandie
+function openImageModal(src) {
+    const modal = document.getElementById('imageModal');
+    document.getElementById('enlargedImage').src = src;
+    modal.classList.add('active');
+}
 
-// Fermer le modal avec Échap
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeModal();
-        closeAdmin();
-    }
-});
+function closeImageModal() {
+    document.getElementById('imageModal').classList.remove('active');
+}
 
-// Afficher les projets au chargement
-displayProjects();
+//*
+
