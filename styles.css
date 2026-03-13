@@ -29,14 +29,10 @@ body {
 }
 
 .logo {
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
     margin-bottom: 30px;
     filter: drop-shadow(0 15px 40px rgba(255, 133, 27, 0.5));
-}
-
-.hero h1 {
-    display: none;
 }
 
 .tagline {
