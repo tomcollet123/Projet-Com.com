@@ -41,33 +41,60 @@
                 <button class="admin-btn" id="loginBtn">🔒 Admin</button>
             </div>
 
-            <!-- Projets En Cours -->
-            <div class="projects-category">
-                <h3>En Cours</h3>
-                <div class="projects-grid" id="projectsEnCours">
-                    <!-- Les projets seront ajoutés ici -->
+            <!-- Projets En Cours et Opérationnels -->
+            <div class="projects-orbits-container">
+                <!-- En Cours -->
+                <div class="orbit-system">
+                    <div class="orbit-center">
+                        <div class="center-bubble">
+                            <h3>Projets<br>En Cours</h3>
+                        </div>
+                    </div>
+                    <div class="orbit" id="orbitEnCours">
+                        <!-- Les bulles tourneront ici -->
+                    </div>
                 </div>
-            </div>
 
-            <!-- Projets Terminés -->
-            <div class="projects-category">
-                <h3>Terminés</h3>
-                <div class="projects-grid" id="projectsTermines">
-                    <!-- Les projets seront ajoutés ici -->
+                <!-- Opérationnels -->
+                <div class="orbit-system">
+                    <div class="orbit-center">
+                        <div class="center-bubble">
+                            <h3>Projets<br>Opérationnels</h3>
+                        </div>
+                    </div>
+                    <div class="orbit" id="orbitOperationnels">
+                        <!-- Les bulles tourneront ici -->
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal pour afficher les détails du projet -->
+    <!-- Modal Projet -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle"></h2>
             <div class="modal-divider"></div>
-            <div id="modalImages" class="modal-images"></div>
-            <p id="modalDesc"></p>
-            <div id="modalLinks" class="modal-links"></div>
+            
+            <div class="modal-layout">
+                <div class="modal-images-section">
+                    <div id="modalImages" class="modal-images"></div>
+                </div>
+                
+                <div class="modal-text-section">
+                    <p id="modalDesc"></p>
+                    <div id="modalLinks" class="modal-links"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Image Agrandie -->
+    <div class="modal" id="imageModal">
+        <div class="modal-image-content">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <img id="enlargedImage" src="" alt="Image agrandie">
         </div>
     </div>
 
@@ -127,7 +154,7 @@
                             <select id="projectStatus" required>
                                 <option value="">Sélectionner un statut</option>
                                 <option value="En cours">En cours</option>
-                                <option value="Terminé">Terminé</option>
+                                <option value="Opérationnel">Opérationnel</option>
                             </select>
                         </div>
 
@@ -147,27 +174,5 @@
                             <div class="links-input">
                                 <input type="text" id="linkLabel" placeholder="Label (Ex: GitHub)">
                                 <input type="url" id="linkUrl" placeholder="URL (Ex: https://...)">
-                                <button type="button" class="btn-secondary" onclick="addLink()">Ajouter lien</button>
-                            </div>
-                            <div id="linksList" class="links-list"></div>
-                        </div>
-
-                        <!-- Boutons -->
-                        <div class="form-buttons">
-                            <button type="submit" class="btn-primary">💾 Sauvegarder</button>
-                            <button type="button" class="btn-secondary" onclick="cancelForm()">❌ Annuler</button>
-                            <button type="button" class="btn-danger" id="deleteBtn" style="display: none;">🗑️ Supprimer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="admin-footer">
-                <button class="btn-logout" onclick="logout()">🔓 Déconnexion</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+                                <button type="button" class="btn-secondary" onclick="addLink()">Ajouter l
+
