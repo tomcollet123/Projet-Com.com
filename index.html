@@ -38,37 +38,49 @@
             <div class="projects-header">
                 <h2>Nos Projets</h2>
                 <div class="divider-projects"></div>
-                <button class="admin-btn" id="toggleAdminPanel">🔒 Admin</button>
-            </div>
-
-            <!-- Panel Admin (caché par défaut) -->
-            <div class="admin-panel" id="adminPanel">
-                <h3>Ajouter un Projet</h3>
-                <form id="projectForm">
-                    <input type="text" id="projectName" placeholder="Nom du projet" required>
-                    <textarea id="projectDesc" placeholder="Description du projet" required></textarea>
-                    <select id="projectStatus" required>
-                        <option value="">Sélectionner un statut</option>
-                        <option value="En cours">En cours</option>
-                        <option value="Terminé">Terminé</option>
-                    </select>
-                    <button type="submit">Ajouter Projet</button>
-                </form>
             </div>
 
             <!-- Projets En Cours -->
             <div class="projects-category">
                 <h3>En Cours</h3>
-                <div class="projects-grid" id="projectsEnCours">
-                    <!-- Les projets seront ajoutés ici -->
+                <div class="projects-grid">
+                    <div class="project-bubble" onclick="openModal('Navigatio Digitalis', 'Cum navibus nostris per maria datarum navigamus, innovatio technologiae nos ad futura aeterna ducit. Hoc proiectum caput est nostrae visionis.')">
+                        <h4>Navigatio Digitalis</h4>
+                    </div>
+                    <div class="project-bubble" onclick="openModal('Fortitudo Systematis', 'Systema defensionis nostrae robustum et inexpugnabile. Protegimus civitates et regna contra minaceas ignotas et pericula sine nomine.')">
+                        <h4>Fortitudo Systematis</h4>
+                    </div>
+                    <div class="project-bubble" onclick="openModal('Nexus Cognoscentia', 'Connexio omnium sapientiarum in unum corpus. Omnes informationes, omnes cognitiones, in uno loco centralissimo et luminoso.')">
+                        <h4>Nexus Cognoscentia</h4>
+                    </div>
+                    <div class="project-bubble" onclick="openModal('Velocitas Operandi', 'Celeritas est virtus nostra. Quod alii lente faciunt, nos velocissime et perfectissime exsequimur.')">
+                        <h4>Velocitas Operandi</h4>
+                    </div>
+                    <div class="project-bubble" onclick="openModal('Architectura Futuro', 'Aedificamus fundamina civitatum quas generationes venturae habitabunt. Visio nostra est aeterna.')">
+                        <h4>Architectura Futuro</h4>
+                    </div>
                 </div>
             </div>
 
             <!-- Projets Terminés -->
             <div class="projects-category">
                 <h3>Terminés</h3>
-                <div class="projects-grid" id="projectsTermines">
-                    <!-- Les projets seront ajoutés ici -->
+                <div class="projects-grid">
+                    <div class="project-bubble completed" onclick="openModal('Aurora Technologia', 'Primus lux innovationis in tenebris erat. Hoc proiectum initium nostri itineris gloriosissimi fuit.')">
+                        <h4>Aurora Technologia</h4>
+                    </div>
+                    <div class="project-bubble completed" onclick="openModal('Triumpbus Antiquus', 'Sicut Ulysses Troiam vicit, nos quoque victoriam obtinuimus in procella digitali.')">
+                        <h4>Triumpbus Antiquus</h4>
+                    </div>
+                    <div class="project-bubble completed" onclick="openModal('Sapientia Aeterna', 'Omnium sapientiarum collectio quae aeterna permanebit. Templum cognitionis humanae.')">
+                        <h4>Sapientia Aeterna</h4>
+                    </div>
+                    <div class="project-bubble completed" onclick="openModal('Pax et Securitas', 'Pacem civium defenimus. Securitas omnium nostrum est finis nobilissimus.')">
+                        <h4>Pax et Securitas</h4>
+                    </div>
+                    <div class="project-bubble completed" onclick="openModal('Memoria Gloriosa', 'Recordatio omnium victoriarum nostrarum et triumphorum qui aeterna sunt.')">
+                        <h4>Memoria Gloriosa</h4>
+                    </div>
                 </div>
             </div>
         </section>
@@ -77,10 +89,9 @@
     <!-- Modal pour afficher les détails du projet -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle"></h2>
             <p id="modalDesc"></p>
-            <p id="modalStatus"></p>
         </div>
     </div>
 
