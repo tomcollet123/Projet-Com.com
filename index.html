@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- HERO -->
     <header class="hero">
         <div class="hero-content">
             <img src="./logo.png" alt="LABNUM CECMED Logo" class="logo">
@@ -16,7 +17,7 @@
     </header>
 
     <main>
-        <!-- Section Qui nous sommes -->
+        <!-- PRÉSENTATION -->
         <section class="presentation">
             <div class="presentation-content">
                 <img src="./logo.png" alt="Logo" class="logo-section">
@@ -33,7 +34,7 @@
             </div>
         </section>
 
-        <!-- Section Projets -->
+        <!-- PROJETS -->
         <section class="projects-section">
             <div class="projects-header">
                 <h2>Nos Projets</h2>
@@ -41,7 +42,6 @@
                 <button class="admin-btn" id="loginBtn">🔒 Admin</button>
             </div>
 
-            <!-- Projets En Cours et Opérationnels -->
             <div class="projects-orbits-container">
                 <!-- En Cours -->
                 <div class="orbit-system">
@@ -50,9 +50,7 @@
                             <h3>Projets<br>En Cours</h3>
                         </div>
                     </div>
-                    <div class="orbit" id="orbitEnCours">
-                        <!-- Les bulles tourneront ici -->
-                    </div>
+                    <div class="orbit" id="orbitEnCours"></div>
                 </div>
 
                 <!-- Opérationnels -->
@@ -62,14 +60,12 @@
                             <h3>Projets<br>Opérationnels</h3>
                         </div>
                     </div>
-                    <div class="orbit" id="orbitOperationnels">
-                        <!-- Les bulles tourneront ici -->
-                    </div>
+                    <div class="orbit" id="orbitOperationnels"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Section FAQ -->
+        <!-- FAQ -->
         <section class="faq-section">
             <div class="faq-header">
                 <h2>Questions Fréquentes</h2>
@@ -77,7 +73,7 @@
             </div>
 
             <div class="faq-container">
-                <!-- Mascotte sticky -->
+                <!-- Mascotte -->
                 <div class="mascotte-container">
                     <div class="mascotte">
                         <img src="./mascotte.png" alt="J-DATA CECMED" class="mascotte-img">
@@ -89,7 +85,7 @@
 
                 <!-- FAQ Items -->
                 <div class="faq-items">
-                    <div class="faq-item" data-popular="true">
+                    <div class="faq-item">
                         <div class="faq-question">
                             <span>Qu'est-ce que LABNUM CECMED ?</span>
                             <span class="faq-icon">▼</span>
@@ -99,7 +95,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item" data-popular="true">
+                    <div class="faq-item">
                         <div class="faq-question">
                             <span>Quels sont vos domaines d'expertise ?</span>
                             <span class="faq-icon">▼</span>
@@ -109,7 +105,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item" data-popular="true">
+                    <div class="faq-item">
                         <div class="faq-question">
                             <span>Comment puis-je collaborer avec vous ?</span>
                             <span class="faq-icon">▼</span>
@@ -161,7 +157,7 @@
                 </div>
             </div>
 
-            <!-- Bulles de questions populaires -->
+            <!-- Bulles Populaires -->
             <div class="popular-questions">
                 <h3>Questions Populaires</h3>
                 <div class="popular-bubbles">
@@ -182,18 +178,14 @@
         </section>
     </main>
 
-    <!-- Modal FAQ avec Mascotte -->
+    <!-- MODAL FAQ AVEC MASCOTTE -->
     <div class="modal" id="faqModal">
         <div class="faq-modal-content">
             <span class="close" onclick="closeFaqModal()">&times;</span>
-            
             <div class="faq-modal-layout">
-                <!-- Mascotte -->
                 <div class="faq-modal-mascotte">
                     <img src="./mascotte.png" alt="J-DATA CECMED" class="faq-modal-img">
                 </div>
-
-                <!-- Contenu -->
                 <div class="faq-modal-text">
                     <h2 id="faqModalTitle"></h2>
                     <div class="modal-divider"></div>
@@ -203,18 +195,16 @@
         </div>
     </div>
 
-    <!-- Modal Projet -->
+    <!-- MODAL PROJET -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle"></h2>
             <div class="modal-divider"></div>
-            
             <div class="modal-layout">
                 <div class="modal-images-section">
                     <div id="modalImages" class="modal-images"></div>
                 </div>
-                
                 <div class="modal-text-section">
                     <p id="modalDesc"></p>
                     <div id="modalLinks" class="modal-links"></div>
@@ -223,7 +213,7 @@
         </div>
     </div>
 
-    <!-- Modal Image Agrandie -->
+    <!-- MODAL IMAGE AGRANDIE -->
     <div class="modal" id="imageModal">
         <div class="modal-image-content">
             <span class="close" onclick="closeImageModal()">&times;</span>
@@ -231,7 +221,7 @@
         </div>
     </div>
 
-    <!-- Modal Login -->
+    <!-- MODAL LOGIN -->
     <div class="modal" id="loginModal">
         <div class="modal-content modal-login">
             <span class="close" onclick="closeLoginModal()">&times;</span>
@@ -245,43 +235,30 @@
         </div>
     </div>
 
-    <!-- Admin Panel -->
+    <!-- ADMIN PANEL -->
     <div class="admin-overlay" id="adminOverlay">
         <div class="admin-container">
             <div class="admin-header">
                 <h2>Panneau Admin</h2>
                 <button class="close-admin" onclick="closeAdmin()">✕</button>
             </div>
-
             <div class="admin-content">
-                <!-- Section Projets -->
                 <div class="admin-section">
                     <h3>Gestion des Projets</h3>
                     <button class="btn-primary" id="addProjectBtn">➕ Ajouter un projet</button>
-                    
-                    <div id="projectsList" class="projects-list">
-                        <!-- La liste des projets sera affichée ici -->
-                    </div>
+                    <div id="projectsList" class="projects-list"></div>
                 </div>
-
-                <!-- Formulaire d'ajout/modification -->
                 <div class="admin-section" id="formSection" style="display: none;">
                     <h3 id="formTitle">Ajouter un projet</h3>
-                    
                     <form id="projectForm">
-                        <!-- Titre -->
                         <div class="form-group">
                             <label>Titre du projet *</label>
                             <input type="text" id="projectTitle" placeholder="Ex: Navigatio Digitalis" required>
                         </div>
-
-                        <!-- Description -->
                         <div class="form-group">
                             <label>Description *</label>
                             <textarea id="projectDesc" placeholder="Description du projet..." required></textarea>
                         </div>
-
-                        <!-- Statut -->
                         <div class="form-group">
                             <label>Statut *</label>
                             <select id="projectStatus" required>
@@ -290,15 +267,11 @@
                                 <option value="Opérationnel">Opérationnel</option>
                             </select>
                         </div>
-
-                        <!-- Logo -->
                         <div class="form-group">
                             <label>Logo/Mini Photo</label>
                             <input type="file" id="logoInput" accept="image/*">
                             <div id="logoPreview" class="logo-preview-empty">🖼️</div>
                         </div>
-
-                        <!-- Images -->
                         <div class="form-group">
                             <label>Images</label>
                             <div class="drag-drop-zone" id="dragDropZone">
@@ -307,8 +280,6 @@
                             </div>
                             <div id="imagesList" class="images-list"></div>
                         </div>
-
-                        <!-- Liens -->
                         <div class="form-group">
                             <label>Liens utiles</label>
                             <div class="links-input">
@@ -318,8 +289,6 @@
                             </div>
                             <div id="linksList" class="links-list"></div>
                         </div>
-
-                        <!-- Boutons -->
                         <div class="form-buttons">
                             <button type="submit" class="btn-primary">💾 Sauvegarder</button>
                             <button type="button" class="btn-secondary" onclick="cancelForm()">❌ Annuler</button>
@@ -328,7 +297,6 @@
                     </form>
                 </div>
             </div>
-
             <div class="admin-footer">
                 <button class="btn-logout" onclick="logout()">🔓 Déconnexion</button>
             </div>
