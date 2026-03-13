@@ -1,207 +1,58 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LABNUM CECMED - Innovation & Défense</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="hero">
-        <div class="hero-content">
-            <img src="./logo.png" alt="LABNUM CECMED Logo" class="logo">
-            <h1>LABNUM <span class="cecmed">CECMED</span></h1>
-            <p class="tagline">Innovation & Défense</p>
-        </div>
-    </header>
+<!-- Frégates minimalistes dessinées -->
+<div class="frigate frigate-1">
+  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 25 L50 25 M20 25 L20 15 M40 25 L40 15 M25 15 L35 15 L33 10 L27 10 Z" 
+          stroke="#FF851B" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="30" cy="28" r="2" fill="#FF851B"/>
+  </svg>
+</div>
 
-    <main>
-        <!-- Section Qui nous sommes -->
-        <section class="presentation">
-            <div class="presentation-content">
-                <img src="./logo.png" alt="Logo" class="logo-section">
-                <div class="presentation-inner">
-                    <h2>Qui nous sommes</h2>
-                    <div class="divider"></div>
-                    <p class="presentation-text">
-                        Odysseus, vir fortis et sapiens, iter longum per maria et tempestates periculosas incubuit. Cum socii sui contra fatum navigarent, ipse prudentia et audacia usus est ut terras ignotas exploraret et civitates magnifica aedificata viseret.
-                    </p>
-                    <p class="presentation-text">
-                        Labnum Cecmed sequitur viam similem: innovatio et defensio sunt instrumenta nostra ad novos horizontes aperendos. Sicut Ulysses mare penetravit, nos vias technologiae et sapientiae praebemus ut homines ad destinationes suas perveniant.
-                    </p>
-                </div>
-            </div>
-        </section>
+<div class="frigate frigate-2">
+  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 25 L50 25 M20 25 L20 15 M40 25 L40 15 M25 15 L35 15 L33 10 L27 10 Z" 
+          stroke="#FF851B" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="30" cy="28" r="2" fill="#FF851B"/>
+  </svg>
+</div>
 
-        <!-- Section Projets -->
-        <section class="projects-section">
-            <div class="projects-header">
-                <h2>Nos Projets</h2>
-                <div class="divider-projects"></div>
-                <button class="admin-btn" id="loginBtn">🔒 Admin</button>
-            </div>
+<div class="frigate frigate-3">
+  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 25 L50 25 M20 25 L20 15 M40 25 L40 15 M25 15 L35 15 L33 10 L27 10 Z" 
+          stroke="#FF851B" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="30" cy="28" r="2" fill="#FF851B"/>
+  </svg>
+</div>
 
-            <!-- Projets En Cours et Opérationnels -->
-            <div class="projects-orbits-container">
-                <!-- En Cours -->
-                <div class="orbit-system">
-                    <div class="orbit-center">
-                        <div class="center-bubble">
-                            <h3>Projets<br>En Cours</h3>
-                        </div>
-                    </div>
-                    <div class="orbit" id="orbitEnCours">
-                        <!-- Les bulles tourneront ici -->
-                    </div>
-                </div>
+<!-- Satellites minimalistes dessinés -->
+<div class="satellite satellite-1">
+  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="8" stroke="#00CC44" stroke-width="1.5" fill="none"/>
+    <line x1="17" y1="25" x2="10" y2="25" stroke="#00CC44" stroke-width="1"/>
+    <line x1="33" y1="25" x2="40" y2="25" stroke="#00CC44" stroke-width="1"/>
+    <line x1="25" y1="17" x2="25" y2="10" stroke="#00CC44" stroke-width="1"/>
+    <line x1="25" y1="33" x2="25" y2="40" stroke="#00CC44" stroke-width="1"/>
+    <circle cx="25" cy="25" r="3" fill="#00CC44"/>
+  </svg>
+</div>
 
-                <!-- Opérationnels -->
-                <div class="orbit-system">
-                    <div class="orbit-center">
-                        <div class="center-bubble">
-                            <h3>Projets<br>Opérationnels</h3>
-                        </div>
-                    </div>
-                    <div class="orbit" id="orbitOperationnels">
-                        <!-- Les bulles tourneront ici -->
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+<div class="satellite satellite-2">
+  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="8" stroke="#00CC44" stroke-width="1.5" fill="none"/>
+    <line x1="17" y1="25" x2="10" y2="25" stroke="#00CC44" stroke-width="1"/>
+    <line x1="33" y1="25" x2="40" y2="25" stroke="#00CC44" stroke-width="1"/>
+    <line x1="25" y1="17" x2="25" y2="10" stroke="#00CC44" stroke-width="1"/>
+    <line x1="25" y1="33" x2="25" y2="40" stroke="#00CC44" stroke-width="1"/>
+    <circle cx="25" cy="25" r="3" fill="#00CC44"/>
+  </svg>
+</div>
 
-    <!-- Modal Projet -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <div class="modal-divider"></div>
-            
-            <div class="modal-layout">
-                <div class="modal-images-section">
-                    <div id="modalImages" class="modal-images"></div>
-                </div>
-                
-                <div class="modal-text-section">
-                    <p id="modalDesc"></p>
-                    <div id="modalLinks" class="modal-links"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Image Agrandie -->
-    <div class="modal" id="imageModal">
-        <div class="modal-image-content">
-            <span class="close" onclick="closeImageModal()">&times;</span>
-            <img id="enlargedImage" src="" alt="Image agrandie">
-        </div>
-    </div>
-
-    <!-- Modal Login -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content modal-login">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Connexion Admin</h2>
-            <form id="loginForm">
-                <input type="text" id="username" placeholder="Identifiant" required>
-                <input type="password" id="password" placeholder="Mot de passe" required>
-                <button type="submit">Connexion</button>
-            </form>
-            <p id="loginError" class="error-msg"></p>
-        </div>
-    </div>
-
-    <!-- Admin Panel -->
-    <div class="admin-overlay" id="adminOverlay">
-        <div class="admin-container">
-            <div class="admin-header">
-                <h2>Panneau Admin</h2>
-                <button class="close-admin" onclick="closeAdmin()">✕</button>
-            </div>
-
-            <div class="admin-content">
-                <!-- Section Projets -->
-                <div class="admin-section">
-                    <h3>Gestion des Projets</h3>
-                    <button class="btn-primary" id="addProjectBtn">➕ Ajouter un projet</button>
-                    
-                    <div id="projectsList" class="projects-list">
-                        <!-- La liste des projets sera affichée ici -->
-                    </div>
-                </div>
-
-                <!-- Formulaire d'ajout/modification -->
-                <div class="admin-section" id="formSection" style="display: none;">
-                    <h3 id="formTitle">Ajouter un projet</h3>
-                    
-                    <form id="projectForm">
-                        <!-- Titre -->
-                        <div class="form-group">
-                            <label>Titre du projet *</label>
-                            <input type="text" id="projectTitle" placeholder="Ex: Navigatio Digitalis" required>
-                        </div>
-
-                        <!-- Description -->
-                        <div class="form-group">
-                            <label>Description *</label>
-                            <textarea id="projectDesc" placeholder="Description du projet..." required></textarea>
-                        </div>
-
-                        <!-- Statut -->
-                        <div class="form-group">
-                            <label>Statut *</label>
-                            <select id="projectStatus" required>
-                                <option value="">Sélectionner un statut</option>
-                                <option value="En cours">En cours</option>
-                                <option value="Opérationnel">Opérationnel</option>
-                            </select>
-                        </div>
-
-                        <!-- Logo -->
-                        <div class="form-group">
-                            <label>Logo/Mini Photo</label>
-                            <input type="file" id="logoInput" accept="image/*">
-                            <div id="logoPreview" class="logo-preview-empty">🖼️</div>
-                        </div>
-
-                        <!-- Images -->
-                        <div class="form-group">
-                            <label>Images</label>
-                            <div class="drag-drop-zone" id="dragDropZone">
-                                <p>📥 Drag & Drop tes images ici</p>
-                                <input type="file" id="imageInput" multiple accept="image/*" style="display: none;">
-                            </div>
-                            <div id="imagesList" class="images-list"></div>
-                        </div>
-
-                        <!-- Liens -->
-                        <div class="form-group">
-                            <label>Liens utiles</label>
-                            <div class="links-input">
-                                <input type="text" id="linkLabel" placeholder="Label (Ex: GitHub)">
-                                <input type="url" id="linkUrl" placeholder="URL (Ex: https://...)">
-                                <button type="button" class="btn-secondary" onclick="addLink()">Ajouter lien</button>
-                            </div>
-                            <div id="linksList" class="links-list"></div>
-                        </div>
-
-                        <!-- Boutons -->
-                        <div class="form-buttons">
-                            <button type="submit" class="btn-primary">💾 Sauvegarder</button>
-                            <button type="button" class="btn-secondary" onclick="cancelForm()">❌ Annuler</button>
-                            <button type="button" class="btn-danger" id="deleteBtn" style="display: none;">🗑️ Supprimer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="admin-footer">
-                <button class="btn-logout" onclick="logout()">🔓 Déconnexion</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<div class="satellite satellite-3">
+  <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="8" stroke="#00CC44" stroke-width="1.5" fill="none"/>
+    <line x1="17" y1="25" x2="10" y2="25" stroke="#00CC44" stroke-width="1"/>
+    <line x1="33" y1="25" x2="40" y2="25" stroke="#00CC44" stroke-width="1"/>
+    <line x1="25" y1="17" x2="25" y2="10" stroke="#00CC44" stroke-width="1"/>
+    <line x1="25" y1="33" x2="25" y2="40" stroke="#00CC44" stroke-width="1"/>
+    <circle cx="25" cy="25" r="3" fill="#00CC44"/>
+  </svg>
+</div>
