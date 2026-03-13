@@ -660,67 +660,69 @@ body::before {
     box-shadow: 0 0 15px rgba(255, 133, 27, 0.6);
 }
 
-.faq-container {
+.faq-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 60px;
-    align-items: start;
     padding: 0 20px;
+    position: relative;
 }
 
-.mascotte-container {
-    position: sticky;
-    top: 100px;
+/* Mascotte Flottante */
+.mascotte-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
     text-align: center;
     animation: slideInRight 0.8s ease-out;
 }
 
-.mascotte {
-    width: 250px;
-    height: 280px;
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mascotte-img {
-    width: 100%;
-    height: 100%;
+.mascotte-float-img {
+    width: 150px;
+    height: 170px;
     object-fit: contain;
     filter: drop-shadow(0 10px 30px rgba(0, 204, 68, 0.3));
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.mascotte-speech {
-    background: linear-gradient(135deg, rgba(0, 100, 50, 0.6) 0%, rgba(0, 50, 30, 0.8) 100%);
+.mascotte-float-img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 15px 40px rgba(0, 204, 68, 0.5));
+}
+
+.mascotte-float-speech {
+    background: linear-gradient(135deg, rgba(0, 100, 50, 0.9) 0%, rgba(0, 50, 30, 0.95) 100%);
     border: 2px solid #00CC44;
     border-radius: 15px;
-    padding: 20px;
-    font-size: 0.95rem;
+    padding: 15px;
+    font-size: 0.85rem;
     color: #FFFFFF;
-    line-height: 1.6;
+    line-height: 1.4;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 204, 68, 0.2);
-    min-height: 100px;
+    box-shadow: 0 10px 30px rgba(0, 204, 68, 0.4);
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-top: 15px;
+    max-width: 180px;
+    word-wrap: break-word;
+    animation: fadeIn 0.5s ease-out;
 }
 
-.mascotte-speech::before {
+.mascotte-float-speech::before {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid #00CC44;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #00CC44;
 }
 
 .faq-items {
@@ -1531,243 +1533,4 @@ body::before {
     background: rgba(255, 133, 27, 0.1);
     padding: 12px;
     border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-left: 3px solid #FF851B;
-    transition: all 0.3s ease;
-}
-
-.link-item:hover {
-    background: rgba(255, 133, 27, 0.2);
-    transform: translateX(5px);
-}
-
-.link-item-info {
-    flex: 1;
-}
-
-.link-label {
-    color: #FF851B;
-    font-weight: 900;
-}
-
-.link-url {
-    color: #E8E8E8;
-    font-size: 0.9rem;
-    word-break: break-all;
-}
-
-.link-delete {
-    background: #FF6B6B;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-weight: 900;
-    transition: all 0.3s ease;
-}
-
-.link-delete:hover {
-    background: #FF0000;
-    transform: scale(1.1);
-}
-
-.btn-primary {
-    background: #FF851B;
-    color: #001F3F;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 900;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.btn-primary:hover {
-    background: #FFFFFF;
-    transform: scale(1.05);
-    box-shadow: 0 5px 20px rgba(255, 133, 27, 0.6);
-}
-
-.btn-secondary {
-    background: rgba(255, 133, 27, 0.2);
-    color: #FF851B;
-    border: 2px solid #FF851B;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 900;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.btn-secondary:hover {
-    background: #FF851B;
-    color: #001F3F;
-    transform: scale(1.05);
-}
-
-.btn-danger {
-    background: #FF6B6B;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 900;
-    transition: all 0.3s ease;
-}
-
-.btn-danger:hover {
-    background: #FF0000;
-    transform: scale(1.05);
-    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.6);
-}
-
-.form-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 30px;
-}
-
-.form-buttons button {
-    flex: 1;
-}
-
-.admin-footer {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 2px solid rgba(255, 133, 27, 0.3);
-}
-
-.btn-logout {
-    background: rgba(255, 107, 107, 0.2);
-    color: #FF6B6B;
-    border: 2px solid #FF6B6B;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 900;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.btn-logout:hover {
-    background: #FF6B6B;
-    color: #001F3F;
-    transform: scale(1.05);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 1200px) {
-    .projects-orbits-container {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-
-    .orbit-system {
-        height: 600px;
-    }
-
-    .orbit {
-        width: 500px;
-        height: 500px;
-    }
-
-    .faq-container {
-        grid-template-columns: 1fr;
-    }
-
-    .mascotte-container {
-        position: relative;
-        top: auto;
-        order: -1;
-        margin-bottom: 40px;
-    }
-
-    .faq-modal-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .popular-bubbles {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .admin-content {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-images {
-        grid-template-columns: 1fr;
-    }
-
-    .orbit-system {
-        height: 500px;
-    }
-
-    .orbit {
-        width: 400px;
-        height: 400px;
-    }
-
-    .orbit-item {
-        width: 140px;
-        height: 140px;
-        margin-left: -70px;
-        margin-top: -70px;
-    }
-
-    .orbit-bubble h4 {
-        font-size: 0.75rem;
-    }
-
-    .center-bubble {
-        width: 150px;
-        height: 150px;
-    }
-
-    .center-bubble h3 {
-        font-size: 0.9rem;
-    }
-
-    .modal-content {
-        padding: 30px 20px;
-        max-width: 100%;
-    }
-
-    .modal-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .modal-content p {
-        font-size: 1rem;
-    }
-
-    .faq-modal-content {
-        padding: 30px 20px;
-    }
-
-    .admin-container {
-        margin: 20px 10px;
-        padding: 20px;
-    }
-
-    .presentation-content {
-        padding: 50px 30px;
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .faq-question {
-        font-size: 0.9rem;
-    }
-}
+    
