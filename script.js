@@ -96,8 +96,13 @@ if (projects.length === 0) {
 }
 
 // ===== LOGIN =====
-document.getElementById('loginBtn').addEventListener('click', () => {
-    document.getElementById('loginModal').classList.add('active');
+document.addEventListener('DOMContentLoaded', () => {
+    const loginBtn = document.getElementById('loginBtn');
+    if (loginBtn) {
+        loginBtn.addEventListener('click', () => {
+            document.getElementById('loginModal').classList.add('active');
+        });
+    }
 });
 
 function closeLoginModal() {
@@ -105,17 +110,22 @@ function closeLoginModal() {
     document.getElementById('loginError').textContent = '';
 }
 
-document.getElementById('loginForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-    if (username === 'Labnum.Admin' && password === 'Labnumc\'estcool') {
-        isLoggedIn = true;
-        closeLoginModal();
-        openAdmin();
-    } else {
-        document.getElementById('loginError').textContent = '❌ Identifiant ou mot de passe incorrect';
+            if (username === 'Labnum.Admin' && password === 'Labnumc\'estcool') {
+                isLoggedIn = true;
+                closeLoginModal();
+                openAdmin();
+            } else {
+                document.getElementById('loginError').textContent = '❌ Identifiant ou mot de passe incorrect';
+            }
+        });
     }
 });
 
@@ -135,16 +145,24 @@ function logout() {
     closeAdmin();
 }
 
-document.getElementById('addProjectBtn').addEventListener('click', () => {
-    currentEditingId = null;
-    resetForm();
-    document.getElementById('formSection').style.display = 'block';
-    document.getElementById('formTitle').textContent = 'Ajouter un projet';
-    document.getElementById('deleteBtn').style.display = 'none';
+document.addEventListener('DOMContentLoaded', () => {
+    const addProjectBtn = document.getElementById('addProjectBtn');
+    if (addProjectBtn) {
+        addProjectBtn.addEventListener('click', () => {
+            currentEditingId = null;
+            resetForm();
+            document.getElementById('formSection').style.display = 'block';
+            document.getElementById('formTitle').textContent = 'Ajouter un projet';
+            document.getElementById('deleteBtn').style.display = 'none';
+        });
+    }
 });
 
 function resetForm() {
-    document.getElementById('projectForm').reset();
+    const form = document.getElementById('projectForm');
+    if (form) {
+        form.reset();
+    }
     document.getElementById('imagesList').innerHTML = '';
     document.getElementById('linksList').innerHTML = '';
     tempImages = [];
@@ -205,28 +223,32 @@ function editProject(id) {
 }
 
 // ===== DRAG & DROP IMAGES =====
-const dragDropZone = document.getElementById('dragDropZone');
-const imageInput = document.getElementById('imageInput');
+document.addEventListener('DOMContentLoaded', () => {
+    const dragDropZone = document.getElementById('dragDropZone');
+    const imageInput = document.getElementById('imageInput');
 
-dragDropZone.addEventListener('click', () => imageInput.click());
+    if (dragDropZone && imageInput) {
+        dragDropZone.addEventListener('click', () => imageInput.click());
 
-dragDropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dragDropZone.classList.add('dragover');
-});
+        dragDropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dragDropZone.classList.add('dragover');
+        });
 
-dragDropZone.addEventListener('dragleave', () => {
-    dragDropZone.classList.remove('dragover');
-});
+        dragDropZone.addEventListener('dragleave', () => {
+            dragDropZone.classList.remove('dragover');
+        });
 
-dragDropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dragDropZone.classList.remove('dragover');
-    handleFiles(e.dataTransfer.files);
-});
+        dragDropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dragDropZone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
 
-imageInput.addEventListener('change', (e) => {
-    handleFiles(e.target.files);
+        imageInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+    }
 });
 
 function handleFiles(files) {
@@ -325,51 +347,80 @@ function displayLinksInForm() {
 }
 
 // ===== SAUVEGARDER PROJET =====
-document.getElementById('projectForm').addEventListener('submit', (e) => {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const projectForm = document.getElementById('projectForm');
+    if (projectForm) {
+        projectForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-    const title = document.getElementById('projectTitle').value;
-    const desc = document.getElementById('projectDesc').value;
-    const status = document.getElementById('projectStatus').value;
+            const title = document.getElementById('projectTitle').value;
+            const desc = document.getElementById('projectDesc').value;
+            const status = document.getElementById('projectStatus').value;
 
-    if (currentEditingId) {
-        // Modifier un projet existant
-        const project = projects.find(p => p.id === currentEditingId);
-        project.title = title;
-        project.description = desc;
-        project.status = status;
-        project.images = tempImages;
-        project.links = tempLinks;
-    } else {
-        // Créer un nouveau projet
-        const newProject = {
-            id: Date.now(),
-            title,
-            description: desc,
-            status,
-            images: tempImages,
-            links: tempLinks
-        };
-        projects.push(newProject);
+            if (currentEditingId) {
+                // Modifier un projet existant
+                const project = projects.find(p => p.id === currentEditingId);
+                project.title = title;
+                project.description = desc;
+                project.status = status;
+                project.images = tempImages;
+                project.links = tempLinks;
+            } else {
+                // Créer un nouveau projet
+                const newProject = {
+                    id: Date.now(),
+                    title,
+                    description: desc,
+                    status,
+                    images: tempImages,
+                    links: tempLinks
+                };
+                projects.push(newProject);
+            }
+
+            localStorage.setItem('projects', JSON.stringify(projects));
+            displayProjects();
+            displayProjectsList();
+            cancelForm();
+        });
     }
-
-    localStorage.setItem('projects', JSON.stringify(projects));
-    displayProjects();
-    displayProjectsList();
-    cancelForm();
 });
 
 // ===== SUPPRIMER PROJET =====
-document.getElementById('deleteBtn').addEventListener('click', () => {
-    if (confirm('Es-tu sûr de vouloir supprimer ce projet ?')) {
-        projects = projects.filter(p => p.id !== currentEditingId);
-        localStorage.setItem('projects', JSON.stringify(projects));
-        displayProjects();
-        displayProjectsList();
-        cancelForm();
+document.addEventListener('DOMContentLoaded', () => {
+    const deleteBtn = document.getElementById('deleteBtn');
+    if (deleteBtn) {
+        deleteBtn.addEventListener('click', () => {
+            if (confirm('Es-tu sûr de vouloir supprimer ce projet ?')) {
+                projects = projects.filter(p => p.id !== currentEditingId);
+                localStorage.setItem('projects', JSON.stringify(projects));
+                displayProjects();
+                displayProjectsList();
+                cancelForm();
+            }
+        });
     }
 });
 
 // ===== AFFICHER PROJETS SUR LA PAGE =====
-function`
+function displayProjects() {
+    const orbitEnCours = document.getElementById('orbitEnCours');
+    const orbitOperationnels = document.getElementById('orbitOperationnels');
+
+    if (!orbitEnCours || !orbitOperationnels) return;
+
+    orbitEnCours.innerHTML = '';
+    orbitOperationnels.innerHTML = '';
+
+    const enCours = projects.filter(p => p.status === 'En cours');
+    const operationnels = projects.filter(p => p.status === 'Opérationnel');
+
+    enCours.forEach((project) => {
+        const bubble = createOrbitBubble(project);
+        orbitEnCours.appendChild(bubble);
+    });
+
+    operationnels.forEach((project) => {
+        const bubble = createOrbitBubble(project);
+        orbitOperationn`
 
