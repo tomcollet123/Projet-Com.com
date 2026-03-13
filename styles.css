@@ -206,7 +206,7 @@ body {
 }
 
 .center-bubble h3 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 900;
     color: #FF851B;
     text-transform: uppercase;
@@ -256,13 +256,26 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 10px 30px rgba(255, 133, 27, 0.2);
-    padding: 20px;
+    padding: 15px;
+    gap: 10px;
+}
+
+.orbit-bubble.operationnel {
+    border-color: #00CC44;
+    background: linear-gradient(135deg, rgba(0, 100, 50, 0.6) 0%, rgba(0, 50, 30, 0.8) 100%);
+    box-shadow: 0 10px 30px rgba(0, 204, 68, 0.2);
+}
+
+.orbit-bubble.operationnel:hover {
+    border-color: #00FF55;
+    box-shadow: 0 15px 50px rgba(0, 204, 68, 0.4);
 }
 
 .orbit-bubble:hover {
@@ -271,13 +284,22 @@ body {
     border-color: #FFFFFF;
 }
 
+.orbit-bubble-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
 .orbit-bubble h4 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #FFFFFF;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     word-wrap: break-word;
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 /* Modal Projet */
@@ -701,6 +723,38 @@ body {
     color: rgba(255, 255, 255, 0.5);
 }
 
+/* Logo Preview */
+.logo-preview-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.logo-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #FF851B;
+}
+
+.logo-preview-empty {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 133, 27, 0.2);
+    border: 2px dashed #FF851B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF851B;
+    font-size: 2rem;
+}
+
 /* Drag & Drop */
 .drag-drop-zone {
     border: 2px dashed #FF851B;
@@ -956,7 +1010,7 @@ body {
     }
 
     .orbit-bubble h4 {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
     }
 
     .center-bubble {
@@ -965,7 +1019,7 @@ body {
     }
 
     .center-bubble h3 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .modal-content {
