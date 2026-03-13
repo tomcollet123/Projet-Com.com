@@ -60,7 +60,7 @@ body {
 .presentation {
     background: #001F3F;
     padding: 80px 40px;
-    min-height: 60vh;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,6 +73,17 @@ body {
     border-radius: 15px;
     border-left: 5px solid #FF851B;
     box-shadow: 0 15px 50px rgba(255, 133, 27, 0.2);
+    position: relative;
+}
+
+.logo-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    opacity: 0.9;
 }
 
 .presentation h2 {
@@ -92,11 +103,10 @@ body {
 }
 
 .presentation-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.6;
     color: #E8E8E8;
-    margin-bottom: 20px;
-    text-align: justify;
+    margin-bottom: 15px;
 }
 
 .presentation-text:last-child {
@@ -120,11 +130,17 @@ body {
 
     .presentation {
         padding: 50px 20px;
-        min-height: auto;
     }
 
     .presentation-content {
         padding: 40px 30px;
+    }
+
+    .logo-section {
+        width: 100px;
+        height: 100px;
+        top: 15px;
+        right: 15px;
     }
 
     .presentation h2 {
@@ -132,6 +148,6 @@ body {
     }
 
     .presentation-text {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 }
