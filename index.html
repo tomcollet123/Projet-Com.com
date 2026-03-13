@@ -73,10 +73,7 @@
             </div>
 
             <div class="faq-wrapper">
-                <!-- FAQ Items -->
-                <div class="faq-items">
-                    <!-- Sera rempli par JavaScript -->
-                </div>
+                <div class="faq-items"></div>
             </div>
         </section>
 
@@ -90,7 +87,6 @@
                 <div class="contact-bar-content" id="contactBarContent">
                     <div class="contact-form-wrapper">
                         <form id="contactForm">
-                            <!-- Infos personnelles -->
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>Nom *</label>
@@ -113,25 +109,22 @@
                                 </div>
                             </div>
 
-                            <!-- Boutons de sélection -->
                             <div class="contact-buttons">
-                                <button type="button" class="contact-btn" id="btnQuestion" data-type="question">
+                                <button type="button" class="contact-btn" id="btnQuestion">
                                     <span class="btn-icon">❓</span>
                                     <span class="btn-text">Question</span>
                                 </button>
-                                <button type="button" class="contact-btn" id="btnProjet" data-type="projet">
+                                <button type="button" class="contact-btn" id="btnProjet">
                                     <span class="btn-icon">💼</span>
                                     <span class="btn-text">Projet ou Besoin</span>
                                 </button>
                             </div>
 
-                            <!-- Champ de texte -->
                             <div class="form-group">
                                 <label>Message *</label>
                                 <textarea id="contactMessage" required style="display: none;"></textarea>
                             </div>
 
-                            <!-- Bouton Envoyer -->
                             <button type="submit" class="btn-submit" style="display: none;">
                                 📧 Envoyer
                             </button>
@@ -174,7 +167,7 @@
         </div>
     </div>
 
-    <!-- MODAL IMAGE AGRANDIE -->
+    <!-- MODAL IMAGE -->
     <div class="modal" id="imageModal">
         <div class="modal-image-content">
             <span class="close" onclick="closeImageModal()">&times;</span>
@@ -204,7 +197,7 @@
                 <button class="close-admin" onclick="closeAdmin()">✕</button>
             </div>
 
-            <!-- Projets -->
+            <!-- PROJETS -->
             <div class="admin-content">
                 <div class="admin-section">
                     <h3>Gestion des Projets</h3>
@@ -215,7 +208,7 @@
                     <h3 id="formTitle">Ajouter un projet</h3>
                     <form id="projectForm">
                         <div class="form-group">
-                            <label>Titre du projet *</label>
+                            <label>Titre *</label>
                             <input type="text" id="projectTitle" required>
                         </div>
                         <div class="form-group">
@@ -225,13 +218,13 @@
                         <div class="form-group">
                             <label>Statut *</label>
                             <select id="projectStatus" required>
-                                <option value="">Sélectionner un statut</option>
+                                <option value="">Sélectionner</option>
                                 <option value="En cours">En cours</option>
                                 <option value="Opérationnel">Opérationnel</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Logo/Mini Photo</label>
+                            <label>Logo</label>
                             <input type="file" id="logoInput" accept="image/*">
                             <div id="logoPreview" class="logo-preview-empty">🖼️</div>
                         </div>
@@ -248,7 +241,7 @@
                             <div class="links-input">
                                 <input type="text" id="linkLabel">
                                 <input type="url" id="linkUrl">
-                                <button type="button" class="btn-secondary" onclick="addLink()">Ajouter lien</button>
+                                <button type="button" class="btn-secondary" onclick="addLink()">Ajouter</button>
                             </div>
                             <div id="linksList" class="links-list"></div>
                         </div>
@@ -288,7 +281,7 @@
                 </div>
             </div>
 
-            <!-- Email Configuration -->
+            <!-- EMAIL -->
             <div class="admin-content">
                 <div class="admin-section">
                     <h3>Configuration Email</h3>
