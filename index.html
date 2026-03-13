@@ -72,107 +72,26 @@
                 <div class="divider-faq"></div>
             </div>
 
-            <div class="faq-container">
-                <!-- Mascotte -->
-                <div class="mascotte-container">
-                    <div class="mascotte">
-                        <img src="./mascotte.png" alt="J-DATA CECMED" class="mascotte-img">
-                    </div>
-                    <div class="mascotte-speech" id="mascotteSpeech">
-                        Bonjour ! Je suis J-DATA, ton assistant IA. Clique sur une question pour que je te l'explique ! 👋
+            <div class="faq-wrapper">
+                <!-- Mascotte Flottante -->
+                <div class="mascotte-float">
+                    <img src="./mascotte.png" alt="J-DATA CECMED" class="mascotte-float-img">
+                    <div class="mascotte-float-speech" id="mascotteSpeech">
+                        Bonjour ! 👋
                     </div>
                 </div>
 
                 <!-- FAQ Items -->
                 <div class="faq-items">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Qu'est-ce que LABNUM CECMED ?</span>
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains, en combinant expertise technique et vision stratégique. Notre mission est de créer des outils et des systèmes qui propulsent les organisations vers l'avenir.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Quels sont vos domaines d'expertise ?</span>
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Nos domaines d'expertise couvrent : l'innovation technologique, les systèmes de défense avancés, la cybersécurité, l'intelligence artificielle, l'architecture numérique, et la transformation digitale. Nous travaillons avec des partenaires stratégiques pour offrir des solutions complètes et intégrées qui répondent aux besoins les plus complexes.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Comment puis-je collaborer avec vous ?</span>
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Nous accueillons les collaborations sous diverses formes : partenariats strategiques, projets conjoints, stages et recrutements. Vous pouvez nous contacter via notre formulaire de contact, ou directement à travers nos canaux officiels. Chaque projet est étudié individuellement pour assurer une alignement parfait avec nos valeurs et nos objectifs.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Quels sont vos projets actuels ?</span>
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Nous gérons plusieurs projets en cours dans les domaines de l'IA, de la cybersécurité et de l'innovation technologique. Nos projets opérationnels incluent des solutions de sécurité avancées et des plateformes d'analyse de données. Consultez notre section "Nos Projets" pour découvrir les détails de chaque initiative.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Offrez-vous des services de consultation ?</span>
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Oui, nous offrons des services de consultation spécialisés pour les organisations cherchant à moderniser leurs infrastructures technologiques. Nos experts peuvent vous aider à évaluer vos besoins, définir une stratégie appropriée, et mettre en œuvre des solutions adaptées à votre contexte unique.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Comment sont structurés vos équipes ?</span>
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Nos équipes sont organisées par domaines d'expertise : développement, sécurité, architecture, recherche et support client. Chaque équipe est composée de spécialistes hautement qualifiés ayant des années d'expérience dans leurs domaines respectifs. Cette structure nous permet de livrer des solutions de qualité exceptionnelle.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Quelles certifications possédez-vous ?</span>
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            LABNUM CECMED détient plusieurs certifications internationales incluant les standards ISO de sécurité, qualité et gestion. Nous respectons également les normes de conformité des données et les régulations internationales dans nos domaines d'activité. Notre engagement envers l'excellence est reflété par ces reconnaissances.
-                        </div>
-                    </div>
+                    <!-- Sera rempli par JavaScript -->
                 </div>
             </div>
 
             <!-- Bulles Populaires -->
             <div class="popular-questions">
                 <h3>Questions Populaires</h3>
-                <div class="popular-bubbles">
-                    <div class="popular-bubble" onclick="openFaqModal(0)">
-                        <div class="bubble-number">1</div>
-                        <div class="bubble-text">Qu'est-ce que LABNUM CECMED ?</div>
-                    </div>
-                    <div class="popular-bubble" onclick="openFaqModal(1)">
-                        <div class="bubble-number">2</div>
-                        <div class="bubble-text">Domaines d'expertise</div>
-                    </div>
-                    <div class="popular-bubble" onclick="openFaqModal(2)">
-                        <div class="bubble-number">3</div>
-                        <div class="bubble-text">Comment collaborer ?</div>
-                    </div>
+                <div class="popular-bubbles" id="popularBubbles">
+                    <!-- Sera rempli par JavaScript -->
                 </div>
             </div>
         </section>
@@ -242,6 +161,8 @@
                 <h2>Panneau Admin</h2>
                 <button class="close-admin" onclick="closeAdmin()">✕</button>
             </div>
+
+            <!-- Projets -->
             <div class="admin-content">
                 <div class="admin-section">
                     <h3>Gestion des Projets</h3>
@@ -297,6 +218,34 @@
                     </form>
                 </div>
             </div>
+
+            <!-- FAQ -->
+            <div class="admin-content">
+                <div class="admin-section">
+                    <h3>Gestion des Questions FAQ</h3>
+                    <button class="btn-primary" id="addFaqBtn">➕ Ajouter une question</button>
+                    <div id="faqList" class="faq-admin-list"></div>
+                </div>
+                <div class="admin-section" id="faqFormSection" style="display: none;">
+                    <h3 id="faqFormTitle">Ajouter une question</h3>
+                    <form id="faqForm">
+                        <div class="form-group">
+                            <label>Question *</label>
+                            <input type="text" id="faqQuestion" placeholder="Ex: Qu'est-ce que LABNUM CECMED ?" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Réponse *</label>
+                            <textarea id="faqAnswer" placeholder="Réponse complète..." required></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-primary">💾 Sauvegarder</button>
+                            <button type="button" class="btn-secondary" onclick="cancelFaqForm()">❌ Annuler</button>
+                            <button type="button" class="btn-danger" id="deleteFaqBtn" style="display: none;">🗑️ Supprimer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="admin-footer">
                 <button class="btn-logout" onclick="logout()">🔓 Déconnexion</button>
             </div>
