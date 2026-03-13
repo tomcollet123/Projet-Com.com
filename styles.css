@@ -130,7 +130,6 @@ body {
     max-width: 1400px;
     margin: 0 auto 60px;
     text-align: center;
-    position: relative;
 }
 
 .projects-header h2 {
@@ -146,86 +145,7 @@ body {
     width: 100px;
     height: 4px;
     background: linear-gradient(90deg, #FF851B, #FFFFFF);
-    margin: 0 auto 30px;
-}
-
-.admin-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: rgba(255, 133, 27, 0.2);
-    color: #FF851B;
-    border: 2px solid #FF851B;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.admin-btn:hover {
-    background: #FF851B;
-    color: #001F3F;
-}
-
-/* Admin Panel */
-.admin-panel {
-    display: none;
-    max-width: 1400px;
-    margin: 0 auto 60px;
-    background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
-    padding: 40px;
-    border-radius: 15px;
-    border-left: 5px solid #FF851B;
-}
-
-.admin-panel.active {
-    display: block;
-}
-
-.admin-panel h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #FF851B;
-}
-
-.admin-panel form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.admin-panel input,
-.admin-panel textarea,
-.admin-panel select {
-    padding: 12px;
-    border: 2px solid #FF851B;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #FFFFFF;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-.admin-panel input::placeholder,
-.admin-panel textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.admin-panel button {
-    padding: 12px;
-    background: #FF851B;
-    color: #001F3F;
-    border: none;
-    border-radius: 5px;
-    font-weight: 900;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.admin-panel button:hover {
-    background: #FFFFFF;
-    transform: scale(1.02);
+    margin: 0 auto;
 }
 
 /* Projets */
@@ -267,6 +187,14 @@ body {
 .project-bubble:hover {
     transform: scale(1.1);
     box-shadow: 0 15px 50px rgba(255, 133, 27, 0.4);
+    border-color: #FFFFFF;
+}
+
+.project-bubble.completed {
+    border-color: #90EE90;
+}
+
+.project-bubble.completed:hover {
     border-color: #FFFFFF;
 }
 
@@ -328,15 +256,8 @@ body {
 
 .modal-content p {
     color: #E8E8E8;
-    margin-bottom: 15px;
     line-height: 1.8;
     font-size: 1.1rem;
-}
-
-#modalStatus {
-    color: #FF851B;
-    font-weight: 900;
-    text-transform: uppercase;
 }
 
 /* Responsive */
@@ -389,12 +310,6 @@ body {
 
     .project-bubble h4 {
         font-size: 1.1rem;
-    }
-
-    .admin-btn {
-        position: static;
-        margin-top: 20px;
-        width: 100%;
     }
 
     .modal-content {
