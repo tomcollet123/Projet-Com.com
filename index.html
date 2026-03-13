@@ -68,43 +68,80 @@
         <!-- FAQ -->
         <section class="faq-section">
             <div class="faq-header">
-                <h2>Questions Fréquentes</h2>
+                <h2>FAQ</h2>
                 <div class="divider-faq"></div>
             </div>
 
             <div class="faq-wrapper">
-                <!-- Mascotte Flottante -->
-                <div class="mascotte-float">
-                    <img src="./mascotte.png" alt="J-DATA CECMED" class="mascotte-float-img">
-                    <div class="mascotte-float-speech" id="mascotteSpeech">
-                        Bonjour ! 👋
-                    </div>
-                </div>
-
                 <!-- FAQ Items -->
                 <div class="faq-items">
                     <!-- Sera rempli par JavaScript -->
                 </div>
             </div>
 
-            <!-- Bulles Populaires -->
-            <div class="popular-questions">
-                <h3>Questions Populaires</h3>
-                <div class="popular-bubbles" id="popularBubbles">
-                    <!-- Sera rempli par JavaScript -->
+            <!-- Formulaire de Contact -->
+            <div class="contact-section">
+                <h3>Des Questions ? Des Projets ?</h3>
+                <p class="contact-subtitle">Remplissez le formulaire ci-dessous et nous vous répondrons rapidement</p>
+                
+                <div class="contact-form-wrapper">
+                    <form id="contactForm">
+                        <!-- Infos personnelles -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nom *</label>
+                                <input type="text" id="contactNom" placeholder="Votre nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Prénom *</label>
+                                <input type="text" id="contactPrenom" placeholder="Votre prénom" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Grade *</label>
+                                <input type="text" id="contactGrade" placeholder="Ex: Capitaine, Ingénieur..." required>
+                            </div>
+                            <div class="form-group">
+                                <label>Service *</label>
+                                <input type="text" id="contactService" placeholder="Ex: IT, Défense..." required>
+                            </div>
+                        </div>
+
+                        <!-- Boutons de sélection -->
+                        <div class="contact-buttons">
+                            <button type="button" class="contact-btn" id="btnQuestion" data-type="question">
+                                <span class="btn-icon">❓</span>
+                                <span class="btn-text">Question</span>
+                            </button>
+                            <button type="button" class="contact-btn" id="btnProjet" data-type="projet">
+                                <span class="btn-icon">💼</span>
+                                <span class="btn-text">Projet ou Besoin</span>
+                            </button>
+                        </div>
+
+                        <!-- Champ de texte -->
+                        <div class="form-group">
+                            <label>Message *</label>
+                            <textarea id="contactMessage" placeholder="Décrivez votre demande..." required style="display: none;"></textarea>
+                        </div>
+
+                        <!-- Bouton Envoyer -->
+                        <button type="submit" class="btn-submit" style="display: none;">
+                            📧 Envoyer
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- MODAL FAQ AVEC MASCOTTE -->
+    <!-- MODAL FAQ -->
     <div class="modal" id="faqModal">
         <div class="faq-modal-content">
             <span class="close" onclick="closeFaqModal()">&times;</span>
             <div class="faq-modal-layout">
-                <div class="faq-modal-mascotte">
-                    <img src="./mascotte.png" alt="J-DATA CECMED" class="faq-modal-img">
-                </div>
                 <div class="faq-modal-text">
                     <h2 id="faqModalTitle"></h2>
                     <div class="modal-divider"></div>
@@ -246,12 +283,29 @@
                 </div>
             </div>
 
+            <!-- Email Configuration -->
+            <div class="admin-content">
+                <div class="admin-section">
+                    <h3>Configuration Email</h3>
+                    <form id="emailForm">
+                        <div class="form-group">
+                            <label>Email de réception *</label>
+                            <input type="email" id="adminEmail" placeholder="email@example.com" required>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-primary">💾 Sauvegarder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="admin-footer">
                 <button class="btn-logout" onclick="logout()">🔓 Déconnexion</button>
             </div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
