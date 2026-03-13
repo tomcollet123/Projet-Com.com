@@ -89,23 +89,25 @@ body::before {
 /* Satellites minimalistes - même style que les ancres */
 .satellite {
     position: fixed;
-    font-size: 3rem;
-    opacity: 0.1;
+    font-size: 4rem;
+    opacity: 0.15;
     pointer-events: none;
     animation: floatAnchor 6s ease-in-out infinite;
     z-index: 0;
+    color: #00CC44;
+    text-shadow: 0 0 15px rgba(0, 204, 68, 0.5);
 }
 
 .satellite-1 {
-    top: 28%;
-    right: 18%;
+    top: 25%;
+    right: 15%;
     animation-delay: 2s;
     animation-duration: 10s;
 }
 
 .satellite-2 {
-    bottom: 35%;
-    left: 18%;
+    bottom: 30%;
+    left: 15%;
     animation-delay: 6s;
     animation-duration: 8s;
 }
