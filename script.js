@@ -6,7 +6,6 @@ let currentEditingFaqId = null;
 let tempImages = [];
 let tempLinks = [];
 let tempLogo = null;
-let selectedContactType = null;
 let adminEmail = localStorage.getItem('adminEmail') || 'admin@labnum-cecmed.fr';
 
 const defaultProjects = [
@@ -626,40 +625,8 @@ function toggleContactForm() {
 
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    const btnQuestion = document.getElementById('btnQuestion');
-    const btnProjet = document.getElementById('btnProjet');
-    const messageField = document.getElementById('contactMessage');
-    const submitBtn = document.querySelector('.btn-submit');
-
-    if (btnQuestion) {
-        btnQuestion.addEventListener('click', function(e) {
-            e.preventDefault();
-            selectedContactType = 'question';
-            btnQuestion.classList.add('active');
-            btnProjet.classList.remove('active');
-            messageField.style.display = 'block';
-            submitBtn.style.display = 'block';
-        });
-    }
-
-    if (btnProjet) {
-        btnProjet.addEventListener('click', function(e) {
-            e.preventDefault();
-            selectedContactType = 'projet';
-            btnProjet.classList.add('active');
-            btnQuestion.classList.remove('active');
-            messageField.style.display = 'block';
-            submitBtn.style.display = 'block';
-        });
-    }
-
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-
-        if (!selectedContactType) {
-            alert('Veuillez sélectionner Question ou Projet');
-            return;
-        }
 
         const nom = document.getElementById('contactNom').value;
         const prenom = document.getElementById('contactPrenom').value;
@@ -668,7 +635,6 @@ if (contactForm) {
         const message = document.getElementById('contactMessage').value;
 
         const data = {
-            type: selectedContactType,
             nom,
             prenom,
             grade,
@@ -688,7 +654,6 @@ function generateAndSendPDF(data) {
     element.innerHTML = `
         <h1>LABNUM CECMED - Formulaire de Contact</h1>
         <hr>
-        <h2>Type: ${data.type === 'question' ? '❓ Question' : '💼 Projet ou Besoin'}</h2>
         <h3>Informations Personnelles</h3>
         <p><strong>Nom:</strong> ${data.nom}</p>
         <p><strong>Prénom:</strong> ${data.prenom}</p>
@@ -724,8 +689,7 @@ function sendEmail(data) {
             prenom: data.prenom,
             grade: data.grade,
             service: data.service,
-            message: data.message,
-            type: data.type
+            message: data.message
         })
     })
     .then(response => {
@@ -739,11 +703,6 @@ function sendEmail(data) {
 
 function resetContactForm() {
     document.getElementById('contactForm').reset();
-    selectedContactType = null;
-    document.getElementById('btnQuestion').classList.remove('active');
-    document.getElementById('btnProjet').classList.remove('active');
-    document.getElementById('contactMessage').style.display = 'none';
-    document.querySelector('.btn-submit').style.display = 'none';
     document.getElementById('contactBar').classList.remove('active');
 }
 
