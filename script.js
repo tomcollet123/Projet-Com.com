@@ -1,12 +1,14 @@
 // Variables globales
 let projects = JSON.parse(localStorage.getItem('projects')) || [];
+let faqs = JSON.parse(localStorage.getItem('faqs')) || [];
 let isLoggedIn = false;
 let currentEditingId = null;
+let currentEditingFaqId = null;
 let tempImages = [];
 let tempLinks = [];
 let tempLogo = null;
 
-// Données par défaut
+// Données par défaut des projets
 const defaultProjects = [
     {
         id: 1,
@@ -100,17 +102,63 @@ const defaultProjects = [
     }
 ];
 
+// Données par défaut des FAQ
+const defaultFaqs = [
+    {
+        id: 1,
+        question: "Qu'est-ce que LABNUM CECMED ?",
+        answer: "LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains, en combinant expertise technique et vision stratégique. Notre mission est de créer des outils et des systèmes qui propulsent les organisations vers l'avenir."
+    },
+    {
+        id: 2,
+        question: "Quels sont vos domaines d'expertise ?",
+        answer: "Nos domaines d'expertise couvrent : l'innovation technologique, les systèmes de défense avancés, la cybersécurité, l'intelligence artificielle, l'architecture numérique, et la transformation digitale. Nous travaillons avec des partenaires stratégiques pour offrir des solutions complètes et intégrées qui répondent aux besoins les plus complexes."
+    },
+    {
+        id: 3,
+        question: "Comment puis-je collaborer avec vous ?",
+        answer: "Nous accueillons les collaborations sous diverses formes : partenariats strategiques, projets conjoints, stages et recrutements. Vous pouvez nous contacter via notre formulaire de contact, ou directement à travers nos canaux officiels. Chaque projet est étudié individuellement pour assurer une alignement parfait avec nos valeurs et nos objectifs."
+    },
+    {
+        id: 4,
+        question: "Quels sont vos projets actuels ?",
+        answer: "Nous gérons plusieurs projets en cours dans les domaines de l'IA, de la cybersécurité et de l'innovation technologique. Nos projets opérationnels incluent des solutions de sécurité avancées et des plateformes d'analyse de données. Consultez notre section 'Nos Projets' pour découvrir les détails de chaque initiative."
+    },
+    {
+        id: 5,
+        question: "Offrez-vous des services de consultation ?",
+        answer: "Oui, nous offrons des services de consultation spécialisés pour les organisations cherchant à moderniser leurs infrastructures technologiques. Nos experts peuvent vous aider à évaluer vos besoins, définir une stratégie appropriée, et mettre en œuvre des solutions adaptées à votre contexte unique."
+    },
+    {
+        id: 6,
+        question: "Comment sont structurés vos équipes ?",
+        answer: "Nos équipes sont organisées par domaines d'expertise : développement, sécurité, architecture, recherche et support client. Chaque équipe est composée de spécialistes hautement qualifiés ayant des années d'expérience dans leurs domaines respectifs. Cette structure nous permet de livrer des solutions de qualité exceptionnelle."
+    },
+    {
+        id: 7,
+        question: "Quelles certifications possédez-vous ?",
+        answer: "LABNUM CECMED détient plusieurs certifications internationales incluant les standards ISO de sécurité, qualité et gestion. Nous respectons également les normes de conformité des données et les régulations internationales dans nos domaines d'activité. Notre engagement envers l'excellence est reflété par ces reconnaissances."
+    }
+];
+
 // Initialiser les projets
 if (projects.length === 0) {
     projects = defaultProjects;
     localStorage.setItem('projects', JSON.stringify(projects));
 }
 
+// Initialiser les FAQ
+if (faqs.length === 0) {
+    faqs = defaultFaqs;
+    localStorage.setItem('faqs', JSON.stringify(faqs));
+}
+
 // === INITIALISATION ===
 document.addEventListener('DOMContentLoaded', function() {
     displayProjects();
+    displayFaqPage();
+    updateMascotteSpeech('Bonjour ! 👋');
     setupEventListeners();
-    setupFaqListeners();
 });
 
 function setupEventListeners() {
@@ -177,7 +225,7 @@ function setupEventListeners() {
         });
     }
 
-    // Delete Button
+    // Delete Project Button
     const deleteBtn = document.getElementById('deleteBtn');
     if (deleteBtn) {
         deleteBtn.addEventListener('click', function() {
@@ -247,28 +295,61 @@ function setupEventListeners() {
             handleFiles(e.target.files);
         });
     }
-}
 
-function setupFaqListeners() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    const mascotteSpeech = document.getElementById('mascotteSpeech');
+    // FAQ Form
+    const faqForm = document.getElementById('faqForm');
+    if (faqForm) {
+        faqForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    faqItems.forEach((item) => {
-        item.addEventListener('click', function() {
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
-            });
+            const question = document.getElementById('faqQuestion').value;
+            const answer = document.getElementById('faqAnswer').value;
 
-            item.classList.toggle('active');
+            if (currentEditingFaqId) {
+                const faq = faqs.find(f => f.id === currentEditingFaqId);
+                faq.question = question;
+                faq.answer = answer;
+            } else {
+                const newFaq = {
+                    id: Date.now(),
+                    question,
+                    answer
+                };
+                faqs.push(newFaq);
+            }
 
-            if (item.classList.contains('active')) {
-                const answer = item.querySelector('.faq-answer').textContent;
-                mascotteSpeech.textContent = answer;
+            localStorage.setItem('faqs', JSON.stringify(faqs));
+            displayFaqPage();
+            displayFaqAdminList();
+            cancelFaqForm();
+        });
+    }
+
+    // Delete FAQ Button
+    const deleteFaqBtn = document.getElementById('deleteFaqBtn');
+    if (deleteFaqBtn) {
+        deleteFaqBtn.addEventListener('click', function() {
+            if (confirm('Es-tu sûr de vouloir supprimer cette question ?')) {
+                faqs = faqs.filter(f => f.id !== currentEditingFaqId);
+                localStorage.setItem('faqs', JSON.stringify(faqs));
+                displayFaqPage();
+                displayFaqAdminList();
+                cancelFaqForm();
             }
         });
-    });
+    }
+
+    // Add FAQ Button
+    const addFaqBtn = document.getElementById('addFaqBtn');
+    if (addFaqBtn) {
+        addFaqBtn.addEventListener('click', function() {
+            currentEditingFaqId = null;
+            resetFaqForm();
+            document.getElementById('faqFormSection').style.display = 'block';
+            document.getElementById('faqFormTitle').textContent = 'Ajouter une question';
+            document.getElementById('deleteFaqBtn').style.display = 'none';
+        });
+    }
 }
 
 // === LOGIN ===
@@ -281,11 +362,13 @@ function closeLoginModal() {
 function openAdmin() {
     document.getElementById('adminOverlay').classList.add('active');
     displayProjectsList();
+    displayFaqAdminList();
 }
 
 function closeAdmin() {
     document.getElementById('adminOverlay').classList.remove('active');
     cancelForm();
+    cancelFaqForm();
 }
 
 function logout() {
@@ -312,6 +395,19 @@ function cancelForm() {
     resetForm();
 }
 
+function resetFaqForm() {
+    const form = document.getElementById('faqForm');
+    if (form) {
+        form.reset();
+    }
+    currentEditingFaqId = null;
+}
+
+function cancelFaqForm() {
+    document.getElementById('faqFormSection').style.display = 'none';
+    resetFaqForm();
+}
+
 function displayProjectsList() {
     const list = document.getElementById('projectsList');
     list.innerHTML = '';
@@ -326,6 +422,24 @@ function displayProjectsList() {
             </div>
             <span class="project-item-status">${project.status === 'En cours' ? '⏳' : '✅'}</span>
             <button class="project-item-edit" onclick="editProject(${project.id})">✏️ Éditer</button>
+        `;
+        list.appendChild(item);
+    });
+}
+
+function displayFaqAdminList() {
+    const list = document.getElementById('faqList');
+    list.innerHTML = '';
+
+    faqs.forEach(faq => {
+        const item = document.createElement('div');
+        item.className = 'faq-admin-item';
+        item.innerHTML = `
+            <div class="faq-admin-item-text">
+                <div class="faq-admin-item-question">${faq.question}</div>
+                <div class="faq-admin-item-answer">${faq.answer}</div>
+            </div>
+            <button class="faq-admin-item-edit" onclick="editFaq(${faq.id})">✏️ Éditer</button>
         `;
         list.appendChild(item);
     });
@@ -357,6 +471,18 @@ function editProject(id) {
     document.getElementById('formSection').style.display = 'block';
     document.getElementById('formTitle').textContent = 'Modifier le projet';
     document.getElementById('deleteBtn').style.display = 'block';
+}
+
+function editFaq(id) {
+    currentEditingFaqId = id;
+    const faq = faqs.find(f => f.id === id);
+
+    document.getElementById('faqQuestion').value = faq.question;
+    document.getElementById('faqAnswer').value = faq.answer;
+
+    document.getElementById('faqFormSection').style.display = 'block';
+    document.getElementById('faqFormTitle').textContent = 'Modifier la question';
+    document.getElementById('deleteFaqBtn').style.display = 'block';
 }
 
 // === LOGO ===
@@ -528,6 +654,80 @@ function createOrbitBubble(project, index, totalCount, isOperationnel) {
     return item;
 }
 
+// === AFFICHAGE FAQ PAGE ===
+function displayFaqPage() {
+    const faqItemsContainer = document.querySelector('.faq-items');
+    
+    if (!faqItemsContainer) return;
+
+    faqItemsContainer.innerHTML = '';
+
+    faqs.forEach(faq => {
+        const item = document.createElement('div');
+        item.className = 'faq-item';
+        item.innerHTML = `
+            <div class="faq-question">
+                <span>${faq.question}</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">${faq.answer}</div>
+        `;
+        faqItemsContainer.appendChild(item);
+    });
+
+    setupFaqListeners();
+    updatePopularBubbles();
+}
+
+// === MASCOTTE INTERACTIVE ===
+function updateMascotteSpeech(text) {
+    const mascotteSpeech = document.getElementById('mascotteSpeech');
+    if (mascotteSpeech) {
+        mascotteSpeech.textContent = text;
+    }
+}
+
+function setupFaqListeners() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+        item.addEventListener('click', function() {
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            item.classList.toggle('active');
+
+            if (item.classList.contains('active')) {
+                const answer = item.querySelector('.faq-answer').textContent;
+                updateMascotteSpeech(answer);
+            } else {
+                updateMascotteSpeech('Bonjour ! 👋');
+            }
+        });
+    });
+}
+
+function updatePopularBubbles() {
+    const container = document.getElementById('popularBubbles');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    faqs.slice(0, 3).forEach((faq, index) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'popular-bubble';
+        bubble.onclick = () => openFaqModal(index);
+        bubble.innerHTML = `
+            <div class="bubble-number">${index + 1}</div>
+            <div class="bubble-text">${faq.question}</div>
+        `;
+        container.appendChild(bubble);
+    });
+}
+
 // === MODAL PROJET ===
 function openProjectModal(project) {
     const modal = document.getElementById('projectModal');
@@ -588,18 +788,13 @@ function closeImageModal() {
 
 // === MODAL FAQ ===
 function openFaqModal(index) {
-    const faqItems = document.querySelectorAll('.faq-item');
     const modal = document.getElementById('faqModal');
     const title = document.getElementById('faqModalTitle');
     const answer = document.getElementById('faqModalAnswer');
 
-    if (faqItems[index]) {
-        const question = faqItems[index].querySelector('.faq-question span').textContent;
-        const answerText = faqItems[index].querySelector('.faq-answer').textContent;
-
-        title.textContent = question;
-        answer.textContent = answerText;
-
+    if (faqs[index]) {
+        title.textContent = faqs[index].question;
+        answer.textContent = faqs[index].answer;
         modal.classList.add('active');
     }
 }
