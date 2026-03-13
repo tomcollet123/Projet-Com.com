@@ -4,6 +4,7 @@ let isLoggedIn = false;
 let currentEditingId = null;
 let tempImages = [];
 let tempLinks = [];
+let tempLogo = null;
 
 // Données par défaut
 const defaultProjects = [
@@ -12,6 +13,7 @@ const defaultProjects = [
         title: "Navigatio Digitalis",
         description: "Cum navibus nostris per maria datarum navigamus, innovatio technologiae nos ad futura aeterna ducit. Hoc proiectum caput est nostrae visionis.",
         status: "En cours",
+        logo: null,
         images: [],
         links: []
     },
@@ -20,6 +22,7 @@ const defaultProjects = [
         title: "Fortitudo Systematis",
         description: "Systema defensionis nostrae robustum et inexpugnabile. Protegimus civitates et regna contra minaceas ignotas et pericula sine nomine.",
         status: "En cours",
+        logo: null,
         images: [],
         links: []
     },
@@ -28,6 +31,7 @@ const defaultProjects = [
         title: "Nexus Cognoscentia",
         description: "Connexio omnium sapientiarum in unum corpus. Omnes informationes, omnes cognitiones, in uno loco centralissimo et luminoso.",
         status: "En cours",
+        logo: null,
         images: [],
         links: []
     },
@@ -36,6 +40,7 @@ const defaultProjects = [
         title: "Velocitas Operandi",
         description: "Celeritas est virtus nostra. Quod alii lente faciunt, nos velocissime et perfectissime exsequimur.",
         status: "En cours",
+        logo: null,
         images: [],
         links: []
     },
@@ -44,6 +49,7 @@ const defaultProjects = [
         title: "Architectura Futuro",
         description: "Aedificamus fundamina civitatum quas generationes venturae habitabunt. Visio nostra est aeterna.",
         status: "En cours",
+        logo: null,
         images: [],
         links: []
     },
@@ -52,6 +58,7 @@ const defaultProjects = [
         title: "Aurora Technologia",
         description: "Primus lux innovationis in tenebris erat. Hoc proiectum initium nostri itineris gloriosissimi fuit.",
         status: "Opérationnel",
+        logo: null,
         images: [],
         links: []
     },
@@ -60,6 +67,7 @@ const defaultProjects = [
         title: "Triumpbus Antiquus",
         description: "Sicut Ulysses Troiam vicit, nos quoque victoriam obtinuimus in procella digitali.",
         status: "Opérationnel",
+        logo: null,
         images: [],
         links: []
     },
@@ -68,6 +76,7 @@ const defaultProjects = [
         title: "Sapientia Aeterna",
         description: "Omnium sapientiarum collectio quae aeterna permanebit. Templum cognitionis humanae.",
         status: "Opérationnel",
+        logo: null,
         images: [],
         links: []
     },
@@ -76,6 +85,7 @@ const defaultProjects = [
         title: "Pax et Securitas",
         description: "Pacem civium defenimus. Securitas omnium nostrum est finis nobilissimus.",
         status: "Opérationnel",
+        logo: null,
         images: [],
         links: []
     },
@@ -84,6 +94,7 @@ const defaultProjects = [
         title: "Memoria Gloriosa",
         description: "Recordatio omnium victoriarum nostrarum et triumphorum qui aeterna sunt.",
         status: "Opérationnel",
+        logo: null,
         images: [],
         links: []
     }
@@ -142,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 project.title = title;
                 project.description = desc;
                 project.status = status;
+                project.logo = tempLogo;
                 project.images = tempImages;
                 project.links = tempLinks;
             } else {
@@ -151,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     title,
                     description: desc,
                     status,
+                    logo: tempLogo,
                     images: tempImages,
                     links: tempLinks
                 };
@@ -187,6 +200,22 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('formSection').style.display = 'block';
             document.getElementById('formTitle').textContent = 'Ajouter un projet';
             document.getElementById('deleteBtn').style.display = 'none';
+        });
+    }
+
+    // Logo upload
+    const logoInput = document.getElementById('logoInput');
+    if (logoInput) {
+        logoInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    tempLogo = e.target.result;
+                    displayLogoPreview();
+                };
+                reader.readAsDataURL(file);
+            }
         });
     }
 
@@ -248,6 +277,8 @@ function resetForm() {
     }
     document.getElementById('imagesList').innerHTML = '';
     document.getElementById('linksList').innerHTML = '';
+    document.getElementById('logoPreview').innerHTML = '';
+    tempLogo = null;
     tempImages = [];
     tempLinks = [];
     currentEditingId = null;
@@ -286,6 +317,10 @@ function editProject(id) {
     document.getElementById('projectDesc').value = project.description;
     document.getElementById('projectStatus').value = project.status;
 
+    // Afficher le logo
+    tempLogo = project.logo;
+    displayLogoPreview();
+
     // Afficher les images
     document.getElementById('imagesList').innerHTML = '';
     tempImages = [...project.images];
@@ -303,6 +338,36 @@ function editProject(id) {
     document.getElementById('formSection').style.display = 'block';
     document.getElementById('formTitle').textContent = 'Modifier le projet';
     document.getElementById('deleteBtn').style.display = 'block';
+}
+
+// ===== LOGO =====
+function displayLogoPreview() {
+    const preview = document.getElementById('logoPreview');
+    preview.innerHTML = '';
+    
+    if (tempLogo) {
+        const container = document.createElement('div');
+        container.className = 'logo-preview-container';
+        const img = document.createElement('img');
+        img.src = tempLogo;
+        img.className = 'logo-preview';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn-secondary';
+        btn.textContent = '❌ Supprimer';
+        btn.onclick = function() {
+            tempLogo = null;
+            displayLogoPreview();
+        };
+        container.appendChild(img);
+        container.appendChild(btn);
+        preview.appendChild(container);
+    } else {
+        const empty = document.createElement('div');
+        empty.className = 'logo-preview-empty';
+        empty.textContent = '🖼️';
+        preview.appendChild(empty);
+    }
 }
 
 // ===== IMAGES =====
@@ -415,17 +480,17 @@ function displayProjects() {
     const operationnels = projects.filter(p => p.status === 'Opérationnel');
 
     enCours.forEach((project, index) => {
-        const bubble = createOrbitBubble(project, index, enCours.length);
+        const bubble = createOrbitBubble(project, index, enCours.length, false);
         orbitEnCours.appendChild(bubble);
     });
 
     operationnels.forEach((project, index) => {
-        const bubble = createOrbitBubble(project, index, operationnels.length);
+        const bubble = createOrbitBubble(project, index, operationnels.length, true);
         orbitOperationnels.appendChild(bubble);
     });
 }
 
-function createOrbitBubble(project, index, totalCount) {
+function createOrbitBubble(project, index, totalCount, isOperationnel) {
     const item = document.createElement('div');
     item.className = 'orbit-item';
 
@@ -437,7 +502,22 @@ function createOrbitBubble(project, index, totalCount) {
 
     const bubble = document.createElement('div');
     bubble.className = 'orbit-bubble';
-    bubble.innerHTML = `<h4>${project.title}</h4>`;
+    if (isOperationnel) {
+        bubble.classList.add('operationnel');
+    }
+
+    // Ajouter le logo s'il existe
+    if (project.logo) {
+        const logo = document.createElement('img');
+        logo.src = project.logo;
+        logo.className = 'orbit-bubble-logo';
+        bubble.appendChild(logo);
+    }
+
+    // Ajouter le titre
+    const title = document.createElement('h4');
+    title.textContent = project.title;
+    bubble.appendChild(title);
 
     bubble.addEventListener('click', function() {
         openProjectModal(project);
