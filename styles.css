@@ -86,30 +86,6 @@ body::before {
     animation-duration: 7s;
 }
 
-/* Frégates minimalistes - même style que les ancres */
-.frigate {
-    position: fixed;
-    font-size: 3rem;
-    opacity: 0.1;
-    pointer-events: none;
-    animation: floatAnchor 6s ease-in-out infinite;
-    z-index: 0;
-}
-
-.frigate-1 {
-    top: 35%;
-    left: 20%;
-    animation-delay: 1s;
-    animation-duration: 9s;
-}
-
-.frigate-2 {
-    bottom: 25%;
-    right: 22%;
-    animation-delay: 5s;
-    animation-duration: 11s;
-}
-
 /* Satellites minimalistes - même style que les ancres */
 .satellite {
     position: fixed;
