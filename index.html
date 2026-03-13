@@ -81,8 +81,9 @@
         <section class="contact-bar-section">
             <div class="contact-bar" id="contactBar">
                 <div class="contact-bar-header" onclick="toggleContactForm()">
-                    <span class="contact-bar-text">Des Questions ? Des Projets ? N'hésitez pas à cliquer et nous en faire part !</span>
-                    <span class="contact-bar-icon">▼</span>
+                    <span class="contact-bar-icon-left">📬</span>
+                    <span class="contact-bar-text">Des Questions ? Des Projets ? N'hésitez pas à nous en faire part !</span>
+                    <span class="contact-bar-icon-right">📬</span>
                 </div>
                 <div class="contact-bar-content" id="contactBarContent">
                     <div class="contact-form-wrapper">
@@ -109,23 +110,12 @@
                                 </div>
                             </div>
 
-                            <div class="contact-buttons">
-                                <button type="button" class="contact-btn" id="btnQuestion">
-                                    <span class="btn-icon">❓</span>
-                                    <span class="btn-text">Question</span>
-                                </button>
-                                <button type="button" class="contact-btn" id="btnProjet">
-                                    <span class="btn-icon">💼</span>
-                                    <span class="btn-text">Projet ou Besoin</span>
-                                </button>
+                            <div class="form-group full-width">
+                                <label>Votre Message *</label>
+                                <textarea id="contactMessage" required></textarea>
                             </div>
 
-                            <div class="form-group">
-                                <label>Message *</label>
-                                <textarea id="contactMessage" required style="display: none;"></textarea>
-                            </div>
-
-                            <button type="submit" class="btn-submit" style="display: none;">
+                            <button type="submit" class="btn-submit">
                                 📧 Envoyer
                             </button>
                         </form>
