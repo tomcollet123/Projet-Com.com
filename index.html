@@ -78,60 +78,65 @@
                     <!-- Sera rempli par JavaScript -->
                 </div>
             </div>
+        </section>
 
-            <!-- Formulaire de Contact -->
-            <div class="contact-section">
-                <h3>Des Questions ? Des Projets ?</h3>
-                <p class="contact-subtitle">Remplissez le formulaire ci-dessous et nous vous répondrons rapidement</p>
-                
-                <div class="contact-form-wrapper">
-                    <form id="contactForm">
-                        <!-- Infos personnelles -->
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Nom *</label>
-                                <input type="text" id="contactNom" placeholder="Votre nom" required>
+        <!-- CONTACT BAR (ACCORDÉON) -->
+        <section class="contact-bar-section">
+            <div class="contact-bar" id="contactBar">
+                <div class="contact-bar-header" onclick="toggleContactForm()">
+                    <span class="contact-bar-text">Des Questions ? Des Projets ? N'hésitez pas à cliquer et nous en faire part !</span>
+                    <span class="contact-bar-icon">▼</span>
+                </div>
+                <div class="contact-bar-content" id="contactBarContent">
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm">
+                            <!-- Infos personnelles -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nom *</label>
+                                    <input type="text" id="contactNom" placeholder="Votre nom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Prénom *</label>
+                                    <input type="text" id="contactPrenom" placeholder="Votre prénom" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Prénom *</label>
-                                <input type="text" id="contactPrenom" placeholder="Votre prénom" required>
-                            </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Grade *</label>
-                                <input type="text" id="contactGrade" placeholder="Ex: Capitaine, Ingénieur..." required>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Grade *</label>
+                                    <input type="text" id="contactGrade" placeholder="Ex: Capitaine, Ingénieur..." required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Service *</label>
+                                    <input type="text" id="contactService" placeholder="Ex: IT, Défense..." required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Service *</label>
-                                <input type="text" id="contactService" placeholder="Ex: IT, Défense..." required>
-                            </div>
-                        </div>
 
-                        <!-- Boutons de sélection -->
-                        <div class="contact-buttons">
-                            <button type="button" class="contact-btn" id="btnQuestion" data-type="question">
-                                <span class="btn-icon">❓</span>
-                                <span class="btn-text">Question</span>
+                            <!-- Boutons de sélection -->
+                            <div class="contact-buttons">
+                                <button type="button" class="contact-btn" id="btnQuestion" data-type="question">
+                                    <span class="btn-icon">❓</span>
+                                    <span class="btn-text">Question</span>
+                                </button>
+                                <button type="button" class="contact-btn" id="btnProjet" data-type="projet">
+                                    <span class="btn-icon">💼</span>
+                                    <span class="btn-text">Projet ou Besoin</span>
+                                </button>
+                            </div>
+
+                            <!-- Champ de texte -->
+                            <div class="form-group">
+                                <label>Message *</label>
+                                <textarea id="contactMessage" placeholder="Décrivez votre demande..." required style="display: none;"></textarea>
+                            </div>
+
+                            <!-- Bouton Envoyer -->
+                            <button type="submit" class="btn-submit" style="display: none;">
+                                📧 Envoyer
                             </button>
-                            <button type="button" class="contact-btn" id="btnProjet" data-type="projet">
-                                <span class="btn-icon">💼</span>
-                                <span class="btn-text">Projet ou Besoin</span>
-                            </button>
-                        </div>
-
-                        <!-- Champ de texte -->
-                        <div class="form-group">
-                            <label>Message *</label>
-                            <textarea id="contactMessage" placeholder="Décrivez votre demande..." required style="display: none;"></textarea>
-                        </div>
-
-                        <!-- Bouton Envoyer -->
-                        <button type="submit" class="btn-submit" style="display: none;">
-                            📧 Envoyer
-                        </button>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
