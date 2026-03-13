@@ -414,20 +414,26 @@ function displayProjects() {
     const enCours = projects.filter(p => p.status === 'En cours');
     const operationnels = projects.filter(p => p.status === 'Opérationnel');
 
-    enCours.forEach((project) => {
-        const bubble = createOrbitBubble(project);
+    enCours.forEach((project, index) => {
+        const bubble = createOrbitBubble(project, index, enCours.length);
         orbitEnCours.appendChild(bubble);
     });
 
-    operationnels.forEach((project) => {
-        const bubble = createOrbitBubble(project);
+    operationnels.forEach((project, index) => {
+        const bubble = createOrbitBubble(project, index, operationnels.length);
         orbitOperationnels.appendChild(bubble);
     });
 }
 
-function createOrbitBubble(project) {
+function createOrbitBubble(project, index, totalCount) {
     const item = document.createElement('div');
     item.className = 'orbit-item';
+
+    // Calculer l'angle pour chaque bulle
+    const angle = (index / totalCount) * 360;
+    
+    // Appliquer la rotation initiale
+    item.style.setProperty('--bubble-angle', angle + 'deg');
 
     const bubble = document.createElement('div');
     bubble.className = 'orbit-bubble';
