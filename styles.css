@@ -41,28 +41,6 @@ body::before {
     }
 }
 
-@keyframes floatShip {
-    0%, 100% {
-        transform: translateX(0px) translateY(0px) rotate(0deg);
-        opacity: 0.09;
-    }
-    50% {
-        transform: translateX(20px) translateY(-15px) rotate(-2deg);
-        opacity: 0.2;
-    }
-}
-
-@keyframes floatSatellite {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-        opacity: 0.08;
-    }
-    50% {
-        transform: translateY(-25px) rotate(15deg);
-        opacity: 0.22;
-    }
-}
-
 /* Ancres */
 .anchor {
     position: fixed;
@@ -108,78 +86,52 @@ body::before {
     animation-duration: 7s;
 }
 
-/* Frégates minimalistes dessinées */
+/* Frégates minimalistes - même style que les ancres */
 .frigate {
     position: fixed;
+    font-size: 3rem;
+    opacity: 0.1;
     pointer-events: none;
+    animation: floatAnchor 6s ease-in-out infinite;
     z-index: 0;
-    width: 60px;
-    height: 40px;
 }
 
 .frigate-1 {
-    top: 20%;
-    left: 12%;
-    animation: floatShip 13s ease-in-out infinite;
-    animation-delay: 0s;
+    top: 35%;
+    left: 20%;
+    animation-delay: 1s;
+    animation-duration: 9s;
 }
 
 .frigate-2 {
-    top: 70%;
-    right: 15%;
-    animation: floatShip 15s ease-in-out infinite;
-    animation-delay: 4s;
+    bottom: 25%;
+    right: 22%;
+    animation-delay: 5s;
+    animation-duration: 11s;
 }
 
-.frigate-3 {
-    top: 45%;
-    left: 2%;
-    animation: floatShip 14s ease-in-out infinite;
-    animation-delay: 7s;
-}
-
-/* SVG Frigate minimaliste */
-.frigate svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 2px 4px rgba(255, 133, 27, 0.3));
-}
-
-/* Satellites minimalistes dessinés */
+/* Satellites minimalistes - même style que les ancres */
 .satellite {
     position: fixed;
+    font-size: 3rem;
+    opacity: 0.1;
     pointer-events: none;
+    animation: floatAnchor 6s ease-in-out infinite;
     z-index: 0;
-    width: 50px;
-    height: 50px;
 }
 
 .satellite-1 {
-    top: 12%;
+    top: 28%;
     right: 18%;
-    animation: floatSatellite 16s ease-in-out infinite;
-    animation-delay: 0s;
+    animation-delay: 2s;
+    animation-duration: 10s;
 }
 
 .satellite-2 {
     bottom: 35%;
-    left: 20%;
-    animation: floatSatellite 17s ease-in-out infinite;
-    animation-delay: 5s;
-}
-
-.satellite-3 {
-    top: 60%;
-    right: 8%;
-    animation: floatSatellite 15s ease-in-out infinite;
-    animation-delay: 10s;
-}
-
-/* SVG Satellite minimaliste */
-.satellite svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 2px 4px rgba(0, 204, 68, 0.3));
+    left: 18%;
+    animation-delay: 6s;
+    animation-duration: 8s;
 }
 
 .hero {
