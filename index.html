@@ -16,6 +16,10 @@
             color: #FFFFFF;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            background-image: url('bg.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
         @keyframes fadeIn { 
@@ -36,46 +40,18 @@
             top: 0;
             z-index: 100;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .nav-logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .nav-logo {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #FF851B, #00CC44);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: #001F3F;
-        }
-
-        .nav-logo-text {
-            color: #FF851B;
-            font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
         .nav-links {
-            flex: 1;
-            text-align: center;
+            display: flex;
+            gap: 40px;
+            align-items: center;
         }
 
         nav a {
-            display: inline-block;
-            margin: 0 20px;
             color: #FFFFFF;
             text-decoration: none;
             font-weight: 900;
@@ -591,23 +567,12 @@
                 gap: 15px;
             }
 
-            .nav-logo {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .nav-logo-text {
-                font-size: 1rem;
-            }
-
             .nav-links {
-                width: 100%;
+                gap: 20px;
             }
 
             nav a {
-                display: inline-block;
-                margin: 0 10px;
+                font-size: 0.9rem;
             }
 
             .hero-content h1 {
@@ -654,10 +619,6 @@
 </head>
 <body>
     <nav>
-        <div class="nav-logo-container">
-            <div class="nav-logo">LC</div>
-            <div class="nav-logo-text">LABNUM CECMED</div>
-        </div>
         <div class="nav-links">
             <a onclick="showSection('accueil')" class="nav-link active">Accueil</a>
             <a onclick="showSection('projets')" class="nav-link">Projets</a>
