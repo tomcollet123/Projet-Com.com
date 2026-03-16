@@ -413,6 +413,87 @@
         }
 
         /* ============================================
+           SECTION POC (POINT OF CONTACT)
+           ============================================ */
+        .poc-section {
+            background: #001F3F;
+            padding: 100px 20px;
+        }
+
+        .poc-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .poc-section h2 {
+            margin-bottom: 30px;
+        }
+
+        /* Grille des contacts */
+        .poc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Carte de contact */
+        .poc-card {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .poc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
+            border-color: #FFFFFF;
+        }
+
+        .poc-card h3 {
+            font-size: 1.4rem;
+            color: #FF851B;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .poc-card p {
+            color: #E8E8E8;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .poc-label {
+            font-weight: 900;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .poc-info {
+            color: #FF851B;
+            font-size: 1rem;
+        }
+
+        .poc-info a {
+            color: #FF851B;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .poc-info a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        /* ============================================
            MODAL (POP-UP DES PROJETS)
            ============================================ */
         .modal {
@@ -543,6 +624,10 @@
             }
 
             .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .poc-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -774,10 +859,8 @@
             <h2>Nous <span class="highlight">Contacter</span></h2>
             <div class="divider"></div>
             
-            <!-- IMPORTANT : CHANGE L'ADRESSE EMAIL ICI ⚠️
-                 remplace "tonmail@example.com" par ton adresse mail réelle
-            -->
-            <form class="contact-form" action="mailto:tonmail@example.com" method="POST" enctype="text/plain">
+            <!-- ADRESSE EMAIL MISE À JOUR -->
+            <form class="contact-form" action="mailto:cecmed-jdata-chef.contact.fct@intradef.gouv.fr" method="POST" enctype="text/plain">
                 
                 <!-- CHAMP NOM -->
                 <div class="form-group">
@@ -806,6 +889,54 @@
                 <!-- BOUTON D'ENVOI -->
                 <button type="submit" class="btn-submit">📧 Envoyer</button>
             </form>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6 : POC (POINT OF CONTACT)
+         ============================================ -->
+    <section class="poc-section">
+        <div class="poc-container">
+            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
+            <h2>Point of <span class="highlight">Contact</span></h2>
+            <div class="divider"></div>
+            
+            <!-- GRILLE DES CONTACTS -->
+            <div class="poc-grid">
+                <!-- CONTACT 1 -->
+                <div class="poc-card">
+                    <h3>ASC A N1</h3>
+                    <p>
+                        <span class="poc-label">Nom</span>
+                        <span class="poc-info">Alexia Rabel</span>
+                    </p>
+                    <p>
+                        <span class="poc-label">Numéro</span>
+                        <span class="poc-info">864 73 20 056</span>
+                    </p>
+                    <p>
+                        <span class="poc-label">Email</span>
+                        <span class="poc-info"><a href="mailto:cecmed-jdata-chef.contact.fct@intradef.gouv.fr">cecmed-jdata-chef.contact.fct@intradef.gouv.fr</a></span>
+                    </p>
+                </div>
+
+                <!-- CONTACT 2 -->
+                <div class="poc-card">
+                    <h3>LV</h3>
+                    <p>
+                        <span class="poc-label">Nom</span>
+                        <span class="poc-info">Chicote</span>
+                    </p>
+                    <p>
+                        <span class="poc-label">Numéro</span>
+                        <span class="poc-info">864 73 20 056</span>
+                    </p>
+                    <p>
+                        <span class="poc-label">Email</span>
+                        <span class="poc-info"><a href="mailto:cecmed-jdata-chef.contact.fct@intradef.gouv.fr">cecmed-jdata-chef.contact.fct@intradef.gouv.fr</a></span>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
