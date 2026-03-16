@@ -482,15 +482,28 @@
             font-size: 1rem;
         }
 
-        .poc-info a {
-            color: #FF851B;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        /* Section email commune */
+        .poc-email-section {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
         }
 
-        .poc-info a:hover {
-            color: #FFFFFF;
-            text-decoration: underline;
+        .poc-email-section h4 {
+            color: #FF851B;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .poc-email-section p {
+            color: #E8E8E8;
+            font-size: 1rem;
         }
 
         /* ============================================
@@ -668,7 +681,6 @@
          ============================================ -->
     <header class="hero">
         <div class="hero-content">
-            <!-- CHANGE LE TITRE ICI -->
             <h1>LABNUM <span class="cecmed">CECMED</span></h1>
             <p>Innovation & Défense</p>
         </div>
@@ -679,11 +691,9 @@
          ============================================ -->
     <section class="presentation">
         <div class="presentation-container">
-            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
             <h2>Qui nous <span class="highlight">sommes</span></h2>
             <div class="divider"></div>
             
-            <!-- CHANGE LES PARAGRAPHES DE PRÉSENTATION -->
             <p>
                 LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. 
                 Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains, 
@@ -701,7 +711,6 @@
          ============================================ -->
     <section class="projects-section">
         <div class="projects-container">
-            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
             <h2>Nos <span class="highlight">Projets</span></h2>
             <div class="divider"></div>
 
@@ -786,7 +795,6 @@
          ============================================ -->
     <section class="faq-section">
         <div class="faq-container">
-            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
             <h2>Questions <span class="highlight">Fréquentes</span></h2>
             <div class="divider"></div>
             <div class="faq-items">
@@ -855,7 +863,6 @@
          ============================================ -->
     <section class="contact-section">
         <div class="contact-container">
-            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
             <h2>Nous <span class="highlight">Contacter</span></h2>
             <div class="divider"></div>
             
@@ -897,7 +904,6 @@
          ============================================ -->
     <section class="poc-section">
         <div class="poc-container">
-            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
             <h2>Point of <span class="highlight">Contact</span></h2>
             <div class="divider"></div>
             
@@ -914,15 +920,11 @@
                         <span class="poc-label">Numéro</span>
                         <span class="poc-info">864 73 20 056</span>
                     </p>
-                    <p>
-                        <span class="poc-label">Email</span>
-                        <span class="poc-info"><a href="mailto:cecmed-jdata-chef.contact.fct@intradef.gouv.fr">cecmed-jdata-chef.contact.fct@intradef.gouv.fr</a></span>
-                    </p>
                 </div>
 
                 <!-- CONTACT 2 -->
                 <div class="poc-card">
-                    <h3>LV</h3>
+                    <h3>Lieutenant de Vaisseaux</h3>
                     <p>
                         <span class="poc-label">Nom</span>
                         <span class="poc-info">Chicote</span>
@@ -931,11 +933,13 @@
                         <span class="poc-label">Numéro</span>
                         <span class="poc-info">864 73 20 056</span>
                     </p>
-                    <p>
-                        <span class="poc-label">Email</span>
-                        <span class="poc-info"><a href="mailto:cecmed-jdata-chef.contact.fct@intradef.gouv.fr">cecmed-jdata-chef.contact.fct@intradef.gouv.fr</a></span>
-                    </p>
                 </div>
+            </div>
+
+            <!-- EMAIL COMMUNE -->
+            <div class="poc-email-section">
+                <h4>Email de Contact</h4>
+                <p>cecmed-jdata-chef.contact.fct@intradef.gouv.fr</p>
             </div>
         </div>
     </section>
@@ -944,7 +948,6 @@
          FOOTER
          ============================================ -->
     <footer>
-        <!-- CHANGE L'ANNÉE ET LE NOM SI BESOIN -->
         <p>&copy; 2026 LABNUM CECMED - Innovation & Défense</p>
     </footer>
 
@@ -974,13 +977,10 @@
          JAVASCRIPT : GESTION DES POP-UPS
          ============================================ -->
     <script>
-        // OUVRIR LE MODAL (POP-UP)
-        // onclick="openModal('Titre', 'Desc courte', 'Desc longue', 'images/photo.png', 'En cours')"
         function openModal(titre, descCourte, descLongue, image, statut) {
             document.getElementById('modalTitle').textContent = titre;
             document.getElementById('modalDescription').textContent = descLongue;
             
-            // Affiche l'image si elle existe
             const modalImage = document.getElementById('modalImage');
             if (image && image !== '') {
                 modalImage.src = image;
@@ -989,7 +989,6 @@
                 modalImage.style.display = 'none';
             }
             
-            // Affiche le statut avec la bonne couleur
             const statusBadge = document.getElementById('modalStatus');
             if (statut === 'Opérationnel') {
                 statusBadge.className = 'modal-status operationnel';
@@ -999,16 +998,13 @@
                 statusBadge.textContent = '⏳ En cours';
             }
             
-            // Ouvre le modal
             document.getElementById('projectModal').classList.add('active');
         }
 
-        // FERMER LE MODAL
         function closeModal() {
             document.getElementById('projectModal').classList.remove('active');
         }
 
-        // FERMER LE MODAL EN CLIQUANT DEHORS
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('projectModal');
             if (event.target == modal) {
@@ -1016,7 +1012,6 @@
             }
         });
 
-        // FERMER LE MODAL AVEC ÉCHAP
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeModal();
