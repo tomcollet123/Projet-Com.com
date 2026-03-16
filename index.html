@@ -20,7 +20,6 @@
 
         /* ANIMATIONS */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         /* HERO */
@@ -113,7 +112,6 @@
             text-align: center;
         }
 
-        /* SECTION EN COURS ET OPÉRATIONNEL */
         .projects-subsection {
             margin-bottom: 80px;
         }
@@ -144,7 +142,6 @@
             border-radius: 10px;
             padding: 30px;
             transition: all 0.3s ease;
-            cursor: pointer;
             animation: slideUp 0.6s ease-out;
             display: flex;
             flex-direction: column;
@@ -227,7 +224,7 @@
         }
 
         .faq-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -243,56 +240,39 @@
         .faq-items {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 40px;
         }
 
         .faq-item {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 2px solid #FFFFFF;
-            border-radius: 10px;
-            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
         }
 
         .faq-question {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            font-weight: 900;
-            color: #FFFFFF;
-            user-select: none;
-        }
-
-        .faq-question:hover {
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .faq-icon {
             font-size: 1.3rem;
-            transition: transform 0.3s ease;
-            margin-left: 15px;
-            flex-shrink: 0;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
+            font-weight: 900;
+            color: #FF851B;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-left: 4px solid #FF851B;
+            padding: 25px;
+            border-radius: 5px;
             color: #E8E8E8;
             line-height: 1.8;
+            font-size: 1rem;
         }
 
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 20px;
+        .faq-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 2px solid #FF851B;
+            display: block;
         }
 
         /* CONTACT */
@@ -396,67 +376,6 @@
             border-top: 2px solid #FF851B;
         }
 
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.98) 0%, rgba(0, 31, 63, 0.99) 100%);
-            padding: 40px;
-            border-radius: 10px;
-            border-left: 5px solid #FF851B;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #FF851B;
-            background: none;
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg);
-            color: #FFFFFF;
-        }
-
-        .modal-content h2 {
-            color: #FF851B;
-            margin-bottom: 20px;
-            font-size: 2rem;
-            text-transform: uppercase;
-        }
-
-        .modal-content p {
-            color: #E8E8E8;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -484,6 +403,10 @@
 
             .project-card {
                 min-height: auto;
+            }
+
+            .faq-question {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -520,114 +443,104 @@
             <h2>Nos Projets</h2>
             <div class="divider"></div>
 
-            <!-- ========== PROJETS EN COURS ========== -->
+            <!-- PROJETS EN COURS -->
             <div class="projects-subsection">
                 <h3>⏳ Projets En Cours</h3>
                 <div class="projects-grid">
-                    <!-- PROJET 1 -->
-                    <div class="project-card" onclick="openModal('Navigatio Digitalis', 'Innovation technologique avancée pour la transformation numérique.', 'En cours')">
+                    <div class="project-card">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Navigatio Digitalis</h3>
                             <p>Innovation technologique avancée pour la transformation numérique.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet innovant</div>
                     </div>
 
-                    <!-- PROJET 2 -->
-                    <div class="project-card" onclick="openModal('Fortitudo Systematis', 'Systèmes de défense robustes et innovants.', 'En cours')">
+                    <div class="project-card">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Fortitudo Systematis</h3>
                             <p>Systèmes de défense robustes et innovants.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet innovant</div>
                     </div>
 
-                    <!-- PROJET 3 -->
-                    <div class="project-card" onclick="openModal('Nexus Cognoscentia', 'Connexion des savoirs et intelligence artificielle.', 'En cours')">
+                    <div class="project-card">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Nexus Cognoscentia</h3>
                             <p>Connexion des savoirs et intelligence artificielle.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet innovant</div>
                     </div>
 
-                    <!-- PROJET 4 -->
-                    <div class="project-card" onclick="openModal('Velocitas Operandi', 'Rapidité d\'exécution et efficacité opérationnelle.', 'En cours')">
+                    <div class="project-card">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Velocitas Operandi</h3>
                             <p>Rapidité d'exécution et efficacité opérationnelle.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet innovant</div>
                     </div>
 
-                    <!-- PROJET 5 -->
-                    <div class="project-card" onclick="openModal('Architectura Futuro', 'Architecture du futur et infrastructure scalable.', 'En cours')">
+                    <div class="project-card">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Architectura Futuro</h3>
                             <p>Architecture du futur et infrastructure scalable.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet innovant</div>
                     </div>
                 </div>
             </div>
 
-            <!-- ========== PROJETS OPÉRATIONNELS ========== -->
+            <!-- PROJETS OPÉRATIONNELS -->
             <div class="projects-subsection operationnel">
                 <h3>✅ Projets Opérationnels</h3>
                 <div class="projects-grid">
-                    <!-- PROJET 6 -->
-                    <div class="project-card operationnel" onclick="openModal('Aurora Technologia', 'Lumière de l\'innovation et leadership technologique.', 'Opérationnel')">
+                    <div class="project-card operationnel">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Aurora Technologia</h3>
                             <p>Lumière de l'innovation et leadership technologique.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet opérationnel</div>
                     </div>
 
-                    <!-- PROJET 7 -->
-                    <div class="project-card operationnel" onclick="openModal('Triumpbus Antiquus', 'Victoire technologique et excellence opérationnelle.', 'Opérationnel')">
+                    <div class="project-card operationnel">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Triumpbus Antiquus</h3>
                             <p>Victoire technologique et excellence opérationnelle.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet opérationnel</div>
                     </div>
 
-                    <!-- PROJET 8 -->
-                    <div class="project-card operationnel" onclick="openModal('Sapientia Aeterna', 'Sagesse éternelle et expertise reconnue.', 'Opérationnel')">
+                    <div class="project-card operationnel">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Sapientia Aeterna</h3>
                             <p>Sagesse éternelle et expertise reconnue.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet opérationnel</div>
                     </div>
 
-                    <!-- PROJET 9 -->
-                    <div class="project-card operationnel" onclick="openModal('Pax et Securitas', 'Paix et sécurité dans l\'environnement numérique.', 'Opérationnel')">
+                    <div class="project-card operationnel">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Pax et Securitas</h3>
                             <p>Paix et sécurité dans l'environnement numérique.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet opérationnel</div>
                     </div>
 
-                    <!-- PROJET 10 -->
-                    <div class="project-card operationnel" onclick="openModal('Memoria Gloriosa', 'Mémoire des succès et trajectoire d\'excellence.', 'Opérationnel')">
+                    <div class="project-card operationnel">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Memoria Gloriosa</h3>
                             <p>Mémoire des succès et trajectoire d'excellence.</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Projet opérationnel</div>
                     </div>
                 </div>
             </div>
@@ -642,65 +555,60 @@
             <div class="faq-items">
                 <!-- FAQ 1 -->
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Qu'est-ce que LABNUM CECMED ?</span>
-                        <span class="faq-icon">▼</span>
+                    <div class="faq-question">Qu'est-ce que LABNUM CECMED ?</div>
+                    <div class="faq-answer">
+                        LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains.
+                        <!-- OPTIONNEL : Ajoute une image si tu veux -->
+                        <!-- <img src="image1.png" alt="LABNUM" class="faq-image"> -->
                     </div>
-                    <div class="faq-answer">LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains.</div>
                 </div>
 
                 <!-- FAQ 2 -->
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Quels sont vos domaines d'expertise ?</span>
-                        <span class="faq-icon">▼</span>
+                    <div class="faq-question">Quels sont vos domaines d'expertise ?</div>
+                    <div class="faq-answer">
+                        Nos domaines couvrent l'innovation technologique, cybersécurité, intelligence artificielle, architecture numérique et transformation digitale.
                     </div>
-                    <div class="faq-answer">Nos domaines couvrent l'innovation technologique, cybersécurité, intelligence artificielle, architecture numérique et transformation digitale.</div>
                 </div>
 
                 <!-- FAQ 3 -->
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Comment puis-je collaborer avec vous ?</span>
-                        <span class="faq-icon">▼</span>
+                    <div class="faq-question">Comment puis-je collaborer avec vous ?</div>
+                    <div class="faq-answer">
+                        Vous pouvez nous contacter via le formulaire de contact ci-dessous ou nous envoyer un email avec vos propositions.
                     </div>
-                    <div class="faq-answer">Vous pouvez nous contacter via le formulaire de contact ci-dessous ou nous envoyer un email avec vos propositions.</div>
                 </div>
 
                 <!-- FAQ 4 -->
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Quels sont vos projets actuels ?</span>
-                        <span class="faq-icon">▼</span>
+                    <div class="faq-question">Quels sont vos projets actuels ?</div>
+                    <div class="faq-answer">
+                        Consultez notre section 'Nos Projets' pour découvrir nos initiatives actuelles et futures.
                     </div>
-                    <div class="faq-answer">Consultez notre section 'Nos Projets' pour découvrir nos initiatives actuelles et futures.</div>
                 </div>
 
                 <!-- FAQ 5 -->
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Offrez-vous des services de consultation ?</span>
-                        <span class="faq-icon">▼</span>
+                    <div class="faq-question">Offrez-vous des services de consultation ?</div>
+                    <div class="faq-answer">
+                        Oui, nous offrons des services de consultation spécialisés pour les organisations cherchant à moderniser leurs infrastructures.
                     </div>
-                    <div class="faq-answer">Oui, nous offrons des services de consultation spécialisés pour les organisations cherchant à moderniser leurs infrastructures.</div>
                 </div>
 
                 <!-- FAQ 6 -->
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Comment sont structurés vos équipes ?</span>
-                        <span class="faq-icon">▼</span>
+                    <div class="faq-question">Comment sont structurés vos équipes ?</div>
+                    <div class="faq-answer">
+                        Nos équipes sont organisées par domaines d'expertise avec des spécialistes hautement qualifiés.
                     </div>
-                    <div class="faq-answer">Nos équipes sont organisées par domaines d'expertise avec des spécialistes hautement qualifiés.</div>
                 </div>
 
                 <!-- FAQ 7 -->
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>Quelles certifications possédez-vous ?</span>
-                        <span class="faq-icon">▼</span>
+                    <div class="faq-question">Quelles certifications possédez-vous ?</div>
+                    <div class="faq-answer">
+                        Nous possédons plusieurs certifications internationales ISO pour garantir la qualité et la sécurité de nos services.
                     </div>
-                    <div class="faq-answer">Nous possédons plusieurs certifications internationales ISO pour garantir la qualité et la sécurité de nos services.</div>
                 </div>
             </div>
         </div>
@@ -711,22 +619,23 @@
         <div class="contact-container">
             <h2>Nous Contacter</h2>
             <div class="divider"></div>
-            <form class="contact-form" id="contactForm">
+            <!-- CHANGE L'ADRESSE EMAIL ICI : remplace "tonmail@example.com" par ton adresse réelle -->
+            <form class="contact-form" action="mailto:tonmail@example.com" method="POST" enctype="text/plain">
                 <div class="form-group">
                     <label>Nom *</label>
-                    <input type="text" required>
+                    <input type="text" name="nom" required>
                 </div>
                 <div class="form-group">
                     <label>Email *</label>
-                    <input type="email" required>
+                    <input type="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label>Sujet *</label>
-                    <input type="text" required>
+                    <input type="text" name="sujet" required>
                 </div>
                 <div class="form-group">
                     <label>Message *</label>
-                    <textarea required></textarea>
+                    <textarea name="message" required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">📧 Envoyer</button>
             </form>
@@ -737,51 +646,5 @@
     <footer>
         <p>&copy; 2026 LABNUM CECMED - Innovation & Défense</p>
     </footer>
-
-    <!-- MODAL PROJET -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            <h2 id="modalTitle"></h2>
-            <p id="modalDescription"></p>
-            <p id="modalDetails"></p>
-        </div>
-    </div>
-
-    <script>
-        // TOGGLE FAQ
-        function toggleFaq(element) {
-            const item = element.parentElement;
-            item.classList.toggle('active');
-        }
-
-        // OUVRIR MODAL
-        function openModal(title, description, status) {
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalDescription').textContent = description;
-            document.getElementById('modalDetails').textContent = `Statut: ${status}`;
-            document.getElementById('projectModal').classList.add('active');
-        }
-
-        // FERMER MODAL
-        function closeModal() {
-            document.getElementById('projectModal').classList.remove('active');
-        }
-
-        // FORMULAIRE CONTACT
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('✅ Merci ! Votre message a été reçu. Nous vous contacterons bientôt.');
-            this.reset();
-        });
-
-        // FERMER MODAL AU CLIC EXTÉRIEUR
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('projectModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        });
-    </script>
 </body>
 </html>
