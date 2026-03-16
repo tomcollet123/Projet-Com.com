@@ -245,12 +245,13 @@
         }
 
         /* ============================================
-           SECTION PROJETS
+           SECTION PROJETS (JOURNAL)
            ============================================ */
         .projects-section {
             background: #001F3F;
             padding: 100px 20px;
             display: none;
+            min-height: 100vh;
         }
 
         .projects-section.active {
@@ -258,7 +259,7 @@
         }
 
         .projects-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -266,14 +267,15 @@
             margin-bottom: 30px;
         }
 
+        /* Sous-section (En Cours / Opérationnel) */
         .projects-subsection {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
 
         .projects-subsection h3 {
             font-size: 1.8rem;
             color: #FFFFFF;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             padding-bottom: 15px;
             border-bottom: 3px solid #FF851B;
             display: inline-block;
@@ -286,93 +288,94 @@
             border-bottom-color: #00CC44;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-top: 0;
-        }
-
-        .project-card {
+        /* Carte projet (visibles et déroulées) */
+        .project-item {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 2px solid #FF851B;
             border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
+            padding: 40px;
+            margin-bottom: 40px;
             animation: slideUp 0.6s ease-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            min-height: 280px;
-            cursor: pointer;
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
-            border-color: #FFFFFF;
-        }
-
-        .project-card.operationnel {
+        .project-item.operationnel {
             border-color: #00CC44;
         }
 
-        .project-card.operationnel:hover {
-            box-shadow: 0 15px 40px rgba(0, 204, 68, 0.3);
+        /* En-tête du projet */
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 133, 27, 0.3);
+        }
+
+        .project-header h3 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-weight: 900;
+            margin: 0;
+            flex-grow: 1;
+            margin-right: 20px;
         }
 
         .project-status {
             display: inline-block;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 900;
-            margin-bottom: 15px;
             text-transform: uppercase;
-            align-self: flex-start;
+            white-space: nowrap;
         }
 
         .status-encours {
             background: rgba(255, 133, 27, 0.3);
             color: #FF851B;
-            border: 1px solid #FF851B;
+            border: 2px solid #FF851B;
         }
 
         .status-operationnel {
             background: rgba(0, 204, 68, 0.3);
             color: #00CC44;
-            border: 1px solid #00CC44;
+            border: 2px solid #00CC44;
         }
 
-        .project-card h3 {
-            font-size: 1.3rem;
-            color: #FFFFFF;
-            margin-bottom: 12px;
-            margin-top: 0;
-            font-weight: 900;
-            line-height: 1.4;
+        /* Contenu du projet */
+        .project-content {
+            margin-bottom: 30px;
         }
 
-        .project-card p {
+        .project-content p {
             color: #E8E8E8;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 0;
-            flex-grow: 1;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
         }
 
-        .project-footer {
-            padding-top: 15px;
-            margin-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: #FF851B;
-            font-size: 0.9rem;
-            font-weight: 900;
+        /* Images dans les projets */
+        .project-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
-        .project-card.operationnel .project-footer {
-            color: #00CC44;
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #FF851B;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 133, 27, 0.3);
         }
 
         /* ============================================
@@ -556,106 +559,6 @@
         }
 
         /* ============================================
-           MODAL (POP-UP DES PROJETS)
-           ============================================ */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            overflow-y: auto;
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.98) 0%, rgba(0, 31, 63, 0.99) 100%);
-            padding: 50px;
-            border-radius: 10px;
-            border-left: 5px solid #FF851B;
-            max-width: 800px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            margin: 40px auto;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2.5rem;
-            cursor: pointer;
-            color: #FF851B;
-            background: none;
-            border: none;
-            transition: all 0.3s ease;
-            line-height: 1;
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg);
-            color: #FFFFFF;
-        }
-
-        .modal-content h2 {
-            color: #FF851B;
-            margin-bottom: 30px;
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .modal-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid #FF851B;
-            margin-bottom: 30px;
-            display: block;
-        }
-
-        .modal-content p {
-            color: #E8E8E8;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-
-        .modal-status {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .modal-status.encours {
-            background: rgba(255, 133, 27, 0.3);
-            color: #FF851B;
-            border: 2px solid #FF851B;
-        }
-
-        .modal-status.operationnel {
-            background: rgba(0, 204, 68, 0.3);
-            color: #00CC44;
-            border: 2px solid #00CC44;
-        }
-
-        /* ============================================
            FOOTER
            ============================================ */
         footer {
@@ -680,7 +583,7 @@
                 letter-spacing: 1px;
             }
 
-            .projects-grid {
+            .project-images {
                 grid-template-columns: 1fr;
             }
 
@@ -696,30 +599,31 @@
                 font-size: 1.4rem;
             }
 
-            .project-card {
-                min-height: auto;
-            }
-
             .faq-question {
                 font-size: 1.1rem;
-            }
-
-            .modal-content {
-                padding: 30px;
-                width: 95%;
-            }
-
-            .modal-content h2 {
-                font-size: 1.8rem;
-            }
-
-            .close-modal {
-                font-size: 2rem;
             }
 
             nav a {
                 display: block;
                 margin: 10px 0;
+            }
+
+            .project-item {
+                padding: 25px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .project-header h3 {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .project-content p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -904,7 +808,7 @@
     </div>
 
     <!-- ============================================
-         SECTION PROJETS
+         SECTION PROJETS (JOURNAL)
          ============================================ -->
     <div id="projets-section" class="projects-section">
         <div class="projects-container">
@@ -914,70 +818,141 @@
             <!-- PROJETS EN COURS -->
             <div class="projects-subsection">
                 <h3>⏳ Projets En Cours</h3>
-                <div class="projects-grid">
-                    
-                    <div class="project-card" onclick="openModal('Navigatio Digitalis', 'Transformatio digitalis', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '', 'En cours')">
-                        <div>
-                            <span class="project-status status-encours">⏳ En cours</span>
-                            <h3>Navigatio Digitalis</h3>
-                            <p>Transformatio digitalis innovativa</p>
-                        </div>
-                        <div class="project-footer">Clicca pro maiores nuntias →</div>
-                    </div>
 
-                    <div class="project-card" onclick="openModal('Fortitudo Systematis', 'Defensio et securitas', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '', 'En cours')">
-                        <div>
-                            <span class="project-status status-encours">⏳ En cours</span>
-                            <h3>Fortitudo Systematis</h3>
-                            <p>Systemata defensionis robusta</p>
-                        </div>
-                        <div class="project-footer">Clicca pro maiores nuntias →</div>
+                <!-- PROJET 1 -->
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Navigatio Digitalis</h3>
+                        <span class="project-status status-encours">⏳ En cours</span>
                     </div>
-
-                    <div class="project-card" onclick="openModal('Nexus Cognoscentia', 'Intelligentia artificialis', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', '', 'En cours')">
-                        <div>
-                            <span class="project-status status-encours">⏳ En cours</span>
-                            <h3>Nexus Cognoscentia</h3>
-                            <p>Connexio sapientiae et machinae</p>
+                    <div class="project-content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
+                        <div class="project-images">
+                            <!-- <img src="images/projet1-1.jpg" alt="Projet 1 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projet1-2.jpg" alt="Projet 1 - Image 2" class="project-image"> -->
                         </div>
-                        <div class="project-footer">Clicca pro maiores nuntias →</div>
                     </div>
                 </div>
+
+                <!-- PROJET 2 -->
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Fortitudo Systematis</h3>
+                        <span class="project-status status-encours">⏳ En cours</span>
+                    </div>
+                    <div class="project-content">
+                        <p>
+                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                        <p>
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                        </p>
+                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
+                        <div class="project-images">
+                            <!-- <img src="images/projet2-1.jpg" alt="Projet 2 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projet2-2.jpg" alt="Projet 2 - Image 2" class="project-image"> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJET 3 -->
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Nexus Cognoscentia</h3>
+                        <span class="project-status status-encours">⏳ En cours</span>
+                    </div>
+                    <div class="project-content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.
+                        </p>
+                        <p>
+                            Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam quis nostrum exercitationem ullam corporis.
+                        </p>
+                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
+                        <div class="project-images">
+                            <!-- <img src="images/projet3-1.jpg" alt="Projet 3 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projet3-2.jpg" alt="Projet 3 - Image 2" class="project-image"> -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- PROJETS OPÉRATIONNELS -->
             <div class="projects-subsection operationnel">
                 <h3>✅ Projets Opérationnels</h3>
-                <div class="projects-grid">
-                    
-                    <div class="project-card operationnel" onclick="openModal('Aurora Technologia', 'Lux innovationis', 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.', '', 'Opérationnel')">
-                        <div>
-                            <span class="project-status status-operationnel">✅ Opérationnel</span>
-                            <h3>Aurora Technologia</h3>
-                            <p>Lux sapientiae technologicae</p>
-                        </div>
-                        <div class="project-footer">Clicca pro maiores nuntias →</div>
-                    </div>
 
-                    <div class="project-card operationnel" onclick="openModal('Sapientia Aeterna', 'Peritia sempiterna', 'Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut quid ex ea commodi consequatur.', '', 'Opérationnel')">
-                        <div>
-                            <span class="project-status status-operationnel">✅ Opérationnel</span>
-                            <h3>Sapientia Aeterna</h3>
-                            <p>Cognitio et excellentia perennis</p>
-                        </div>
-                        <div class="project-footer">Clicca pro maiores nuntias →</div>
+                <!-- PROJET 4 -->
+                <div class="project-item operationnel">
+                    <div class="project-header">
+                        <h3>Aurora Technologia</h3>
+                        <span class="project-status status-operationnel">✅ Opérationnel</span>
                     </div>
-
-                    <div class="project-card operationnel" onclick="openModal('Pax et Securitas', 'Salus digitalis', 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa.', '', 'Opérationnel')">
-                        <div>
-                            <span class="project-status status-operationnel">✅ Opérationnel</span>
-                            <h3>Pax et Securitas</h3>
-                            <p>Tutela in rete digitali</p>
+                    <div class="project-content">
+                        <p>
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.
+                        </p>
+                        <p>
+                            Cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio.
+                        </p>
+                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
+                        <div class="project-images">
+                            <!-- <img src="images/projet4-1.jpg" alt="Projet 4 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projet4-2.jpg" alt="Projet 4 - Image 2" class="project-image"> -->
                         </div>
-                        <div class="project-footer">Clicca pro maiores nuntias →</div>
                     </div>
                 </div>
+
+                <!-- PROJET 5 -->
+                <div class="project-item operationnel">
+                    <div class="project-header">
+                        <h3>Sapientia Aeterna</h3>
+                        <span class="project-status status-operationnel">✅ Opérationnel</span>
+                    </div>
+                    <div class="project-content">
+                        <p>
+                            Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus.
+                        </p>
+                        <p>
+                            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum.
+                        </p>
+                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
+                        <div class="project-images">
+                            <!-- <img src="images/projet5-1.jpg" alt="Projet 5 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projet5-2.jpg" alt="Projet 5 - Image 2" class="project-image"> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJET 6 -->
+                <div class="project-item operationnel">
+                    <div class="project-header">
+                        <h3>Pax et Securitas</h3>
+                        <span class="project-status status-operationnel">✅ Opérationnel</span>
+                    </div>
+                    <div class="project-content">
+                        <p>
+                            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.
+                        </p>
+                        <p>
+                            Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.
+                        </p>
+                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
+                        <div class="project-images">
+                            <!-- <img src="images/projet6-1.jpg" alt="Projet 6 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projet6-2.jpg" alt="Projet 6 - Image 2" class="project-image"> -->
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </div>
 
@@ -989,24 +964,7 @@
     </footer>
 
     <!-- ============================================
-         MODAL (POP-UP DES PROJETS)
-         ============================================ -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            
-            <img id="modalImage" src="" alt="Projet" class="modal-image" style="display: none;">
-            
-            <span id="modalStatus" class="modal-status"></span>
-            
-            <h2 id="modalTitle"></h2>
-            
-            <p id="modalDescription"></p>
-        </div>
-    </div>
-
-    <!-- ============================================
-         JAVASCRIPT : GESTION DES SECTIONS & POP-UPS
+         JAVASCRIPT : GESTION DES SECTIONS
          ============================================ -->
     <script>
         // AFFICHER/CACHER LES SECTIONS
@@ -1020,59 +978,14 @@
                 document.getElementById('accueil-section').style.display = 'block';
                 document.querySelector('[onclick="showSection(\'accueil\')"]').classList.add('active');
                 document.querySelector('[onclick="showSection(\'projets\')"]').classList.remove('active');
+                window.scrollTo(0, 0);
             } else if (sectionName === 'projets') {
                 document.getElementById('projets-section').classList.add('active');
                 document.querySelector('[onclick="showSection(\'accueil\')"]').classList.remove('active');
                 document.querySelector('[onclick="showSection(\'projets\')"]').classList.add('active');
-                // Scroller vers le haut
                 window.scrollTo(0, 0);
             }
         }
-
-        // OUVRIR LE MODAL
-        function openModal(titre, descCourte, descLongue, image, statut) {
-            document.getElementById('modalTitle').textContent = titre;
-            document.getElementById('modalDescription').textContent = descLongue;
-            
-            const modalImage = document.getElementById('modalImage');
-            if (image && image !== '') {
-                modalImage.src = image;
-                modalImage.style.display = 'block';
-            } else {
-                modalImage.style.display = 'none';
-            }
-            
-            const statusBadge = document.getElementById('modalStatus');
-            if (statut === 'Opérationnel') {
-                statusBadge.className = 'modal-status operationnel';
-                statusBadge.textContent = '✅ Opérationnel';
-            } else {
-                statusBadge.className = 'modal-status encours';
-                statusBadge.textContent = '⏳ En cours';
-            }
-            
-            document.getElementById('projectModal').classList.add('active');
-        }
-
-        // FERMER LE MODAL
-        function closeModal() {
-            document.getElementById('projectModal').classList.remove('active');
-        }
-
-        // FERMER EN CLIQUANT DEHORS
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('projectModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        });
-
-        // FERMER AVEC ÉCHAP
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
     </script>
 </body>
 </html>
