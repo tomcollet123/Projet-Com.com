@@ -53,6 +53,7 @@
             margin-bottom: 15px;
             color: #FFFFFF;
             text-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
+            letter-spacing: 3px;
         }
 
         /* Couleur orange pour "CECMED" */
@@ -66,6 +67,23 @@
             font-weight: 300;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* ============================================
+           STYLE UNIFIÉ POUR TOUS LES TITRES H2
+           ============================================ */
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Version avec accent orange pour certains titres */
+        h2 .highlight {
+            color: #FF851B;
         }
 
         /* ============================================
@@ -83,11 +101,7 @@
         }
 
         .presentation h2 {
-            font-size: 2.5rem;
-            color: #FFFFFF;
             margin-bottom: 30px;
-            font-weight: 900;
-            text-transform: uppercase;
         }
 
         /* Barre de séparation décorative */
@@ -123,12 +137,8 @@
         }
 
         .projects-section > h2 {
-            font-size: 2.5rem;
-            color: #FFFFFF;
-            margin-bottom: 30px;
-            font-weight: 900;
-            text-transform: uppercase;
             text-align: center;
+            margin-bottom: 30px;
         }
 
         /* Sous-section (En Cours / Opérationnel) */
@@ -143,6 +153,9 @@
             padding-bottom: 15px;
             border-bottom: 3px solid #FF851B;
             display: inline-block;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Bordure verte pour les projets opérationnels */
@@ -259,12 +272,8 @@
         }
 
         .faq-section h2 {
-            font-size: 2.5rem;
-            color: #FFFFFF;
-            margin-bottom: 30px;
-            font-weight: 900;
-            text-transform: uppercase;
             text-align: center;
+            margin-bottom: 30px;
         }
 
         /* Conteneur des FAQ */
@@ -323,12 +332,8 @@
         }
 
         .contact-section h2 {
-            font-size: 2.5rem;
-            color: #FFFFFF;
-            margin-bottom: 30px;
-            font-weight: 900;
-            text-transform: uppercase;
             text-align: center;
+            margin-bottom: 30px;
         }
 
         /* Conteneur du formulaire */
@@ -467,9 +472,10 @@
         .modal-content h2 {
             color: #FF851B;
             margin-bottom: 30px;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             text-transform: uppercase;
             font-weight: 900;
+            letter-spacing: 2px;
         }
 
         /* Image dans le modal */
@@ -530,17 +536,16 @@
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .presentation h2,
-            .projects-section > h2,
-            .faq-section h2,
-            .contact-section h2 {
-                font-size: 1.8rem;
             }
 
             .contact-form {
@@ -591,7 +596,8 @@
          ============================================ -->
     <section class="presentation">
         <div class="presentation-container">
-            <h2>Qui nous sommes</h2>
+            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
+            <h2>Qui nous <span class="highlight">sommes</span></h2>
             <div class="divider"></div>
             
             <!-- CHANGE LES PARAGRAPHES DE PRÉSENTATION -->
@@ -612,7 +618,8 @@
          ============================================ -->
     <section class="projects-section">
         <div class="projects-container">
-            <h2>Nos Projets</h2>
+            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
+            <h2>Nos <span class="highlight">Projets</span></h2>
             <div class="divider"></div>
 
             <!-- ========== PROJETS EN COURS ========== -->
@@ -744,7 +751,8 @@
          ============================================ -->
     <section class="faq-section">
         <div class="faq-container">
-            <h2>Questions Fréquentes</h2>
+            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
+            <h2>Questions <span class="highlight">Fréquentes</span></h2>
             <div class="divider"></div>
             <div class="faq-items">
                 
@@ -816,7 +824,8 @@
          ============================================ -->
     <section class="contact-section">
         <div class="contact-container">
-            <h2>Nous Contacter</h2>
+            <!-- TITRE AVEC LE MÊME STYLE QUE LE HERO -->
+            <h2>Nous <span class="highlight">Contacter</span></h2>
             <div class="divider"></div>
             
             <!-- IMPORTANT : CHANGE L'ADRESSE EMAIL ICI ⚠️
