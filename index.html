@@ -132,8 +132,9 @@
         }
 
         .presentation-container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .presentation h2 {
@@ -153,9 +154,10 @@
             color: #E8E8E8;
             line-height: 1.8;
             margin-bottom: 20px;
-            max-width: 800px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            text-align: justify;
         }
 
         /* ============================================
@@ -209,6 +211,7 @@
         .faq-container {
             max-width: 900px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .faq-section h2 {
@@ -219,6 +222,8 @@
             display: flex;
             flex-direction: column;
             gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .faq-item {
@@ -242,6 +247,8 @@
             color: #E8E8E8;
             line-height: 1.8;
             font-size: 1rem;
+            text-align: justify;
+            text-justify: inter-word;
         }
 
         /* ============================================
@@ -261,6 +268,7 @@
         .projects-container {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .projects-section > h2 {
@@ -294,7 +302,8 @@
             border: 2px solid #FF851B;
             border-radius: 10px;
             padding: 40px;
-            margin-bottom: 40px;
+            margin: 0 auto 40px;
+            max-width: 950px;
             animation: slideUp 0.6s ease-out;
         }
 
@@ -354,6 +363,7 @@
             line-height: 1.9;
             margin-bottom: 20px;
             text-align: justify;
+            text-justify: inter-word;
         }
 
         /* Images dans les projets */
@@ -362,6 +372,9 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .project-image {
@@ -389,6 +402,7 @@
         .contact-container {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .contact-section h2 {
@@ -400,6 +414,8 @@
             border: 2px solid #FF851B;
             border-radius: 10px;
             padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .form-group {
@@ -478,6 +494,7 @@
         .poc-container {
             max-width: 900px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .poc-section h2 {
@@ -489,6 +506,9 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .poc-card {
@@ -543,6 +563,9 @@
             margin-top: 30px;
             text-align: center;
             animation: slideUp 0.6s ease-out;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .poc-email-section h4 {
@@ -624,6 +647,13 @@
 
             .project-content p {
                 font-size: 1rem;
+            }
+
+            .presentation-container,
+            .faq-container,
+            .contact-container,
+            .poc-container {
+                padding: 0 15px;
             }
         }
     </style>
