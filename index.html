@@ -4,667 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LABNUM CECMED - Innovation & Défense</title>
-    <style>
-        /* ============================================
-           RESET & VARIABLES DE BASE
-           ============================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #001F3F;
-            color: #FFFFFF;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-        }
-
-        /* ============================================
-           ANIMATIONS
-           ============================================ */
-        @keyframes fadeIn { 
-            from { opacity: 0; } 
-            to { opacity: 1; } 
-        }
-        @keyframes slideUp { 
-            from { opacity: 0; transform: translateY(30px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-
-        /* ============================================
-           NAVIGATION
-           ============================================ */
-        nav {
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #FF851B;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            display: inline-block;
-            margin: 0 20px;
-            color: #FFFFFF;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1rem;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            color: #FF851B;
-            text-shadow: 0 0 10px rgba(255, 133, 27, 0.6);
-        }
-
-        nav a.active {
-            color: #FF851B;
-            border-bottom: 3px solid #FF851B;
-            padding-bottom: 5px;
-        }
-
-        /* ============================================
-           SECTION HERO (TITRE PRINCIPAL)
-           ============================================ */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #001F3F 0%, #002d5c 100%);
-            animation: fadeIn 1s ease-out;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            color: #FFFFFF;
-            text-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
-            letter-spacing: 3px;
-        }
-
-        .hero-content h1 .cecmed {
-            color: #FF851B;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            color: #E8E8E8;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* ============================================
-           STYLE UNIFIÉ POUR TOUS LES TITRES H2
-           ============================================ */
-        h2 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #FFFFFF;
-            text-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        h2 .highlight {
-            color: #FF851B;
-        }
-
-        /* ============================================
-           SECTION PRÉSENTATION (QUI NOUS SOMMES)
-           ============================================ */
-        .presentation {
-            background: #001F3F;
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .presentation-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .presentation h2 {
-            margin-bottom: 30px;
-        }
-
-        .divider {
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #FF851B, #00CC44);
-            margin: 0 auto 40px;
-            box-shadow: 0 0 15px rgba(255, 133, 27, 0.6);
-        }
-
-        .presentation p {
-            font-size: 1.1rem;
-            color: #E8E8E8;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: justify;
-        }
-
-        /* ============================================
-           SECTION APPEL À L'ACTION (PROJETS)
-           ============================================ */
-        .cta-section {
-            background: #001F3F;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .cta-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .cta-container h2 {
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 18px 50px;
-            background: #FF851B;
-            color: #001F3F;
-            text-decoration: none;
-            font-weight: 900;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border: none;
-        }
-
-        .cta-button:hover {
-            background: #FFFFFF;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 133, 27, 0.4);
-        }
-
-        /* ============================================
-           SECTION FAQ (QUESTIONS FRÉQUENTES)
-           ============================================ */
-        .faq-section {
-            background: #001F3F;
-            padding: 100px 20px;
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .faq-section h2 {
-            margin-bottom: 30px;
-        }
-
-        .faq-items {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            animation: slideUp 0.6s ease-out;
-        }
-
-        .faq-question {
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #FF851B;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .faq-answer {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border-left: 4px solid #FF851B;
-            padding: 25px;
-            border-radius: 5px;
-            color: #E8E8E8;
-            line-height: 1.8;
-            font-size: 1rem;
-            text-align: justify;
-            text-justify: inter-word;
-        }
-
-        /* ============================================
-           SECTION PROJETS (JOURNAL)
-           ============================================ */
-        .projects-section {
-            background: #001F3F;
-            padding: 100px 20px;
-            display: none;
-            min-height: 100vh;
-        }
-
-        .projects-section.active {
-            display: block;
-        }
-
-        .projects-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .projects-section > h2 {
-            margin-bottom: 30px;
-        }
-
-        /* Sous-section (En Cours / Opérationnel) */
-        .projects-subsection {
-            margin-bottom: 100px;
-        }
-
-        .projects-subsection h3 {
-            font-size: 1.8rem;
-            color: #FFFFFF;
-            margin-bottom: 50px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #FF851B;
-            display: inline-block;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .projects-subsection.operationnel h3 {
-            border-bottom-color: #00CC44;
-        }
-
-        /* Carte projet (visibles et déroulées) */
-        .project-item {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 40px;
-            margin: 0 auto 40px;
-            max-width: 950px;
-            animation: slideUp 0.6s ease-out;
-        }
-
-        .project-item.operationnel {
-            border-color: #00CC44;
-        }
-
-        /* En-tête du projet */
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(255, 133, 27, 0.3);
-        }
-
-        .project-header h3 {
-            font-size: 1.8rem;
-            color: #FFFFFF;
-            font-weight: 900;
-            margin: 0;
-            flex-grow: 1;
-            margin-right: 20px;
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .status-encours {
-            background: rgba(255, 133, 27, 0.3);
-            color: #FF851B;
-            border: 2px solid #FF851B;
-        }
-
-        .status-operationnel {
-            background: rgba(0, 204, 68, 0.3);
-            color: #00CC44;
-            border: 2px solid #00CC44;
-        }
-
-        /* Contenu du projet */
-        .project-content {
-            margin-bottom: 30px;
-        }
-
-        .project-content p {
-            color: #E8E8E8;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            margin-bottom: 20px;
-            text-align: justify;
-            text-justify: inter-word;
-        }
-
-        /* Images dans les projets */
-        .project-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .project-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid #FF851B;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .project-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(255, 133, 27, 0.3);
-        }
-
-        /* ============================================
-           SECTION CONTACT (FORMULAIRE)
-           ============================================ */
-        .contact-section {
-            background: #001F3F;
-            padding: 100px 20px;
-        }
-
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .contact-section h2 {
-            margin-bottom: 30px;
-        }
-
-        .contact-form {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            color: #FFFFFF;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #FFFFFF;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #FF851B;
-            box-shadow: 0 0 15px rgba(255, 133, 27, 0.3);
-            background: rgba(255, 255, 255, 0.12);
-            outline: none;
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 14px;
-            background: #FF851B;
-            color: #001F3F;
-            border: none;
-            border-radius: 5px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-submit:hover {
-            background: #FFFFFF;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 133, 27, 0.4);
-        }
-
-        /* ============================================
-           SECTION POC (POINT OF CONTACT)
-           ============================================ */
-        .poc-section {
-            background: #001F3F;
-            padding: 100px 20px;
-        }
-
-        .poc-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .poc-section h2 {
-            margin-bottom: 30px;
-        }
-
-        .poc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .poc-card {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            animation: slideUp 0.6s ease-out;
-        }
-
-        .poc-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
-            border-color: #FFFFFF;
-        }
-
-        .poc-card h3 {
-            font-size: 1.4rem;
-            color: #FFFFFF;
-            margin-bottom: 15px;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .poc-card p {
-            color: #FFFFFF;
-            margin-bottom: 12px;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .poc-label {
-            font-weight: 900;
-            color: #FF851B;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .poc-info {
-            color: #FFFFFF;
-            font-size: 1rem;
-        }
-
-        .poc-email-section {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 30px;
-            text-align: center;
-            animation: slideUp 0.6s ease-out;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .poc-email-section h4 {
-            color: #FF851B;
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .poc-email-section p {
-            color: #FFFFFF;
-            font-size: 1rem;
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-        footer {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 30px 20px;
-            text-align: center;
-            color: #E8E8E8;
-            border-top: 2px solid #FF851B;
-        }
-
-        /* ============================================
-           RESPONSIVE (MOBILE)
-           ============================================ */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-                letter-spacing: 1px;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-                letter-spacing: 1px;
-            }
-
-            .project-images {
-                grid-template-columns: 1fr;
-            }
-
-            .poc-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form {
-                padding: 25px;
-            }
-
-            .projects-subsection h3 {
-                font-size: 1.4rem;
-            }
-
-            .faq-question {
-                font-size: 1.1rem;
-            }
-
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-
-            .project-item {
-                padding: 25px;
-            }
-
-            .project-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .project-header h3 {
-                margin-bottom: 15px;
-                margin-right: 0;
-            }
-
-            .project-content p {
-                font-size: 1rem;
-            }
-
-            .presentation-container,
-            .faq-container,
-            .contact-container,
-            .poc-container {
-                padding: 0 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- ============================================
          NAVIGATION
          ============================================ -->
     <nav>
-        <a onclick="showSection('accueil')" class="nav-link active" style="cursor: pointer;">Accueil</a>
-        <a onclick="showSection('projets')" class="nav-link" style="cursor: pointer;">Projets</a>
+        <img src="images/logo.png" alt="LABNUM CECMED Logo" class="nav-logo">
+        <div class="nav-links">
+            <a onclick="showSection('accueil')" class="nav-link active">Accueil</a>
+            <a onclick="showSection('projets')" class="nav-link">Projets</a>
+        </div>
     </nav>
 
     <!-- ============================================
@@ -862,10 +213,9 @@
                         <p>
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
-                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
                         <div class="project-images">
-                            <!-- <img src="images/projet1-1.jpg" alt="Projet 1 - Image 1" class="project-image"> -->
-                            <!-- <img src="images/projet1-2.jpg" alt="Projet 1 - Image 2" class="project-image"> -->
+                            <!-- <img src="images/projects/projet1-1.jpg" alt="Projet 1 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projects/projet1-2.jpg" alt="Projet 1 - Image 2" class="project-image"> -->
                         </div>
                     </div>
                 </div>
@@ -883,10 +233,9 @@
                         <p>
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem.
                         </p>
-                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
                         <div class="project-images">
-                            <!-- <img src="images/projet2-1.jpg" alt="Projet 2 - Image 1" class="project-image"> -->
-                            <!-- <img src="images/projet2-2.jpg" alt="Projet 2 - Image 2" class="project-image"> -->
+                            <!-- <img src="images/projects/projet2-1.jpg" alt="Projet 2 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projects/projet2-2.jpg" alt="Projet 2 - Image 2" class="project-image"> -->
                         </div>
                     </div>
                 </div>
@@ -904,10 +253,9 @@
                         <p>
                             Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam quis nostrum exercitationem ullam corporis.
                         </p>
-                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
                         <div class="project-images">
-                            <!-- <img src="images/projet3-1.jpg" alt="Projet 3 - Image 1" class="project-image"> -->
-                            <!-- <img src="images/projet3-2.jpg" alt="Projet 3 - Image 2" class="project-image"> -->
+                            <!-- <img src="images/projects/projet3-1.jpg" alt="Projet 3 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projects/projet3-2.jpg" alt="Projet 3 - Image 2" class="project-image"> -->
                         </div>
                     </div>
                 </div>
@@ -931,10 +279,9 @@
                         <p>
                             Cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio.
                         </p>
-                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
                         <div class="project-images">
-                            <!-- <img src="images/projet4-1.jpg" alt="Projet 4 - Image 1" class="project-image"> -->
-                            <!-- <img src="images/projet4-2.jpg" alt="Projet 4 - Image 2" class="project-image"> -->
+                            <!-- <img src="images/projects/projet4-1.jpg" alt="Projet 4 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projects/projet4-2.jpg" alt="Projet 4 - Image 2" class="project-image"> -->
                         </div>
                     </div>
                 </div>
@@ -952,10 +299,9 @@
                         <p>
                             Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum.
                         </p>
-                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
                         <div class="project-images">
-                            <!-- <img src="images/projet5-1.jpg" alt="Projet 5 - Image 1" class="project-image"> -->
-                            <!-- <img src="images/projet5-2.jpg" alt="Projet 5 - Image 2" class="project-image"> -->
+                            <!-- <img src="images/projects/projet5-1.jpg" alt="Projet 5 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projects/projet5-2.jpg" alt="Projet 5 - Image 2" class="project-image"> -->
                         </div>
                     </div>
                 </div>
@@ -973,10 +319,9 @@
                         <p>
                             Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.
                         </p>
-                        <!-- OPTIONNEL : AJOUTER DES IMAGES -->
                         <div class="project-images">
-                            <!-- <img src="images/projet6-1.jpg" alt="Projet 6 - Image 1" class="project-image"> -->
-                            <!-- <img src="images/projet6-2.jpg" alt="Projet 6 - Image 2" class="project-image"> -->
+                            <!-- <img src="images/projects/projet6-1.jpg" alt="Projet 6 - Image 1" class="project-image"> -->
+                            <!-- <img src="images/projects/projet6-2.jpg" alt="Projet 6 - Image 2" class="project-image"> -->
                         </div>
                     </div>
                 </div>
@@ -993,29 +338,6 @@
         <p>&copy; 2026 LABNUM CECMED - Innovation & Défense</p>
     </footer>
 
-    <!-- ============================================
-         JAVASCRIPT : GESTION DES SECTIONS
-         ============================================ -->
-    <script>
-        // AFFICHER/CACHER LES SECTIONS
-        function showSection(sectionName) {
-            // Cacher toutes les sections
-            document.getElementById('accueil-section').style.display = 'none';
-            document.getElementById('projets-section').classList.remove('active');
-
-            // Afficher la section demandée
-            if (sectionName === 'accueil') {
-                document.getElementById('accueil-section').style.display = 'block';
-                document.querySelector('[onclick="showSection(\'accueil\')"]').classList.add('active');
-                document.querySelector('[onclick="showSection(\'projets\')"]').classList.remove('active');
-                window.scrollTo(0, 0);
-            } else if (sectionName === 'projets') {
-                document.getElementById('projets-section').classList.add('active');
-                document.querySelector('[onclick="showSection(\'accueil\')"]').classList.remove('active');
-                document.querySelector('[onclick="showSection(\'projets\')"]').classList.add('active');
-                window.scrollTo(0, 0);
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
