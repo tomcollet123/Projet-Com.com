@@ -34,6 +34,43 @@
         }
 
         /* ============================================
+           NAVIGATION
+           ============================================ */
+        nav {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #FF851B;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 20px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #FF851B;
+            text-shadow: 0 0 10px rgba(255, 133, 27, 0.6);
+        }
+
+        nav a.active {
+            color: #FF851B;
+            border-bottom: 3px solid #FF851B;
+            padding-bottom: 5px;
+        }
+
+        /* ============================================
            SECTION HERO (TITRE PRINCIPAL)
            ============================================ */
         .hero {
@@ -56,7 +93,6 @@
             letter-spacing: 3px;
         }
 
-        /* Couleur orange pour "CECMED" */
         .hero-content h1 .cecmed {
             color: #FF851B;
         }
@@ -82,7 +118,6 @@
             text-align: center;
         }
 
-        /* Version avec accent orange pour certains titres */
         h2 .highlight {
             color: #FF851B;
         }
@@ -105,7 +140,6 @@
             margin-bottom: 30px;
         }
 
-        /* Barre de séparation décorative */
         .divider {
             width: 100px;
             height: 4px;
@@ -125,11 +159,102 @@
         }
 
         /* ============================================
+           SECTION APPEL À L'ACTION (PROJETS)
+           ============================================ */
+        .cta-section {
+            background: #001F3F;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #FF851B;
+            color: #001F3F;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background: #FFFFFF;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 133, 27, 0.4);
+        }
+
+        /* ============================================
+           SECTION FAQ (QUESTIONS FRÉQUENTES)
+           ============================================ */
+        .faq-section {
+            background: #001F3F;
+            padding: 100px 20px;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .faq-item {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #FF851B;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .faq-answer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-left: 4px solid #FF851B;
+            padding: 25px;
+            border-radius: 5px;
+            color: #E8E8E8;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* ============================================
            SECTION PROJETS
            ============================================ */
         .projects-section {
             background: #001F3F;
             padding: 100px 20px;
+            display: none;
+        }
+
+        .projects-section.active {
+            display: block;
         }
 
         .projects-container {
@@ -141,7 +266,6 @@
             margin-bottom: 30px;
         }
 
-        /* Sous-section (En Cours / Opérationnel) */
         .projects-subsection {
             margin-bottom: 80px;
         }
@@ -158,12 +282,10 @@
             letter-spacing: 1px;
         }
 
-        /* Bordure verte pour les projets opérationnels */
         .projects-subsection.operationnel h3 {
             border-bottom-color: #00CC44;
         }
 
-        /* Grille des projets (3 colonnes responsive) */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -171,7 +293,6 @@
             margin-top: 0;
         }
 
-        /* Style des cartes de projets */
         .project-card {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 2px solid #FF851B;
@@ -187,14 +308,12 @@
             cursor: pointer;
         }
 
-        /* Effet au survol des cartes */
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
             border-color: #FFFFFF;
         }
 
-        /* Style pour les projets opérationnels */
         .project-card.operationnel {
             border-color: #00CC44;
         }
@@ -203,7 +322,6 @@
             box-shadow: 0 15px 40px rgba(0, 204, 68, 0.3);
         }
 
-        /* Badge de statut */
         .project-status {
             display: inline-block;
             padding: 8px 15px;
@@ -244,7 +362,6 @@
             flex-grow: 1;
         }
 
-        /* Footer de la carte (barre du bas) */
         .project-footer {
             padding-top: 15px;
             margin-top: 15px;
@@ -256,65 +373,6 @@
 
         .project-card.operationnel .project-footer {
             color: #00CC44;
-        }
-
-        /* ============================================
-           SECTION FAQ (QUESTIONS FRÉQUENTES)
-           ============================================ */
-        .faq-section {
-            background: #001F3F;
-            padding: 100px 20px;
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-section h2 {
-            margin-bottom: 30px;
-        }
-
-        /* Conteneur des FAQ */
-        .faq-items {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .faq-item {
-            animation: slideUp 0.6s ease-out;
-        }
-
-        /* Titre de la question */
-        .faq-question {
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #FF851B;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Zone de réponse */
-        .faq-answer {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border-left: 4px solid #FF851B;
-            padding: 25px;
-            border-radius: 5px;
-            color: #E8E8E8;
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        /* Style pour les images dans les FAQ */
-        .faq-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-top: 20px;
-            border: 2px solid #FF851B;
-            display: block;
         }
 
         /* ============================================
@@ -334,7 +392,6 @@
             margin-bottom: 30px;
         }
 
-        /* Conteneur du formulaire */
         .contact-form {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
             border: 2px solid #FF851B;
@@ -342,7 +399,6 @@
             padding: 40px;
         }
 
-        /* Groupe de champ (label + input) */
         .form-group {
             margin-bottom: 25px;
         }
@@ -356,7 +412,6 @@
             font-size: 0.9rem;
         }
 
-        /* Styles pour inputs et textarea */
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -370,7 +425,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Focus sur les inputs */
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: #FF851B;
@@ -384,13 +438,11 @@
             resize: vertical;
         }
 
-        /* Placeholder styling */
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Bouton d'envoi */
         .btn-submit {
             width: 100%;
             padding: 14px;
@@ -429,7 +481,6 @@
             margin-bottom: 30px;
         }
 
-        /* Grille des contacts */
         .poc-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -437,7 +488,6 @@
             margin-top: 40px;
         }
 
-        /* Carte de contact */
         .poc-card {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 2px solid #FF851B;
@@ -482,7 +532,6 @@
             font-size: 1rem;
         }
 
-        /* Section email commune */
         .poc-email-section {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 2px solid #FF851B;
@@ -541,7 +590,6 @@
             margin: 40px auto;
         }
 
-        /* Bouton fermer modal */
         .close-modal {
             position: absolute;
             top: 20px;
@@ -560,7 +608,6 @@
             color: #FFFFFF;
         }
 
-        /* Titre du modal */
         .modal-content h2 {
             color: #FF851B;
             margin-bottom: 30px;
@@ -570,7 +617,6 @@
             letter-spacing: 2px;
         }
 
-        /* Image dans le modal */
         .modal-image {
             max-width: 100%;
             height: auto;
@@ -580,7 +626,6 @@
             display: block;
         }
 
-        /* Paragraphes du modal */
         .modal-content p {
             color: #E8E8E8;
             line-height: 1.8;
@@ -588,7 +633,6 @@
             font-size: 1.05rem;
         }
 
-        /* Statut dans le modal */
         .modal-status {
             display: inline-block;
             padding: 10px 20px;
@@ -672,270 +716,270 @@
             .close-modal {
                 font-size: 2rem;
             }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
     <!-- ============================================
-         SECTION 1 : HERO (TITRE PRINCIPAL)
+         NAVIGATION
          ============================================ -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>LABNUM <span class="cecmed">CECMED</span></h1>
-            <p>Innovation & Défense</p>
-        </div>
-    </header>
+    <nav>
+        <a onclick="showSection('accueil')" class="nav-link active" style="cursor: pointer;">Accueil</a>
+        <a onclick="showSection('projets')" class="nav-link" style="cursor: pointer;">Projets</a>
+    </nav>
 
     <!-- ============================================
-         SECTION 2 : PRÉSENTATION
+         SECTION ACCUEIL
          ============================================ -->
-    <section class="presentation">
-        <div class="presentation-container">
-            <h2>Qui nous <span class="highlight">sommes</span></h2>
-            <div class="divider"></div>
-            
-            <p>
-                LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. 
-                Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains, 
-                en combinant expertise technique et vision stratégique.
-            </p>
-            <p>
-                Notre mission est de créer des outils et des systèmes qui propulsent les organisations vers l'avenir, 
-                en mettant l'accent sur la sécurité, la performance et l'innovation durable.
-            </p>
-        </div>
-    </section>
+    <div id="accueil-section" class="accueil-section">
+
+        <!-- HERO -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>LABNUM <span class="cecmed">CECMED</span></h1>
+                <p>Innovation & Défense</p>
+            </div>
+        </header>
+
+        <!-- PRÉSENTATION -->
+        <section class="presentation">
+            <div class="presentation-container">
+                <h2>Qui <span class="highlight">sommes-nous ?</span></h2>
+                <div class="divider"></div>
+                
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </section>
+
+        <!-- APPEL À L'ACTION -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>Prêt à voir nos <span class="highlight">Projets ?</span></h2>
+                <div class="divider"></div>
+                <button class="cta-button" onclick="showSection('projets')">Voir les Projets →</button>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2>Questions <span class="highlight">Fréquentes</span></h2>
+                <div class="divider"></div>
+                <div class="faq-items">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Quid est Lorem Ipsum ?</div>
+                        <div class="faq-answer">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Quae sunt dominii nostri ?</div>
+                        <div class="faq-answer">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Quomodo possum nobiscum laborare ?</div>
+                        <div class="faq-answer">
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Quid de proiectis vestris ?</div>
+                        <div class="faq-answer">
+                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Num servitia consultiva offeritis ?</div>
+                        <div class="faq-answer">
+                            Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Quomodo ordinatae sunt turmae vestrae ?</div>
+                        <div class="faq-answer">
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Quae certificationes habetis ?</div>
+                        <div class="faq-answer">
+                            Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio nam libero tempore, cum soluta nobis est eligendi optio.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <h2>Nous <span class="highlight">Contacter</span></h2>
+                <div class="divider"></div>
+                
+                <form class="contact-form" action="mailto:cecmed-jdata-chef.contact.fct@intradef.gouv.fr" method="POST" enctype="text/plain">
+                    
+                    <div class="form-group">
+                        <label>Nom *</label>
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Sujet *</label>
+                        <input type="text" name="sujet" placeholder="Sujet du message" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" placeholder="Votre message..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">📧 Envoyer</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- POC -->
+        <section class="poc-section">
+            <div class="poc-container">
+                <h2><span class="highlight">POC</span></h2>
+                <div class="divider"></div>
+                
+                <div class="poc-grid">
+                    <div class="poc-card">
+                        <h3>ASC A N1</h3>
+                        <p>
+                            <span class="poc-label">Nom</span>
+                            <span class="poc-info">Alexia Rabel</span>
+                        </p>
+                        <p>
+                            <span class="poc-label">Numéro</span>
+                            <span class="poc-info">864 73 20 056</span>
+                        </p>
+                    </div>
+
+                    <div class="poc-card">
+                        <h3>Lieutenant de Vaisseaux</h3>
+                        <p>
+                            <span class="poc-label">Nom</span>
+                            <span class="poc-info">Chicote</span>
+                        </p>
+                        <p>
+                            <span class="poc-label">Numéro</span>
+                            <span class="poc-info">864 73 20 056</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="poc-email-section">
+                    <h4>Email de Contact</h4>
+                    <p>cecmed-jdata-chef.contact.fct@intradef.gouv.fr</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
 
     <!-- ============================================
-         SECTION 3 : PROJETS
+         SECTION PROJETS
          ============================================ -->
-    <section class="projects-section">
+    <div id="projets-section" class="projects-section">
         <div class="projects-container">
             <h2>Nos <span class="highlight">Projets</span></h2>
             <div class="divider"></div>
 
-            <!-- ========== PROJETS EN COURS ========== -->
+            <!-- PROJETS EN COURS -->
             <div class="projects-subsection">
                 <h3>⏳ Projets En Cours</h3>
                 <div class="projects-grid">
                     
-                    <!-- PROJET 1 -->
-                    <div class="project-card" onclick="openModal('Navigatio Digitalis', 'Innovation technologique avancée pour la transformation numérique.', 'Navigatio Digitalis est notre projet phare de transformation numérique. Il vise à intégrer les dernières technologies dans tous les processus organisationnels. Ce projet implique une refonte complète de l\'infrastructure informatique, l\'adoption de solutions cloud scalables, et la mise en place de systèmes de gestion de données avancés.', '', 'En cours')">
+                    <div class="project-card" onclick="openModal('Navigatio Digitalis', 'Transformatio digitalis', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '', 'En cours')">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Navigatio Digitalis</h3>
-                            <p>Innovation technologique avancée pour la transformation numérique.</p>
+                            <p>Transformatio digitalis innovativa</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Clicca pro maiores nuntias →</div>
                     </div>
 
-                    <!-- PROJET 2 -->
-                    <div class="project-card" onclick="openModal('Fortitudo Systematis', 'Systèmes de défense robustes et innovants.', 'Fortitudo Systematis concentre nos efforts sur la création de systèmes de défense hautement sécurisés. Le projet englobe le développement de solutions de cybersécurité de pointe, des protocoles de chiffrement avancés, et des systèmes de détection des menaces en temps réel. Notre objectif est de garantir la protection maximale contre les risques numériques.', '', 'En cours')">
+                    <div class="project-card" onclick="openModal('Fortitudo Systematis', 'Defensio et securitas', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '', 'En cours')">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Fortitudo Systematis</h3>
-                            <p>Systèmes de défense robustes et innovants.</p>
+                            <p>Systemata defensionis robusta</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Clicca pro maiores nuntias →</div>
                     </div>
 
-                    <!-- PROJET 3 -->
-                    <div class="project-card" onclick="openModal('Nexus Cognoscentia', 'Connexion des savoirs et intelligence artificielle.', 'Nexus Cognoscentia représente notre engagement envers l\'intelligence artificielle et l\'apprentissage automatique. Ce projet vise à créer un écosystème intégré où les données sont transformées en intelligence actionnable. Nous développons des algorithmes sophistiqués pour analyser les tendances, prédire les comportements, et optimiser les décisions stratégiques.', '', 'En cours')">
+                    <div class="project-card" onclick="openModal('Nexus Cognoscentia', 'Intelligentia artificialis', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', '', 'En cours')">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Nexus Cognoscentia</h3>
-                            <p>Connexion des savoirs et intelligence artificielle.</p>
+                            <p>Connexio sapientiae et machinae</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Clicca pro maiores nuntias →</div>
                     </div>
                 </div>
             </div>
 
-            <!-- ========== PROJETS OPÉRATIONNELS ========== -->
+            <!-- PROJETS OPÉRATIONNELS -->
             <div class="projects-subsection operationnel">
                 <h3>✅ Projets Opérationnels</h3>
                 <div class="projects-grid">
                     
-                    <!-- PROJET 4 -->
-                    <div class="project-card operationnel" onclick="openModal('Aurora Technologia', 'Lumière de l\'innovation et leadership technologique.', 'Aurora Technologia est notre phare d\'innovation technologique. Ce projet a atteint la phase opérationnelle complète avec des résultats mesurables. Nous continuons d\'innover et d\'optimiser les solutions existantes pour maintenir notre position de leader. Le projet génère un impact positif significatif sur tous nos domaines d\'activité.', '', 'Opérationnel')">
+                    <div class="project-card operationnel" onclick="openModal('Aurora Technologia', 'Lux innovationis', 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.', '', 'Opérationnel')">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Aurora Technologia</h3>
-                            <p>Lumière de l'innovation et leadership technologique.</p>
+                            <p>Lux sapientiae technologicae</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Clicca pro maiores nuntias →</div>
                     </div>
 
-                    <!-- PROJET 5 -->
-                    <div class="project-card operationnel" onclick="openModal('Sapientia Aeterna', 'Sagesse éternelle et expertise reconnue.', 'Sapientia Aeterna représente l\'accumulation de notre savoir-faire et de notre expertise. Ce projet opérationnel encapsule les meilleures pratiques développées au fil des années. Nous partageons cette sagesse avec nos partenaires et clients, créant une base solide pour les innovations futures. C\'est un témoignage de notre engagement envers la continuité et l\'excellence.', '', 'Opérationnel')">
+                    <div class="project-card operationnel" onclick="openModal('Sapientia Aeterna', 'Peritia sempiterna', 'Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut quid ex ea commodi consequatur.', '', 'Opérationnel')">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Sapientia Aeterna</h3>
-                            <p>Sagesse éternelle et expertise reconnue.</p>
+                            <p>Cognitio et excellentia perennis</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Clicca pro maiores nuntias →</div>
                     </div>
 
-                    <!-- PROJET 6 -->
-                    <div class="project-card operationnel" onclick="openModal('Pax et Securitas', 'Paix et sécurité dans l\'environnement numérique.', 'Pax et Securitas est notre initiative majeure pour la sécurité numérique. Ce projet opérationnel fournit une protection complète contre les menaces évolutives. Nous maintienons une vigilance constante, mettons à jour nos défenses régulièrement, et collaborons avec des experts en sécurité. Notre objectif est de garantir la paix et la tranquillité numériques.', '', 'Opérationnel')">
+                    <div class="project-card operationnel" onclick="openModal('Pax et Securitas', 'Salus digitalis', 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa.', '', 'Opérationnel')">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Pax et Securitas</h3>
-                            <p>Paix et sécurité dans l'environnement numérique.</p>
+                            <p>Tutela in rete digitali</p>
                         </div>
-                        <div class="project-footer">Cliquer pour plus d'infos →</div>
+                        <div class="project-footer">Clicca pro maiores nuntias →</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ============================================
-         SECTION 4 : FAQ (QUESTIONS FRÉQUENTES)
-         ============================================ -->
-    <section class="faq-section">
-        <div class="faq-container">
-            <h2>Questions <span class="highlight">Fréquentes</span></h2>
-            <div class="divider"></div>
-            <div class="faq-items">
-                
-                <!-- FAQ 1 -->
-                <div class="faq-item">
-                    <div class="faq-question">Qu'est-ce que LABNUM CECMED ?</div>
-                    <div class="faq-answer">
-                        LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains.
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item">
-                    <div class="faq-question">Quels sont vos domaines d'expertise ?</div>
-                    <div class="faq-answer">
-                        Nos domaines couvrent l'innovation technologique, cybersécurité, intelligence artificielle, architecture numérique et transformation digitale.
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item">
-                    <div class="faq-question">Comment puis-je collaborer avec vous ?</div>
-                    <div class="faq-answer">
-                        Vous pouvez nous contacter via le formulaire de contact ci-dessous ou nous envoyer un email avec vos propositions.
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="faq-item">
-                    <div class="faq-question">Quels sont vos projets actuels ?</div>
-                    <div class="faq-answer">
-                        Consultez notre section 'Nos Projets' pour découvrir nos initiatives actuelles et futures.
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="faq-item">
-                    <div class="faq-question">Offrez-vous des services de consultation ?</div>
-                    <div class="faq-answer">
-                        Oui, nous offrons des services de consultation spécialisés pour les organisations cherchant à moderniser leurs infrastructures.
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="faq-item">
-                    <div class="faq-question">Comment sont structurés vos équipes ?</div>
-                    <div class="faq-answer">
-                        Nos équipes sont organisées par domaines d'expertise avec des spécialistes hautement qualifiés.
-                    </div>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="faq-item">
-                    <div class="faq-question">Quelles certifications possédez-vous ?</div>
-                    <div class="faq-answer">
-                        Nous possédons plusieurs certifications internationales ISO pour garantir la qualité et la sécurité de nos services.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         SECTION 5 : CONTACT (FORMULAIRE)
-         ============================================ -->
-    <section class="contact-section">
-        <div class="contact-container">
-            <h2>Nous <span class="highlight">Contacter</span></h2>
-            <div class="divider"></div>
-            
-            <form class="contact-form" action="mailto:cecmed-jdata-chef.contact.fct@intradef.gouv.fr" method="POST" enctype="text/plain">
-                
-                <div class="form-group">
-                    <label>Nom *</label>
-                    <input type="text" name="nom" placeholder="Votre nom" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Email *</label>
-                    <input type="email" name="email" placeholder="votre@email.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Sujet *</label>
-                    <input type="text" name="sujet" placeholder="Sujet du message" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Message *</label>
-                    <textarea name="message" placeholder="Votre message..." required></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">📧 Envoyer</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- ============================================
-         SECTION 6 : POC
-         ============================================ -->
-    <section class="poc-section">
-        <div class="poc-container">
-            <h2><span class="highlight">POC</span></h2>
-            <div class="divider"></div>
-            
-            <div class="poc-grid">
-                <!-- CONTACT 1 -->
-                <div class="poc-card">
-                    <h3>ASC A N1</h3>
-                    <p>
-                        <span class="poc-label">Nom</span>
-                        <span class="poc-info">Alexia Rabel</span>
-                    </p>
-                    <p>
-                        <span class="poc-label">Numéro</span>
-                        <span class="poc-info">864 73 20 056</span>
-                    </p>
-                </div>
-
-                <!-- CONTACT 2 -->
-                <div class="poc-card">
-                    <h3>Lieutenant de Vaisseaux</h3>
-                    <p>
-                        <span class="poc-label">Nom</span>
-                        <span class="poc-info">Chicote</span>
-                    </p>
-                    <p>
-                        <span class="poc-label">Numéro</span>
-                        <span class="poc-info">864 73 20 056</span>
-                    </p>
-                </div>
-            </div>
-
-            <!-- EMAIL COMMUNE -->
-            <div class="poc-email-section">
-                <h4>Email de Contact</h4>
-                <p>cecmed-jdata-chef.contact.fct@intradef.gouv.fr</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- ============================================
          FOOTER
@@ -962,9 +1006,30 @@
     </div>
 
     <!-- ============================================
-         JAVASCRIPT : GESTION DES POP-UPS
+         JAVASCRIPT : GESTION DES SECTIONS & POP-UPS
          ============================================ -->
     <script>
+        // AFFICHER/CACHER LES SECTIONS
+        function showSection(sectionName) {
+            // Cacher toutes les sections
+            document.getElementById('accueil-section').style.display = 'none';
+            document.getElementById('projets-section').classList.remove('active');
+
+            // Afficher la section demandée
+            if (sectionName === 'accueil') {
+                document.getElementById('accueil-section').style.display = 'block';
+                document.querySelector('[onclick="showSection(\'accueil\')"]').classList.add('active');
+                document.querySelector('[onclick="showSection(\'projets\')"]').classList.remove('active');
+            } else if (sectionName === 'projets') {
+                document.getElementById('projets-section').classList.add('active');
+                document.querySelector('[onclick="showSection(\'accueil\')"]').classList.remove('active');
+                document.querySelector('[onclick="showSection(\'projets\')"]').classList.add('active');
+                // Scroller vers le haut
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // OUVRIR LE MODAL
         function openModal(titre, descCourte, descLongue, image, statut) {
             document.getElementById('modalTitle').textContent = titre;
             document.getElementById('modalDescription').textContent = descLongue;
@@ -989,10 +1054,12 @@
             document.getElementById('projectModal').classList.add('active');
         }
 
+        // FERMER LE MODAL
         function closeModal() {
             document.getElementById('projectModal').classList.remove('active');
         }
 
+        // FERMER EN CLIQUANT DEHORS
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('projectModal');
             if (event.target == modal) {
@@ -1000,6 +1067,7 @@
             }
         });
 
+        // FERMER AVEC ÉCHAP
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeModal();
