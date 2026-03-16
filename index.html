@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LABNUM CECMED - Innovation & Défense</title>
     <style>
+        /* ============================================
+           RESET & VARIABLES DE BASE
+           ============================================ */
         * {
             margin: 0;
             padding: 0;
@@ -18,11 +21,21 @@
             line-height: 1.6;
         }
 
-        /* ANIMATIONS */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeIn { 
+            from { opacity: 0; } 
+            to { opacity: 1; } 
+        }
+        @keyframes slideUp { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
 
-        /* HERO */
+        /* ============================================
+           SECTION HERO (TITRE PRINCIPAL)
+           ============================================ */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -42,6 +55,7 @@
             text-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
         }
 
+        /* Couleur orange pour "CECMED" */
         .hero-content h1 .cecmed {
             color: #FF851B;
         }
@@ -54,7 +68,9 @@
             text-transform: uppercase;
         }
 
-        /* PRÉSENTATION */
+        /* ============================================
+           SECTION PRÉSENTATION (QUI NOUS SOMMES)
+           ============================================ */
         .presentation {
             background: #001F3F;
             padding: 100px 20px;
@@ -74,6 +90,7 @@
             text-transform: uppercase;
         }
 
+        /* Barre de séparation décorative */
         .divider {
             width: 100px;
             height: 4px;
@@ -92,7 +109,9 @@
             margin-right: auto;
         }
 
-        /* PROJETS */
+        /* ============================================
+           SECTION PROJETS
+           ============================================ */
         .projects-section {
             background: #001F3F;
             padding: 100px 20px;
@@ -112,6 +131,7 @@
             text-align: center;
         }
 
+        /* Sous-section (En Cours / Opérationnel) */
         .projects-subsection {
             margin-bottom: 80px;
         }
@@ -125,10 +145,12 @@
             display: inline-block;
         }
 
+        /* Bordure verte pour les projets opérationnels */
         .projects-subsection.operationnel h3 {
             border-bottom-color: #00CC44;
         }
 
+        /* Grille des projets (3 colonnes responsive) */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -136,6 +158,7 @@
             margin-top: 0;
         }
 
+        /* Style des cartes de projets */
         .project-card {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 2px solid #FF851B;
@@ -148,14 +171,17 @@
             justify-content: space-between;
             height: 100%;
             min-height: 280px;
+            cursor: pointer;
         }
 
+        /* Effet au survol des cartes */
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
             border-color: #FFFFFF;
         }
 
+        /* Style pour les projets opérationnels */
         .project-card.operationnel {
             border-color: #00CC44;
         }
@@ -164,6 +190,7 @@
             box-shadow: 0 15px 40px rgba(0, 204, 68, 0.3);
         }
 
+        /* Badge de statut */
         .project-status {
             display: inline-block;
             padding: 8px 15px;
@@ -204,6 +231,7 @@
             flex-grow: 1;
         }
 
+        /* Footer de la carte (barre du bas) */
         .project-footer {
             padding-top: 15px;
             margin-top: 15px;
@@ -217,7 +245,9 @@
             color: #00CC44;
         }
 
-        /* FAQ */
+        /* ============================================
+           SECTION FAQ (QUESTIONS FRÉQUENTES)
+           ============================================ */
         .faq-section {
             background: #001F3F;
             padding: 100px 20px;
@@ -237,6 +267,7 @@
             text-align: center;
         }
 
+        /* Conteneur des FAQ */
         .faq-items {
             display: flex;
             flex-direction: column;
@@ -247,6 +278,7 @@
             animation: slideUp 0.6s ease-out;
         }
 
+        /* Titre de la question */
         .faq-question {
             font-size: 1.3rem;
             font-weight: 900;
@@ -256,6 +288,7 @@
             letter-spacing: 1px;
         }
 
+        /* Zone de réponse */
         .faq-answer {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
             border-left: 4px solid #FF851B;
@@ -266,6 +299,7 @@
             font-size: 1rem;
         }
 
+        /* Style pour les images dans les FAQ */
         .faq-image {
             max-width: 100%;
             height: auto;
@@ -275,7 +309,9 @@
             display: block;
         }
 
-        /* CONTACT */
+        /* ============================================
+           SECTION CONTACT (FORMULAIRE)
+           ============================================ */
         .contact-section {
             background: #001F3F;
             padding: 100px 20px;
@@ -295,6 +331,7 @@
             text-align: center;
         }
 
+        /* Conteneur du formulaire */
         .contact-form {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
             border: 2px solid #FF851B;
@@ -302,6 +339,7 @@
             padding: 40px;
         }
 
+        /* Groupe de champ (label + input) */
         .form-group {
             margin-bottom: 25px;
         }
@@ -315,6 +353,7 @@
             font-size: 0.9rem;
         }
 
+        /* Styles pour inputs et textarea */
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -328,6 +367,7 @@
             transition: all 0.3s ease;
         }
 
+        /* Focus sur les inputs */
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: #FF851B;
@@ -341,11 +381,13 @@
             resize: vertical;
         }
 
+        /* Placeholder styling */
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
 
+        /* Bouton d'envoi */
         .btn-submit {
             width: 100%;
             padding: 14px;
@@ -367,7 +409,113 @@
             box-shadow: 0 8px 20px rgba(255, 133, 27, 0.4);
         }
 
-        /* FOOTER */
+        /* ============================================
+           MODAL (POP-UP DES PROJETS)
+           ============================================ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.98) 0%, rgba(0, 31, 63, 0.99) 100%);
+            padding: 50px;
+            border-radius: 10px;
+            border-left: 5px solid #FF851B;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            margin: 40px auto;
+        }
+
+        /* Bouton fermer modal */
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #FF851B;
+            background: none;
+            border: none;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            color: #FFFFFF;
+        }
+
+        /* Titre du modal */
+        .modal-content h2 {
+            color: #FF851B;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        /* Image dans le modal */
+        .modal-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #FF851B;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        /* Paragraphes du modal */
+        .modal-content p {
+            color: #E8E8E8;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* Statut dans le modal */
+        .modal-status {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .modal-status.encours {
+            background: rgba(255, 133, 27, 0.3);
+            color: #FF851B;
+            border: 2px solid #FF851B;
+        }
+
+        .modal-status.operationnel {
+            background: rgba(0, 204, 68, 0.3);
+            color: #00CC44;
+            border: 2px solid #00CC44;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
         footer {
             background: rgba(0, 0, 0, 0.5);
             padding: 30px 20px;
@@ -376,7 +524,9 @@
             border-top: 2px solid #FF851B;
         }
 
-        /* RESPONSIVE */
+        /* ============================================
+           RESPONSIVE (MOBILE)
+           ============================================ */
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -408,23 +558,43 @@
             .faq-question {
                 font-size: 1.1rem;
             }
+
+            .modal-content {
+                padding: 30px;
+                width: 95%;
+            }
+
+            .modal-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .close-modal {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- HERO -->
+    <!-- ============================================
+         SECTION 1 : HERO (TITRE PRINCIPAL)
+         ============================================ -->
     <header class="hero">
         <div class="hero-content">
+            <!-- CHANGE LE TITRE ICI -->
             <h1>LABNUM <span class="cecmed">CECMED</span></h1>
             <p>Innovation & Défense</p>
         </div>
     </header>
 
-    <!-- PRÉSENTATION -->
+    <!-- ============================================
+         SECTION 2 : PRÉSENTATION
+         ============================================ -->
     <section class="presentation">
         <div class="presentation-container">
             <h2>Qui nous sommes</h2>
             <div class="divider"></div>
+            
+            <!-- CHANGE LES PARAGRAPHES DE PRÉSENTATION -->
             <p>
                 LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. 
                 Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains, 
@@ -437,129 +607,156 @@
         </div>
     </section>
 
-    <!-- PROJETS -->
+    <!-- ============================================
+         SECTION 3 : PROJETS
+         ============================================ -->
     <section class="projects-section">
         <div class="projects-container">
             <h2>Nos Projets</h2>
             <div class="divider"></div>
 
-            <!-- PROJETS EN COURS -->
+            <!-- ========== PROJETS EN COURS ========== -->
             <div class="projects-subsection">
                 <h3>⏳ Projets En Cours</h3>
                 <div class="projects-grid">
-                    <div class="project-card">
+                    
+                    <!-- PROJET 1 : FORMAT AVEC POP-UP
+                         COMMENT MODIFIER :
+                         - onclick="openModal('TITRE', 'DESC COURTE', 'DESC LONGUE', 'images/photo.png', 'En cours')"
+                         - TITRE : nom du projet (ce qui apparait en gros dans le pop-up)
+                         - DESC COURTE : une ligne dans la carte (ce qui s'affiche sur la carte)
+                         - DESC LONGUE : tout ce que tu veux dans le pop-up (détails, specs, etc.)
+                         - 'images/photo.png' : chemin de l'image (mets '' si pas d'image)
+                         - 'En cours' : statut du projet (garder 'En cours' ou 'Opérationnel')
+                    -->
+                    <div class="project-card" onclick="openModal('Navigatio Digitalis', 'Innovation technologique avancée pour la transformation numérique.', 'Navigatio Digitalis est notre projet phare de transformation numérique. Il vise à intégrer les dernières technologies dans tous les processus organisationnels. Ce projet implique une refonte complète de l\'infrastructure informatique, l\'adoption de solutions cloud scalables, et la mise en place de systèmes de gestion de données avancés.', '', 'En cours')">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Navigatio Digitalis</h3>
                             <p>Innovation technologique avancée pour la transformation numérique.</p>
                         </div>
-                        <div class="project-footer">Projet innovant</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
 
-                    <div class="project-card">
+                    <!-- PROJET 2 -->
+                    <div class="project-card" onclick="openModal('Fortitudo Systematis', 'Systèmes de défense robustes et innovants.', 'Fortitudo Systematis concentre nos efforts sur la création de systèmes de défense hautement sécurisés. Le projet englobe le développement de solutions de cybersécurité de pointe, des protocoles de chiffrement avancés, et des systèmes de détection des menaces en temps réel. Notre objectif est de garantir la protection maximale contre les risques numériques.', '', 'En cours')">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Fortitudo Systematis</h3>
                             <p>Systèmes de défense robustes et innovants.</p>
                         </div>
-                        <div class="project-footer">Projet innovant</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
 
-                    <div class="project-card">
+                    <!-- PROJET 3 -->
+                    <div class="project-card" onclick="openModal('Nexus Cognoscentia', 'Connexion des savoirs et intelligence artificielle.', 'Nexus Cognoscentia représente notre engagement envers l\'intelligence artificielle et l\'apprentissage automatique. Ce projet vise à créer un écosystème intégré où les données sont transformées en intelligence actionnable. Nous développons des algorithmes sophistiqués pour analyser les tendances, prédire les comportements, et optimiser les décisions stratégiques.', '', 'En cours')">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Nexus Cognoscentia</h3>
                             <p>Connexion des savoirs et intelligence artificielle.</p>
                         </div>
-                        <div class="project-footer">Projet innovant</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
 
-                    <div class="project-card">
+                    <!-- PROJET 4 -->
+                    <div class="project-card" onclick="openModal('Velocitas Operandi', 'Rapidité d\'exécution et efficacité opérationnelle.', 'Velocitas Operandi se concentre sur l\'optimisation des processus opérationnels pour une exécution plus rapide et efficace. Ce projet implique l\'automatisation des workflows, la simplification des procédures, et l\'élimination des goulets d\'étranglement. Nous visons à réduire les délais d\'exécution et augmenter la productivité.', '', 'En cours')">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Velocitas Operandi</h3>
                             <p>Rapidité d'exécution et efficacité opérationnelle.</p>
                         </div>
-                        <div class="project-footer">Projet innovant</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
 
-                    <div class="project-card">
+                    <!-- PROJET 5 -->
+                    <div class="project-card" onclick="openModal('Architectura Futuro', 'Architecture du futur et infrastructure scalable.', 'Architectura Futuro définit la vision à long terme de notre infrastructure technologique. Ce projet planifie et construit les fondations pour une croissance durable et scalable. Nous concevons des architectures modulaires, extensibles, et résilientes qui peuvent s\'adapter aux défis futurs sans compromettre la performance.', '', 'En cours')">
                         <div>
                             <span class="project-status status-encours">⏳ En cours</span>
                             <h3>Architectura Futuro</h3>
                             <p>Architecture du futur et infrastructure scalable.</p>
                         </div>
-                        <div class="project-footer">Projet innovant</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
                 </div>
             </div>
 
-            <!-- PROJETS OPÉRATIONNELS -->
+            <!-- ========== PROJETS OPÉRATIONNELS ========== -->
             <div class="projects-subsection operationnel">
                 <h3>✅ Projets Opérationnels</h3>
                 <div class="projects-grid">
-                    <div class="project-card operationnel">
+                    
+                    <!-- PROJET 6 : MÊME FORMAT, STATUT "Opérationnel" -->
+                    <div class="project-card operationnel" onclick="openModal('Aurora Technologia', 'Lumière de l\'innovation et leadership technologique.', 'Aurora Technologia est notre phare d\'innovation technologique. Ce projet a atteint la phase opérationnelle complète avec des résultats mesurables. Nous continuons d\'innover et d\'optimiser les solutions existantes pour maintenir notre position de leader. Le projet génère un impact positif significatif sur tous nos domaines d\'activité.', '', 'Opérationnel')">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Aurora Technologia</h3>
                             <p>Lumière de l'innovation et leadership technologique.</p>
                         </div>
-                        <div class="project-footer">Projet opérationnel</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
 
-                    <div class="project-card operationnel">
+                    <!-- PROJET 7 -->
+                    <div class="project-card operationnel" onclick="openModal('Triumpbus Antiquus', 'Victoire technologique et excellence opérationnelle.', 'Triumpbus Antiquus célèbre nos victoires technologiques passées tout en orientant les succès futurs. Ce projet opérationnel démontre notre engagement envers l\'excellence continue. Il intègre les meilleures pratiques, les apprentissages passés, et les innovations futures. Nous construisons sur ce succès pour établir de nouveaux standards d\'excellence.', '', 'Opérationnel')">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Triumpbus Antiquus</h3>
                             <p>Victoire technologique et excellence opérationnelle.</p>
                         </div>
-                        <div class="project-footer">Projet opérationnel</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
 
-                    <div class="project-card operationnel">
+                    <!-- PROJET 8 -->
+                    <div class="project-card operationnel" onclick="openModal('Sapientia Aeterna', 'Sagesse éternelle et expertise reconnue.', 'Sapientia Aeterna représente l\'accumulation de notre savoir-faire et de notre expertise. Ce projet opérationnel encapsule les meilleures pratiques développées au fil des années. Nous partageons cette sagesse avec nos partenaires et clients, créant une base solide pour les innovations futures. C\'est un témoignage de notre engagement envers la continuité et l\'excellence.', '', 'Opérationnel')">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Sapientia Aeterna</h3>
                             <p>Sagesse éternelle et expertise reconnue.</p>
                         </div>
-                        <div class="project-footer">Projet opérationnel</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
 
-                    <div class="project-card operationnel">
+                    <!-- PROJET 9 -->
+                    <div class="project-card operationnel" onclick="openModal('Pax et Securitas', 'Paix et sécurité dans l\'environnement numérique.', 'Pax et Securitas est notre initiative majeure pour la sécurité numérique. Ce projet opérationnel fournit une protection complète contre les menaces évolutives. Nous maintienons une vigilance constante, mettons à jour nos défenses régulièrement, et collaborons avec des experts en sécurité. Notre objectif est de garantir la paix et la tranquillité numériques.', '', 'Opérationnel')">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Pax et Securitas</h3>
                             <p>Paix et sécurité dans l'environnement numérique.</p>
                         </div>
-                        <div class="project-footer">Projet opérationnel</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
 
-                    <div class="project-card operationnel">
+                    <!-- PROJET 10 -->
+                    <div class="project-card operationnel" onclick="openModal('Memoria Gloriosa', 'Mémoire des succès et trajectoire d\'excellence.', 'Memoria Gloriosa préserve l\'héritage de nos succès tout en inspirant nos futures ambitions. Ce projet opérationnel documente nos réalisations, les leçons apprises, et les chemins parcourus. Nous l\'utilisons comme base pour construire une trajectoire d\'excellence durable. Chaque succès passé nous propulse vers des objectifs plus ambitieux.', '', 'Opérationnel')">
                         <div>
                             <span class="project-status status-operationnel">✅ Opérationnel</span>
                             <h3>Memoria Gloriosa</h3>
                             <p>Mémoire des succès et trajectoire d'excellence.</p>
                         </div>
-                        <div class="project-footer">Projet opérationnel</div>
+                        <div class="project-footer">Cliquer pour plus d'infos →</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- ============================================
+         SECTION 4 : FAQ (QUESTIONS FRÉQUENTES)
+         ============================================ -->
     <section class="faq-section">
         <div class="faq-container">
             <h2>Questions Fréquentes</h2>
             <div class="divider"></div>
             <div class="faq-items">
-                <!-- FAQ 1 -->
+                
+                <!-- FAQ 1 : COMMENT MODIFIER
+                     - Change le texte dans <div class="faq-question">...</div>
+                     - Change la réponse dans <div class="faq-answer">...</div>
+                     - Tu peux ajouter une image avec : <img src="images/faq1.png" alt="Description" class="faq-image">
+                -->
                 <div class="faq-item">
                     <div class="faq-question">Qu'est-ce que LABNUM CECMED ?</div>
                     <div class="faq-answer">
                         LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains.
-                        <!-- OPTIONNEL : Ajoute une image si tu veux -->
-                        <!-- <img src="image1.png" alt="LABNUM" class="faq-image"> -->
                     </div>
                 </div>
 
@@ -614,37 +811,131 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- ============================================
+         SECTION 5 : CONTACT (FORMULAIRE)
+         ============================================ -->
     <section class="contact-section">
         <div class="contact-container">
             <h2>Nous Contacter</h2>
             <div class="divider"></div>
-            <!-- CHANGE L'ADRESSE EMAIL ICI : remplace "tonmail@example.com" par ton adresse réelle -->
+            
+            <!-- IMPORTANT : CHANGE L'ADRESSE EMAIL ICI ⚠️
+                 remplace "tonmail@example.com" par ton adresse mail réelle
+            -->
             <form class="contact-form" action="mailto:tonmail@example.com" method="POST" enctype="text/plain">
+                
+                <!-- CHAMP NOM -->
                 <div class="form-group">
                     <label>Nom *</label>
-                    <input type="text" name="nom" required>
+                    <input type="text" name="nom" placeholder="Votre nom" required>
                 </div>
+
+                <!-- CHAMP EMAIL -->
                 <div class="form-group">
                     <label>Email *</label>
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" placeholder="votre@email.com" required>
                 </div>
+
+                <!-- CHAMP SUJET -->
                 <div class="form-group">
                     <label>Sujet *</label>
-                    <input type="text" name="sujet" required>
+                    <input type="text" name="sujet" placeholder="Sujet du message" required>
                 </div>
+
+                <!-- CHAMP MESSAGE -->
                 <div class="form-group">
                     <label>Message *</label>
-                    <textarea name="message" required></textarea>
+                    <textarea name="message" placeholder="Votre message..." required></textarea>
                 </div>
+
+                <!-- BOUTON D'ENVOI -->
                 <button type="submit" class="btn-submit">📧 Envoyer</button>
             </form>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
     <footer>
+        <!-- CHANGE L'ANNÉE ET LE NOM SI BESOIN -->
         <p>&copy; 2026 LABNUM CECMED - Innovation & Défense</p>
     </footer>
+
+    <!-- ============================================
+         MODAL (POP-UP DES PROJETS)
+         ============================================ -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <!-- BOUTON FERMER -->
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            
+            <!-- IMAGE DU PROJET (optionnelle) -->
+            <img id="modalImage" src="" alt="Projet" class="modal-image" style="display: none;">
+            
+            <!-- STATUT DU PROJET -->
+            <span id="modalStatus" class="modal-status"></span>
+            
+            <!-- TITRE DU PROJET -->
+            <h2 id="modalTitle"></h2>
+            
+            <!-- DESCRIPTION LONGUE -->
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         JAVASCRIPT : GESTION DES POP-UPS
+         ============================================ -->
+    <script>
+        // OUVRIR LE MODAL (POP-UP)
+        // onclick="openModal('Titre', 'Desc courte', 'Desc longue', 'images/photo.png', 'En cours')"
+        function openModal(titre, descCourte, descLongue, image, statut) {
+            document.getElementById('modalTitle').textContent = titre;
+            document.getElementById('modalDescription').textContent = descLongue;
+            
+            // Affiche l'image si elle existe
+            const modalImage = document.getElementById('modalImage');
+            if (image && image !== '') {
+                modalImage.src = image;
+                modalImage.style.display = 'block';
+            } else {
+                modalImage.style.display = 'none';
+            }
+            
+            // Affiche le statut avec la bonne couleur
+            const statusBadge = document.getElementById('modalStatus');
+            if (statut === 'Opérationnel') {
+                statusBadge.className = 'modal-status operationnel';
+                statusBadge.textContent = '✅ Opérationnel';
+            } else {
+                statusBadge.className = 'modal-status encours';
+                statusBadge.textContent = '⏳ En cours';
+            }
+            
+            // Ouvre le modal
+            document.getElementById('projectModal').classList.add('active');
+        }
+
+        // FERMER LE MODAL
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+        }
+
+        // FERMER LE MODAL EN CLIQUANT DEHORS
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+
+        // FERMER LE MODAL AVEC ÉCHAP
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
