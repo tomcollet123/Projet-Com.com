@@ -4,296 +4,625 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LABNUM CECMED - Innovation & Défense</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #001F3F;
+            color: #FFFFFF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #001F3F 0%, #002d5c 100%);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
+        }
+
+        .hero-content h1 .cecmed {
+            color: #FF851B;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #E8E8E8;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* PRÉSENTATION */
+        .presentation {
+            background: #001F3F;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .presentation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .presentation h2 {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #FF851B, #00CC44);
+            margin: 0 auto 40px;
+            box-shadow: 0 0 15px rgba(255, 133, 27, 0.6);
+        }
+
+        .presentation p {
+            font-size: 1.1rem;
+            color: #E8E8E8;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* PROJETS */
+        .projects-section {
+            background: #001F3F;
+            padding: 100px 20px;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-section h2 {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
+            border-color: #FFFFFF;
+        }
+
+        .project-card.operationnel {
+            border-color: #00CC44;
+        }
+
+        .project-card.operationnel:hover {
+            box-shadow: 0 15px 40px rgba(0, 204, 68, 0.3);
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .status-encours {
+            background: rgba(255, 133, 27, 0.3);
+            color: #FF851B;
+            border: 1px solid #FF851B;
+        }
+
+        .status-operationnel {
+            background: rgba(0, 204, 68, 0.3);
+            color: #00CC44;
+            border: 1px solid #00CC44;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .project-card p {
+            color: #E8E8E8;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-footer {
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #FF851B;
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: #001F3F;
+            padding: 100px 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 2px solid #FFFFFF;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-weight: 900;
+            color: #FFFFFF;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .faq-icon {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            color: #E8E8E8;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background: #001F3F;
+            padding: 100px 20px;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #FF851B;
+            box-shadow: 0 0 15px rgba(255, 133, 27, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: #FF851B;
+            color: #001F3F;
+            border: none;
+            border-radius: 5px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-submit:hover {
+            background: #FFFFFF;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 133, 27, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px 20px;
+            text-align: center;
+            color: #E8E8E8;
+            border-top: 2px solid #FF851B;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.98) 0%, rgba(0, 31, 63, 0.99) 100%);
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #FF851B;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #FF851B;
+            background: none;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            color: #FFFFFF;
+        }
+
+        .modal-content h2 {
+            color: #FF851B;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        .modal-content p {
+            color: #E8E8E8;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .presentation h2,
+            .projects-section h2,
+            .faq-section h2,
+            .contact-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- HERO -->
     <header class="hero">
         <div class="hero-content">
-            <img src="./logo.png" alt="LABNUM CECMED Logo" class="logo">
             <h1>LABNUM <span class="cecmed">CECMED</span></h1>
-            <p class="tagline">Innovation & Défense</p>
+            <p>Innovation & Défense</p>
         </div>
     </header>
 
-    <main>
-        <!-- PRÉSENTATION -->
-        <section class="presentation">
-            <div class="presentation-content">
-                <img src="./logo.png" alt="Logo" class="logo-section">
-                <div class="presentation-inner">
-                    <h2>Qui Sommes Nous</h2>
-                    <div class="divider"></div>
-                    <p class="presentation-text">
-                        Odysseus, vir fortis et sapiens, iter longum per maria et tempestates periculosas incubuit. Cum socii sui contra fatum navigarent, ipse prudentia et audacia usus est ut terras ignotas exploraret et civitates magnifica aedificata viseret.
-                    </p>
-                    <p class="presentation-text">
-                        Labnum Cecmed sequitur viam similem: innovatio et defensio sunt instrumenta nostra ad novos horizontes aperendos. Sicut Ulysses mare penetravit, nos vias technologiae et sapientiae praebemus ut homines ad destinationes suas perveniant.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJETS -->
-        <section class="projects-section">
-            <div class="projects-header">
-                <h2>Nos Projets</h2>
-                <div class="divider-projects"></div>
-                <button class="admin-btn" id="loginBtn">🔒 Admin</button>
-            </div>
-
-            <div class="projects-orbits-container">
-                <!-- En Cours -->
-                <div class="orbit-system">
-                    <div class="orbit-center">
-                        <div class="center-bubble">
-                            <h3>Projets<br>En Cours</h3>
-                        </div>
-                    </div>
-                    <div class="orbit" id="orbitEnCours"></div>
-                </div>
-
-                <!-- Opérationnels -->
-                <div class="orbit-system">
-                    <div class="orbit-center">
-                        <div class="center-bubble">
-                            <h3>Projets<br>Opérationnels</h3>
-                        </div>
-                    </div>
-                    <div class="orbit" id="orbitOperationnels"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="faq-section">
-            <div class="faq-header">
-                <h2>FAQ</h2>
-                <div class="divider-faq"></div>
-            </div>
-
-            <div class="faq-wrapper">
-                <div class="faq-items"></div>
-            </div>
-        </section>
-
-        <!-- CONTACT BAR (ACCORDÉON) -->
-        <section class="contact-bar-section">
-            <div class="contact-bar" id="contactBar">
-                <div class="contact-bar-header" onclick="toggleContactForm()">
-                    <span class="contact-bar-icon-left">📬</span>
-                    <span class="contact-bar-text">Des Questions ? Des Projets ? N'hésitez pas à nous en faire part !</span>
-                    <span class="contact-bar-icon-right">📬</span>
-                </div>
-                <div class="contact-bar-content" id="contactBarContent">
-                    <div class="contact-form-wrapper">
-                        <form id="contactForm">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>Nom *</label>
-                                    <input type="text" id="contactNom" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Prénom *</label>
-                                    <input type="text" id="contactPrenom" required>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>Grade *</label>
-                                    <input type="text" id="contactGrade" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Service *</label>
-                                    <input type="text" id="contactService" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group full-width">
-                                <label>Votre Message *</label>
-                                <textarea id="contactMessage" required></textarea>
-                            </div>
-
-                            <button type="submit" class="btn-submit">
-                                📧 Envoyer
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- MODAL FAQ -->
-    <div class="modal" id="faqModal">
-        <div class="faq-modal-content">
-            <span class="close" onclick="closeFaqModal()">&times;</span>
-            <div class="faq-modal-layout">
-                <div class="faq-modal-text">
-                    <h2 id="faqModalTitle"></h2>
-                    <div class="modal-divider"></div>
-                    <p id="faqModalAnswer"></p>
-                </div>
-            </div>
+    <!-- PRÉSENTATION -->
+    <section class="presentation">
+        <div class="presentation-container">
+            <h2>Qui nous sommes</h2>
+            <div class="divider"></div>
+            <p>
+                LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. 
+                Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains, 
+                en combinant expertise technique et vision stratégique.
+            </p>
+            <p>
+                Notre mission est de créer des outils et des systèmes qui propulsent les organisations vers l'avenir, 
+                en mettant l'accent sur la sécurité, la performance et l'innovation durable.
+            </p>
         </div>
-    </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section class="projects-section">
+        <div class="projects-container">
+            <h2>Nos Projets</h2>
+            <div class="divider"></div>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2>Questions Fréquentes</h2>
+            <div class="divider"></div>
+            <div class="faq-items" id="faqItems"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Nous Contacter</h2>
+            <div class="divider"></div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label>Nom *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Sujet *</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Message *</label>
+                    <textarea required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">📧 Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 LABNUM CECMED - Innovation & Défense</p>
+    </footer>
 
     <!-- MODAL PROJET -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <button class="close-modal" onclick="closeModal()">&times;</button>
             <h2 id="modalTitle"></h2>
-            <div class="modal-divider"></div>
-            <div class="modal-layout">
-                <div class="modal-images-section">
-                    <div id="modalImages" class="modal-images"></div>
-                </div>
-                <div class="modal-text-section">
-                    <p id="modalDesc"></p>
-                    <div id="modalLinks" class="modal-links"></div>
-                </div>
-            </div>
+            <p id="modalDescription"></p>
+            <p id="modalDetails"></p>
         </div>
     </div>
 
-    <!-- MODAL IMAGE -->
-    <div class="modal" id="imageModal">
-        <div class="modal-image-content">
-            <span class="close" onclick="closeImageModal()">&times;</span>
-            <img id="enlargedImage" src="" alt="Image agrandie">
-        </div>
-    </div>
+    <script>
+        const projects = [
+            { id: 1, title: "Navigatio Digitalis", description: "Innovation technologique avancée pour la transformation numérique.", status: "En cours" },
+            { id: 2, title: "Fortitudo Systematis", description: "Systèmes de défense robustes et innovants.", status: "En cours" },
+            { id: 3, title: "Nexus Cognoscentia", description: "Connexion des savoirs et intelligence artificielle.", status: "En cours" },
+            { id: 4, title: "Velocitas Operandi", description: "Rapidité d'exécution et efficacité opérationnelle.", status: "En cours" },
+            { id: 5, title: "Architectura Futuro", description: "Architecture du futur et infrastructure scalable.", status: "En cours" },
+            { id: 6, title: "Aurora Technologia", description: "Lumière de l'innovation et leadership technologique.", status: "Opérationnel" },
+            { id: 7, title: "Triumpbus Antiquus", description: "Victoire technologique et excellence opérationnelle.", status: "Opérationnel" },
+            { id: 8, title: "Sapientia Aeterna", description: "Sagesse éternelle et expertise reconnue.", status: "Opérationnel" },
+            { id: 9, title: "Pax et Securitas", description: "Paix et sécurité dans l'environnement numérique.", status: "Opérationnel" },
+            { id: 10, title: "Memoria Gloriosa", description: "Mémoire des succès et trajectoire d'excellence.", status: "Opérationnel" }
+        ];
 
-    <!-- MODAL LOGIN -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content modal-login">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Connexion Admin</h2>
-            <form id="loginForm">
-                <input type="text" id="username" placeholder="Identifiant" required>
-                <input type="password" id="password" placeholder="Mot de passe" required>
-                <button type="submit">Connexion</button>
-            </form>
-            <p id="loginError" class="error-msg"></p>
-        </div>
-    </div>
+        const faqs = [
+            { question: "Qu'est-ce que LABNUM CECMED ?", answer: "LABNUM CECMED est un centre d'innovation et de défense spécialisé en technologies de pointe. Nous développons des solutions innovantes pour répondre aux défis technologiques contemporains." },
+            { question: "Quels sont vos domaines d'expertise ?", answer: "Nos domaines couvrent l'innovation technologique, cybersécurité, intelligence artificielle, architecture numérique et transformation digitale." },
+            { question: "Comment puis-je collaborer avec vous ?", answer: "Vous pouvez nous contacter via le formulaire de contact ci-dessous ou nous envoyer un email avec vos propositions." },
+            { question: "Quels sont vos projets actuels ?", answer: "Consultez notre section 'Nos Projets' pour découvrir nos initiatives actuelles et futures." },
+            { question: "Offrez-vous des services de consultation ?", answer: "Oui, nous offrons des services de consultation spécialisés pour les organisations cherchant à moderniser leurs infrastructures." },
+            { question: "Comment sont structurés vos équipes ?", answer: "Nos équipes sont organisées par domaines d'expertise avec des spécialistes hautement qualifiés." },
+            { question: "Quelles certifications possédez-vous ?", answer: "Nous possédons plusieurs certifications internationales ISO pour garantir la qualité et la sécurité de nos services." }
+        ];
 
-    <!-- ADMIN PANEL -->
-    <div class="admin-overlay" id="adminOverlay">
-        <div class="admin-container">
-            <div class="admin-header">
-                <h2>Panneau Admin</h2>
-                <button class="close-admin" onclick="closeAdmin()">✕</button>
-            </div>
-
-            <!-- PROJETS -->
-            <div class="admin-content">
-                <div class="admin-section">
-                    <h3>Gestion des Projets</h3>
-                    <button class="btn-primary" id="addProjectBtn">➕ Ajouter un projet</button>
-                    <div id="projectsList" class="projects-list"></div>
+        // AFFICHAGE DES PROJETS
+        function displayProjects() {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = projects.map(project => `
+                <div class="project-card ${project.status === 'Opérationnel' ? 'operationnel' : ''}" onclick="openProjectModal('${project.title}', '${project.description}', '${project.status}')">
+                    <span class="project-status ${project.status === 'Opérationnel' ? 'status-operationnel' : 'status-encours'}">
+                        ${project.status === 'Opérationnel' ? '✅ Opérationnel' : '⏳ En cours'}
+                    </span>
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="project-footer">Cliquer pour plus d'infos →</div>
                 </div>
-                <div class="admin-section" id="formSection" style="display: none;">
-                    <h3 id="formTitle">Ajouter un projet</h3>
-                    <form id="projectForm">
-                        <div class="form-group">
-                            <label>Titre *</label>
-                            <input type="text" id="projectTitle" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Description *</label>
-                            <textarea id="projectDesc" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Statut *</label>
-                            <select id="projectStatus" required>
-                                <option value="">Sélectionner</option>
-                                <option value="En cours">En cours</option>
-                                <option value="Opérationnel">Opérationnel</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Logo</label>
-                            <input type="file" id="logoInput" accept="image/*">
-                            <div id="logoPreview" class="logo-preview-empty">🖼️</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Images</label>
-                            <div class="drag-drop-zone" id="dragDropZone">
-                                <p>📥 Drag & Drop tes images ici</p>
-                                <input type="file" id="imageInput" multiple accept="image/*" style="display: none;">
-                            </div>
-                            <div id="imagesList" class="images-list"></div>
-                        </div>
-                        <div class="form-group">
-                            <label>Liens utiles</label>
-                            <div class="links-input">
-                                <input type="text" id="linkLabel">
-                                <input type="url" id="linkUrl">
-                                <button type="button" class="btn-secondary" onclick="addLink()">Ajouter</button>
-                            </div>
-                            <div id="linksList" class="links-list"></div>
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="btn-primary">💾 Sauvegarder</button>
-                            <button type="button" class="btn-secondary" onclick="cancelForm()">❌ Annuler</button>
-                            <button type="button" class="btn-danger" id="deleteBtn" style="display: none;">🗑️ Supprimer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            `).join('');
+        }
 
-            <!-- FAQ -->
-            <div class="admin-content">
-                <div class="admin-section">
-                    <h3>Gestion des Questions FAQ</h3>
-                    <button class="btn-primary" id="addFaqBtn">➕ Ajouter une question</button>
-                    <div id="faqList" class="faq-admin-list"></div>
+        // AFFICHAGE FAQ
+        function displayFaq() {
+            const container = document.getElementById('faqItems');
+            container.innerHTML = faqs.map((faq, index) => `
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>${faq.question}</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">${faq.answer}</div>
                 </div>
-                <div class="admin-section" id="faqFormSection" style="display: none;">
-                    <h3 id="faqFormTitle">Ajouter une question</h3>
-                    <form id="faqForm">
-                        <div class="form-group">
-                            <label>Question *</label>
-                            <input type="text" id="faqQuestion" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Réponse *</label>
-                            <textarea id="faqAnswer" required></textarea>
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="btn-primary">💾 Sauvegarder</button>
-                            <button type="button" class="btn-secondary" onclick="cancelFaqForm()">❌ Annuler</button>
-                            <button type="button" class="btn-danger" id="deleteFaqBtn" style="display: none;">🗑️ Supprimer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            `).join('');
+        }
 
-            <!-- EMAIL -->
-            <div class="admin-content">
-                <div class="admin-section">
-                    <h3>Configuration Email</h3>
-                    <form id="emailForm">
-                        <div class="form-group">
-                            <label>Email de réception *</label>
-                            <input type="email" id="adminEmail" required>
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="btn-primary">💾 Sauvegarder</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        // TOGGLE FAQ
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
 
-            <div class="admin-footer">
-                <button class="btn-logout" onclick="logout()">🔓 Déconnexion</button>
-            </div>
-        </div>
-    </div>
+        // MODAL PROJET
+        function openProjectModal(title, description, status) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('modalDetails').textContent = `Statut: ${status}`;
+            document.getElementById('projectModal').classList.add('active');
+        }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="script.js"></script>
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+        }
+
+        // FORMULAIRE CONTACT
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Merci ! Votre message a été reçu. Nous vous contacterons bientôt.');
+            this.reset();
+        });
+
+        // INIT
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProjects();
+            displayFaq();
+        });
+
+        // FERMER MODAL AU CLIC EXTÉRIEUR
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
