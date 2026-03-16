@@ -16,23 +16,6 @@
             color: #FFFFFF;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background-image: url('bg.png');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.7) 0%, rgba(0, 50, 100, 0.7) 100%);
-            pointer-events: none;
-            z-index: -1;
         }
 
         @keyframes fadeIn { 
@@ -46,7 +29,11 @@
         }
 
         nav {
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            background-image: url('bg.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
             padding: 15px 20px;
             border-bottom: 2px solid #FF851B;
             position: sticky;
@@ -58,10 +45,23 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
+        nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.7) 0%, rgba(0, 50, 100, 0.7) 100%);
+            z-index: -1;
+        }
+
         .nav-links {
             display: flex;
             gap: 40px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         nav a {
