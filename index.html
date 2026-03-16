@@ -104,7 +104,7 @@
             margin: 0 auto;
         }
 
-        .projects-section h2 {
+        .projects-section > h2 {
             font-size: 2.5rem;
             color: #FFFFFF;
             margin-bottom: 30px;
@@ -113,7 +113,7 @@
             text-align: center;
         }
 
-        /* SECTION EN COURS */
+        /* SECTION EN COURS ET OPÉRATIONNEL */
         .projects-subsection {
             margin-bottom: 80px;
         }
@@ -121,7 +121,7 @@
         .projects-subsection h3 {
             font-size: 1.8rem;
             color: #FFFFFF;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             padding-bottom: 15px;
             border-bottom: 3px solid #FF851B;
             display: inline-block;
@@ -133,9 +133,9 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 0;
         }
 
         .project-card {
@@ -148,6 +148,9 @@
             animation: slideUp 0.6s ease-out;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            min-height: 280px;
         }
 
         .project-card:hover {
@@ -188,22 +191,25 @@
         }
 
         .project-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #FFFFFF;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            margin-top: 0;
             font-weight: 900;
+            line-height: 1.4;
         }
 
         .project-card p {
             color: #E8E8E8;
             font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 0;
             flex-grow: 1;
         }
 
         .project-footer {
             padding-top: 15px;
+            margin-top: 15px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             color: #FF851B;
             font-size: 0.9rem;
@@ -267,6 +273,8 @@
         .faq-icon {
             font-size: 1.3rem;
             transition: transform 0.3s ease;
+            margin-left: 15px;
+            flex-shrink: 0;
         }
 
         .faq-item.active .faq-icon {
@@ -460,7 +468,7 @@
             }
 
             .presentation h2,
-            .projects-section h2,
+            .projects-section > h2,
             .faq-section h2,
             .contact-section h2 {
                 font-size: 1.8rem;
@@ -472,6 +480,10 @@
 
             .projects-subsection h3 {
                 font-size: 1.4rem;
+            }
+
+            .project-card {
+                min-height: auto;
             }
         }
     </style>
@@ -617,11 +629,13 @@
         function createProjectCard(project) {
             return `
                 <div class="project-card ${project.status === 'Opérationnel' ? 'operationnel' : ''}" onclick="openProjectModal('${project.title}', '${project.description}', '${project.status}')">
-                    <span class="project-status ${project.status === 'Opérationnel' ? 'status-operationnel' : 'status-encours'}">
-                        ${project.status === 'Opérationnel' ? '✅ Opérationnel' : '⏳ En cours'}
-                    </span>
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
+                    <div>
+                        <span class="project-status ${project.status === 'Opérationnel' ? 'status-operationnel' : 'status-encours'}">
+                            ${project.status === 'Opérationnel' ? '✅ Opérationnel' : '⏳ En cours'}
+                        </span>
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                    </div>
                     <div class="project-footer">Cliquer pour plus d'infos →</div>
                 </div>
             `;
