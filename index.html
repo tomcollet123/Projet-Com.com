@@ -293,10 +293,6 @@
             letter-spacing: 1px;
         }
 
-        .projects-subsection.operationnel h3 {
-            border-bottom-color: #00CC44;
-        }
-
         .project-item {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 2px solid #FF851B;
@@ -306,10 +302,6 @@
             max-width: 950px;
             animation: slideUp 0.6s ease-out;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-item.operationnel {
-            border-color: #00CC44;
         }
 
         .project-header {
@@ -344,12 +336,6 @@
             background: rgba(255, 133, 27, 0.3);
             color: #FF851B;
             border: 2px solid #FF851B;
-        }
-
-        .status-operationnel {
-            background: rgba(0, 204, 68, 0.3);
-            color: #00CC44;
-            border: 2px solid #00CC44;
         }
 
         .project-content {
@@ -426,11 +412,6 @@
         .form-group textarea {
             min-height: 150px;
             resize: vertical;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
         }
 
         .btn-submit {
@@ -617,8 +598,8 @@
             background: rgba(255, 133, 27, 0.15);
             border: 4px solid #FF851B;
             border-radius: 50%;
-            width: 280px;
-            height: 280px;
+            width: 320px;
+            height: 320px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -634,13 +615,15 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
+            z-index: 10;
+            position: relative;
         }
 
         .team-label {
             color: #FF851B;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             text-align: center;
             letter-spacing: 0.5px;
             line-height: 1.4;
@@ -653,27 +636,24 @@
         }
 
         .avatar {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             border: 3px solid #FFFFFF;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .phase-labels {
+        .phases-container {
             position: absolute;
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: stretch;
-            pointer-events: none;
+            top: 0;
+            left: 0;
         }
 
         .phase {
@@ -681,43 +661,46 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
+            gap: 10px;
+            width: 100px;
         }
 
-        .phase-icon {
-            font-size: 1.8rem;
+        .phase-icon-wrapper {
+            font-size: 2.2rem;
+            line-height: 1;
         }
 
         .phase-text {
             color: #FF851B;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             letter-spacing: 0.5px;
             line-height: 1.2;
+            text-align: center;
         }
 
-        .phase-top {
-            top: -50px;
+        /* Positions des 4 phases - bien espacées */
+        .phase-gestion {
+            top: -65px;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .phase-right {
-            right: -50px;
+        .phase-formation {
+            bottom: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-test {
+            right: -65px;
             top: 50%;
             transform: translateY(-50%);
         }
 
-        .phase-bottom {
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .phase-left {
-            left: -50px;
+        .phase-planning {
+            left: -65px;
             top: 50%;
             transform: translateY(-50%);
         }
@@ -804,9 +787,8 @@
             }
 
             .center-circle {
-                width: 240px;
-                height: 240px;
-                gap: 15px;
+                width: 280px;
+                height: 280px;
             }
 
             .process-item {
@@ -820,6 +802,18 @@
 
             .process-label {
                 font-size: 0.9rem;
+            }
+
+            .phase {
+                width: 90px;
+            }
+
+            .phase-text {
+                font-size: 0.8rem;
+            }
+
+            .phase-icon-wrapper {
+                font-size: 1.8rem;
             }
         }
 
@@ -873,19 +867,41 @@
             }
 
             .center-circle {
-                width: 200px;
-                height: 200px;
+                width: 240px;
+                height: 240px;
                 margin: 20px auto;
             }
 
             .team-label {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
             .avatar {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+
+            .phase {
+                width: 75px;
+            }
+
+            .phase-text {
+                font-size: 0.75rem;
+            }
+
+            .phase-icon-wrapper {
+                font-size: 1.5rem;
+            }
+
+            .phase-gestion, .phase-formation {
+                top: -55px;
+                bottom: -55px;
+            }
+
+            .phase-test, .phase-planning {
+                right: -55px;
+                left: -55px;
             }
 
             .retours-box {
@@ -942,10 +958,6 @@
                         <div class="faq-question">Quid est Lorem Ipsum ?</div>
                         <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quae sunt dominii nostri ?</div>
-                        <div class="faq-answer">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -962,10 +974,6 @@
                     <div class="form-group">
                         <label>Email *</label>
                         <input type="email" name="email" placeholder="votre@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Message *</label>
-                        <textarea name="message" placeholder="Votre message..." required></textarea>
                     </div>
                     <button type="submit" class="btn-submit">📧 Envoyer</button>
                 </form>
@@ -1026,27 +1034,35 @@
                     <div class="process-arrow">→</div>
                 </div>
 
-                <!-- Cercle central avec phases -->
+                <!-- Cercle central avec phases autour -->
                 <div class="center-circle">
-                    <div class="phase-labels">
-                        <div class="phase phase-top">
-                            <div class="phase-icon">📋</div>
-                            <div class="phase-text">PLANNING</div>
-                        </div>
-                        <div class="phase phase-right">
-                            <div class="phase-icon">✅</div>
-                            <div class="phase-text">TESTING</div>
-                        </div>
-                        <div class="phase phase-bottom">
-                            <div class="phase-icon">🔄</div>
+                    <div class="phases-container">
+                        <!-- GESTION PROJET - TOP -->
+                        <div class="phase phase-gestion">
+                            <div class="phase-icon-wrapper">🔄</div>
                             <div class="phase-text">GESTION<br>PROJET</div>
                         </div>
-                        <div class="phase phase-left">
-                            <div class="phase-icon">📝</div>
+
+                        <!-- FORMATION - BOTTOM -->
+                        <div class="phase phase-formation">
+                            <div class="phase-icon-wrapper">📝</div>
                             <div class="phase-text">FORMATION</div>
+                        </div>
+
+                        <!-- TEST - RIGHT -->
+                        <div class="phase phase-test">
+                            <div class="phase-icon-wrapper">✅</div>
+                            <div class="phase-text">TEST</div>
+                        </div>
+
+                        <!-- PLANNING - LEFT -->
+                        <div class="phase phase-planning">
+                            <div class="phase-icon-wrapper">📋</div>
+                            <div class="phase-text">PLANNING</div>
                         </div>
                     </div>
 
+                    <!-- Équipe au centre -->
                     <div class="team-info">
                         <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
                         <div class="team-avatars">
@@ -1089,26 +1105,26 @@
             <!-- Explication -->
             <div class="agile-explanation">
                 <h3>📊 Processus Agile Itératif</h3>
-                <p>La méthodologie Agile est un cycle continu où l'équipe implémente travaille autour de 4 phases majeures :</p>
+                <p>La méthodologie Agile repose sur 4 phases qui tournent autour de l'équipe d'implémentation :</p>
                 
-                <p><strong style="color: #00CC44;">📍 Les 4 Phases du Cycle :</strong></p>
-                <p>🎯 <strong>PLANNING</strong> - L'équipe définit les objectifs du sprint<br>
-                💻 <strong>FORMATION</strong> - Formation et mise à jour de l'équipe<br>
-                ✅ <strong>TESTING</strong> - Validation de la qualité du produit<br>
-                🔄 <strong>GESTION PROJET</strong> - Suivi et coordination des tâches</p>
+                <p><strong style="color: #00CC44;">🔄 Les 4 Phases du Cycle :</strong></p>
+                <p>📋 <strong>PLANNING</strong> (Gauche) - L'équipe définit les objectifs<br>
+                🔄 <strong>GESTION PROJET</strong> (Top) - Suivi et coordination<br>
+                ✅ <strong>TEST</strong> (Droite) - Validation de la qualité<br>
+                📝 <strong>FORMATION</strong> (Bas) - Formation des utilisateurs</p>
 
                 <p><strong style="color: #00CC44;">🔀 Le Flux Complet :</strong></p>
                 <p>1. Les CLIENTS demandent un PRODUIT À LIVRER<br>
-                2. Le travail EN COURS commence et suit les 4 phases<br>
-                3. L'équipe d'implémentation contrôle chaque phase<br>
-                4. Résultat : LIVRABLE de qualité<br>
-                5. RETOURS des utilisateurs finaux pour amélioration continue</p>
+                2. Le travail EN COURS commence<br>
+                3. L'équipe tourne par les 4 phases (Planning → Gestion Projet → Test → Formation)<br>
+                4. Résultat : ANALYSE puis LIVRABLE<br>
+                5. RETOURS des utilisateurs pour l'amélioration continue</p>
 
                 <p><strong style="color: #00CC44;">💡 Avantages :</strong></p>
-                <p>✅ Flexibilité aux changements<br>
-                ✅ Qualité constante<br>
-                ✅ Feedback utilisateur permanent<br>
-                ✅ Livraisons régulières</p>
+                <p>✅ Flexibilité et adaptation rapide<br>
+                ✅ Qualité assurée par les tests<br>
+                ✅ Formation des utilisateurs intégrée<br>
+                ✅ Feedback utilisateur permanent</p>
             </div>
         </div>
     </div>
