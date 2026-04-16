@@ -43,11 +43,6 @@
             50% { opacity: 0.7; }
         }
 
-        @keyframes flowCircle {
-            0% { stroke-dashoffset: 0; }
-            100% { stroke-dashoffset: 800; }
-        }
-
         nav {
             background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             padding: 15px 20px;
@@ -759,12 +754,6 @@
             height: 100%;
             top: 0;
             left: 0;
-            filter: drop-shadow(0 0 8px rgba(255, 133, 27, 0.4));
-        }
-
-        .circle-arc path {
-            animation: flowCircle 4s linear infinite;
-            stroke-dasharray: 800;
         }
 
         .team-center {
@@ -804,7 +793,7 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
         }
 
-        /* CIRCLE PHASES - BETTER POSITIONING */
+        /* CIRCLE PHASES */
         .circle-phase {
             position: absolute;
             display: flex;
@@ -814,15 +803,8 @@
             text-align: center;
         }
 
-        .step-badge {
-            font-size: 1.8rem;
-            font-weight: 900;
-            line-height: 1;
-            min-width: 40px;
-        }
-
         .circle-phase-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         .circle-phase-label {
@@ -830,41 +812,33 @@
             font-weight: 900;
             text-transform: uppercase;
             font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            line-height: 1.3;
-            width: 90px;
-            padding: 5px;
-            background: rgba(0, 31, 63, 0.8);
-            border-radius: 5px;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+            width: 80px;
         }
 
-        /* Position each step around the circle - CLEARLY OUTSIDE */
         .phase-circle-top {
-            top: -100px;
+            top: -50px;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .phase-circle-devtop {
-            top: -60px;
-            right: -90px;
-        }
-
         .phase-circle-right {
-            right: -110px;
+            right: -80px;
             top: 50%;
             transform: translateY(-50%);
         }
 
         .phase-circle-bottom {
-            bottom: -100px;
+            bottom: -50px;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .phase-circle-formbottom {
-            bottom: -60px;
-            left: -90px;
+        .phase-circle-left {
+            left: -80px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         /* ANALYSIS & DELIVERABLE */
@@ -985,14 +959,6 @@
                 width: 280px;
                 height: 280px;
             }
-
-            .phase-circle-right {
-                right: -80px;
-            }
-
-            .phase-circle-left {
-                left: -80px;
-            }
         }
 
         @media (max-width: 1024px) {
@@ -1017,30 +983,24 @@
             }
 
             .phase-circle-top {
-                top: -80px;
+                top: -40px;
             }
 
             .phase-circle-bottom {
-                bottom: -80px;
+                bottom: -40px;
             }
 
-            .phase-circle-devtop {
-                top: -50px;
-                right: -70px;
-            }
-
-            .phase-circle-formbottom {
-                bottom: -50px;
+            .phase-circle-left {
                 left: -70px;
             }
 
             .phase-circle-right {
-                right: -90px;
+                right: -70px;
             }
 
             .circle-phase-label {
                 font-size: 0.75rem;
-                width: 80px;
+                width: 70px;
             }
         }
 
@@ -1140,31 +1100,24 @@
             }
 
             .phase-circle-top {
-                top: -70px;
+                top: -35px;
             }
 
             .phase-circle-bottom {
-                bottom: -70px;
+                bottom: -35px;
             }
 
-            .phase-circle-devtop {
-                top: -40px;
-                right: -60px;
-            }
-
-            .phase-circle-formbottom {
-                bottom: -40px;
+            .phase-circle-left {
                 left: -60px;
             }
 
             .phase-circle-right {
-                right: -80px;
+                right: -60px;
             }
 
             .circle-phase-label {
                 font-size: 0.65rem;
-                width: 70px;
-                padding: 3px;
+                width: 60px;
             }
 
             .team-avatar {
@@ -1392,63 +1345,28 @@
 
                         <!-- CENTRAL CIRCLE WITH TEAM -->
                         <div class="central-circle">
-                            <!-- SVG Circle Arc with flow arrows -->
-                            <svg class="circle-arc" viewBox="0 0 400 400">
-                                <!-- Main circle -->
-                                <circle cx="200" cy="200" r="150" fill="none" stroke="#FF851B" stroke-width="3" opacity="0.6"/>
-                                
-                                <!-- Curved arrows showing flow direction -->
-                                <defs>
-                                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                        <polygon points="0 0, 10 3, 0 6" fill="#FF851B"/>
-                                    </marker>
-                                </defs>
-                                
-                                <!-- Arrow from Planning to Dev -->
-                                <path d="M 280 110 A 120 120 0 0 1 330 160" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                                <!-- Arrow from Dev to Testing -->
-                                <path d="M 330 240 A 120 120 0 0 1 280 290" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                                <!-- Arrow from Testing to Gestion -->
-                                <path d="M 120 290 A 120 120 0 0 1 70 240" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                                <!-- Arrow from Gestion to Formation -->
-                                <path d="M 70 160 A 120 120 0 0 1 120 110" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                                <!-- Arrow from Formation back to Planning -->
-                                <path d="M 200 80 A 120 120 0 0 1 280 110" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                            </svg>
-
-                            <!-- Step 1: Planning (Top) -->
+                            <!-- Top Phase -->
                             <div class="circle-phase phase-circle-top">
-                                <div class="step-badge">1️⃣</div>
                                 <div class="circle-phase-icon">📋</div>
                                 <div class="circle-phase-label">PLANNING</div>
                             </div>
 
-                            <!-- Step 2: Dev (Right-Top) -->
-                            <div class="circle-phase phase-circle-devtop">
-                                <div class="step-badge">2️⃣</div>
-                                <div class="circle-phase-icon">💻</div>
-                                <div class="circle-phase-label">DÉVELOPPEMENT</div>
+                            <!-- Left Phase -->
+                            <div class="circle-phase phase-circle-left">
+                                <div class="circle-phase-icon">📝</div>
+                                <div class="circle-phase-label">FORMATION</div>
                             </div>
 
-                            <!-- Step 3: Testing (Right-Bottom) -->
+                            <!-- Right Phase -->
                             <div class="circle-phase phase-circle-right">
-                                <div class="step-badge">3️⃣</div>
                                 <div class="circle-phase-icon">✅</div>
                                 <div class="circle-phase-label">TESTING</div>
                             </div>
 
-                            <!-- Step 4: Gestion Projet (Bottom) -->
+                            <!-- Bottom Phase -->
                             <div class="circle-phase phase-circle-bottom">
-                                <div class="step-badge">4️⃣</div>
                                 <div class="circle-phase-icon">🔄</div>
                                 <div class="circle-phase-label">GESTION<br>PROJET</div>
-                            </div>
-
-                            <!-- Step 5: Formation (Left-Bottom) -->
-                            <div class="circle-phase phase-circle-formbottom">
-                                <div class="step-badge">5️⃣</div>
-                                <div class="circle-phase-icon">📝</div>
-                                <div class="circle-phase-label">FORMATION</div>
                             </div>
 
                             <!-- Center Team -->
@@ -1460,6 +1378,11 @@
                                     <div class="team-avatar">👤</div>
                                 </div>
                             </div>
+
+                            <!-- SVG Circle Arc -->
+                            <svg class="circle-arc" viewBox="0 0 400 400">
+                                <path d="M 200 50 A 150 150 0 1 1 199 50" fill="none" stroke="#FF851B" stroke-width="4" stroke-dasharray="15,5"/>
+                            </svg>
                         </div>
 
                         <div class="arrow-big">→</div>
@@ -1477,7 +1400,7 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT: Users Feedback -->
+                    <!-- RIGHT: Users Feedback (NO AVATARS) -->
                     <div class="users-feedback-section">
                         <div class="feedback-title">RETOURS DES<br>UTILISATEURS<br>FINAUX</div>
                         <div class="feedback-avatars">
@@ -1499,9 +1422,8 @@
                 2️⃣ <strong>Développement</strong> - Création des fonctionnalités<br>
                 3️⃣ <strong>Testing</strong> - Validation de la qualité<br>
                 4️⃣ <strong>Gestion de Projet</strong> - Suivi et coordination<br>
-                5️⃣ <strong>Formation</strong> - Formation des utilisateurs<br>
-                6️⃣ <strong>Analyse</strong> - Validation et optimisation<br>
-                7️⃣ <strong>Livrable</strong> - Mise en production</p>
+                5️⃣ <strong>Analyse</strong> - Validation et optimisation<br>
+                6️⃣ <strong>Livrable</strong> - Mise en production</p>
 
                 <p><strong style="color: #00CC44;">💡 Avantages :</strong></p>
                 <p>✅ Flexibilité constante aux changements<br>
