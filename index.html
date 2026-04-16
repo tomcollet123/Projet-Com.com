@@ -754,6 +754,48 @@
             height: 100%;
             top: 0;
             left: 0;
+            filter: drop-shadow(0 0 8px rgba(255, 133, 27, 0.4));
+        }
+
+        /* Flow direction labels */
+        .circle-flow-label {
+            position: absolute;
+            color: #00CC44;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            background: rgba(0, 31, 63, 0.9);
+            border: 2px solid #00CC44;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 204, 68, 0.4);
+        }
+
+        .flow-label-1 {
+            top: 20%;
+            right: 10%;
+        }
+
+        .flow-label-2 {
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .flow-label-3 {
+            bottom: 20%;
+            left: 10%;
+        }
+
+        .flow-label-4 {
+            top: 20%;
+            left: 10%;
         }
 
         .team-center {
@@ -825,7 +867,7 @@
 
         .phase-circle-right {
             right: -100px;
-            top: 50%;
+            top: 35%;
             transform: translateY(-50%);
         }
 
@@ -837,7 +879,7 @@
 
         .phase-circle-left {
             left: -100px;
-            top: 50%;
+            top: 35%;
             transform: translateY(-50%);
         }
 
@@ -1010,6 +1052,12 @@
                 font-size: 0.75rem;
                 width: 70px;
             }
+
+            .circle-flow-label {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1126,6 +1174,12 @@
             .circle-phase-label {
                 font-size: 0.65rem;
                 width: 60px;
+            }
+
+            .circle-flow-label {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
             }
 
             .team-avatar {
@@ -1353,19 +1407,28 @@
 
                         <!-- CENTRAL CIRCLE WITH TEAM -->
                         <div class="central-circle">
+                            <!-- SVG Circle Arc with flow arrow -->
+                            <svg class="circle-arc" viewBox="0 0 400 400">
+                                <!-- Main circle -->
+                                <circle cx="200" cy="200" r="150" fill="none" stroke="#FF851B" stroke-width="4" opacity="0.5"/>
+                                
+                                <!-- Arrow path (clockwise) -->
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                        <polygon points="0 0, 10 3, 0 6" fill="#FF851B"/>
+                                    </marker>
+                                </defs>
+                                <path d="M 350 200 A 150 150 0 0 1 200 350 A 150 150 0 0 1 50 200 A 150 150 0 0 1 200 50" 
+                                      fill="none" stroke="#FF851B" stroke-width="3" stroke-dasharray="10,5" marker-end="url(#arrowhead)"/>
+                            </svg>
+
                             <!-- Top Phase -->
                             <div class="circle-phase phase-circle-top">
                                 <div class="circle-phase-icon">📋</div>
                                 <div class="circle-phase-label">PLANNING</div>
                             </div>
 
-                            <!-- Left Phase -->
-                            <div class="circle-phase phase-circle-left">
-                                <div class="circle-phase-icon">📝</div>
-                                <div class="circle-phase-label">FORMATION</div>
-                            </div>
-
-                            <!-- Right Phase -->
+                            <!-- Right Phase (Testing) -->
                             <div class="circle-phase phase-circle-right">
                                 <div class="circle-phase-icon">✅</div>
                                 <div class="circle-phase-label">TESTING</div>
@@ -1377,6 +1440,18 @@
                                 <div class="circle-phase-label">GESTION<br>PROJET</div>
                             </div>
 
+                            <!-- Left Phase (Formation) -->
+                            <div class="circle-phase phase-circle-left">
+                                <div class="circle-phase-icon">📝</div>
+                                <div class="circle-phase-label">FORMATION</div>
+                            </div>
+
+                            <!-- Flow direction labels -->
+                            <div class="circle-flow-label flow-label-1">1</div>
+                            <div class="circle-flow-label flow-label-2">2</div>
+                            <div class="circle-flow-label flow-label-3">3</div>
+                            <div class="circle-flow-label flow-label-4">4</div>
+
                             <!-- Center Team -->
                             <div class="team-center">
                                 <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
@@ -1386,11 +1461,6 @@
                                     <div class="team-avatar">👤</div>
                                 </div>
                             </div>
-
-                            <!-- SVG Circle Arc -->
-                            <svg class="circle-arc" viewBox="0 0 400 400">
-                                <path d="M 200 50 A 150 150 0 1 1 199 50" fill="none" stroke="#FF851B" stroke-width="4" stroke-dasharray="15,5"/>
-                            </svg>
                         </div>
 
                         <div class="arrow-big">→</div>
@@ -1408,7 +1478,7 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT: Users Feedback (NO AVATARS) -->
+                    <!-- RIGHT: Users Feedback -->
                     <div class="users-feedback-section">
                         <div class="feedback-title">RETOURS DES<br>UTILISATEURS<br>FINAUX</div>
                         <div class="feedback-avatars">
