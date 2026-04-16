@@ -1,85 +1,60 @@
-            <div class="agile-workflow">
-                <!-- TOP ROW: Planning, Dev, Testing, Parametrage -->
-                <div class="phases-top">
-                    <div class="phase-box top-phase">
-                        <div class="phase-text">DÉVELOPPEMENT</div>
-                    </div>
-                    <div class="phase-box top-phase">
-                        <div class="phase-text">PARAMÉTRAGE</div>
-                    </div>
-                </div>
-
-                <!-- MAIN FLOW WRAPPER -->
-                <div class="main-flow-wrapper">
-                    <!-- LEFT: Clients -->
-                    <div class="clients-section">
-                        <div class="client-item">
-                            <div class="client-avatar">👤</div>
-                            <div class="client-label">CLIENTS</div>
-                        </div>
-                    </div>
-
-                    <!-- MAIN FLOW -->
-                    <div class="main-flow">
-                        <div class="flow-item">
-                            <div class="item-label">PRODUIT<br>À LIVRER</div>
-                            <div class="product-bars">
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                            </div>
-                        </div>
-
-                        <div class="arrow-big">→</div>
-
-                        <div class="flow-item">
-                            <div class="item-label">EN COURS</div>
-                            <div class="product-bars">
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                            </div>
-                        </div>
-
-                        <div class="arrow-big">→</div>
-
                         <!-- CENTRAL CIRCLE WITH TEAM -->
                         <div class="central-circle">
                             <!-- SVG Circle Arc with flow arrow -->
                             <svg class="circle-arc" viewBox="0 0 400 400">
                                 <!-- Main circle -->
-                                <circle cx="200" cy="200" r="150" fill="none" stroke="#FF851B" stroke-width="4" opacity="0.5"/>
+                                <circle cx="200" cy="200" r="150" fill="none" stroke="#FF851B" stroke-width="3" opacity="0.6"/>
                                 
-                                <!-- Arrow path (clockwise) -->
+                                <!-- Curved arrows showing flow direction -->
                                 <defs>
                                     <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
                                         <polygon points="0 0, 10 3, 0 6" fill="#FF851B"/>
                                     </marker>
                                 </defs>
-                                <path d="M 350 200 A 150 150 0 0 1 200 350 A 150 150 0 0 1 50 200 A 150 150 0 0 1 200 50" 
-                                      fill="none" stroke="#FF851B" stroke-width="3" stroke-dasharray="10,5" marker-end="url(#arrowhead)"/>
+                                
+                                <!-- Arrow from Planning to Dev -->
+                                <path d="M 280 110 A 120 120 0 0 1 330 160" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+                                <!-- Arrow from Dev to Testing -->
+                                <path d="M 330 240 A 120 120 0 0 1 280 290" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+                                <!-- Arrow from Testing to Gestion -->
+                                <path d="M 120 290 A 120 120 0 0 1 70 240" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+                                <!-- Arrow from Gestion to Formation -->
+                                <path d="M 70 160 A 120 120 0 0 1 120 110" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+                                <!-- Arrow from Formation back to Planning -->
+                                <path d="M 200 80 A 120 120 0 0 1 280 110" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
                             </svg>
 
-                            <!-- Top Phase -->
+                            <!-- Step 1: Planning (Top) -->
                             <div class="circle-phase phase-circle-top">
+                                <div class="step-badge">1️⃣</div>
                                 <div class="circle-phase-icon">📋</div>
                                 <div class="circle-phase-label">PLANNING</div>
                             </div>
 
-                            <!-- Right Phase (Testing) -->
+                            <!-- Step 2: Dev (Right-Top) -->
+                            <div class="circle-phase phase-circle-devtop">
+                                <div class="step-badge">2️⃣</div>
+                                <div class="circle-phase-icon">💻</div>
+                                <div class="circle-phase-label">DÉVELOPPEMENT</div>
+                            </div>
+
+                            <!-- Step 3: Testing (Right-Bottom) -->
                             <div class="circle-phase phase-circle-right">
+                                <div class="step-badge">3️⃣</div>
                                 <div class="circle-phase-icon">✅</div>
                                 <div class="circle-phase-label">TESTING</div>
                             </div>
 
-                            <!-- Bottom Phase -->
+                            <!-- Step 4: Gestion Projet (Bottom) -->
                             <div class="circle-phase phase-circle-bottom">
+                                <div class="step-badge">4️⃣</div>
                                 <div class="circle-phase-icon">🔄</div>
                                 <div class="circle-phase-label">GESTION<br>PROJET</div>
                             </div>
 
-                            <!-- Left Phase (Formation) -->
-                            <div class="circle-phase phase-circle-left">
+                            <!-- Step 5: Formation (Left-Bottom) -->
+                            <div class="circle-phase phase-circle-formbottom">
+                                <div class="step-badge">5️⃣</div>
                                 <div class="circle-phase-icon">📝</div>
                                 <div class="circle-phase-label">FORMATION</div>
                             </div>
@@ -94,30 +69,3 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="arrow-big">→</div>
-
-                        <!-- ANALYSIS & DELIVERABLE -->
-                        <div class="flow-item">
-                            <div class="item-label">ANALYSE</div>
-                        </div>
-
-                        <div class="arrow-big">→</div>
-
-                        <div class="deliverable-item">
-                            <div class="box-icon">📦</div>
-                            <div class="item-label">LIVRABLE</div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT: Users Feedback -->
-                    <div class="users-feedback-section">
-                        <div class="feedback-title">RETOURS DES<br>UTILISATEURS<br>FINAUX</div>
-                        <div class="feedback-avatars">
-                            <div class="feedback-avatar">👩</div>
-                            <div class="feedback-avatar">👨</div>
-                            <div class="feedback-avatar">👤</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
