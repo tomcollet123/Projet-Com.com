@@ -1,6 +1,1398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABNUM CECMED - Innovation & Défense</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #001F3F;
+            color: #FFFFFF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-image: url('bg.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; } 
+            to { opacity: 1; } 
+        }
+
+        @keyframes slideUp { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        @keyframes slideRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes flowCircle {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 800; }
+        }
+
+        nav {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 15px 20px;
+            border-bottom: 2px solid #FF851B;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #FF851B;
+            text-shadow: 0 0 10px rgba(255, 133, 27, 0.6);
+        }
+
+        nav a.active {
+            color: #FF851B;
+            border-bottom: 3px solid #FF851B;
+            padding-bottom: 5px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.8) 0%, rgba(0, 50, 100, 0.8) 100%);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .hero-content h1 .cecmed {
+            color: #FF851B;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #E8E8E8;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        h2 .highlight {
+            color: #FF851B;
+        }
+
+        .divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #FF851B, #00CC44);
+            margin: 0 auto 40px;
+            box-shadow: 0 0 15px rgba(255, 133, 27, 0.6);
+        }
+
+        .presentation {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .presentation-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .presentation h2 {
+            margin-bottom: 30px;
+        }
+
+        .presentation p {
+            font-size: 1.1rem;
+            color: #E8E8E8;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #FF851B;
+            color: #001F3F;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 15px rgba(255, 133, 27, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #FFFFFF;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 133, 27, 0.4);
+        }
+
+        .faq-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #FF851B;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .faq-answer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-left: 4px solid #FF851B;
+            padding: 25px;
+            border-radius: 5px;
+            color: #E8E8E8;
+            line-height: 1.8;
+            font-size: 1rem;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .projects-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+            display: none;
+            min-height: 100vh;
+        }
+
+        .projects-section.active {
+            display: block;
+        }
+
+        .agile-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+            display: none;
+            min-height: 100vh;
+        }
+
+        .agile-section.active {
+            display: block;
+        }
+
+        .projects-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .agile-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .projects-section > h2 {
+            margin-bottom: 30px;
+        }
+
+        .agile-section > h2 {
+            margin-bottom: 30px;
+        }
+
+        .projects-subsection {
+            margin-bottom: 100px;
+        }
+
+        .projects-subsection h3 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FF851B;
+            display: inline-block;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .projects-subsection.operationnel h3 {
+            border-bottom-color: #00CC44;
+        }
+
+        .project-item {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 0 auto 40px;
+            max-width: 950px;
+            animation: slideUp 0.6s ease-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-item.operationnel {
+            border-color: #00CC44;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 133, 27, 0.3);
+        }
+
+        .project-header h3 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-weight: 900;
+            margin: 0;
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .status-encours {
+            background: rgba(255, 133, 27, 0.3);
+            color: #FF851B;
+            border: 2px solid #FF851B;
+        }
+
+        .status-operationnel {
+            background: rgba(0, 204, 68, 0.3);
+            color: #00CC44;
+            border: 2px solid #00CC44;
+        }
+
+        .project-content {
+            margin-bottom: 30px;
+        }
+
+        .project-content p {
+            color: #E8E8E8;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .project-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #FF851B;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 133, 27, 0.3);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #FF851B;
+            box-shadow: 0 0 15px rgba(255, 133, 27, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: #FF851B;
+            color: #001F3F;
+            border: none;
+            border-radius: 5px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-submit:hover {
+            background: #FFFFFF;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 133, 27, 0.4);
+        }
+
+        .poc-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+        }
+
+        .poc-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .poc-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .poc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .poc-card {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .poc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
+            border-color: #FFFFFF;
+        }
+
+        .poc-card h3 {
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .poc-card p {
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .poc-label {
+            font-weight: 900;
+            color: #FF851B;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .poc-info {
+            color: #FFFFFF;
+            font-size: 1rem;
+        }
+
+        .poc-email-section {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .poc-email-section h4 {
+            color: #FF851B;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .poc-email-section p {
+            color: #FFFFFF;
+            font-size: 1rem;
+        }
+
+        /* AGILE STYLES - OPTIMIZED LAYOUT */
+        .agile-hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .agile-hero h2 {
+            margin-bottom: 20px;
+        }
+
+        .agile-workflow {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 3px solid #FF851B;
+            border-radius: 15px;
+            padding: 80px 60px;
+            margin: 60px auto;
+            max-width: 100%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* TOP PHASES ROW */
+        .phases-top {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 150px;
+            margin-bottom: 20px;
+        }
+
+        .phase-box {
+            text-align: center;
+        }
+
+        .top-phase .phase-text {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        /* MAIN HORIZONTAL FLOW */
+        .main-flow-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            min-height: 350px;
+        }
+
+        /* LEFT: CLIENTS */
+        .clients-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .client-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+        }
+
+        .client-avatar {
+            font-size: 3rem;
+            width: 90px;
+            height: 90px;
+            background: rgba(30, 100, 200, 0.3);
+            border: 3px solid #1E64C8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.4);
+        }
+
+        .client-label {
+            color: #1E64C8;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* MAIN FLOW ITEMS */
+        .main-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex: 1;
+        }
+
+        .flow-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 130px;
+            flex-shrink: 0;
+        }
+
+        .item-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .bar {
+            background: linear-gradient(90deg, #FFB84D, #FF851B);
+            height: 15px;
+            border-radius: 3px;
+            width: 95px;
+            box-shadow: 0 2px 5px rgba(255, 133, 27, 0.4);
+        }
+
+        .arrow-big {
+            font-size: 2.5rem;
+            color: #FF851B;
+            font-weight: 900;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        /* CENTRAL CIRCLE */
+        .central-circle {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .circle-arc {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            filter: drop-shadow(0 0 8px rgba(255, 133, 27, 0.4));
+        }
+
+        .circle-arc path {
+            animation: flowCircle 4s linear infinite;
+            stroke-dasharray: 800;
+        }
+
+        .team-center {
+            position: absolute;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .team-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .team-avatars {
+            display: flex;
+            gap: 12px;
+        }
+
+        .team-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* CIRCLE PHASES - BETTER POSITIONING */
+        .circle-phase {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .step-badge {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1;
+            min-width: 40px;
+        }
+
+        .circle-phase-icon {
+            font-size: 2rem;
+        }
+
+        .circle-phase-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+            width: 90px;
+            padding: 5px;
+            background: rgba(0, 31, 63, 0.8);
+            border-radius: 5px;
+        }
+
+        /* Position each step around the circle - CLEARLY OUTSIDE */
+        .phase-circle-top {
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-circle-devtop {
+            top: -60px;
+            right: -90px;
+        }
+
+        .phase-circle-right {
+            right: -110px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .phase-circle-bottom {
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-circle-formbottom {
+            bottom: -60px;
+            left: -90px;
+        }
+
+        /* ANALYSIS & DELIVERABLE */
+        .deliverable-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.25) 0%, rgba(255, 133, 27, 0.15) 100%);
+            border: 3px dashed #FF851B;
+            padding: 25px 30px;
+            border-radius: 10px;
+            min-width: 130px;
+            flex-shrink: 0;
+        }
+
+        .box-icon {
+            font-size: 2.5rem;
+        }
+
+        /* RIGHT: USERS FEEDBACK */
+        .users-feedback-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .feedback-title {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .feedback-avatars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feedback-avatar {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 3px solid #FF851B;
+            box-shadow: 0 4px 12px rgba(255, 133, 27, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .feedback-avatar:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 18px rgba(255, 133, 27, 0.5);
+        }
+
+        /* EXPLANATION */
+        .agile-explanation {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 60px auto;
+            max-width: 900px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .agile-explanation h3 {
+            color: #FF851B;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+
+        .agile-explanation p {
+            color: #E8E8E8;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: #E8E8E8;
+            border-top: 2px solid #FF851B;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1400px) {
+            .agile-workflow {
+                padding: 60px 40px;
+            }
+
+            .phases-top {
+                gap: 100px;
+            }
+
+            .main-flow-wrapper {
+                min-height: 320px;
+            }
+
+            .central-circle {
+                width: 280px;
+                height: 280px;
+            }
+
+            .phase-circle-right {
+                right: -80px;
+            }
+
+            .phase-circle-left {
+                left: -80px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .agile-workflow {
+                padding: 50px 30px;
+            }
+
+            .phases-top {
+                gap: 80px;
+            }
+
+            .main-flow-wrapper {
+                flex-wrap: wrap;
+                gap: 20px;
+                min-height: auto;
+            }
+
+            .central-circle {
+                width: 250px;
+                height: 250px;
+                margin: 20px 0;
+            }
+
+            .phase-circle-top {
+                top: -80px;
+            }
+
+            .phase-circle-bottom {
+                bottom: -80px;
+            }
+
+            .phase-circle-devtop {
+                top: -50px;
+                right: -70px;
+            }
+
+            .phase-circle-formbottom {
+                bottom: -50px;
+                left: -70px;
+            }
+
+            .phase-circle-right {
+                right: -90px;
+            }
+
+            .circle-phase-label {
+                font-size: 0.75rem;
+                width: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .project-header h3 {
+                margin-bottom: 15px;
+                margin-right: 0;
+                font-size: 1.4rem;
+            }
+
+            .project-item {
+                padding: 25px;
+            }
+
+            .poc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .presentation-container,
+            .faq-container,
+            .contact-container,
+            .poc-container,
+            .agile-container {
+                padding: 0 15px;
+            }
+
+            .agile-workflow {
+                padding: 40px 20px;
+                gap: 25px;
+            }
+
+            .phases-top {
+                gap: 50px;
+                margin-bottom: 0px;
+            }
+
+            .top-phase .phase-text {
+                font-size: 1rem;
+            }
+
+            .main-flow-wrapper {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .main-flow {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .clients-section {
+                order: -1;
+                margin-bottom: 20px;
+            }
+
+            .users-feedback-section {
+                order: 10;
+                margin-top: 20px;
+            }
+
+            .central-circle {
+                width: 200px;
+                height: 200px;
+                margin: 20px 0;
+            }
+
+            .phase-circle-top {
+                top: -70px;
+            }
+
+            .phase-circle-bottom {
+                bottom: -70px;
+            }
+
+            .phase-circle-devtop {
+                top: -40px;
+                right: -60px;
+            }
+
+            .phase-circle-formbottom {
+                bottom: -40px;
+                left: -60px;
+            }
+
+            .phase-circle-right {
+                right: -80px;
+            }
+
+            .circle-phase-label {
+                font-size: 0.65rem;
+                width: 70px;
+                padding: 3px;
+            }
+
+            .team-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .team-label {
+                font-size: 0.8rem;
+            }
+
+            .arrow-big {
+                font-size: 2rem;
+            }
+
+            .product-bars {
+                gap: 3px;
+            }
+
+            .bar {
+                height: 12px;
+                width: 70px;
+            }
+
+            .client-avatar {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .feedback-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .agile-explanation {
+                padding: 25px;
+            }
+
+            .flow-item {
+                min-width: 110px;
+            }
+
+            .item-label {
+                font-size: 0.95rem;
+                min-height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a onclick="showSection('accueil')" class="nav-link active">Accueil</a>
+            <a onclick="showSection('agile')" class="nav-link">Agile</a>
+            <a onclick="showSection('projets')" class="nav-link">Projets</a>
+        </div>
+    </nav>
+
+    <div id="accueil-section" class="accueil-section">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>LABNUM <span class="cecmed">CECMED</span></h1>
+                <p>Innovation & Défense</p>
+            </div>
+        </header>
+
+        <section class="presentation">
+            <div class="presentation-container">
+                <h2>Qui <span class="highlight">sommes-nous ?</span></h2>
+                <div class="divider"></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation u[...]
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia[...]
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>Prêt à voir nos <span class="highlight">Projets ?</span></h2>
+                <div class="divider"></div>
+                <button class="cta-button" onclick="showSection('projets')">Voir les Projets →</button>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2>Questions <span class="highlight">Fréquentes</span></h2>
+                <div class="divider"></div>
+                <div class="faq-items">
+                    <div class="faq-item">
+                        <div class="faq-question">Quid est Lorem Ipsum ?</div>
+                        <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quae sunt dominii nostri ?</div>
+                        <div class="faq-answer">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quomodo possum nobiscum laborare ?</div>
+                        <div class="faq-answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quid de proiectis vestris ?</div>
+                        <div class="faq-answer">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Num servitia consultiva offeritis ?</div>
+                        <div class="faq-answer">Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quomodo ordinatae sunt turmae vestrae ?</div>
+                        <div class="faq-answer">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quae certificationes habetis ?</div>
+                        <div class="faq-answer">Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <h2>Nous <span class="highlight">Contacter</span></h2>
+                <div class="divider"></div>
+                <form class="contact-form" action="mailto:cecmed-jdata-chef.contact.fct@intradef.gouv.fr" method="POST" enctype="text/plain">
+                    <div class="form-group">
+                        <label>Nom *</label>
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Sujet *</label>
+                        <input type="text" name="sujet" placeholder="Sujet du message" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">📧 Envoyer</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="poc-section">
+            <div class="poc-container">
+                <h2><span class="highlight">POC</span></h2>
+                <div class="divider"></div>
+                <div class="poc-grid">
+                    <div class="poc-card">
+                        <h3>ASC A N1</h3>
+                        <p><span class="poc-label">Nom</span><span class="poc-info">Alexia Rabel</span></p>
+                        <p><span class="poc-label">Numéro</span><span class="poc-info">864 73 20 056</span></p>
+                    </div>
+                    <div class="poc-card">
+                        <h3>Lieutenant de Vaisseau</h3>
+                        <p><span class="poc-label">Nom</span><span class="poc-info">Chicote</span></p>
+                        <p><span class="poc-label">Numéro</span><span class="poc-info">864 73 20 056</span></p>
+                    </div>
+                </div>
+                <div class="poc-email-section">
+                    <h4>Email de Contact</h4>
+                    <p>cecmed-jdata-chef.contact.fct@intradef.gouv.fr</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="agile-section" class="agile-section">
+        <div class="agile-container">
+            <div class="agile-hero">
+                <h2>Méthodologie <span class="highlight">AGILE</span></h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="agile-workflow">
+                <!-- TOP ROW: Planning, Dev, Testing, Parametrage -->
+                <div class="phases-top">
+                    <div class="phase-box top-phase">
+                        <div class="phase-text">DÉVELOPPEMENT</div>
+                    </div>
+                    <div class="phase-box top-phase">
+                        <div class="phase-text">PARAMÉTRAGE</div>
+                    </div>
+                </div>
+
+                <!-- MAIN FLOW WRAPPER -->
+                <div class="main-flow-wrapper">
+                    <!-- LEFT: Clients -->
+                    <div class="clients-section">
+                        <div class="client-item">
+                            <div class="client-avatar">👤</div>
+                            <div class="client-label">CLIENTS</div>
+                        </div>
+                    </div>
+
+                    <!-- MAIN FLOW -->
+                    <div class="main-flow">
+                        <div class="flow-item">
+                            <div class="item-label">PRODUIT<br>À LIVRER</div>
+                            <div class="product-bars">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+
+                        <div class="arrow-big">→</div>
+
+                        <div class="flow-item">
+                            <div class="item-label">EN COURS</div>
+                            <div class="product-bars">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+
+                        <div class="arrow-big">→</div>
+
                         <!-- CENTRAL CIRCLE WITH TEAM -->
                         <div class="central-circle">
-                            <!-- SVG Circle Arc with flow arrow -->
+                            <!-- SVG Circle Arc with flow arrows -->
                             <svg class="circle-arc" viewBox="0 0 400 400">
                                 <!-- Main circle -->
                                 <circle cx="200" cy="200" r="150" fill="none" stroke="#FF851B" stroke-width="3" opacity="0.6"/>
@@ -69,3 +1461,166 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="arrow-big">→</div>
+
+                        <!-- ANALYSIS & DELIVERABLE -->
+                        <div class="flow-item">
+                            <div class="item-label">ANALYSE</div>
+                        </div>
+
+                        <div class="arrow-big">→</div>
+
+                        <div class="deliverable-item">
+                            <div class="box-icon">📦</div>
+                            <div class="item-label">LIVRABLE</div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Users Feedback -->
+                    <div class="users-feedback-section">
+                        <div class="feedback-title">RETOURS DES<br>UTILISATEURS<br>FINAUX</div>
+                        <div class="feedback-avatars">
+                            <div class="feedback-avatar">👩</div>
+                            <div class="feedback-avatar">👨</div>
+                            <div class="feedback-avatar">👤</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explanation -->
+            <div class="agile-explanation">
+                <h3>📊 Processus Agile Itératif</h3>
+                <p>La méthodologie Agile repose sur <strong>un cycle continu et itératif</strong> qui permet une adaptation rapide aux besoins et une livraison régulière de valeur.</p>
+                
+                <p><strong style="color: #00CC44;">⏱️ Les étapes clés :</strong></p>
+                <p>1️⃣ <strong>Planning</strong> - L'équipe définit les objectifs du sprint<br>
+                2️⃣ <strong>Développement</strong> - Création des fonctionnalités<br>
+                3️⃣ <strong>Testing</strong> - Validation de la qualité<br>
+                4️⃣ <strong>Gestion de Projet</strong> - Suivi et coordination<br>
+                5️⃣ <strong>Formation</strong> - Formation des utilisateurs<br>
+                6️⃣ <strong>Analyse</strong> - Validation et optimisation<br>
+                7️⃣ <strong>Livrable</strong> - Mise en production</p>
+
+                <p><strong style="color: #00CC44;">💡 Avantages :</strong></p>
+                <p>✅ Flexibilité constante aux changements<br>
+                ✅ Feedback continu des utilisateurs<br>
+                ✅ Qualité maintenue à chaque itération<br>
+                ✅ Délais raccourcis avec livraisons régulières<br>
+                ✅ Communication efficace entre tous les acteurs</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="projets-section" class="projects-section">
+        <div class="projects-container">
+            <h2>Nos <span class="highlight">Projets</span></h2>
+            <div class="divider"></div>
+
+            <div class="projects-subsection">
+                <h3>⏳ Projets En Cours</h3>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Navigatio Digitalis</h3>
+                        <span class="project-status status-encours">⏳ En cours</span>
+                    </div>
+                    <div class="project-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerci[...]
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui[...]
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Fortitudo Systematis</h3>
+                        <span class="project-status status-encours">⏳ En cours</span>
+                    </div>
+                    <div class="project-content">
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur[...]
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit volupt[...]
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Nexus Cognoscentia</h3>
+                        <span class="project-status status-encours">⏳ En cours</span>
+                    </div>
+                    <div class="project-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.[...]
+                        <p>Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam quis nostrum exercitationem ullam corpor[...]
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-subsection operationnel">
+                <h3>✅ Projets Opérationnels</h3>
+
+                <div class="project-item operationnel">
+                    <div class="project-header">
+                        <h3>Aurora Technologia</h3>
+                        <span class="project-status status-operationnel">✅ Opérationnel</span>
+                    </div>
+                    <div class="project-content">
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint o[...]
+                        <p>Cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distin[...]
+                    </div>
+                </div>
+
+                <div class="project-item operationnel">
+                    <div class="project-header">
+                        <h3>Sapientia Aeterna</h3>
+                        <span class="project-status status-operationnel">✅ Opérationnel</span>
+                    </div>
+                    <div class="project-content">
+                        <p>Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor re[...]
+                        <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rer[...]
+                    </div>
+                </div>
+
+                <div class="project-item operationnel">
+                    <div class="project-header">
+                        <h3>Pax et Securitas</h3>
+                        <span class="project-status status-operationnel">✅ Opérationnel</span>
+                    </div>
+                    <div class="project-content">
+                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam ali[...]
+                        <p>Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure rep[...]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 LABNUM CECMED - Innovation & Défense</p>
+    </footer>
+
+    <script>
+        function showSection(sectionName) {
+            document.getElementById('accueil-section').style.display = 'none';
+            document.getElementById('projets-section').classList.remove('active');
+            document.getElementById('agile-section').classList.remove('active');
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            if (sectionName === 'accueil') {
+                document.getElementById('accueil-section').style.display = 'block';
+                document.querySelector('[onclick="showSection(\'accueil\')"]').classList.add('active');
+                window.scrollTo(0, 0);
+            } else if (sectionName === 'agile') {
+                document.getElementById('agile-section').classList.add('active');
+                document.querySelector('[onclick="showSection(\'agile\')"]').classList.add('active');
+                window.scrollTo(0, 0);
+            } else if (sectionName === 'projets') {
+                document.getElementById('projets-section').classList.add('active');
+                document.querySelector('[onclick="showSection(\'projets\')"]').classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
+</body>
+</html>
