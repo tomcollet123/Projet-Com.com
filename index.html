@@ -134,6 +134,10 @@
             padding: 0 20px;
         }
 
+        .presentation h2 {
+            margin-bottom: 30px;
+        }
+
         .presentation p {
             font-size: 1.1rem;
             color: #E8E8E8;
@@ -146,6 +150,11 @@
             background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             padding: 80px 20px;
             text-align: center;
+        }
+
+        .cta-container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .cta-button {
@@ -170,6 +179,53 @@
             transform: translateY(-3px);
         }
 
+        .faq-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #FF851B;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .faq-answer {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-left: 4px solid #FF851B;
+            padding: 25px;
+            border-radius: 5px;
+            color: #E8E8E8;
+            line-height: 1.8;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
         .contact-section {
             background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             padding: 100px 20px;
@@ -179,6 +235,10 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 30px;
         }
 
         .contact-form {
@@ -220,6 +280,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: #FF851B;
+            box-shadow: 0 0 15px rgba(255, 133, 27, 0.3);
+            background: rgba(255, 255, 255, 0.12);
             outline: none;
         }
 
@@ -245,6 +307,104 @@
 
         .btn-submit:hover {
             background: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .poc-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+        }
+
+        .poc-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .poc-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .poc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .poc-card {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .poc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
+            border-color: #FFFFFF;
+        }
+
+        .poc-card h3 {
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .poc-card p {
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .poc-label {
+            font-weight: 900;
+            color: #FF851B;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .poc-info {
+            color: #FFFFFF;
+            font-size: 1rem;
+        }
+
+        .poc-email-section {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .poc-email-section h4 {
+            color: #FF851B;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .poc-email-section p {
+            color: #FFFFFF;
+            font-size: 1rem;
         }
 
         .agile-section {
@@ -444,6 +604,31 @@
             </div>
         </section>
 
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2>Questions <span class="highlight">Fréquentes</span></h2>
+                <div class="divider"></div>
+                <div class="faq-items">
+                    <div class="faq-item">
+                        <div class="faq-question">Quid est Lorem Ipsum ?</div>
+                        <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quae sunt dominii nostri ?</div>
+                        <div class="faq-answer">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quomodo possum nobiscum laborare ?</div>
+                        <div class="faq-answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quid de proiectis vestris ?</div>
+                        <div class="faq-answer">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="contact-section">
             <div class="contact-container">
                 <h2>Nous <span class="highlight">Contacter</span></h2>
@@ -463,6 +648,29 @@
                     </div>
                     <button type="submit" class="btn-submit">📧 Envoyer</button>
                 </form>
+            </div>
+        </section>
+
+        <section class="poc-section">
+            <div class="poc-container">
+                <h2><span class="highlight">POC</span></h2>
+                <div class="divider"></div>
+                <div class="poc-grid">
+                    <div class="poc-card">
+                        <h3>ASC A N1</h3>
+                        <p><span class="poc-label">Nom</span><span class="poc-info">Alexia Rabel</span></p>
+                        <p><span class="poc-label">Numéro</span><span class="poc-info">864 73 20 056</span></p>
+                    </div>
+                    <div class="poc-card">
+                        <h3>Lieutenant de Vaisseau</h3>
+                        <p><span class="poc-label">Nom</span><span class="poc-info">Chicote</span></p>
+                        <p><span class="poc-label">Numéro</span><span class="poc-info">864 73 20 056</span></p>
+                    </div>
+                </div>
+                <div class="poc-email-section">
+                    <h4>Email de Contact</h4>
+                    <p>cecmed-jdata-chef.contact.fct@intradef.gouv.fr</p>
+                </div>
             </div>
         </section>
     </div>
