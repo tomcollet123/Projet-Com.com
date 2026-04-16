@@ -16,9 +16,11 @@
             color: #FFFFFF;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            background-image: url('bg.png');
             background-attachment: fixed;
-            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         @keyframes fadeIn { 
@@ -40,12 +42,14 @@
             z-index: 100;
             display: flex;
             justify-content: center;
+            align-items: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .nav-links {
             display: flex;
             gap: 40px;
+            align-items: center;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -79,7 +83,7 @@
             justify-content: center;
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 50, 100, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.8) 0%, rgba(0, 50, 100, 0.8) 100%);
             animation: fadeIn 1s ease-out;
         }
 
@@ -231,6 +235,135 @@
             text-align: justify;
         }
 
+        .projects-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+            display: none;
+            min-height: 100vh;
+        }
+
+        .projects-section.active {
+            display: block;
+        }
+
+        .agile-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+            display: none;
+            min-height: 100vh;
+        }
+
+        .agile-section.active {
+            display: block;
+        }
+
+        .projects-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .agile-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .projects-section > h2 {
+            margin-bottom: 30px;
+        }
+
+        .agile-section > h2 {
+            margin-bottom: 30px;
+        }
+
+        .projects-subsection {
+            margin-bottom: 100px;
+        }
+
+        .projects-subsection h3 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FF851B;
+            display: inline-block;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .projects-subsection.operationnel h3 {
+            border-bottom-color: #00CC44;
+        }
+
+        .project-item {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 0 auto 40px;
+            max-width: 950px;
+            animation: slideUp 0.6s ease-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-item.operationnel {
+            border-color: #00CC44;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 133, 27, 0.3);
+        }
+
+        .project-header h3 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-weight: 900;
+            margin: 0;
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .status-encours {
+            background: rgba(255, 133, 27, 0.3);
+            color: #FF851B;
+            border: 2px solid #FF851B;
+        }
+
+        .status-operationnel {
+            background: rgba(0, 204, 68, 0.3);
+            color: #00CC44;
+            border: 2px solid #00CC44;
+        }
+
+        .project-content {
+            margin-bottom: 30px;
+        }
+
+        .project-content p {
+            color: #E8E8E8;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
         .contact-section {
             background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             padding: 100px 20px;
@@ -293,6 +426,11 @@
         .form-group textarea {
             min-height: 150px;
             resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
         .btn-submit {
@@ -413,59 +551,216 @@
             font-size: 1rem;
         }
 
-        .agile-section {
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
-            padding: 100px 20px;
-            display: none;
-        }
-
-        .agile-section.active {
-            display: block;
-        }
-
-        .projects-section {
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
-            padding: 100px 20px;
-            display: none;
-        }
-
-        .projects-section.active {
-            display: block;
-        }
-
-        .agile-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .projects-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        /* AGILE SCHEMA */
         .agile-hero {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .agile-hero h2 {
             margin-bottom: 20px;
         }
 
-        /* SCHÉMA ORIGINAL */
-        .schema-image {
-            text-align: center;
+        .schema-box {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 4px solid #FF851B;
+            border-radius: 20px;
+            padding: 50px;
             margin: 60px auto;
-            max-width: 900px;
+            max-width: 1300px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .schema-image img {
-            max-width: 100%;
-            height: auto;
+        .process-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .process-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 25px;
+            background: rgba(0, 31, 63, 0.5);
+            border: 3px solid #FF851B;
             border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .process-icon {
+            font-size: 3.5rem;
+            line-height: 1;
+        }
+
+        .process-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .process-arrow {
+            font-size: 2.5rem;
+            color: #FF851B;
+            font-weight: 900;
+        }
+
+        .center-circle {
+            background: rgba(255, 133, 27, 0.15);
+            border: 4px solid #FF851B;
+            border-radius: 50%;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin: 0 auto;
+            box-shadow: 0 0 40px rgba(255, 133, 27, 0.3);
+            position: relative;
+        }
+
+        .team-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .team-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        .team-avatars {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .phase-labels {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: stretch;
+            pointer-events: none;
+        }
+
+        .phase {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .phase-icon {
+            font-size: 1.8rem;
+        }
+
+        .phase-text {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .phase-top {
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-right {
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .phase-bottom {
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-left {
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .retours-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 25px;
+            background: rgba(0, 31, 63, 0.5);
+            border: 3px solid #FF851B;
+            border-radius: 15px;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .retours-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .retours-avatars {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .retour-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 2px solid #FF851B;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
         }
 
         .agile-explanation {
@@ -484,6 +779,7 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             font-weight: 900;
+            letter-spacing: 0.5px;
         }
 
         .agile-explanation p {
@@ -491,112 +787,6 @@
             font-size: 1rem;
             line-height: 1.8;
             margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .agile-explanation strong {
-            color: #FF851B;
-        }
-
-        .advantage-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .advantage-item {
-            background: rgba(255, 133, 27, 0.1);
-            border-left: 4px solid #FF851B;
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        .advantage-item strong {
-            display: block;
-            color: #FF851B;
-            margin-bottom: 10px;
-            font-size: 1.05rem;
-        }
-
-        .advantage-item p {
-            color: #E8E8E8;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .projects-subsection {
-            margin-bottom: 100px;
-        }
-
-        .projects-subsection h3 {
-            font-size: 1.8rem;
-            color: #FFFFFF;
-            margin-bottom: 50px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #FF851B;
-            display: inline-block;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .project-item {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 40px;
-            margin: 0 auto 40px;
-            max-width: 950px;
-            animation: slideUp 0.6s ease-out;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(255, 133, 27, 0.3);
-        }
-
-        .project-header h3 {
-            font-size: 1.8rem;
-            color: #FFFFFF;
-            font-weight: 900;
-            margin: 0;
-            flex-grow: 1;
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .status-encours {
-            background: rgba(255, 133, 27, 0.3);
-            color: #FF851B;
-            border: 2px solid #FF851B;
-        }
-
-        .status-operationnel {
-            background: rgba(0, 204, 68, 0.3);
-            color: #00CC44;
-            border: 2px solid #00CC44;
-        }
-
-        .project-content p {
-            color: #E8E8E8;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            margin-bottom: 20px;
             text-align: justify;
         }
 
@@ -608,17 +798,104 @@
             border-top: 2px solid #FF851B;
         }
 
+        @media (max-width: 1024px) {
+            .schema-box {
+                padding: 30px 20px;
+            }
+
+            .center-circle {
+                width: 240px;
+                height: 240px;
+                gap: 15px;
+            }
+
+            .process-item {
+                min-width: 120px;
+                padding: 15px;
+            }
+
+            .process-icon {
+                font-size: 2.5rem;
+            }
+
+            .process-label {
+                font-size: 0.9rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            h2 {
-                font-size: 1.6rem;
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 0.9rem;
             }
 
             .hero-content h1 {
                 font-size: 2.5rem;
             }
 
-            nav a {
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .schema-box {
+                padding: 20px;
+            }
+
+            .process-flow {
+                gap: 15px;
+                margin-bottom: 40px;
+            }
+
+            .process-item {
+                min-width: 100px;
+                padding: 12px;
+                font-size: 0.85rem;
+            }
+
+            .process-icon {
+                font-size: 2rem;
+            }
+
+            .process-label {
+                font-size: 0.85rem;
+            }
+
+            .process-arrow {
+                font-size: 1.8rem;
+            }
+
+            .center-circle {
+                width: 200px;
+                height: 200px;
+                margin: 20px auto;
+            }
+
+            .team-label {
                 font-size: 0.9rem;
+            }
+
+            .avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .retours-box {
+                min-width: 100px;
+            }
+
+            .retour-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -650,9 +927,9 @@
 
         <section class="cta-section">
             <div class="cta-container">
-                <h2>Découvrez notre <span class="highlight">Méthodologie</span></h2>
+                <h2>Prêt à voir nos <span class="highlight">Projets ?</span></h2>
                 <div class="divider"></div>
-                <button class="cta-button" onclick="showSection('agile')">Voir le Processus Agile →</button>
+                <button class="cta-button" onclick="showSection('projets')">Voir les Projets →</button>
             </div>
         </section>
 
@@ -663,19 +940,11 @@
                 <div class="faq-items">
                     <div class="faq-item">
                         <div class="faq-question">Quid est Lorem Ipsum ?</div>
-                        <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">Quae sunt dominii nostri ?</div>
-                        <div class="faq-answer">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quomodo possum nobiscum laborare ?</div>
-                        <div class="faq-answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quid de proiectis vestris ?</div>
-                        <div class="faq-answer">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</div>
+                        <div class="faq-answer">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div>
                     </div>
                 </div>
             </div>
@@ -711,12 +980,10 @@
                     <div class="poc-card">
                         <h3>ASC A N1</h3>
                         <p><span class="poc-label">Nom</span><span class="poc-info">Alexia Rabel</span></p>
-                        <p><span class="poc-label">Numéro</span><span class="poc-info">864 73 20 056</span></p>
                     </div>
                     <div class="poc-card">
                         <h3>Lieutenant de Vaisseau</h3>
                         <p><span class="poc-label">Nom</span><span class="poc-info">Chicote</span></p>
-                        <p><span class="poc-label">Numéro</span><span class="poc-info">864 73 20 056</span></p>
                     </div>
                 </div>
                 <div class="poc-email-section">
@@ -734,45 +1001,114 @@
                 <div class="divider"></div>
             </div>
 
-            <!-- SCHÉMA ORIGINAL SANS MODIF -->
-            <div class="schema-image">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23E8E8E8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23D0D0D0;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234A7C7E;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%233A6C6E;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23C8B8A8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23B8A898;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='%23F5F5F5'/%3E%3Ctext x='100' y='50' font-size='24' font-weight='bold' fill='%23333333'%3EPLANIFIER%3C/text%3E%3Crect x='30' y='80' width='140' height='80' fill='url(%23grad2)' stroke='%23333333' stroke-width='2'/%3E%3Crect x='630' y='80' width='140' height='80' fill='url(%23grad2)' stroke='%23333333' stroke-width='2'/%3E%3Ctext x='100' y='125' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EPLANIFIER%3C/text%3E%3Ctext x='700' y='125' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EMETTRE EN%3C/text%3E%3Ctext x='700' y='143' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EPRODUCTION%3C/text%3E%3Ccircle cx='400' cy='250' r='120' fill='url(%23grad1)' stroke='%23666666' stroke-width='3'/%3E%3Ctext x='400' y='235' font-size='16' font-weight='bold' fill='%23333333' text-anchor='middle'%3EMETHODOLOGIE%3C/text%3E%3Ctext x='400' y='255' font-size='16' font-weight='bold' fill='%232E9A8E' text-anchor='middle'%3EAGILE%3C/text%3E%3Crect x='330' y='50' width='140' height='60' fill='url(%23grad3)' stroke='%23999999' stroke-width='2' rx='5'/%3E%3Ctext x='400' y='70' font-size='12' font-weight='bold' fill='white' text-anchor='middle'%3EDEPLOYER%3C/text%3E%3Crect x='550' y='200' width='100' height='80' fill='url(%23grad2)' stroke='%23333333' stroke-width='2' rx='5'/%3E%3Ctext x='600' y='230' font-size='12' font-weight='bold' fill='white' text-anchor='middle'%3ETESTER%3C/text%3E%3Crect x='280' y='350' width='100' height='80' fill='url(%23grad3)' stroke='%23999999' stroke-width='2' rx='5'/%3E%3Ctext x='330' y='380' font-size='12' font-weight='bold' fill='white' text-anchor='middle'%3EFORMER%3C/text%3E%3Crect x='420' y='350' width='100' height='80' fill='url(%23grad2)' stroke='%23333333' stroke-width='2' rx='5'/%3E%3Ctext x='470' y='380' font-size='12' font-weight='bold' fill='white' text-anchor='middle'%3ECONCEVOIR%3C/text%3E%3C/svg%3E" alt="Méthodologie Agile">
-            </div>
+            <div class="schema-box">
+                <!-- Première ligne du flux -->
+                <div class="process-flow">
+                    <div class="process-item">
+                        <div class="process-icon">👤</div>
+                        <div class="process-label">CLIENTS</div>
+                    </div>
 
-            <!-- EXPLICATION ET AVANTAGES -->
-            <div class="agile-explanation">
-                <h3>📊 Notre Processus Agile</h3>
-                <p>Notre méthodologie agile propose un flux logique et efficace : <strong>PLANIFIER</strong> les besoins, gérer un cycle itératif avec <strong>CONCEPTION, TEST, FORMATION et DÉPLOIEMENT</strong>, puis <strong>METTRE EN PRODUCTION</strong>.</p>
+                    <div class="process-arrow">→</div>
 
-                <p>Ce processus cyclique garantit une qualité constante et une adaptation rapide aux changements.</p>
+                    <div class="process-item">
+                        <div class="process-icon">📦</div>
+                        <div class="process-label">PRODUIT<br>À LIVRER</div>
+                    </div>
 
-                <h3 style="margin-top: 30px; margin-bottom: 20px;">✨ Les Avantages</h3>
-                <div class="advantage-list">
-                    <div class="advantage-item">
-                        <strong>🎯 Clarté</strong>
-                        <p>Un processus bien défini et compréhensible pour tous les acteurs</p>
+                    <div class="process-arrow">→</div>
+
+                    <div class="process-item">
+                        <div class="process-icon">⚙️</div>
+                        <div class="process-label">EN COURS</div>
                     </div>
-                    <div class="advantage-item">
-                        <strong>🔄 Itération</strong>
-                        <p>Cycles répétés permettant l'amélioration continue du produit</p>
+
+                    <div class="process-arrow">→</div>
+                </div>
+
+                <!-- Cercle central avec phases -->
+                <div class="center-circle">
+                    <div class="phase-labels">
+                        <div class="phase phase-top">
+                            <div class="phase-icon">📋</div>
+                            <div class="phase-text">PLANNING</div>
+                        </div>
+                        <div class="phase phase-right">
+                            <div class="phase-icon">✅</div>
+                            <div class="phase-text">TESTING</div>
+                        </div>
+                        <div class="phase phase-bottom">
+                            <div class="phase-icon">🔄</div>
+                            <div class="phase-text">GESTION<br>PROJET</div>
+                        </div>
+                        <div class="phase phase-left">
+                            <div class="phase-icon">📝</div>
+                            <div class="phase-text">FORMATION</div>
+                        </div>
                     </div>
-                    <div class="advantage-item">
-                        <strong>✅ Qualité</strong>
-                        <p>Tests intégrés à chaque phase garantissant la qualité</p>
-                    </div>
-                    <div class="advantage-item">
-                        <strong>📈 Flexibilité</strong>
-                        <p>Adaptation rapide aux changements de priorités ou d'exigences</p>
-                    </div>
-                    <div class="advantage-item">
-                        <strong>👥 Formation</strong>
-                        <p>Formation des utilisateurs incluse dans le processus</p>
-                    </div>
-                    <div class="advantage-item">
-                        <strong>🚀 Déploiement</strong>
-                        <p>Mise en production maîtrisée et sécurisée</p>
+
+                    <div class="team-info">
+                        <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
+                        <div class="team-avatars">
+                            <div class="avatar">👨</div>
+                            <div class="avatar">👩</div>
+                            <div class="avatar">👤</div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Deuxième ligne du flux -->
+                <div class="process-flow">
+                    <div class="process-arrow">→</div>
+
+                    <div class="process-item">
+                        <div class="process-icon">🔍</div>
+                        <div class="process-label">ANALYSE</div>
+                    </div>
+
+                    <div class="process-arrow">→</div>
+
+                    <div class="process-item">
+                        <div class="process-icon">📮</div>
+                        <div class="process-label">LIVRABLE</div>
+                    </div>
+
+                    <div class="process-arrow">→</div>
+
+                    <div class="retours-box">
+                        <div class="retours-label">RETOURS<br>UTILISATEURS</div>
+                        <div class="retours-avatars">
+                            <div class="retour-avatar">👩</div>
+                            <div class="retour-avatar">👨</div>
+                            <div class="retour-avatar">👤</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explication -->
+            <div class="agile-explanation">
+                <h3>📊 Processus Agile Itératif</h3>
+                <p>La méthodologie Agile est un cycle continu où l'équipe implémente travaille autour de 4 phases majeures :</p>
+                
+                <p><strong style="color: #00CC44;">📍 Les 4 Phases du Cycle :</strong></p>
+                <p>🎯 <strong>PLANNING</strong> - L'équipe définit les objectifs du sprint<br>
+                💻 <strong>FORMATION</strong> - Formation et mise à jour de l'équipe<br>
+                ✅ <strong>TESTING</strong> - Validation de la qualité du produit<br>
+                🔄 <strong>GESTION PROJET</strong> - Suivi et coordination des tâches</p>
+
+                <p><strong style="color: #00CC44;">🔀 Le Flux Complet :</strong></p>
+                <p>1. Les CLIENTS demandent un PRODUIT À LIVRER<br>
+                2. Le travail EN COURS commence et suit les 4 phases<br>
+                3. L'équipe d'implémentation contrôle chaque phase<br>
+                4. Résultat : LIVRABLE de qualité<br>
+                5. RETOURS des utilisateurs finaux pour amélioration continue</p>
+
+                <p><strong style="color: #00CC44;">💡 Avantages :</strong></p>
+                <p>✅ Flexibilité aux changements<br>
+                ✅ Qualité constante<br>
+                ✅ Feedback utilisateur permanent<br>
+                ✅ Livraisons régulières</p>
             </div>
         </div>
     </div>
@@ -790,43 +1126,6 @@
                         <h3>Navigatio Digitalis</h3>
                         <span class="project-status status-encours">⏳ En cours</span>
                     </div>
-                    <div class="project-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>Fortitudo Systematis</h3>
-                        <span class="project-status status-encours">⏳ En cours</span>
-                    </div>
-                    <div class="project-content">
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="projects-subsection">
-                <h3>✅ Projets Opérationnels</h3>
-
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>Aurora Technologia</h3>
-                        <span class="project-status status-operationnel">✅ Opérationnel</span>
-                    </div>
-                    <div class="project-content">
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>Sapientia Aeterna</h3>
-                        <span class="project-status status-operationnel">✅ Opérationnel</span>
-                    </div>
-                    <div class="project-content">
-                        <p>Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -839,8 +1138,8 @@
     <script>
         function showSection(sectionName) {
             document.getElementById('accueil-section').style.display = 'none';
-            document.getElementById('agile-section').classList.remove('active');
             document.getElementById('projets-section').classList.remove('active');
+            document.getElementById('agile-section').classList.remove('active');
 
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => link.classList.remove('active'));
