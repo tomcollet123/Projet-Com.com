@@ -18,7 +18,6 @@
             line-height: 1.6;
             background-image: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             background-attachment: fixed;
-            background-size: cover;
         }
 
         @keyframes fadeIn { 
@@ -451,20 +450,29 @@
             margin-bottom: 20px;
         }
 
-        /* SCHÉMA AVEC GRANDE FLÈCHE */
+        /* SCHÉMA AGILE AVEC CERCLE */
+        .schema-container {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
+            border: 3px solid #FF851B;
+            border-radius: 15px;
+            padding: 60px 40px;
+            margin: 60px auto;
+            max-width: 1100px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
         .schema-wrapper {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 60px auto;
-            max-width: 1100px;
-            gap: 0;
+            justify-content: space-between;
+            gap: 40px;
             flex-wrap: wrap;
             position: relative;
         }
 
-        .schema-box {
-            background: #2E5266;
+        /* Boîtes latérales */
+        .schema-box-side {
+            background: #2E6B6B;
             border: 3px solid #FF851B;
             border-radius: 12px;
             padding: 25px;
@@ -474,49 +482,22 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .schema-box.methodologie {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
-            border: 3px solid #FF851B;
-            border-radius: 15px;
-            padding: 40px;
-            flex: 1;
-            min-width: 300px;
-            position: relative;
+        .schema-box-side.planifier {
+            background: linear-gradient(135deg, #2E6B6B 0%, #1F4D4D 100%);
         }
 
-        .schema-box.methodologie h3 {
-            color: #FF851B;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        .schema-box.methodologie .phases {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .phase-item {
-            background: #2E5266;
-            border: 2px solid #00CC44;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 0.85rem;
-            color: #E8E8E8;
-            font-weight: 600;
+        .schema-box-side.production {
+            background: linear-gradient(135deg, #2E6B6B 0%, #1F4D4D 100%);
         }
 
         .schema-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
             line-height: 1;
         }
 
         .schema-label {
-            color: #FF851B;
+            color: #FFFFFF;
             font-weight: 900;
             text-transform: uppercase;
             font-size: 0.95rem;
@@ -524,20 +505,113 @@
             line-height: 1.3;
         }
 
-        .schema-arrow-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* CERCLE CENTRAL */
+        .circle-schema {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
             flex: 0 1 auto;
         }
 
-        .schema-arrow {
-            font-size: 4rem;
-            color: #FF851B;
-            font-weight: 900;
-            line-height: 1;
+        .circle-center {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid #FF851B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 133, 27, 0.1);
         }
 
+        .circle-text {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .circle-text h3 {
+            color: #FF851B;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        /* Segments autour du cercle */
+        .circle-segment {
+            position: absolute;
+            width: 120px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .segment-label {
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+        }
+
+        .segment-icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        /* TOP - DEPLOYER */
+        .segment-top {
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #B8A99B;
+            color: #FFFFFF;
+            border: 2px solid #8B7355;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        /* RIGHT - TESTER */
+        .segment-right {
+            right: -80px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #5A9A8E;
+            color: #FFFFFF;
+            border: 2px solid #2E6B6B;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        /* BOTTOM LEFT - FORMER */
+        .segment-bottom-left {
+            bottom: -70px;
+            left: -30px;
+            background: #C4B5A8;
+            color: #FFFFFF;
+            border: 2px solid #9B8B7E;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        /* BOTTOM RIGHT - CONCEVOIR */
+        .segment-bottom-right {
+            bottom: -70px;
+            right: -30px;
+            background: #5A9A8E;
+            color: #FFFFFF;
+            border: 2px solid #2E6B6B;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        /* Explication */
         .agile-explanation {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
             border: 2px solid #FF851B;
@@ -562,6 +636,38 @@
             line-height: 1.8;
             margin-bottom: 15px;
             text-align: justify;
+        }
+
+        .agile-explanation strong {
+            color: #FF851B;
+        }
+
+        .advantage-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .advantage-item {
+            background: rgba(255, 133, 27, 0.1);
+            border-left: 4px solid #FF851B;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .advantage-item strong {
+            display: block;
+            color: #FF851B;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .advantage-item p {
+            color: #E8E8E8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
         }
 
         .projects-subsection {
@@ -646,14 +752,14 @@
             border-top: 2px solid #FF851B;
         }
 
-        @media (max-width: 1000px) {
-            .schema-wrapper {
-                flex-direction: column;
-                gap: 20px;
+        @media (max-width: 1024px) {
+            .circle-schema {
+                width: 250px;
+                height: 250px;
             }
 
-            .schema-arrow {
-                transform: rotate(90deg);
+            .schema-container {
+                padding: 40px 20px;
             }
         }
 
@@ -666,22 +772,27 @@
                 font-size: 2.5rem;
             }
 
-            .schema-box {
-                min-width: 140px;
-                padding: 20px;
+            .schema-wrapper {
+                flex-direction: column;
+                gap: 30px;
             }
 
-            .schema-box.methodologie {
-                padding: 30px;
-                min-width: 100%;
+            .circle-schema {
+                width: 200px;
+                height: 200px;
             }
 
-            .schema-icon {
-                font-size: 1.5rem;
+            .segment-top {
+                top: -50px;
             }
 
-            .schema-label {
-                font-size: 0.85rem;
+            .segment-right {
+                right: -60px;
+            }
+
+            .segment-bottom-left,
+            .segment-bottom-right {
+                bottom: -50px;
             }
         }
     </style>
@@ -713,7 +824,7 @@
 
         <section class="cta-section">
             <div class="cta-container">
-                <h2>Découvrez nos <span class="highlight">Projets</span></h2>
+                <h2>Découvrez notre <span class="highlight">Méthodologie</span></h2>
                 <div class="divider"></div>
                 <button class="cta-button" onclick="showSection('agile')">Voir le Processus Agile →</button>
             </div>
@@ -735,10 +846,6 @@
                     <div class="faq-item">
                         <div class="faq-question">Quomodo possum nobiscum laborare ?</div>
                         <div class="faq-answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quid de proiectis vestris ?</div>
-                        <div class="faq-answer">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</div>
                     </div>
                 </div>
             </div>
@@ -797,63 +904,90 @@
                 <div class="divider"></div>
             </div>
 
-            <!-- SCHÉMA AVEC GRANDE FLÈCHE -->
-            <div class="schema-wrapper">
-                <!-- PLANIFIER -->
-                <div class="schema-box">
-                    <div class="schema-icon">📋</div>
-                    <div class="schema-label">PLANIFIER</div>
-                </div>
-
-                <!-- FLÈCHE -->
-                <div class="schema-arrow-container">
-                    <div class="schema-arrow">→</div>
-                </div>
-
-                <!-- METHODOLOGIE AGILE (CENTRE) -->
-                <div class="schema-box methodologie">
-                    <h3>MÉTHODOLOGIE AGILE</h3>
-                    <div class="phases">
-                        <div class="phase-item">📝 Conception</div>
-                        <div class="phase-item">🔄 Itération</div>
-                        <div class="phase-item">✅ Test</div>
-                        <div class="phase-item">📊 Analyse</div>
+            <!-- SCHÉMA AGILE EXACTEMENT COMME L'IMAGE -->
+            <div class="schema-container">
+                <div class="schema-wrapper">
+                    <!-- PLANIFIER -->
+                    <div class="schema-box-side planifier">
+                        <div class="schema-icon">📋</div>
+                        <div class="schema-label">PLANIFIER</div>
                     </div>
-                </div>
 
-                <!-- FLÈCHE -->
-                <div class="schema-arrow-container">
-                    <div class="schema-arrow">→</div>
-                </div>
+                    <!-- CERCLE CENTRAL AVEC PHASES -->
+                    <div class="circle-schema">
+                        <div class="circle-center">
+                            <div class="circle-text">
+                                <h3>MÉTHODOLOGIE<br>AGILE</h3>
+                            </div>
+                        </div>
 
-                <!-- METTRE EN PRODUCTION -->
-                <div class="schema-box">
-                    <div class="schema-icon">🚀</div>
-                    <div class="schema-label">METTRE EN<br>PRODUCTION</div>
+                        <!-- DEPLOYER - TOP -->
+                        <div class="circle-segment segment-top">
+                            <div class="segment-icon">🚀</div>
+                            <div class="segment-label">DÉPLOYER</div>
+                        </div>
+
+                        <!-- TESTER - RIGHT -->
+                        <div class="circle-segment segment-right">
+                            <div class="segment-icon">✅</div>
+                            <div class="segment-label">TESTER</div>
+                        </div>
+
+                        <!-- FORMER - BOTTOM LEFT -->
+                        <div class="circle-segment segment-bottom-left">
+                            <div class="segment-icon">📝</div>
+                            <div class="segment-label">FORMER</div>
+                        </div>
+
+                        <!-- CONCEVOIR - BOTTOM RIGHT -->
+                        <div class="circle-segment segment-bottom-right">
+                            <div class="segment-icon">💻</div>
+                            <div class="segment-label">CONCEVOIR</div>
+                        </div>
+                    </div>
+
+                    <!-- METTRE EN PRODUCTION -->
+                    <div class="schema-box-side production">
+                        <div class="schema-icon">📦</div>
+                        <div class="schema-label">METTRE EN<br>PRODUCTION</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Explication -->
+            <!-- EXPLICATION ET AVANTAGES -->
             <div class="agile-explanation">
-                <h3>📊 Le Processus Agile</h3>
-                <p>Notre méthodologie suit un processus simple mais efficace :</p>
-                
-                <p><strong style="color: #00CC44;">📍 De PLANIFIER à METTRE EN PRODUCTION :</strong></p>
-                <p>1️⃣ <strong>PLANIFIER</strong> - Définition des objectifs et priorités<br>
-                2️⃣ <strong>MÉTHODOLOGIE AGILE</strong> - Conception, itération, tests et analyse<br>
-                3️⃣ <strong>METTRE EN PRODUCTION</strong> - Déploiement et lancement</p>
+                <h3>📊 Notre Processus Agile</h3>
+                <p>Notre méthodologie agile propose un flux logique et efficace : <strong>PLANIFIER</strong> les besoins, gérer un cycle itératif avec <strong>CONCEPTION, TEST, FORMATION et DÉPLOIEMENT</strong>, puis <strong>METTRE EN PRODUCTION</strong>.</p>
 
-                <p><strong style="color: #00CC44;">💡 La Méthodologie Agile Comprend :</strong></p>
-                <p>📝 <strong>Conception</strong> - Développement des fonctionnalités<br>
-                🔄 <strong>Itération</strong> - Cycles répétés d'amélioration<br>
-                ✅ <strong>Test</strong> - Assurance qualité continue<br>
-                📊 <strong>Analyse</strong> - Collecte des retours utilisateurs</p>
+                <p>Ce processus cyclique garantit une qualité constante et une adaptation rapide aux changements.</p>
 
-                <p><strong style="color: #00CC44;">✨ Avantages :</strong></p>
-                <p>✅ Processus clair et compréhensible<br>
-                ✅ Flexibilité et adaptation rapide<br>
-                ✅ Qualité garantie à chaque étape<br>
-                ✅ Livraison de valeur continue</p>
+                <h3 style="margin-top: 30px; margin-bottom: 20px;">✨ Les Avantages</h3>
+                <div class="advantage-list">
+                    <div class="advantage-item">
+                        <strong>🎯 Clarté</strong>
+                        <p>Un processus bien défini et compréhensible pour tous les acteurs</p>
+                    </div>
+                    <div class="advantage-item">
+                        <strong>🔄 Itération</strong>
+                        <p>Cycles répétés permettant l'amélioration continue du produit</p>
+                    </div>
+                    <div class="advantage-item">
+                        <strong>✅ Qualité</strong>
+                        <p>Tests intégrés à chaque phase garantissant la qualité</p>
+                    </div>
+                    <div class="advantage-item">
+                        <strong>📈 Flexibilité</strong>
+                        <p>Adaptation rapide aux changements de priorités ou d'exigences</p>
+                    </div>
+                    <div class="advantage-item">
+                        <strong>👥 Formation</strong>
+                        <p>Formation des utilisateurs incluse dans le processus</p>
+                    </div>
+                    <div class="advantage-item">
+                        <strong>🚀 Déploiement</strong>
+                        <p>Mise en production maîtrisée et sécurisée</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
