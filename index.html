@@ -43,11 +43,6 @@
             50% { opacity: 0.7; }
         }
 
-        @keyframes flowCircle {
-            0% { stroke-dashoffset: 0; }
-            100% { stroke-dashoffset: 800; }
-        }
-
         nav {
             background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             padding: 15px 20px;
@@ -592,7 +587,7 @@
             font-size: 1rem;
         }
 
-        /* AGILE STYLES - OPTIMIZED LAYOUT */
+        /* AGILE STYLES */
         .agile-hero {
             text-align: center;
             margin-bottom: 40px;
@@ -606,77 +601,40 @@
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 3px solid #FF851B;
             border-radius: 15px;
-            padding: 80px 60px;
+            padding: 60px 40px;
             margin: 60px auto;
-            max-width: 100%;
+            max-width: 1400px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
             position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
         }
 
-        /* TOP PHASES ROW */
-        .phases-top {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 150px;
-            margin-bottom: 20px;
-        }
-
-        .phase-box {
-            text-align: center;
-        }
-
-        .top-phase .phase-text {
-            color: #FF851B;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.15rem;
-            letter-spacing: 1px;
-            line-height: 1.3;
-        }
-
-        /* MAIN HORIZONTAL FLOW */
-        .main-flow-wrapper {
-            width: 100%;
+        .workflow-content {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
+            justify-content: space-between;
+            gap: 20px;
             position: relative;
-            min-height: 350px;
         }
 
-        /* LEFT: CLIENTS */
-        .clients-section {
+        /* Clients Section */
+        .clients-box {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .client-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
             gap: 12px;
+            min-width: 100px;
         }
 
         .client-avatar {
-            font-size: 3rem;
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             background: rgba(30, 100, 200, 0.3);
             border: 3px solid #1E64C8;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2.5rem;
             box-shadow: 0 4px 15px rgba(30, 100, 200, 0.4);
         }
 
@@ -684,87 +642,79 @@
             color: #1E64C8;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            text-align: center;
         }
 
-        /* MAIN FLOW ITEMS */
-        .main-flow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 18px;
-            flex: 1;
-        }
-
-        .flow-item {
+        /* Product Stack */
+        .product-stack {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            min-width: 130px;
-            flex-shrink: 0;
+            gap: 8px;
+            min-width: 90px;
         }
 
-        .item-label {
+        .product-label {
             color: #FF851B;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
-            line-height: 1.3;
-            margin-bottom: 10px;
-            min-height: 45px;
+            font-size: 0.85rem;
+            text-align: center;
+            line-height: 1.2;
+            min-height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .product-bars {
+        .bars {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
         }
 
         .bar {
-            background: linear-gradient(90deg, #FFB84D, #FF851B);
-            height: 15px;
-            border-radius: 3px;
-            width: 95px;
+            background: linear-gradient(90deg, #FFA500, #FF851B);
+            height: 12px;
+            border-radius: 2px;
+            width: 75px;
             box-shadow: 0 2px 5px rgba(255, 133, 27, 0.4);
         }
 
-        .arrow-big {
-            font-size: 2.5rem;
+        /* Arrow */
+        .arrow {
+            font-size: 3rem;
             color: #FF851B;
             font-weight: 900;
             line-height: 1;
-            flex-shrink: 0;
+            animation: slideRight 0.8s ease-out;
         }
 
-        /* CENTRAL CIRCLE */
+        /* Central Circle */
         .central-circle {
             position: relative;
-            width: 320px;
-            height: 320px;
+            width: 350px;
+            height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
+            margin: 0 20px;
         }
 
-        .circle-arc {
+        .circle-svg {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            filter: drop-shadow(0 0 8px rgba(255, 133, 27, 0.4));
         }
 
-        .circle-arc path {
-            animation: flowCircle 4s linear infinite;
-            stroke-dasharray: 800;
+        .circle-arrow {
+            fill: none;
+            stroke: #FF851B;
+            stroke-width: 18;
+            stroke-linecap: round;
         }
 
         .team-center {
@@ -781,7 +731,6 @@
             font-weight: 900;
             text-transform: uppercase;
             font-size: 0.95rem;
-            letter-spacing: 0.5px;
             text-align: center;
             line-height: 1.3;
         }
@@ -792,146 +741,159 @@
         }
 
         .team-avatar {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             border: 3px solid #FFFFFF;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
         }
 
-        /* CIRCLE PHASES - BETTER POSITIONING */
-        .circle-phase {
+        /* Phase Labels */
+        .phase-labels {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .phase-label {
             position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             text-align: center;
         }
 
-        .step-badge {
+        .phase-icon {
             font-size: 1.8rem;
-            font-weight: 900;
-            line-height: 1;
-            min-width: 40px;
         }
 
-        .circle-phase-icon {
-            font-size: 2rem;
-        }
-
-        .circle-phase-label {
+        .phase-text {
             color: #FF851B;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            line-height: 1.3;
-            width: 90px;
-            padding: 5px;
-            background: rgba(0, 31, 63, 0.8);
-            border-radius: 5px;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+            width: 70px;
         }
 
-        /* Position each step around the circle - CLEARLY OUTSIDE */
-        .phase-circle-top {
-            top: -100px;
+        .phase-top {
+            top: -50px;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .phase-circle-devtop {
-            top: -60px;
-            right: -90px;
-        }
-
-        .phase-circle-right {
-            right: -110px;
+        .phase-right {
+            right: -70px;
             top: 50%;
             transform: translateY(-50%);
         }
 
-        .phase-circle-bottom {
-            bottom: -100px;
+        .phase-bottom {
+            bottom: -50px;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .phase-circle-formbottom {
-            bottom: -60px;
-            left: -90px;
+        .phase-left {
+            left: -70px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-        /* ANALYSIS & DELIVERABLE */
-        .deliverable-item {
+        /* Analysis Section */
+        .analysis-box {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            gap: 10px;
-            background: linear-gradient(135deg, rgba(255, 165, 0, 0.25) 0%, rgba(255, 133, 27, 0.15) 100%);
-            border: 3px dashed #FF851B;
-            padding: 25px 30px;
-            border-radius: 10px;
-            min-width: 130px;
-            flex-shrink: 0;
+            gap: 8px;
+            min-width: 90px;
         }
 
-        .box-icon {
-            font-size: 2.5rem;
-        }
-
-        /* RIGHT: USERS FEEDBACK */
-        .users-feedback-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-shrink: 0;
-        }
-
-        .feedback-title {
+        .analysis-label {
             color: #FF851B;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
+            font-size: 0.9rem;
             text-align: center;
-            line-height: 1.4;
         }
 
-        .feedback-avatars {
+        /* Deliverable Section */
+        .deliverable-box {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.25) 0%, rgba(255, 133, 27, 0.15) 100%);
+            border: 3px dashed #FF851B;
+            padding: 20px 25px;
+            border-radius: 10px;
+            min-width: 100px;
         }
 
-        .feedback-avatar {
-            width: 75px;
-            height: 75px;
+        .deliverable-icon {
+            font-size: 2.2rem;
+        }
+
+        .deliverable-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Users Feedback */
+        .users-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            min-width: 100px;
+        }
+
+        .users-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .user-avatars {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             border: 3px solid #FF851B;
             box-shadow: 0 4px 12px rgba(255, 133, 27, 0.4);
             transition: all 0.3s ease;
         }
 
-        .feedback-avatar:hover {
+        .user-avatar:hover {
             transform: scale(1.08);
             box-shadow: 0 6px 18px rgba(255, 133, 27, 0.5);
         }
 
-        /* EXPLANATION */
+        /* Explanation */
         .agile-explanation {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
             border: 2px solid #FF851B;
@@ -967,80 +929,15 @@
             border-top: 2px solid #FF851B;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 1400px) {
+        @media (max-width: 1200px) {
             .agile-workflow {
-                padding: 60px 40px;
-            }
-
-            .phases-top {
-                gap: 100px;
-            }
-
-            .main-flow-wrapper {
-                min-height: 320px;
+                padding: 40px 30px;
             }
 
             .central-circle {
-                width: 280px;
-                height: 280px;
-            }
-
-            .phase-circle-right {
-                right: -80px;
-            }
-
-            .phase-circle-left {
-                left: -80px;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .agile-workflow {
-                padding: 50px 30px;
-            }
-
-            .phases-top {
-                gap: 80px;
-            }
-
-            .main-flow-wrapper {
-                flex-wrap: wrap;
-                gap: 20px;
-                min-height: auto;
-            }
-
-            .central-circle {
-                width: 250px;
+                width: 300px;
                 height: 250px;
-                margin: 20px 0;
-            }
-
-            .phase-circle-top {
-                top: -80px;
-            }
-
-            .phase-circle-bottom {
-                bottom: -80px;
-            }
-
-            .phase-circle-devtop {
-                top: -50px;
-                right: -70px;
-            }
-
-            .phase-circle-formbottom {
-                bottom: -50px;
-                left: -70px;
-            }
-
-            .phase-circle-right {
-                right: -90px;
-            }
-
-            .circle-phase-label {
-                font-size: 0.75rem;
-                width: 80px;
+                margin: 0 15px;
             }
         }
 
@@ -1068,103 +965,44 @@
                 letter-spacing: 1px;
             }
 
-            .project-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .project-header h3 {
-                margin-bottom: 15px;
-                margin-right: 0;
-                font-size: 1.4rem;
-            }
-
-            .project-item {
-                padding: 25px;
-            }
-
-            .poc-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form {
-                padding: 25px;
-            }
-
-            .presentation-container,
-            .faq-container,
-            .contact-container,
-            .poc-container,
-            .agile-container {
-                padding: 0 15px;
-            }
-
             .agile-workflow {
-                padding: 40px 20px;
-                gap: 25px;
+                padding: 30px 20px;
             }
 
-            .phases-top {
-                gap: 50px;
-                margin-bottom: 0px;
-            }
-
-            .top-phase .phase-text {
-                font-size: 1rem;
-            }
-
-            .main-flow-wrapper {
+            .workflow-content {
                 flex-direction: column;
-                min-height: auto;
-            }
-
-            .main-flow {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .clients-section {
-                order: -1;
-                margin-bottom: 20px;
-            }
-
-            .users-feedback-section {
-                order: 10;
-                margin-top: 20px;
+                gap: 30px;
             }
 
             .central-circle {
-                width: 200px;
+                width: 250px;
                 height: 200px;
-                margin: 20px 0;
             }
 
-            .phase-circle-top {
-                top: -70px;
-            }
-
-            .phase-circle-bottom {
-                bottom: -70px;
-            }
-
-            .phase-circle-devtop {
+            .phase-top {
                 top: -40px;
-                right: -60px;
             }
 
-            .phase-circle-formbottom {
+            .phase-bottom {
                 bottom: -40px;
+            }
+
+            .phase-left {
                 left: -60px;
             }
 
-            .phase-circle-right {
-                right: -80px;
+            .phase-right {
+                right: -60px;
             }
 
-            .circle-phase-label {
-                font-size: 0.65rem;
-                width: 70px;
-                padding: 3px;
+            .phase-text {
+                font-size: 0.7rem;
+                width: 60px;
+            }
+
+            .arrow {
+                font-size: 2rem;
+                transform: rotate(90deg);
             }
 
             .team-avatar {
@@ -1177,42 +1015,14 @@
                 font-size: 0.8rem;
             }
 
-            .arrow-big {
-                font-size: 2rem;
-            }
-
-            .product-bars {
-                gap: 3px;
-            }
-
-            .bar {
-                height: 12px;
-                width: 70px;
-            }
-
-            .client-avatar {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
-            }
-
-            .feedback-avatar {
-                width: 60px;
-                height: 60px;
+            .user-avatar {
+                width: 50px;
+                height: 50px;
                 font-size: 1.5rem;
             }
 
-            .agile-explanation {
-                padding: 25px;
-            }
-
-            .flow-item {
-                min-width: 110px;
-            }
-
-            .item-label {
-                font-size: 0.95rem;
-                min-height: 40px;
+            .bar {
+                width: 60px;
             }
         }
     </style>
@@ -1346,144 +1156,100 @@
             </div>
 
             <div class="agile-workflow">
-                <!-- TOP ROW: Planning, Dev, Testing, Parametrage -->
-                <div class="phases-top">
-                    <div class="phase-box top-phase">
-                        <div class="phase-text">DÉVELOPPEMENT</div>
-                    </div>
-                    <div class="phase-box top-phase">
-                        <div class="phase-text">PARAMÉTRAGE</div>
-                    </div>
-                </div>
-
-                <!-- MAIN FLOW WRAPPER -->
-                <div class="main-flow-wrapper">
-                    <!-- LEFT: Clients -->
-                    <div class="clients-section">
-                        <div class="client-item">
-                            <div class="client-avatar">👤</div>
-                            <div class="client-label">CLIENTS</div>
-                        </div>
+                <div class="workflow-content">
+                    <!-- Clients -->
+                    <div class="clients-box">
+                        <div class="client-avatar">👤</div>
+                        <div class="client-label">CLIENTS</div>
                     </div>
 
-                    <!-- MAIN FLOW -->
-                    <div class="main-flow">
-                        <div class="flow-item">
-                            <div class="item-label">PRODUIT<br>À LIVRER</div>
-                            <div class="product-bars">
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                            </div>
-                        </div>
+                    <div class="arrow">→</div>
 
-                        <div class="arrow-big">→</div>
-
-                        <div class="flow-item">
-                            <div class="item-label">EN COURS</div>
-                            <div class="product-bars">
-                                <div class="bar"></div>
-                                <div class="bar"></div>
-                            </div>
-                        </div>
-
-                        <div class="arrow-big">→</div>
-
-                        <!-- CENTRAL CIRCLE WITH TEAM -->
-                        <div class="central-circle">
-                            <!-- SVG Circle Arc with flow arrows -->
-                            <svg class="circle-arc" viewBox="0 0 400 400">
-                                <!-- Main circle -->
-                                <circle cx="200" cy="200" r="150" fill="none" stroke="#FF851B" stroke-width="3" opacity="0.6"/>
-                                
-                                <!-- Curved arrows showing flow direction -->
-                                <defs>
-                                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                        <polygon points="0 0, 10 3, 0 6" fill="#FF851B"/>
-                                    </marker>
-                                </defs>
-                                
-                                <!-- Arrow from Planning to Dev -->
-                                <path d="M 280 110 A 120 120 0 0 1 330 160" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                                <!-- Arrow from Dev to Testing -->
-                                <path d="M 330 240 A 120 120 0 0 1 280 290" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                                <!-- Arrow from Testing to Gestion -->
-                                <path d="M 120 290 A 120 120 0 0 1 70 240" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                                <!-- Arrow from Gestion to Formation -->
-                                <path d="M 70 160 A 120 120 0 0 1 120 110" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                                <!-- Arrow from Formation back to Planning -->
-                                <path d="M 200 80 A 120 120 0 0 1 280 110" fill="none" stroke="#FF851B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
-                            </svg>
-
-                            <!-- Step 1: Planning (Top) -->
-                            <div class="circle-phase phase-circle-top">
-                                <div class="step-badge">1️⃣</div>
-                                <div class="circle-phase-icon">📋</div>
-                                <div class="circle-phase-label">PLANNING</div>
-                            </div>
-
-                            <!-- Step 2: Dev (Right-Top) -->
-                            <div class="circle-phase phase-circle-devtop">
-                                <div class="step-badge">2️⃣</div>
-                                <div class="circle-phase-icon">💻</div>
-                                <div class="circle-phase-label">DÉVELOPPEMENT</div>
-                            </div>
-
-                            <!-- Step 3: Testing (Right-Bottom) -->
-                            <div class="circle-phase phase-circle-right">
-                                <div class="step-badge">3️⃣</div>
-                                <div class="circle-phase-icon">✅</div>
-                                <div class="circle-phase-label">TESTING</div>
-                            </div>
-
-                            <!-- Step 4: Gestion Projet (Bottom) -->
-                            <div class="circle-phase phase-circle-bottom">
-                                <div class="step-badge">4️⃣</div>
-                                <div class="circle-phase-icon">🔄</div>
-                                <div class="circle-phase-label">GESTION<br>PROJET</div>
-                            </div>
-
-                            <!-- Step 5: Formation (Left-Bottom) -->
-                            <div class="circle-phase phase-circle-formbottom">
-                                <div class="step-badge">5️⃣</div>
-                                <div class="circle-phase-icon">📝</div>
-                                <div class="circle-phase-label">FORMATION</div>
-                            </div>
-
-                            <!-- Center Team -->
-                            <div class="team-center">
-                                <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
-                                <div class="team-avatars">
-                                    <div class="team-avatar">👨</div>
-                                    <div class="team-avatar">👩</div>
-                                    <div class="team-avatar">👤</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="arrow-big">→</div>
-
-                        <!-- ANALYSIS & DELIVERABLE -->
-                        <div class="flow-item">
-                            <div class="item-label">ANALYSE</div>
-                        </div>
-
-                        <div class="arrow-big">→</div>
-
-                        <div class="deliverable-item">
-                            <div class="box-icon">📦</div>
-                            <div class="item-label">LIVRABLE</div>
+                    <!-- Product Stack -->
+                    <div class="product-stack">
+                        <div class="product-label">PRODUIT<br>À LIVRER</div>
+                        <div class="bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
                         </div>
                     </div>
 
-                    <!-- RIGHT: Users Feedback -->
-                    <div class="users-feedback-section">
-                        <div class="feedback-title">RETOURS DES<br>UTILISATEURS<br>FINAUX</div>
-                        <div class="feedback-avatars">
-                            <div class="feedback-avatar">👩</div>
-                            <div class="feedback-avatar">👨</div>
-                            <div class="feedback-avatar">👤</div>
+                    <div class="arrow">→</div>
+
+                    <!-- En Cours -->
+                    <div class="product-stack">
+                        <div class="product-label">EN COURS</div>
+                        <div class="bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <!-- Central Circle -->
+                    <div class="central-circle">
+                        <svg class="circle-svg" viewBox="0 0 350 280">
+                            <path class="circle-arrow" d="M 175 30 Q 280 50 300 140 Q 310 190 260 240 Q 175 280 80 240 Q 20 200 30 140 Q 50 50 175 30" marker-end="url(#arrowMarker)"/>
+                        </svg>
+
+                        <!-- Phase Labels -->
+                        <div class="phase-labels">
+                            <div class="phase-label phase-top">
+                                <div class="phase-icon">📋</div>
+                                <div class="phase-text">PLANNING</div>
+                            </div>
+                            <div class="phase-label phase-right">
+                                <div class="phase-icon">✅</div>
+                                <div class="phase-text">TESTING</div>
+                            </div>
+                            <div class="phase-label phase-bottom">
+                                <div class="phase-icon">����</div>
+                                <div class="phase-text">GESTION<br>PROJET</div>
+                            </div>
+                            <div class="phase-label phase-left">
+                                <div class="phase-icon">📝</div>
+                                <div class="phase-text">FORMATION</div>
+                            </div>
+                        </div>
+
+                        <!-- Team Center -->
+                        <div class="team-center">
+                            <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
+                            <div class="team-avatars">
+                                <div class="team-avatar">👨</div>
+                                <div class="team-avatar">👩</div>
+                                <div class="team-avatar">👤</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <!-- Analysis -->
+                    <div class="analysis-box">
+                        <div class="analysis-label">ANALYSE</div>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <!-- Deliverable -->
+                    <div class="deliverable-box">
+                        <div class="deliverable-icon">📦</div>
+                        <div class="deliverable-label">LIVRABLE</div>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <!-- Users Feedback -->
+                    <div class="users-box">
+                        <div class="users-label">RETOURS DES<br>UTILISATEURS<br>FINAUX</div>
+                        <div class="user-avatars">
+                            <div class="user-avatar">👩</div>
+                            <div class="user-avatar">👨</div>
+                            <div class="user-avatar">👤</div>
                         </div>
                     </div>
                 </div>
@@ -1496,12 +1262,11 @@
                 
                 <p><strong style="color: #00CC44;">⏱️ Les étapes clés :</strong></p>
                 <p>1️⃣ <strong>Planning</strong> - L'équipe définit les objectifs du sprint<br>
-                2️⃣ <strong>Développement</strong> - Création des fonctionnalités<br>
+                2️⃣ <strong>Formation</strong> - Formation des utilisateurs<br>
                 3️⃣ <strong>Testing</strong> - Validation de la qualité<br>
                 4️⃣ <strong>Gestion de Projet</strong> - Suivi et coordination<br>
-                5️⃣ <strong>Formation</strong> - Formation des utilisateurs<br>
-                6️⃣ <strong>Analyse</strong> - Validation et optimisation<br>
-                7️⃣ <strong>Livrable</strong> - Mise en production</p>
+                5️⃣ <strong>Analyse</strong> - Validation et optimisation<br>
+                6️⃣ <strong>Livrable</strong> - Mise en production</p>
 
                 <p><strong style="color: #00CC44;">💡 Avantages :</strong></p>
                 <p>✅ Flexibilité constante aux changements<br>
