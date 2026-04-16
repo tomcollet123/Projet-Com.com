@@ -740,8 +740,8 @@
         /* CENTRAL CIRCLE */
         .central-circle {
             position: relative;
-            width: 320px;
-            height: 320px;
+            width: 280px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -793,7 +793,7 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
         }
 
-        /* CIRCLE PHASES */
+        /* CIRCLE PHASES - EN ARC AUTOUR */
         .circle-phase {
             position: absolute;
             display: flex;
@@ -818,26 +818,26 @@
         }
 
         .phase-circle-top {
-            top: -50px;
+            top: -60px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .phase-circle-right {
-            right: -80px;
-            top: 50%;
+            right: -85px;
+            top: 35%;
             transform: translateY(-50%);
         }
 
         .phase-circle-bottom {
-            bottom: -50px;
+            bottom: -60px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .phase-circle-left {
-            left: -80px;
-            top: 50%;
+            left: -85px;
+            top: 35%;
             transform: translateY(-50%);
         }
 
@@ -957,7 +957,7 @@
 
             .central-circle {
                 width: 280px;
-                height: 280px;
+                height: 200px;
             }
         }
 
@@ -978,16 +978,16 @@
 
             .central-circle {
                 width: 250px;
-                height: 250px;
+                height: 180px;
                 margin: 20px 0;
             }
 
             .phase-circle-top {
-                top: -40px;
+                top: -50px;
             }
 
             .phase-circle-bottom {
-                bottom: -40px;
+                bottom: -50px;
             }
 
             .phase-circle-left {
@@ -1095,16 +1095,16 @@
 
             .central-circle {
                 width: 200px;
-                height: 200px;
+                height: 160px;
                 margin: 20px 0;
             }
 
             .phase-circle-top {
-                top: -35px;
+                top: -40px;
             }
 
             .phase-circle-bottom {
-                bottom: -35px;
+                bottom: -40px;
             }
 
             .phase-circle-left {
@@ -1345,28 +1345,28 @@
 
                         <!-- CENTRAL CIRCLE WITH TEAM -->
                         <div class="central-circle">
-                            <!-- Top Phase -->
+                            <!-- Top Phase - PLANNING -->
                             <div class="circle-phase phase-circle-top">
                                 <div class="circle-phase-icon">📋</div>
-                                <div class="circle-phase-label">PLANNING</div>
+                                <div class="circle-phase-label">1 PLANNING</div>
                             </div>
 
-                            <!-- Left Phase -->
+                            <!-- Left Phase - FORMATION -->
                             <div class="circle-phase phase-circle-left">
                                 <div class="circle-phase-icon">📝</div>
-                                <div class="circle-phase-label">FORMATION</div>
+                                <div class="circle-phase-label">2 FORMATION</div>
                             </div>
 
-                            <!-- Right Phase -->
-                            <div class="circle-phase phase-circle-right">
-                                <div class="circle-phase-icon">✅</div>
-                                <div class="circle-phase-label">TESTING</div>
-                            </div>
-
-                            <!-- Bottom Phase -->
+                            <!-- Bottom Phase - GESTION PROJET -->
                             <div class="circle-phase phase-circle-bottom">
                                 <div class="circle-phase-icon">🔄</div>
-                                <div class="circle-phase-label">GESTION<br>PROJET</div>
+                                <div class="circle-phase-label">3 GESTION<br>PROJET</div>
+                            </div>
+
+                            <!-- Right Phase - TESTING -->
+                            <div class="circle-phase phase-circle-right">
+                                <div class="circle-phase-icon">✅</div>
+                                <div class="circle-phase-label">4 TESTING</div>
                             </div>
 
                             <!-- Center Team -->
@@ -1380,8 +1380,8 @@
                             </div>
 
                             <!-- SVG Circle Arc -->
-                            <svg class="circle-arc" viewBox="0 0 400 400">
-                                <path d="M 200 50 A 150 150 0 1 1 199 50" fill="none" stroke="#FF851B" stroke-width="4" stroke-dasharray="15,5"/>
+                            <svg class="circle-arc" viewBox="0 0 300 200">
+                                <path d="M 50 180 A 130 130 0 0 1 250 180" fill="none" stroke="#FF851B" stroke-width="3" stroke-linecap="round"/>
                             </svg>
                         </div>
 
@@ -1400,7 +1400,7 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT: Users Feedback (NO AVATARS) -->
+                    <!-- RIGHT: Users Feedback -->
                     <div class="users-feedback-section">
                         <div class="feedback-title">RETOURS DES<br>UTILISATEURS<br>FINAUX</div>
                         <div class="feedback-avatars">
@@ -1419,9 +1419,9 @@
                 
                 <p><strong style="color: #00CC44;">⏱️ Les étapes clés :</strong></p>
                 <p>1️⃣ <strong>Planning</strong> - L'équipe définit les objectifs du sprint<br>
-                2️⃣ <strong>Développement</strong> - Création des fonctionnalités<br>
-                3️⃣ <strong>Testing</strong> - Validation de la qualité<br>
-                4️⃣ <strong>Gestion de Projet</strong> - Suivi et coordination<br>
+                2️⃣ <strong>Formation</strong> - Formation continue de l'équipe<br>
+                3️⃣ <strong>Gestion de Projet</strong> - Suivi et coordination<br>
+                4️⃣ <strong>Testing</strong> - Validation de la qualité<br>
                 5️⃣ <strong>Analyse</strong> - Validation et optimisation<br>
                 6️⃣ <strong>Livrable</strong> - Mise en production</p>
 
