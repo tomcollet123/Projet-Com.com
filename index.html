@@ -269,10 +269,6 @@
             padding: 0 20px;
         }
 
-        .projects-section > h2 {
-            margin-bottom: 30px;
-        }
-
         .agile-section > h2 {
             margin-bottom: 30px;
         }
@@ -336,10 +332,6 @@
             background: rgba(255, 133, 27, 0.3);
             color: #FF851B;
             border: 2px solid #FF851B;
-        }
-
-        .project-content {
-            margin-bottom: 30px;
         }
 
         .project-content p {
@@ -532,7 +524,7 @@
             font-size: 1rem;
         }
 
-        /* AGILE SCHEMA */
+        /* AGILE FRISE */
         .agile-hero {
             text-align: center;
             margin-bottom: 40px;
@@ -542,230 +534,89 @@
             margin-bottom: 20px;
         }
 
-        .schema-box {
+        .timeline-container {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 4px solid #FF851B;
             border-radius: 20px;
-            padding: 50px;
+            padding: 60px 40px;
             margin: 60px auto;
             max-width: 1300px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .process-flow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
-        }
-
-        .process-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            padding: 25px;
-            background: rgba(0, 31, 63, 0.5);
-            border: 3px solid #FF851B;
-            border-radius: 15px;
-            min-width: 140px;
-            text-align: center;
-        }
-
-        .process-icon {
-            font-size: 3.5rem;
-            line-height: 1;
-        }
-
-        .process-label {
-            color: #FF851B;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            line-height: 1.3;
-        }
-
-        .process-arrow {
-            font-size: 2.5rem;
-            color: #FF851B;
-            font-weight: 900;
-        }
-
-        .center-circle {
-            background: rgba(255, 133, 27, 0.15);
-            border: 4px solid #FF851B;
-            border-radius: 50%;
-            width: 320px;
-            height: 320px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 25px;
-            margin: 0 auto;
-            box-shadow: 0 0 40px rgba(255, 133, 27, 0.3);
+        .timeline {
             position: relative;
+            padding: 40px 0;
         }
 
-        .team-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            z-index: 10;
-            position: relative;
-        }
-
-        .team-label {
-            color: #FF851B;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.15rem;
-            text-align: center;
-            letter-spacing: 0.5px;
-            line-height: 1.4;
-        }
-
-        .team-avatars {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .avatar {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            border: 3px solid #FFFFFF;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .phases-wrapper {
+        .timeline::before {
+            content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .phase {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            width: 100px;
-            text-align: center;
-        }
-
-        .phase-number {
+            left: 5%;
+            right: 5%;
+            top: 50%;
+            height: 4px;
             background: #FF851B;
-            color: #001F3F;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .timeline-items {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.2rem;
-            box-shadow: 0 0 15px rgba(255, 133, 27, 0.6);
+            position: relative;
+            z-index: 2;
         }
 
-        .phase-icon-wrapper {
-            font-size: 2.2rem;
-            line-height: 1;
-        }
-
-        .phase-text {
-            color: #FF851B;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-            text-align: center;
-        }
-
-        .phase-1 {
-            top: -80px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .phase-2 {
-            right: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .phase-3 {
-            bottom: -80px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .phase-4 {
-            left: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .cycle-arrow {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .retours-box {
+        .timeline-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            padding: 25px;
-            background: rgba(0, 31, 63, 0.5);
-            border: 3px solid #FF851B;
-            border-radius: 15px;
-            min-width: 140px;
             text-align: center;
+            flex: 1;
+            position: relative;
         }
 
-        .retours-label {
+        .timeline-step {
+            background: #FF851B;
+            border: 4px solid #001F3F;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 25px rgba(255, 133, 27, 0.8);
+            font-weight: 900;
+            font-size: 2rem;
+        }
+
+        .timeline-number {
+            font-size: 1.5rem;
+            color: #001F3F;
+        }
+
+        .timeline-label {
             color: #FF851B;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 1rem;
+            font-size: 1.05rem;
             letter-spacing: 0.5px;
             line-height: 1.3;
+            margin-top: 15px;
+            width: 120px;
         }
 
-        .retours-avatars {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .retour-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            border: 2px solid #FF851B;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+        .timeline-description {
+            color: #E8E8E8;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            width: 130px;
+            line-height: 1.4;
         }
 
         .agile-explanation {
@@ -804,36 +655,18 @@
         }
 
         @media (max-width: 1024px) {
-            .schema-box {
-                padding: 30px 20px;
+            .timeline-container {
+                padding: 40px 20px;
             }
 
-            .center-circle {
-                width: 280px;
-                height: 280px;
+            .timeline-step {
+                width: 70px;
+                height: 70px;
             }
 
-            .process-item {
-                min-width: 120px;
-                padding: 15px;
-            }
-
-            .process-icon {
-                font-size: 2.5rem;
-            }
-
-            .process-label {
-                font-size: 0.9rem;
-            }
-
-            .phase-1, .phase-3 {
-                top: -70px;
-                bottom: -70px;
-            }
-
-            .phase-2, .phase-4 {
-                right: -70px;
-                left: -70px;
+            .timeline-label {
+                font-size: 0.95rem;
+                width: 100px;
             }
         }
 
@@ -859,81 +692,50 @@
                 font-size: 1.6rem;
             }
 
-            .schema-box {
-                padding: 20px;
+            .timeline-container {
+                padding: 30px 15px;
             }
 
-            .process-flow {
-                gap: 15px;
-                margin-bottom: 40px;
+            .timeline {
+                padding: 50px 0;
             }
 
-            .process-item {
-                min-width: 100px;
-                padding: 12px;
-                font-size: 0.85rem;
+            .timeline::before {
+                left: 0;
+                right: auto;
+                top: 0;
+                bottom: 0;
+                height: auto;
+                width: 4px;
+                transform: none;
             }
 
-            .process-icon {
-                font-size: 2rem;
+            .timeline-items {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 50px;
             }
 
-            .process-label {
-                font-size: 0.85rem;
+            .timeline-item {
+                margin-left: 100px;
+                align-items: flex-start;
+                text-align: left;
             }
 
-            .process-arrow {
-                font-size: 1.8rem;
+            .timeline-step {
+                position: absolute;
+                left: -100px;
+                width: 60px;
+                height: 60px;
+                margin-bottom: 0;
             }
 
-            .center-circle {
-                width: 240px;
-                height: 240px;
-                margin: 20px auto;
+            .timeline-label {
+                width: auto;
             }
 
-            .team-label {
-                font-size: 1rem;
-            }
-
-            .avatar {
-                width: 55px;
-                height: 55px;
-                font-size: 1.8rem;
-            }
-
-            .phase-number {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-
-            .phase-text {
-                font-size: 0.75rem;
-            }
-
-            .phase-icon-wrapper {
-                font-size: 1.8rem;
-            }
-
-            .phase-1, .phase-3 {
-                top: -60px;
-                bottom: -60px;
-            }
-
-            .phase-2, .phase-4 {
-                right: -60px;
-                left: -60px;
-            }
-
-            .retours-box {
-                min-width: 100px;
-            }
-
-            .retour-avatar {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
+            .timeline-description {
+                width: auto;
             }
         }
     </style>
@@ -1031,110 +833,61 @@
                 <div class="divider"></div>
             </div>
 
-            <div class="schema-box">
-                <!-- Première ligne du flux -->
-                <div class="process-flow">
-                    <div class="process-item">
-                        <div class="process-icon">👤</div>
-                        <div class="process-label">CLIENTS</div>
-                    </div>
-
-                    <div class="process-arrow">→</div>
-
-                    <div class="process-item">
-                        <div class="process-icon">📦</div>
-                        <div class="process-label">PRODUIT<br>À LIVRER</div>
-                    </div>
-
-                    <div class="process-arrow">→</div>
-
-                    <div class="process-item">
-                        <div class="process-icon">⚙️</div>
-                        <div class="process-label">EN COURS</div>
-                    </div>
-                </div>
-
-                <!-- Cercle central avec phases numérotées qui tournent -->
-                <div class="center-circle">
-                    <svg class="cycle-arrow" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Flèche circulaire autour du cercle -->
-                        <defs>
-                            <marker id="arrowmarker" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#FF851B"/>
-                            </marker>
-                        </defs>
-                        <!-- Arc qui tourne dans le sens des phases -->
-                        <path d="M 170 30 A 140 140 0 0 1 300 170 A 140 140 0 0 1 170 310 A 140 140 0 0 1 40 170 A 140 140 0 0 1 170 30" 
-                              fill="none" stroke="#FF851B" stroke-width="4" stroke-linecap="round" marker-end="url(#arrowmarker)"/>
-                    </svg>
-
-                    <div class="phases-wrapper">
-                        <!-- Phase 1 - PLANNING (Top) -->
-                        <div class="phase phase-1">
-                            <div class="phase-number">1️⃣</div>
-                            <div class="phase-icon-wrapper">📋</div>
-                            <div class="phase-text">PLANNING</div>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-items">
+                        <!-- Étape 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-step">
+                                <div class="timeline-number">1️⃣</div>
+                            </div>
+                            <div class="timeline-label">PLANNING</div>
+                            <div class="timeline-description">Définition des objectifs</div>
                         </div>
 
-                        <!-- Phase 2 - GESTION PROJET (Right) -->
-                        <div class="phase phase-2">
-                            <div class="phase-number">2️⃣</div>
-                            <div class="phase-icon-wrapper">🔄</div>
-                            <div class="phase-text">GESTION<br>PROJET</div>
+                        <!-- Étape 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-step">
+                                <div class="timeline-number">2️⃣</div>
+                            </div>
+                            <div class="timeline-label">DÉVELOPPEMENT</div>
+                            <div class="timeline-description">Création du produit</div>
                         </div>
 
-                        <!-- Phase 3 - TEST (Bottom) -->
-                        <div class="phase phase-3">
-                            <div class="phase-number">3️⃣</div>
-                            <div class="phase-icon-wrapper">✅</div>
-                            <div class="phase-text">TEST</div>
+                        <!-- Étape 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-step">
+                                <div class="timeline-number">3️⃣</div>
+                            </div>
+                            <div class="timeline-label">TEST</div>
+                            <div class="timeline-description">Validation qualité</div>
                         </div>
 
-                        <!-- Phase 4 - FORMATION (Left) -->
-                        <div class="phase phase-4">
-                            <div class="phase-number">4️⃣</div>
-                            <div class="phase-icon-wrapper">📝</div>
-                            <div class="phase-text">FORMATION</div>
+                        <!-- Étape 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-step">
+                                <div class="timeline-number">4️⃣</div>
+                            </div>
+                            <div class="timeline-label">FORMATION</div>
+                            <div class="timeline-description">Formation utilisateurs</div>
                         </div>
-                    </div>
 
-                    <!-- Équipe au centre -->
-                    <div class="team-info">
-                        <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
-                        <div class="team-avatars">
-                            <div class="avatar">👨</div>
-                            <div class="avatar">👩</div>
-                            <div class="avatar">👤</div>
+                        <!-- Étape 5 -->
+                        <div class="timeline-item">
+                            <div class="timeline-step">
+                                <div class="timeline-number">5️⃣</div>
+                            </div>
+                            <div class="timeline-label">LIVRABLE</div>
+                            <div class="timeline-description">Mise en production</div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Deuxième ligne du flux -->
-                <div class="process-flow">
-                    <div class="process-arrow">↓</div>
-                </div>
-
-                <div class="process-flow">
-                    <div class="process-item">
-                        <div class="process-icon">🔍</div>
-                        <div class="process-label">ANALYSE</div>
-                    </div>
-
-                    <div class="process-arrow">→</div>
-
-                    <div class="process-item">
-                        <div class="process-icon">📮</div>
-                        <div class="process-label">LIVRABLE</div>
-                    </div>
-
-                    <div class="process-arrow">→</div>
-
-                    <div class="retours-box">
-                        <div class="retours-label">RETOURS<br>UTILISATEURS<br>FINAUX</div>
-                        <div class="retours-avatars">
-                            <div class="retour-avatar">👩</div>
-                            <div class="retour-avatar">👨</div>
-                            <div class="retour-avatar">👤</div>
+                        <!-- Étape 6 -->
+                        <div class="timeline-item">
+                            <div class="timeline-step">
+                                <div class="timeline-number">6️⃣</div>
+                            </div>
+                            <div class="timeline-label">RETOURS</div>
+                            <div class="timeline-description">Feedback utilisateurs</div>
                         </div>
                     </div>
                 </div>
@@ -1142,27 +895,22 @@
 
             <!-- Explication -->
             <div class="agile-explanation">
-                <h3>📊 Processus Agile Itératif - Le Cycle Complet</h3>
-                <p>Voici le cheminement complet du produit à travers le processus agile :</p>
+                <h3>📊 Processus Agile Pas à Pas</h3>
+                <p>Voici comment avance le projet étape par étape :</p>
                 
-                <p><strong style="color: #00CC44;">🔄 Les 4 Étapes qui Tournent Autour de l'Équipe :</strong></p>
-                <p>1️⃣ <strong>PLANNING</strong> (EN HAUT) - L'équipe planifie et définit les objectifs<br>
-                2️⃣ <strong>GESTION PROJET</strong> (À DROITE) - Suivi, coordination et mise à jour<br>
-                3️⃣ <strong>TEST</strong> (EN BAS) - Validation complète de la qualité<br>
-                4️⃣ <strong>FORMATION</strong> (À GAUCHE) - Formation des utilisateurs finaux</p>
+                <p><strong style="color: #00CC44;">🚀 Les 6 Étapes du Cycle :</strong></p>
+                <p>1️⃣ <strong>PLANNING</strong> - L'équipe planifie et définit les objectifs du sprint<br>
+                2️⃣ <strong>DÉVELOPPEMENT</strong> - Les développeurs créent les fonctionnalités<br>
+                3️⃣ <strong>TEST</strong> - QA valide la qualité et cherche les bugs<br>
+                4️⃣ <strong>FORMATION</strong> - Formation des utilisateurs finaux<br>
+                5️⃣ <strong>LIVRABLE</strong> - Le produit est mis en production<br>
+                6️⃣ <strong>RETOURS</strong> - Collecte des retours utilisateurs pour amélioration</p>
 
-                <p><strong style="color: #00CC44;">🔀 Le Flux du Produit :</strong></p>
-                <p>👤 CLIENTS demandent → 📦 PRODUIT À LIVRER<br>
-                ⚙️ EN COURS → Tourne par les 4 phases (1→2→3→4)<br>
-                🔍 ANALYSE des résultats<br>
-                📮 LIVRABLE final<br>
-                👥 RETOURS DES UTILISATEURS FINAUX</p>
-
-                <p><strong style="color: #00CC44;">💡 L'Essence du Processus :</strong></p>
-                <p>✅ L'équipe reste au centre<br>
-                ✅ Le produit traverse toutes les 4 phases dans l'ordre<br>
-                ✅ Chaque phase contribue à la qualité finale<br>
-                ✅ Retours utilisateurs créent une boucle d'amélioration continue</p>
+                <p><strong style="color: #00CC44;">💡 L'Essence :</strong></p>
+                <p>✅ Chaque étape est essentielle<br>
+                ✅ Elles s'enchaînent logiquement<br>
+                ✅ Les retours créent un nouveau cycle<br>
+                ✅ Amélioration continue garantie</p>
             </div>
         </div>
     </div>
