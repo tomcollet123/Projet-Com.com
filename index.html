@@ -454,160 +454,20 @@
             margin-bottom: 20px;
         }
 
-        /* SCHÉMA AGILE AVEC CERCLE */
-        .schema-container {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
-            border: 3px solid #FF851B;
-            border-radius: 15px;
-            padding: 60px 40px;
+        /* SCHÉMA ORIGINAL */
+        .schema-image {
+            text-align: center;
             margin: 60px auto;
-            max-width: 1100px;
+            max-width: 900px;
+        }
+
+        .schema-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .schema-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            flex-wrap: wrap;
-            position: relative;
-        }
-
-        /* Boîtes latérales */
-        .schema-box-side {
-            background: linear-gradient(135deg, #2E6B6B 0%, #1F4D4D 100%);
-            border: 3px solid #FF851B;
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            min-width: 150px;
-            flex: 0 1 auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .schema-icon {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-
-        .schema-label {
-            color: #FFFFFF;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            line-height: 1.3;
-        }
-
-        /* CERCLE CENTRAL */
-        .circle-schema {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
-            flex: 0 1 auto;
-        }
-
-        .circle-center {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 4px solid #FF851B;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 133, 27, 0.1);
-        }
-
-        .circle-text {
-            text-align: center;
-            z-index: 10;
-        }
-
-        .circle-text h3 {
-            color: #FF851B;
-            font-size: 1.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-
-        /* Segments autour du cercle */
-        .circle-segment {
-            position: absolute;
-            width: 120px;
-            height: 60px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .segment-label {
-            font-size: 0.85rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            line-height: 1.2;
-        }
-
-        .segment-icon {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        /* TOP - DEPLOYER */
-        .segment-top {
-            top: -70px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #B8A99B;
-            color: #FFFFFF;
-            border: 2px solid #8B7355;
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        /* RIGHT - TESTER */
-        .segment-right {
-            right: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #5A9A8E;
-            color: #FFFFFF;
-            border: 2px solid #2E6B6B;
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        /* BOTTOM LEFT - FORMER */
-        .segment-bottom-left {
-            bottom: -70px;
-            left: -30px;
-            background: #C4B5A8;
-            color: #FFFFFF;
-            border: 2px solid #9B8B7E;
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        /* BOTTOM RIGHT - CONCEVOIR */
-        .segment-bottom-right {
-            bottom: -70px;
-            right: -30px;
-            background: #5A9A8E;
-            color: #FFFFFF;
-            border: 2px solid #2E6B6B;
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        /* Explication */
         .agile-explanation {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
             border: 2px solid #FF851B;
@@ -748,17 +608,6 @@
             border-top: 2px solid #FF851B;
         }
 
-        @media (max-width: 1024px) {
-            .circle-schema {
-                width: 250px;
-                height: 250px;
-            }
-
-            .schema-container {
-                padding: 40px 20px;
-            }
-        }
-
         @media (max-width: 768px) {
             h2 {
                 font-size: 1.6rem;
@@ -766,29 +615,6 @@
 
             .hero-content h1 {
                 font-size: 2.5rem;
-            }
-
-            .schema-wrapper {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .circle-schema {
-                width: 200px;
-                height: 200px;
-            }
-
-            .segment-top {
-                top: -50px;
-            }
-
-            .segment-right {
-                right: -60px;
-            }
-
-            .segment-bottom-left,
-            .segment-bottom-right {
-                bottom: -50px;
             }
 
             nav a {
@@ -818,7 +644,7 @@
             <div class="presentation-container">
                 <h2>Qui <span class="highlight">sommes-nous ?</span></h2>
                 <div class="divider"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </section>
 
@@ -908,54 +734,9 @@
                 <div class="divider"></div>
             </div>
 
-            <!-- SCHÉMA AGILE EXACTEMENT COMME L'IMAGE -->
-            <div class="schema-container">
-                <div class="schema-wrapper">
-                    <!-- PLANIFIER -->
-                    <div class="schema-box-side">
-                        <div class="schema-icon">📋</div>
-                        <div class="schema-label">PLANIFIER</div>
-                    </div>
-
-                    <!-- CERCLE CENTRAL AVEC PHASES -->
-                    <div class="circle-schema">
-                        <div class="circle-center">
-                            <div class="circle-text">
-                                <h3>MÉTHODOLOGIE<br>AGILE</h3>
-                            </div>
-                        </div>
-
-                        <!-- DEPLOYER - TOP -->
-                        <div class="circle-segment segment-top">
-                            <div class="segment-icon">🚀</div>
-                            <div class="segment-label">DÉPLOYER</div>
-                        </div>
-
-                        <!-- TESTER - RIGHT -->
-                        <div class="circle-segment segment-right">
-                            <div class="segment-icon">✅</div>
-                            <div class="segment-label">TESTER</div>
-                        </div>
-
-                        <!-- FORMER - BOTTOM LEFT -->
-                        <div class="circle-segment segment-bottom-left">
-                            <div class="segment-icon">📝</div>
-                            <div class="segment-label">FORMER</div>
-                        </div>
-
-                        <!-- CONCEVOIR - BOTTOM RIGHT -->
-                        <div class="circle-segment segment-bottom-right">
-                            <div class="segment-icon">💻</div>
-                            <div class="segment-label">CONCEVOIR</div>
-                        </div>
-                    </div>
-
-                    <!-- METTRE EN PRODUCTION -->
-                    <div class="schema-box-side">
-                        <div class="schema-icon">📦</div>
-                        <div class="schema-label">METTRE EN<br>PRODUCTION</div>
-                    </div>
-                </div>
+            <!-- SCHÉMA ORIGINAL SANS MODIF -->
+            <div class="schema-image">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23E8E8E8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23D0D0D0;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234A7C7E;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%233A6C6E;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23C8B8A8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23B8A898;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='%23F5F5F5'/%3E%3Ctext x='100' y='50' font-size='24' font-weight='bold' fill='%23333333'%3EPLANIFIER%3C/text%3E%3Crect x='30' y='80' width='140' height='80' fill='url(%23grad2)' stroke='%23333333' stroke-width='2'/%3E%3Crect x='630' y='80' width='140' height='80' fill='url(%23grad2)' stroke='%23333333' stroke-width='2'/%3E%3Ctext x='100' y='125' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EPLANIFIER%3C/text%3E%3Ctext x='700' y='125' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EMETTRE EN%3C/text%3E%3Ctext x='700' y='143' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EPRODUCTION%3C/text%3E%3Ccircle cx='400' cy='250' r='120' fill='url(%23grad1)' stroke='%23666666' stroke-width='3'/%3E%3Ctext x='400' y='235' font-size='16' font-weight='bold' fill='%23333333' text-anchor='middle'%3EMETHODOLOGIE%3C/text%3E%3Ctext x='400' y='255' font-size='16' font-weight='bold' fill='%232E9A8E' text-anchor='middle'%3EAGILE%3C/text%3E%3Crect x='330' y='50' width='140' height='60' fill='url(%23grad3)' stroke='%23999999' stroke-width='2' rx='5'/%3E%3Ctext x='400' y='70' font-size='12' font-weight='bold' fill='white' text-anchor='middle'%3EDEPLOYER%3C/text%3E%3Crect x='550' y='200' width='100' height='80' fill='url(%23grad2)' stroke='%23333333' stroke-width='2' rx='5'/%3E%3Ctext x='600' y='230' font-size='12' font-weight='bold' fill='white' text-anchor='middle'%3ETESTER%3C/text%3E%3Crect x='280' y='350' width='100' height='80' fill='url(%23grad3)' stroke='%23999999' stroke-width='2' rx='5'/%3E%3Ctext x='330' y='380' font-size='12' font-weight='bold' fill='white' text-anchor='middle'%3EFORMER%3C/text%3E%3Crect x='420' y='350' width='100' height='80' fill='url(%23grad2)' stroke='%23333333' stroke-width='2' rx='5'/%3E%3Ctext x='470' y='380' font-size='12' font-weight='bold' fill='white' text-anchor='middle'%3ECONCEVOIR%3C/text%3E%3C/svg%3E" alt="Méthodologie Agile">
             </div>
 
             <!-- EXPLICATION ET AVANTAGES -->
