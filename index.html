@@ -542,14 +542,20 @@
             margin-bottom: 20px;
         }
 
+        .schema-wrapper {
+            position: relative;
+            margin: 60px auto;
+            max-width: 1400px;
+        }
+
         .schema-box {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
             border: 4px solid #FF851B;
             border-radius: 20px;
             padding: 50px;
-            margin: 60px auto;
-            max-width: 1300px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
         }
 
         .process-flow {
@@ -559,6 +565,8 @@
             gap: 20px;
             flex-wrap: wrap;
             margin-bottom: 60px;
+            position: relative;
+            z-index: 20;
         }
 
         .process-item {
@@ -572,6 +580,8 @@
             border-radius: 15px;
             min-width: 140px;
             text-align: center;
+            position: relative;
+            z-index: 20;
         }
 
         .process-icon {
@@ -592,6 +602,8 @@
             font-size: 2.5rem;
             color: #FF851B;
             font-weight: 900;
+            position: relative;
+            z-index: 20;
         }
 
         .center-circle {
@@ -608,6 +620,7 @@
             margin: 0 auto;
             box-shadow: 0 0 40px rgba(255, 133, 27, 0.3);
             position: relative;
+            z-index: 20;
         }
 
         .team-info {
@@ -680,7 +693,6 @@
             text-align: center;
         }
 
-        /* Positions des 4 phases - bien espacées */
         .phase-gestion {
             top: -65px;
             left: 50%;
@@ -716,6 +728,8 @@
             border-radius: 15px;
             min-width: 140px;
             text-align: center;
+            position: relative;
+            z-index: 20;
         }
 
         .retours-label {
@@ -744,6 +758,29 @@
             font-size: 1.5rem;
             border: 2px solid #FF851B;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* FLÈCHES COURBES */
+        .curved-arrows-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .curved-path {
+            fill: none;
+            stroke: #FF851B;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 10, 5;
+            filter: drop-shadow(0 0 3px rgba(255, 133, 27, 0.6));
+        }
+
+        .arrow-head {
+            fill: #FF851B;
         }
 
         .agile-explanation {
@@ -802,18 +839,6 @@
 
             .process-label {
                 font-size: 0.9rem;
-            }
-
-            .phase {
-                width: 90px;
-            }
-
-            .phase-text {
-                font-size: 0.8rem;
-            }
-
-            .phase-icon-wrapper {
-                font-size: 1.8rem;
             }
         }
 
@@ -880,28 +905,6 @@
                 width: 55px;
                 height: 55px;
                 font-size: 1.8rem;
-            }
-
-            .phase {
-                width: 75px;
-            }
-
-            .phase-text {
-                font-size: 0.75rem;
-            }
-
-            .phase-icon-wrapper {
-                font-size: 1.5rem;
-            }
-
-            .phase-gestion, .phase-formation {
-                top: -55px;
-                bottom: -55px;
-            }
-
-            .phase-test, .phase-planning {
-                right: -55px;
-                left: -55px;
             }
 
             .retours-box {
@@ -1009,94 +1012,111 @@
                 <div class="divider"></div>
             </div>
 
-            <div class="schema-box">
-                <!-- Première ligne du flux -->
-                <div class="process-flow">
-                    <div class="process-item">
-                        <div class="process-icon">👤</div>
-                        <div class="process-label">CLIENTS</div>
-                    </div>
+            <div class="schema-wrapper">
+                <!-- SVG avec les flèches courbes -->
+                <svg class="curved-arrows-svg" viewBox="0 0 1300 600" preserveAspectRatio="xMidYMid meet">
+                    <!-- Flèche courbe de EN COURS vers le haut du cercle -->
+                    <path class="curved-path" d="M 470 280 Q 500 200 640 160" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Flèche courbe qui descend vers ANALYSE (après le cercle) -->
+                    <path class="curved-path" d="M 830 160 Q 900 200 950 280"/>
+                    
+                    <!-- Flèche courbe de ANALYSE vers Retours -->
+                    <path class="curved-path" d="M 1050 320 Q 1100 350 1150 380"/>
+                    
+                    <!-- Marqueur pour les flèches -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#FF851B"/>
+                        </marker>
+                    </defs>
+                </svg>
 
-                    <div class="process-arrow">→</div>
-
-                    <div class="process-item">
-                        <div class="process-icon">📦</div>
-                        <div class="process-label">PRODUIT<br>À LIVRER</div>
-                    </div>
-
-                    <div class="process-arrow">→</div>
-
-                    <div class="process-item">
-                        <div class="process-icon">⚙️</div>
-                        <div class="process-label">EN COURS</div>
-                    </div>
-
-                    <div class="process-arrow">→</div>
-                </div>
-
-                <!-- Cercle central avec phases autour -->
-                <div class="center-circle">
-                    <div class="phases-container">
-                        <!-- GESTION PROJET - TOP -->
-                        <div class="phase phase-gestion">
-                            <div class="phase-icon-wrapper">🔄</div>
-                            <div class="phase-text">GESTION<br>PROJET</div>
+                <div class="schema-box">
+                    <!-- Première ligne du flux -->
+                    <div class="process-flow">
+                        <div class="process-item">
+                            <div class="process-icon">👤</div>
+                            <div class="process-label">CLIENTS</div>
                         </div>
 
-                        <!-- FORMATION - BOTTOM -->
-                        <div class="phase phase-formation">
-                            <div class="phase-icon-wrapper">📝</div>
-                            <div class="phase-text">FORMATION</div>
+                        <div class="process-arrow">→</div>
+
+                        <div class="process-item">
+                            <div class="process-icon">📦</div>
+                            <div class="process-label">PRODUIT<br>À LIVRER</div>
                         </div>
 
-                        <!-- TEST - RIGHT -->
-                        <div class="phase phase-test">
-                            <div class="phase-icon-wrapper">✅</div>
-                            <div class="phase-text">TEST</div>
-                        </div>
+                        <div class="process-arrow">→</div>
 
-                        <!-- PLANNING - LEFT -->
-                        <div class="phase phase-planning">
-                            <div class="phase-icon-wrapper">📋</div>
-                            <div class="phase-text">PLANNING</div>
+                        <div class="process-item">
+                            <div class="process-icon">⚙️</div>
+                            <div class="process-label">EN COURS</div>
                         </div>
                     </div>
 
-                    <!-- Équipe au centre -->
-                    <div class="team-info">
-                        <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
-                        <div class="team-avatars">
-                            <div class="avatar">👨</div>
-                            <div class="avatar">👩</div>
-                            <div class="avatar">👤</div>
+                    <!-- Cercle central avec phases autour -->
+                    <div class="center-circle">
+                        <div class="phases-container">
+                            <!-- GESTION PROJET - TOP -->
+                            <div class="phase phase-gestion">
+                                <div class="phase-icon-wrapper">🔄</div>
+                                <div class="phase-text">GESTION<br>PROJET</div>
+                            </div>
+
+                            <!-- FORMATION - BOTTOM -->
+                            <div class="phase phase-formation">
+                                <div class="phase-icon-wrapper">📝</div>
+                                <div class="phase-text">FORMATION</div>
+                            </div>
+
+                            <!-- TEST - RIGHT -->
+                            <div class="phase phase-test">
+                                <div class="phase-icon-wrapper">✅</div>
+                                <div class="phase-text">TEST</div>
+                            </div>
+
+                            <!-- PLANNING - LEFT -->
+                            <div class="phase phase-planning">
+                                <div class="phase-icon-wrapper">📋</div>
+                                <div class="phase-text">PLANNING</div>
+                            </div>
+                        </div>
+
+                        <!-- Équipe au centre -->
+                        <div class="team-info">
+                            <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
+                            <div class="team-avatars">
+                                <div class="avatar">👨</div>
+                                <div class="avatar">👩</div>
+                                <div class="avatar">👤</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Deuxième ligne du flux -->
-                <div class="process-flow">
-                    <div class="process-arrow">→</div>
+                    <!-- Deuxième ligne du flux -->
+                    <div class="process-flow">
+                        <div class="process-item">
+                            <div class="process-icon">🔍</div>
+                            <div class="process-label">ANALYSE</div>
+                        </div>
 
-                    <div class="process-item">
-                        <div class="process-icon">🔍</div>
-                        <div class="process-label">ANALYSE</div>
-                    </div>
+                        <div class="process-arrow">→</div>
 
-                    <div class="process-arrow">→</div>
+                        <div class="process-item">
+                            <div class="process-icon">📮</div>
+                            <div class="process-label">LIVRABLE</div>
+                        </div>
 
-                    <div class="process-item">
-                        <div class="process-icon">📮</div>
-                        <div class="process-label">LIVRABLE</div>
-                    </div>
+                        <div class="process-arrow">→</div>
 
-                    <div class="process-arrow">→</div>
-
-                    <div class="retours-box">
-                        <div class="retours-label">RETOURS<br>UTILISATEURS</div>
-                        <div class="retours-avatars">
-                            <div class="retour-avatar">👩</div>
-                            <div class="retour-avatar">👨</div>
-                            <div class="retour-avatar">👤</div>
+                        <div class="retours-box">
+                            <div class="retours-label">RETOURS<br>UTILISATEURS</div>
+                            <div class="retours-avatars">
+                                <div class="retour-avatar">👩</div>
+                                <div class="retour-avatar">👨</div>
+                                <div class="retour-avatar">👤</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1105,7 +1125,7 @@
             <!-- Explication -->
             <div class="agile-explanation">
                 <h3>📊 Processus Agile Itératif</h3>
-                <p>La méthodologie Agile repose sur 4 phases qui tournent autour de l'équipe d'implémentation :</p>
+                <p>Le flux est clair : le produit en cours passe par les 4 phases autour de l'équipe, puis suit le chemin vers l'analyse et la livraison finale avec retours utilisateurs.</p>
                 
                 <p><strong style="color: #00CC44;">🔄 Les 4 Phases du Cycle :</strong></p>
                 <p>📋 <strong>PLANNING</strong> (Gauche) - L'équipe définit les objectifs<br>
@@ -1113,18 +1133,18 @@
                 ✅ <strong>TEST</strong> (Droite) - Validation de la qualité<br>
                 📝 <strong>FORMATION</strong> (Bas) - Formation des utilisateurs</p>
 
-                <p><strong style="color: #00CC44;">🔀 Le Flux Complet :</strong></p>
-                <p>1. Les CLIENTS demandent un PRODUIT À LIVRER<br>
-                2. Le travail EN COURS commence<br>
-                3. L'équipe tourne par les 4 phases (Planning → Gestion Projet → Test → Formation)<br>
-                4. Résultat : ANALYSE puis LIVRABLE<br>
-                5. RETOURS des utilisateurs pour l'amélioration continue</p>
+                <p><strong style="color: #00CC44;">🔀 Le Cheminement du Produit :</strong></p>
+                <p>1️⃣ CLIENTS demandent → PRODUIT À LIVRER<br>
+                2️⃣ Produit passe EN COURS → Traverse les 4 phases<br>
+                3️⃣ Ressort vers ANALYSE<br>
+                4️⃣ Devient LIVRABLE<br>
+                5️⃣ RETOURS des utilisateurs pour cycle suivant</p>
 
-                <p><strong style="color: #00CC44;">💡 Avantages :</strong></p>
-                <p>✅ Flexibilité et adaptation rapide<br>
-                ✅ Qualité assurée par les tests<br>
-                ✅ Formation des utilisateurs intégrée<br>
-                ✅ Feedback utilisateur permanent</p>
+                <p><strong style="color: #00CC44;">💡 Points Clés :</strong></p>
+                <p>✅ L'équipe reste au centre et contrôle tout<br>
+                ✅ Le produit tourne autour des 4 phases<br>
+                ✅ Chaque phase est essentielle<br>
+                ✅ Retours utilisateurs créent une boucle continue</p>
             </div>
         </div>
     </div>
