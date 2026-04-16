@@ -33,9 +33,14 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        @keyframes rotateSprint {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes slideRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         nav {
@@ -270,7 +275,7 @@
         }
 
         .agile-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -592,186 +597,256 @@
             margin-bottom: 20px;
         }
 
-        .sprint-diagram {
-            max-width: 600px;
+        .agile-workflow {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 60px 30px;
             margin: 80px auto;
-            position: relative;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            max-width: 1100px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.6s ease-out;
         }
 
-        .sprint-circle {
-            position: relative;
-            width: 300px;
-            height: 300px;
+        .workflow-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .workflow-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .workflow-item.small {
+            flex: 0 1 150px;
+        }
+
+        .workflow-item.medium {
+            flex: 0 1 200px;
+        }
+
+        .workflow-item.large {
+            flex: 0 1 280px;
+        }
+
+        .workflow-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .workflow-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        .workflow-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .stack-bar {
+            background: linear-gradient(90deg, #FFA500, #FF8C00);
+            height: 12px;
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+
+        .stack-bar:nth-child(1) {
+            width: 140px;
+        }
+
+        .stack-bar:nth-child(2) {
+            width: 120px;
+        }
+
+        .stack-bar:nth-child(3) {
+            width: 100px;
+        }
+
+        .workflow-arrow {
+            font-size: 2rem;
+            color: #FF851B;
+            animation: slideRight 0.8s ease-out;
+        }
+
+        .workflow-inner-circle {
+            background: linear-gradient(135deg, rgba(255, 133, 27, 0.2) 0%, rgba(0, 204, 68, 0.2) 100%);
             border: 3px solid #FF851B;
             border-radius: 50%;
+            width: 280px;
+            height: 280px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
+            margin: 20px auto;
             box-shadow: 0 0 30px rgba(255, 133, 27, 0.3);
-            animation: rotateSprint 20s linear infinite;
         }
 
-        .sprint-phase {
-            position: absolute;
-            width: 80px;
-            height: 80px;
+        .inner-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .team-avatars {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
+            font-size: 1.5rem;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .workflow-phases {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .phase-label {
+            position: absolute;
+            color: #FF851B;
             font-weight: 900;
             font-size: 0.9rem;
-            text-align: center;
-            border: 2px solid #FFFFFF;
-            box-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
+            text-transform: uppercase;
+            white-space: nowrap;
         }
 
-        .phase-planning {
-            background: rgba(30, 100, 200, 0.9);
-            top: -50px;
+        .phase-top {
+            top: -40px;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .phase-dev {
-            background: rgba(255, 133, 27, 0.9);
+        .phase-right {
             right: -50px;
             top: 50%;
             transform: translateY(-50%);
         }
 
-        .phase-testing {
-            background: rgba(0, 204, 68, 0.9);
-            bottom: -50px;
+        .phase-bottom {
+            bottom: -40px;
             left: 50%;
             transform: translateX(-50%);
         }
 
-        .phase-review {
-            background: rgba(200, 200, 200, 0.9);
+        .phase-left {
             left: -50px;
             top: 50%;
             transform: translateY(-50%);
-            color: #001F3F;
         }
 
-        .sprint-center {
-            font-size: 2rem;
-            font-weight: 900;
+        .workflow-section {
+            margin-top: 60px;
+        }
+
+        .workflow-section h3 {
+            font-size: 1.5rem;
             color: #FF851B;
-        }
-
-        .agile-values {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 80px auto;
-            max-width: 1000px;
-        }
-
-        .value-card {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            animation: slideUp 0.6s ease-out;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
-        }
-
-        .value-card h3 {
-            font-size: 1.4rem;
-            color: #FF851B;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             text-transform: uppercase;
-        }
-
-        .value-card p {
-            color: #E8E8E8;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .agile-principles {
-            margin: 80px auto;
-            max-width: 1000px;
-        }
-
-        .agile-principles h3 {
-            font-size: 1.8rem;
-            color: #FFFFFF;
-            margin-bottom: 50px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #FF851B;
-            display: inline-block;
             font-weight: 900;
-            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .principle-item {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border-left: 4px solid #FF851B;
-            padding: 20px;
-            border-radius: 5px;
-            animation: slideUp 0.6s ease-out;
-        }
-
-        .principle-item h4 {
-            color: #FF851B;
+        .workflow-section p {
+            color: #E8E8E8;
             font-size: 1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .principle-item p {
-            color: #E8E8E8;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .agile-explanation {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 40px;
-            margin: 80px auto;
-            max-width: 900px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .agile-explanation h3 {
-            color: #FF851B;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .agile-explanation p {
-            color: #E8E8E8;
-            font-size: 1.05rem;
-            line-height: 1.9;
+            line-height: 1.8;
             margin-bottom: 15px;
             text-align: justify;
+        }
+
+        .workflow-section strong {
+            color: #FF851B;
+        }
+
+        .users-feedback {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .user-card {
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 3px solid #FF851B;
+            margin: 0 auto 10px;
+            box-shadow: 0 4px 15px rgba(255, 133, 27, 0.3);
+        }
+
+        .user-label {
+            color: #FF851B;
+            font-weight: 900;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .deliverable-box {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.2) 0%, rgba(255, 140, 0, 0.2) 100%);
+            border: 2px dashed #FF851B;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .deliverable-box-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .deliverable-box-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 1px;
         }
 
         footer {
@@ -780,6 +855,27 @@
             text-align: center;
             color: #E8E8E8;
             border-top: 2px solid #FF851B;
+        }
+
+        @media (max-width: 1024px) {
+            .workflow-row {
+                flex-direction: column;
+            }
+
+            .workflow-inner-circle {
+                width: 240px;
+                height: 240px;
+            }
+
+            .inner-label {
+                font-size: 1rem;
+            }
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -837,39 +933,41 @@
                 padding: 0 15px;
             }
 
-            .sprint-circle {
-                width: 250px;
-                height: 250px;
+            .agile-workflow {
+                padding: 30px 20px;
             }
 
-            .sprint-phase {
+            .workflow-inner-circle {
+                width: 200px;
+                height: 200px;
+            }
+
+            .inner-label {
+                font-size: 0.9rem;
+            }
+
+            .avatar {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .workflow-icon {
+                font-size: 2.5rem;
+            }
+
+            .user-avatar {
                 width: 60px;
                 height: 60px;
-                font-size: 0.7rem;
+                font-size: 1.5rem;
             }
 
-            .phase-planning {
-                top: -40px;
+            .phase-top, .phase-bottom {
+                font-size: 0.75rem;
             }
 
-            .phase-dev {
-                right: -40px;
-            }
-
-            .phase-testing {
-                bottom: -40px;
-            }
-
-            .phase-review {
-                left: -40px;
-            }
-
-            .agile-values {
-                grid-template-columns: 1fr;
-            }
-
-            .principles-grid {
-                grid-template-columns: 1fr;
+            .phase-left, .phase-right {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -1000,114 +1098,113 @@
             <div class="agile-hero">
                 <h2>Méthodologie <span class="highlight">AGILE</span></h2>
                 <div class="divider"></div>
-                <p style="color: #E8E8E8; font-size: 1.1rem; margin-top: 20px;">Une approche itérative et flexible pour la gestion de projets</p>
             </div>
 
-            <div class="sprint-diagram">
-                <div class="sprint-circle">
-                    <div class="sprint-center">SPRINT</div>
-                    <div class="sprint-phase phase-planning">
-                        <div>📋<br>Planning</div>
+            <div class="agile-workflow">
+                <!-- Row 1: From Client to Product -->
+                <div class="workflow-row">
+                    <div class="workflow-item small">
+                        <div class="workflow-icon">👤</div>
+                        <div class="workflow-label">Clients</div>
                     </div>
-                    <div class="sprint-phase phase-dev">
-                        <div>💻<br>Dev</div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-item medium">
+                        <div class="workflow-label">Produit À Livrer</div>
+                        <div class="workflow-stack">
+                            <div class="stack-bar"></div>
+                            <div class="stack-bar"></div>
+                            <div class="stack-bar"></div>
+                        </div>
                     </div>
-                    <div class="sprint-phase phase-testing">
-                        <div>✅<br>Testing</div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-item small">
+                        <div class="workflow-label">En Cours</div>
+                        <div class="workflow-stack" style="margin-top: 8px;">
+                            <div class="stack-bar" style="width: 80px;"></div>
+                            <div class="stack-bar" style="width: 65px;"></div>
+                        </div>
                     </div>
-                    <div class="sprint-phase phase-review">
-                        <div>🔄<br>Review</div>
+                </div>
+
+                <!-- Row 2: Inner circle with team and phases -->
+                <div style="position: relative; margin: 40px 0;">
+                    <div class="workflow-inner-circle">
+                        <div class="phase-label phase-top">📋 Planning</div>
+                        <div class="phase-label phase-right">💻 Développement</div>
+                        <div class="phase-label phase-bottom">✅ Testing</div>
+                        <div class="phase-label phase-left">🔄 Paramétrage</div>
+                        
+                        <div class="inner-label">Équipe D'implémentation</div>
+                        <div class="team-avatars">
+                            <div class="avatar">👨</div>
+                            <div class="avatar">👩</div>
+                            <div class="avatar">👤</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: From analysis to deliverable -->
+                <div class="workflow-row" style="justify-content: center; gap: 30px; margin-top: 60px;">
+                    <div class="workflow-item medium">
+                        <div class="workflow-label">Gestion Projet</div>
+                        <div style="color: #E8E8E8; font-size: 0.9rem; margin-top: 10px;">Suivi & Coordination</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-item medium">
+                        <div class="workflow-label">Analyse</div>
+                        <div style="color: #E8E8E8; font-size: 0.9rem; margin-top: 10px;">Validation qualité</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-item medium">
+                        <div class="deliverable-box">
+                            <div class="deliverable-box-icon">📦</div>
+                            <div class="deliverable-box-label">Livrable</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users feedback section -->
+                <div style="margin-top: 60px; border-top: 2px solid rgba(255, 133, 27, 0.3); padding-top: 40px;">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <div style="color: #FF851B; font-weight: 900; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">↑ Retours Des Utilisateurs Finaux ↑</div>
+                    </div>
+                    <div class="users-feedback">
+                        <div class="user-card">
+                            <div class="user-avatar">👩</div>
+                            <div class="user-label">Utilisateur 1</div>
+                        </div>
+                        <div class="user-card">
+                            <div class="user-avatar">👨</div>
+                            <div class="user-label">Utilisateur 2</div>
+                        </div>
+                        <div class="user-card">
+                            <div class="user-avatar">👤</div>
+                            <div class="user-label">Utilisateur 3</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <section class="agile-values">
-                <div class="value-card">
-                    <h3>👥 Individus & Interactions</h3>
-                    <p>Prioriser les personnes et leurs interactions plutôt que les processus et les outils.</p>
-                </div>
-                <div class="value-card">
-                    <h3>⚙️ Logiciels Fonctionnels</h3>
-                    <p>Produire du code de qualité et des solutions opérationnelles rapidement et régulièrement.</p>
-                </div>
-                <div class="value-card">
-                    <h3>📋 Collaboration Client</h3>
-                    <p>Impliquer le client tout au long du processus plutôt que de négocier les contrats.</p>
-                </div>
-                <div class="value-card">
-                    <h3>🔄 Adaptation Constante</h3>
-                    <p>Répondre aux changements plutôt que de suivre un plan rigide et prédéfini.</p>
-                </div>
-            </section>
-
-            <section class="agile-principles">
-                <h3>Les <span class="highlight">12 Principes Agile</span></h3>
-                <div class="principles-grid">
-                    <div class="principle-item">
-                        <h4>1. Satisfaction Client</h4>
-                        <p>Livrer de la valeur rapidement et continuellement.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>2. Accueil du Changement</h4>
-                        <p>Accepter les changements de besoins, même tard en phase de développement.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>3. Livraisons Fréquentes</h4>
-                        <p>Mettre en production toutes les semaines ou tous les mois.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>4. Collaboration Étroite</h4>
-                        <p>Métier et développeurs doivent travailler ensemble au quotidien.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>5. Équipes Motivées</h4>
-                        <p>Construire des projets autour de personnes motivées et confiantes.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>6. Communication Directe</h4>
-                        <p>La conversation face à face est le meilleur mode de communication.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>7. Mesurer la Progression</h4>
-                        <p>Le logiciel fonctionnel est la principale mesure de progrès.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>8. Rythme Durable</h4>
-                        <p>Maintenir un rythme constant et soutenable indéfiniment.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>9. Excellence Technique</h4>
-                        <p>L'excellence technique et la bonne conception améliorent l'agilité.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>10. Simplicité</h4>
-                        <p>Maximiser la quantité de travail non fait et chercher la simplicité.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>11. Auto-organisation</h4>
-                        <p>Les meilleures architectures émergent d'équipes auto-organisées.</p>
-                    </div>
-                    <div class="principle-item">
-                        <h4>12. Amélioration Continue</h4>
-                        <p>L'équipe reflète régulièrement sur comment devenir plus efficace.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="agile-explanation">
-                <h3>Pourquoi Agile ?</h3>
-                <p><strong style="color: #FF851B;">La méthodologie Agile</strong> est une approche itérative et incrémentale de gestion de projets qui se concentre sur la livraison de valeur rapide et la réactivité aux changements.</p>
+            <!-- Explanation Section -->
+            <section class="workflow-section">
+                <h3>📊 Processus Agile Itératif</h3>
+                <p>La méthodologie Agile repose sur <strong>un cycle continu et itératif</strong> qui permet une adaptation rapide aux besoins et une livraison régulière de valeur.</p>
                 
-                <p><strong style="color: #00CC44;">Avantages clés :</strong></p>
-                <p>✅ <strong>Flexibilité</strong> - Adaptation rapide aux nouveaux besoins et changements de priorité<br>
-                ✅ <strong>Transparence</strong> - Communication constante avec les parties prenantes<br>
-                ✅ <strong>Qualité</strong> - Tests continus et améliorations régulières<br>
-                ✅ <strong>Rapidité</strong> - Livraison de fonctionnalités opérationnelles régulièrement<br>
-                ✅ <strong>Motivation</strong> - Équipes impliquées et responsabilisées</p>
+                <p><strong>🎯 Les étapes clés :</strong></p>
+                <p>1️⃣ <strong>Planning</strong> - L'équipe définit les objectifs du sprint en collaboration avec le client<br>
+                2️⃣ <strong>Développement</strong> - Création des fonctionnalités selon les spécifications<br>
+                3️⃣ <strong>Testing</strong> - Validation rigoureuse de la qualité et des performances<br>
+                4️⃣ <strong>Paramétrage & Analyse</strong> - Ajustements et optimisations basés sur les retours<br>
+                5️⃣ <strong>Livrable</strong> - Mise à disposition d'une version opérationnelle</p>
 
-                <p><strong style="color: #FF851B;">Cycle Sprint :</strong></p>
-                <p>Un sprint typique dure 1 à 4 semaines et suit ce cycle :<br>
-                <strong>Planning</strong> (définir les objectifs) → <strong>Développement</strong> (créer les fonctionnalités) → <strong>Testing</strong> (valider la qualité) → <strong>Review</strong> (présenter et collecter les retours) → Recommencer</p>
+                <p><strong>💡 Avantages de cette approche :</strong></p>
+                <p>✅ <strong>Flexibilité constante</strong> - Adaptation aux changements de priorités<br>
+                ✅ <strong>Feedback continu</strong> - Retours réguliers des utilisateurs intégrés rapidement<br>
+                ✅ <strong>Qualité maintenue</strong> - Tests à chaque itération garantissent la robustesse<br>
+                ✅ <strong>Délais raccourcis</strong> - Livraisons régulières plutôt qu'une grosse release finale<br>
+                ✅ <strong>Communication efficace</strong> - Collaboration étroite entre tous les acteurs</p>
+
+                <p>Ce cycle se répète continuellement, permettant une amélioration progressive et une meilleure réactivité aux exigences du métier.</p>
             </section>
         </div>
     </div>
