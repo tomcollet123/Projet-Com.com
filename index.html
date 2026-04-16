@@ -741,12 +741,13 @@
         .central-circle {
             position: relative;
             width: 100%;
-            max-width: 350px;
-            height: 220px;
+            max-width: 400px;
+            height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            margin: 0 auto;
         }
 
         .circle-arc {
@@ -912,8 +913,8 @@
             }
 
             .central-circle {
-                max-width: 320px;
-                height: 200px;
+                max-width: 380px;
+                height: 260px;
             }
         }
 
@@ -933,8 +934,8 @@
             }
 
             .central-circle {
-                max-width: 300px;
-                height: 180px;
+                max-width: 360px;
+                height: 240px;
                 margin: 20px 0;
             }
         }
@@ -1029,9 +1030,9 @@
             }
 
             .central-circle {
-                max-width: 250px;
-                height: 160px;
-                margin: 20px 0;
+                max-width: 300px;
+                height: 200px;
+                margin: 20px auto;
             }
 
             .team-avatar {
@@ -1259,30 +1260,49 @@
 
                         <!-- CENTRAL CIRCLE WITH TEAM -->
                         <div class="central-circle">
-                            <!-- SVG Semi-Circle avec les étapes -->
-                            <svg class="circle-arc" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet">
-                                <!-- Semi-cercle -->
-                                <path d="M 20 180 A 160 160 0 0 1 300 180" fill="none" stroke="#FF851B" stroke-width="4" stroke-linecap="round"/>
+                            <!-- SVG Semi-Circle avec les étapes ET les petites flèches entre phases -->
+                            <svg class="circle-arc" viewBox="0 0 360 280" preserveAspectRatio="xMidYMid meet">
+                                <!-- Semi-cercle principal -->
+                                <path d="M 30 240 A 180 180 0 0 1 330 240" fill="none" stroke="#FF851B" stroke-width="4" stroke-linecap="round"/>
                                 
-                                <!-- Flèche et étape TOP LEFT - PLANNING -->
-                                <line x1="60" y1="60" x2="80" y2="110" stroke="#FF851B" stroke-width="2"/>
-                                <polygon points="80,110 75,100 85,105" fill="#FF851B"/>
-                                <text x="30" y="50" font-size="12" font-weight="bold" fill="#FF851B">📋 Planning</text>
+                                <!-- Phase 1 TOP LEFT - PLANNING -->
+                                <circle cx="60" cy="80" r="35" fill="rgba(255, 133, 27, 0.2)" stroke="#FF851B" stroke-width="2"/>
+                                <text x="60" y="78" font-size="28" text-anchor="middle" dominant-baseline="middle">📋</text>
+                                <text x="60" y="130" font-size="13" font-weight="bold" fill="#FF851B" text-anchor="middle">Planning</text>
                                 
-                                <!-- Flèche et étape TOP RIGHT - FORMATION -->
-                                <line x1="260" y1="60" x2="240" y2="110" stroke="#FF851B" stroke-width="2"/>
-                                <polygon points="240,110 245,100 235,105" fill="#FF851B"/>
-                                <text x="220" y="50" font-size="12" font-weight="bold" fill="#FF851B">📝 Formation</text>
+                                <!-- Flèche 1 vers 2 (Planning vers Formation) -->
+                                <path d="M 90 85 Q 130 50, 170 80" fill="none" stroke="#FF851B" stroke-width="2" marker-end="url(#arrowhead)"/>
                                 
-                                <!-- Flèche et étape RIGHT - GESTION DE PROJET -->
-                                <line x1="310" y1="120" x2="280" y2="150" stroke="#FF851B" stroke-width="2"/>
-                                <polygon points="280,150 290,145 285,155" fill="#FF851B"/>
-                                <text x="265" y="105" font-size="12" font-weight="bold" fill="#FF851B">🔄 Gestion</text>
+                                <!-- Phase 2 TOP RIGHT - FORMATION -->
+                                <circle cx="300" cy="80" r="35" fill="rgba(255, 133, 27, 0.2)" stroke="#FF851B" stroke-width="2"/>
+                                <text x="300" y="78" font-size="28" text-anchor="middle" dominant-baseline="middle">📝</text>
+                                <text x="300" y="130" font-size="13" font-weight="bold" fill="#FF851B" text-anchor="middle">Formation</text>
                                 
-                                <!-- Flèche et étape LEFT - PHASE DE TEST -->
-                                <line x1="10" y1="120" x2="40" y2="150" stroke="#FF851B" stroke-width="2"/>
-                                <polygon points="40,150 30,145 35,155" fill="#FF851B"/>
-                                <text x="5" y="105" font-size="12" font-weight="bold" fill="#FF851B">✅ Test</text>
+                                <!-- Flèche 2 vers 3 (Formation vers Gestion) -->
+                                <path d="M 310 110 Q 330 160, 305 210" fill="none" stroke="#FF851B" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                
+                                <!-- Phase 3 RIGHT - GESTION DE PROJET -->
+                                <circle cx="320" cy="240" r="35" fill="rgba(255, 133, 27, 0.2)" stroke="#FF851B" stroke-width="2"/>
+                                <text x="320" y="238" font-size="28" text-anchor="middle" dominant-baseline="middle">🔄</text>
+                                <text x="320" y="290" font-size="13" font-weight="bold" fill="#FF851B" text-anchor="middle">Gestion</text>
+                                
+                                <!-- Flèche 3 vers 4 (Gestion vers Test) -->
+                                <path d="M 285 245 Q 180 260, 100 245" fill="none" stroke="#FF851B" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                
+                                <!-- Phase 4 LEFT - PHASE DE TEST -->
+                                <circle cx="40" cy="240" r="35" fill="rgba(255, 133, 27, 0.2)" stroke="#FF851B" stroke-width="2"/>
+                                <text x="40" y="238" font-size="28" text-anchor="middle" dominant-baseline="middle">✅</text>
+                                <text x="40" y="290" font-size="13" font-weight="bold" fill="#FF851B" text-anchor="middle">Test</text>
+                                
+                                <!-- Flèche 4 vers 1 (Test vers Planning) -->
+                                <path d="M 50 210 Q 30 150, 60 110" fill="none" stroke="#FF851B" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                
+                                <!-- Définition du marqueur de flèche -->
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                        <polygon points="0 0, 10 3, 0 6" fill="#FF851B"/>
+                                    </marker>
+                                </defs>
                             </svg>
 
                             <!-- Center Team -->
