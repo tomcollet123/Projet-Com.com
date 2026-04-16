@@ -33,6 +33,11 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
+        @keyframes rotateSprint {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         nav {
             background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             padding: 15px 20px;
@@ -50,6 +55,8 @@
             display: flex;
             gap: 40px;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         nav a {
@@ -245,13 +252,34 @@
             display: block;
         }
 
+        .agile-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+            display: none;
+            min-height: 100vh;
+        }
+
+        .agile-section.active {
+            display: block;
+        }
+
         .projects-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        .agile-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         .projects-section > h2 {
+            margin-bottom: 30px;
+        }
+
+        .agile-section > h2 {
             margin-bottom: 30px;
         }
 
@@ -554,6 +582,198 @@
             font-size: 1rem;
         }
 
+        /* AGILE STYLES */
+        .agile-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .agile-hero h2 {
+            margin-bottom: 20px;
+        }
+
+        .sprint-diagram {
+            max-width: 600px;
+            margin: 80px auto;
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sprint-circle {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 3px solid #FF851B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(255, 133, 27, 0.3);
+            animation: rotateSprint 20s linear infinite;
+        }
+
+        .sprint-phase {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 900;
+            font-size: 0.9rem;
+            text-align: center;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 0 20px rgba(255, 133, 27, 0.5);
+        }
+
+        .phase-planning {
+            background: rgba(30, 100, 200, 0.9);
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-dev {
+            background: rgba(255, 133, 27, 0.9);
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .phase-testing {
+            background: rgba(0, 204, 68, 0.9);
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-review {
+            background: rgba(200, 200, 200, 0.9);
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #001F3F;
+        }
+
+        .sprint-center {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FF851B;
+        }
+
+        .agile-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 80px auto;
+            max-width: 1000px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            animation: slideUp 0.6s ease-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            color: #FF851B;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .value-card p {
+            color: #E8E8E8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .agile-principles {
+            margin: 80px auto;
+            max-width: 1000px;
+        }
+
+        .agile-principles h3 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FF851B;
+            display: inline-block;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .principle-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-left: 4px solid #FF851B;
+            padding: 20px;
+            border-radius: 5px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .principle-item h4 {
+            color: #FF851B;
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .principle-item p {
+            color: #E8E8E8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .agile-explanation {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 80px auto;
+            max-width: 900px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .agile-explanation h3 {
+            color: #FF851B;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .agile-explanation p {
+            color: #E8E8E8;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
         footer {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
             padding: 30px 20px;
@@ -612,8 +832,44 @@
             .presentation-container,
             .faq-container,
             .contact-container,
-            .poc-container {
+            .poc-container,
+            .agile-container {
                 padding: 0 15px;
+            }
+
+            .sprint-circle {
+                width: 250px;
+                height: 250px;
+            }
+
+            .sprint-phase {
+                width: 60px;
+                height: 60px;
+                font-size: 0.7rem;
+            }
+
+            .phase-planning {
+                top: -40px;
+            }
+
+            .phase-dev {
+                right: -40px;
+            }
+
+            .phase-testing {
+                bottom: -40px;
+            }
+
+            .phase-review {
+                left: -40px;
+            }
+
+            .agile-values {
+                grid-template-columns: 1fr;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -622,6 +878,7 @@
     <nav>
         <div class="nav-links">
             <a onclick="showSection('accueil')" class="nav-link active">Accueil</a>
+            <a onclick="showSection('agile')" class="nav-link">Agile</a>
             <a onclick="showSection('projets')" class="nav-link">Projets</a>
         </div>
     </nav>
@@ -638,8 +895,8 @@
             <div class="presentation-container">
                 <h2>Qui <span class="highlight">sommes-nous ?</span></h2>
                 <div class="divider"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation u[...]
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia[...]
             </div>
         </section>
 
@@ -738,6 +995,123 @@
         </section>
     </div>
 
+    <div id="agile-section" class="agile-section">
+        <div class="agile-container">
+            <div class="agile-hero">
+                <h2>Méthodologie <span class="highlight">AGILE</span></h2>
+                <div class="divider"></div>
+                <p style="color: #E8E8E8; font-size: 1.1rem; margin-top: 20px;">Une approche itérative et flexible pour la gestion de projets</p>
+            </div>
+
+            <div class="sprint-diagram">
+                <div class="sprint-circle">
+                    <div class="sprint-center">SPRINT</div>
+                    <div class="sprint-phase phase-planning">
+                        <div>📋<br>Planning</div>
+                    </div>
+                    <div class="sprint-phase phase-dev">
+                        <div>💻<br>Dev</div>
+                    </div>
+                    <div class="sprint-phase phase-testing">
+                        <div>✅<br>Testing</div>
+                    </div>
+                    <div class="sprint-phase phase-review">
+                        <div>🔄<br>Review</div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="agile-values">
+                <div class="value-card">
+                    <h3>👥 Individus & Interactions</h3>
+                    <p>Prioriser les personnes et leurs interactions plutôt que les processus et les outils.</p>
+                </div>
+                <div class="value-card">
+                    <h3>⚙️ Logiciels Fonctionnels</h3>
+                    <p>Produire du code de qualité et des solutions opérationnelles rapidement et régulièrement.</p>
+                </div>
+                <div class="value-card">
+                    <h3>📋 Collaboration Client</h3>
+                    <p>Impliquer le client tout au long du processus plutôt que de négocier les contrats.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🔄 Adaptation Constante</h3>
+                    <p>Répondre aux changements plutôt que de suivre un plan rigide et prédéfini.</p>
+                </div>
+            </section>
+
+            <section class="agile-principles">
+                <h3>Les <span class="highlight">12 Principes Agile</span></h3>
+                <div class="principles-grid">
+                    <div class="principle-item">
+                        <h4>1. Satisfaction Client</h4>
+                        <p>Livrer de la valeur rapidement et continuellement.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>2. Accueil du Changement</h4>
+                        <p>Accepter les changements de besoins, même tard en phase de développement.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>3. Livraisons Fréquentes</h4>
+                        <p>Mettre en production toutes les semaines ou tous les mois.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>4. Collaboration Étroite</h4>
+                        <p>Métier et développeurs doivent travailler ensemble au quotidien.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>5. Équipes Motivées</h4>
+                        <p>Construire des projets autour de personnes motivées et confiantes.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>6. Communication Directe</h4>
+                        <p>La conversation face à face est le meilleur mode de communication.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>7. Mesurer la Progression</h4>
+                        <p>Le logiciel fonctionnel est la principale mesure de progrès.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>8. Rythme Durable</h4>
+                        <p>Maintenir un rythme constant et soutenable indéfiniment.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>9. Excellence Technique</h4>
+                        <p>L'excellence technique et la bonne conception améliorent l'agilité.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>10. Simplicité</h4>
+                        <p>Maximiser la quantité de travail non fait et chercher la simplicité.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>11. Auto-organisation</h4>
+                        <p>Les meilleures architectures émergent d'équipes auto-organisées.</p>
+                    </div>
+                    <div class="principle-item">
+                        <h4>12. Amélioration Continue</h4>
+                        <p>L'équipe reflète régulièrement sur comment devenir plus efficace.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="agile-explanation">
+                <h3>Pourquoi Agile ?</h3>
+                <p><strong style="color: #FF851B;">La méthodologie Agile</strong> est une approche itérative et incrémentale de gestion de projets qui se concentre sur la livraison de valeur rapide et la réactivité aux changements.</p>
+                
+                <p><strong style="color: #00CC44;">Avantages clés :</strong></p>
+                <p>✅ <strong>Flexibilité</strong> - Adaptation rapide aux nouveaux besoins et changements de priorité<br>
+                ✅ <strong>Transparence</strong> - Communication constante avec les parties prenantes<br>
+                ✅ <strong>Qualité</strong> - Tests continus et améliorations régulières<br>
+                ✅ <strong>Rapidité</strong> - Livraison de fonctionnalités opérationnelles régulièrement<br>
+                ✅ <strong>Motivation</strong> - Équipes impliquées et responsabilisées</p>
+
+                <p><strong style="color: #FF851B;">Cycle Sprint :</strong></p>
+                <p>Un sprint typique dure 1 à 4 semaines et suit ce cycle :<br>
+                <strong>Planning</strong> (définir les objectifs) → <strong>Développement</strong> (créer les fonctionnalités) → <strong>Testing</strong> (valider la qualité) → <strong>Review</strong> (présenter et collecter les retours) → Recommencer</p>
+            </section>
+        </div>
+    </div>
+
     <div id="projets-section" class="projects-section">
         <div class="projects-container">
             <h2>Nos <span class="highlight">Projets</span></h2>
@@ -752,8 +1126,8 @@
                         <span class="project-status status-encours">⏳ En cours</span>
                     </div>
                     <div class="project-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exerci[...]
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui[...]
                     </div>
                 </div>
 
@@ -763,8 +1137,8 @@
                         <span class="project-status status-encours">⏳ En cours</span>
                     </div>
                     <div class="project-content">
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur[...]
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit volupt[...]
                     </div>
                 </div>
 
@@ -774,8 +1148,8 @@
                         <span class="project-status status-encours">⏳ En cours</span>
                     </div>
                     <div class="project-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.</p>
-                        <p>Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam quis nostrum exercitationem ullam corporis.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores.[...]
+                        <p>Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam quis nostrum exercitationem ullam corpor[...]
                     </div>
                 </div>
             </div>
@@ -789,8 +1163,8 @@
                         <span class="project-status status-operationnel">✅ Opérationnel</span>
                     </div>
                     <div class="project-content">
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</p>
-                        <p>Cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distinctio.</p>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint o[...]
+                        <p>Cupiditate non provident similique sunt in culpa qui officia deserunt mollitia animi id est laborum et dolorum fuga et harum quidem rerum facilis est et expedita distin[...]
                     </div>
                 </div>
 
@@ -800,8 +1174,8 @@
                         <span class="project-status status-operationnel">✅ Opérationnel</span>
                     </div>
                     <div class="project-content">
-                        <p>Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor repellendus.</p>
-                        <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum.</p>
+                        <p>Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus omnis voluptas assumenda est omnis dolor re[...]
+                        <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rer[...]
                     </div>
                 </div>
 
@@ -811,8 +1185,8 @@
                         <span class="project-status status-operationnel">✅ Opérationnel</span>
                     </div>
                     <div class="project-content">
-                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.</p>
-                        <p>Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit.</p>
+                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam ali[...]
+                        <p>Voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure rep[...]
                     </div>
                 </div>
             </div>
@@ -827,6 +1201,7 @@
         function showSection(sectionName) {
             document.getElementById('accueil-section').style.display = 'none';
             document.getElementById('projets-section').classList.remove('active');
+            document.getElementById('agile-section').classList.remove('active');
 
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => link.classList.remove('active'));
@@ -834,6 +1209,10 @@
             if (sectionName === 'accueil') {
                 document.getElementById('accueil-section').style.display = 'block';
                 document.querySelector('[onclick="showSection(\'accueil\')"]').classList.add('active');
+                window.scrollTo(0, 0);
+            } else if (sectionName === 'agile') {
+                document.getElementById('agile-section').classList.add('active');
+                document.querySelector('[onclick="showSection(\'agile\')"]').classList.add('active');
                 window.scrollTo(0, 0);
             } else if (sectionName === 'projets') {
                 document.getElementById('projets-section').classList.add('active');
