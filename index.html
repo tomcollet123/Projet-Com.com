@@ -16,11 +16,6 @@
             color: #FFFFFF;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background-image: url('bg.png');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
         }
 
         @keyframes fadeIn { 
@@ -42,14 +37,12 @@
             z-index: 100;
             display: flex;
             justify-content: center;
-            align-items: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .nav-links {
             display: flex;
             gap: 40px;
-            align-items: center;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -67,7 +60,6 @@
 
         nav a:hover {
             color: #FF851B;
-            text-shadow: 0 0 10px rgba(255, 133, 27, 0.6);
         }
 
         nav a.active {
@@ -142,10 +134,6 @@
             padding: 0 20px;
         }
 
-        .presentation h2 {
-            margin-bottom: 30px;
-        }
-
         .presentation p {
             font-size: 1.1rem;
             color: #E8E8E8;
@@ -158,11 +146,6 @@
             background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             padding: 80px 20px;
             text-align: center;
-        }
-
-        .cta-container {
-            max-width: 1000px;
-            margin: 0 auto;
         }
 
         .cta-button {
@@ -185,161 +168,6 @@
         .cta-button:hover {
             background: #FFFFFF;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 133, 27, 0.4);
-        }
-
-        .faq-section {
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
-            padding: 100px 20px;
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .faq-section h2 {
-            margin-bottom: 30px;
-        }
-
-        .faq-items {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            animation: slideUp 0.6s ease-out;
-        }
-
-        .faq-question {
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #FF851B;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .faq-answer {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border-left: 4px solid #FF851B;
-            padding: 25px;
-            border-radius: 5px;
-            color: #E8E8E8;
-            line-height: 1.8;
-            font-size: 1rem;
-            text-align: justify;
-        }
-
-        .projects-section {
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
-            padding: 100px 20px;
-            display: none;
-            min-height: 100vh;
-        }
-
-        .projects-section.active {
-            display: block;
-        }
-
-        .agile-section {
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
-            padding: 100px 20px;
-            display: none;
-            min-height: 100vh;
-        }
-
-        .agile-section.active {
-            display: block;
-        }
-
-        .projects-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .agile-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .agile-section > h2 {
-            margin-bottom: 30px;
-        }
-
-        .projects-subsection {
-            margin-bottom: 100px;
-        }
-
-        .projects-subsection h3 {
-            font-size: 1.8rem;
-            color: #FFFFFF;
-            margin-bottom: 50px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #FF851B;
-            display: inline-block;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .project-item {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 40px;
-            margin: 0 auto 40px;
-            max-width: 950px;
-            animation: slideUp 0.6s ease-out;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(255, 133, 27, 0.3);
-        }
-
-        .project-header h3 {
-            font-size: 1.8rem;
-            color: #FFFFFF;
-            font-weight: 900;
-            margin: 0;
-            flex-grow: 1;
-            margin-right: 20px;
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .status-encours {
-            background: rgba(255, 133, 27, 0.3);
-            color: #FF851B;
-            border: 2px solid #FF851B;
-        }
-
-        .project-content p {
-            color: #E8E8E8;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            margin-bottom: 20px;
-            text-align: justify;
         }
 
         .contact-section {
@@ -351,10 +179,6 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-
-        .contact-section h2 {
-            margin-bottom: 30px;
         }
 
         .contact-form {
@@ -396,8 +220,6 @@
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: #FF851B;
-            box-shadow: 0 0 15px rgba(255, 133, 27, 0.3);
-            background: rgba(255, 255, 255, 0.12);
             outline: none;
         }
 
@@ -423,200 +245,112 @@
 
         .btn-submit:hover {
             background: #FFFFFF;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 133, 27, 0.4);
         }
 
-        .poc-section {
+        .agile-section {
             background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             padding: 100px 20px;
+            display: none;
         }
 
-        .poc-container {
-            max-width: 900px;
+        .agile-section.active {
+            display: block;
+        }
+
+        .projects-section {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            padding: 100px 20px;
+            display: none;
+        }
+
+        .projects-section.active {
+            display: block;
+        }
+
+        .agile-container {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .poc-section h2 {
-            margin-bottom: 30px;
-        }
-
-        .poc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .poc-card {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            animation: slideUp 0.6s ease-out;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .poc-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 133, 27, 0.3);
-            border-color: #FFFFFF;
-        }
-
-        .poc-card h3 {
-            font-size: 1.4rem;
-            color: #FFFFFF;
-            margin-bottom: 15px;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .poc-card p {
-            color: #FFFFFF;
-            margin-bottom: 12px;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .poc-label {
-            font-weight: 900;
-            color: #FF851B;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .poc-info {
-            color: #FFFFFF;
-            font-size: 1rem;
-        }
-
-        .poc-email-section {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 2px solid #FF851B;
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 30px;
-            text-align: center;
-            animation: slideUp 0.6s ease-out;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .poc-email-section h4 {
-            color: #FF851B;
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .poc-email-section p {
-            color: #FFFFFF;
-            font-size: 1rem;
-        }
-
-        /* AGILE FRISE */
         .agile-hero {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         .agile-hero h2 {
             margin-bottom: 20px;
         }
 
-        .timeline-container {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 4px solid #FF851B;
-            border-radius: 20px;
-            padding: 60px 40px;
+        /* FRISE SIMPLE */
+        .frise-container {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
+            border: 3px solid #FF851B;
+            border-radius: 15px;
+            padding: 50px 30px;
             margin: 60px auto;
-            max-width: 1300px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .timeline {
-            position: relative;
-            padding: 40px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 5%;
-            right: 5%;
-            top: 50%;
-            height: 4px;
-            background: #FF851B;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
-
-        .timeline-items {
+        .frise {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .frise-item {
+            flex: 1;
+            min-width: 140px;
+            padding: 20px;
+            background: #2E5266;
+            border: 3px solid #FF851B;
+            border-radius: 12px;
+            text-align: center;
             position: relative;
             z-index: 2;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .timeline-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            flex: 1;
-            position: relative;
-        }
-
-        .timeline-step {
+        .frise-item.active {
             background: #FF851B;
-            border: 4px solid #001F3F;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 25px rgba(255, 133, 27, 0.8);
-            font-weight: 900;
-            font-size: 2rem;
-        }
-
-        .timeline-number {
-            font-size: 1.5rem;
             color: #001F3F;
         }
 
-        .timeline-label {
+        .frise-item.active .frise-label {
+            color: #001F3F;
+            font-weight: 900;
+        }
+
+        .frise-item.active .frise-icon {
+            font-size: 2.5rem;
+        }
+
+        .frise-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .frise-label {
             color: #FF851B;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 1.05rem;
+            font-size: 1rem;
             letter-spacing: 0.5px;
             line-height: 1.3;
-            margin-top: 15px;
-            width: 120px;
         }
 
-        .timeline-description {
-            color: #E8E8E8;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            width: 130px;
-            line-height: 1.4;
+        .frise-arrow {
+            font-size: 2.5rem;
+            color: #FF851B;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
         }
 
         .agile-explanation {
@@ -635,7 +369,6 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             font-weight: 900;
-            letter-spacing: 0.5px;
         }
 
         .agile-explanation p {
@@ -654,88 +387,26 @@
             border-top: 2px solid #FF851B;
         }
 
-        @media (max-width: 1024px) {
-            .timeline-container {
-                padding: 40px 20px;
-            }
-
-            .timeline-step {
-                width: 70px;
-                height: 70px;
-            }
-
-            .timeline-label {
-                font-size: 0.95rem;
-                width: 100px;
-            }
-        }
-
         @media (max-width: 768px) {
-            nav {
+            .frise {
                 flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
                 gap: 20px;
             }
 
-            nav a {
-                font-size: 0.9rem;
+            .frise-arrow {
+                transform: rotate(90deg);
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .frise-item {
+                width: 100%;
             }
 
             h2 {
                 font-size: 1.6rem;
             }
 
-            .timeline-container {
-                padding: 30px 15px;
-            }
-
-            .timeline {
-                padding: 50px 0;
-            }
-
-            .timeline::before {
-                left: 0;
-                right: auto;
-                top: 0;
-                bottom: 0;
-                height: auto;
-                width: 4px;
-                transform: none;
-            }
-
-            .timeline-items {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 50px;
-            }
-
-            .timeline-item {
-                margin-left: 100px;
-                align-items: flex-start;
-                text-align: left;
-            }
-
-            .timeline-step {
-                position: absolute;
-                left: -100px;
-                width: 60px;
-                height: 60px;
-                margin-bottom: 0;
-            }
-
-            .timeline-label {
-                width: auto;
-            }
-
-            .timeline-description {
-                width: auto;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -767,22 +438,9 @@
 
         <section class="cta-section">
             <div class="cta-container">
-                <h2>Prêt à voir nos <span class="highlight">Projets ?</span></h2>
+                <h2>Découvrez nos <span class="highlight">Projets</span></h2>
                 <div class="divider"></div>
-                <button class="cta-button" onclick="showSection('projets')">Voir les Projets →</button>
-            </div>
-        </section>
-
-        <section class="faq-section">
-            <div class="faq-container">
-                <h2>Questions <span class="highlight">Fréquentes</span></h2>
-                <div class="divider"></div>
-                <div class="faq-items">
-                    <div class="faq-item">
-                        <div class="faq-question">Quid est Lorem Ipsum ?</div>
-                        <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                    </div>
-                </div>
+                <button class="cta-button" onclick="showSection('agile')">Voir le Processus Agile →</button>
             </div>
         </section>
 
@@ -799,29 +457,12 @@
                         <label>Email *</label>
                         <input type="email" name="email" placeholder="votre@email.com" required>
                     </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" placeholder="Votre message..." required></textarea>
+                    </div>
                     <button type="submit" class="btn-submit">📧 Envoyer</button>
                 </form>
-            </div>
-        </section>
-
-        <section class="poc-section">
-            <div class="poc-container">
-                <h2><span class="highlight">POC</span></h2>
-                <div class="divider"></div>
-                <div class="poc-grid">
-                    <div class="poc-card">
-                        <h3>ASC A N1</h3>
-                        <p><span class="poc-label">Nom</span><span class="poc-info">Alexia Rabel</span></p>
-                    </div>
-                    <div class="poc-card">
-                        <h3>Lieutenant de Vaisseau</h3>
-                        <p><span class="poc-label">Nom</span><span class="poc-info">Chicote</span></p>
-                    </div>
-                </div>
-                <div class="poc-email-section">
-                    <h4>Email de Contact</h4>
-                    <p>cecmed-jdata-chef.contact.fct@intradef.gouv.fr</p>
-                </div>
             </div>
         </section>
     </div>
@@ -833,103 +474,74 @@
                 <div class="divider"></div>
             </div>
 
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-items">
-                        <!-- Étape 1 -->
-                        <div class="timeline-item">
-                            <div class="timeline-step">
-                                <div class="timeline-number">1️⃣</div>
-                            </div>
-                            <div class="timeline-label">PLANNING</div>
-                            <div class="timeline-description">Définition des objectifs</div>
-                        </div>
+            <div class="frise-container">
+                <div class="frise">
+                    <!-- Étape 1 -->
+                    <div class="frise-item active">
+                        <div class="frise-icon">📋</div>
+                        <div class="frise-label">PLANIFIER</div>
+                    </div>
 
-                        <!-- Étape 2 -->
-                        <div class="timeline-item">
-                            <div class="timeline-step">
-                                <div class="timeline-number">2️⃣</div>
-                            </div>
-                            <div class="timeline-label">DÉVELOPPEMENT</div>
-                            <div class="timeline-description">Création du produit</div>
-                        </div>
+                    <div class="frise-arrow">→</div>
 
-                        <!-- Étape 3 -->
-                        <div class="timeline-item">
-                            <div class="timeline-step">
-                                <div class="timeline-number">3️⃣</div>
-                            </div>
-                            <div class="timeline-label">TEST</div>
-                            <div class="timeline-description">Validation qualité</div>
-                        </div>
+                    <!-- Étape 2 -->
+                    <div class="frise-item">
+                        <div class="frise-icon">💻</div>
+                        <div class="frise-label">CONCEVOIR</div>
+                    </div>
 
-                        <!-- Étape 4 -->
-                        <div class="timeline-item">
-                            <div class="timeline-step">
-                                <div class="timeline-number">4️⃣</div>
-                            </div>
-                            <div class="timeline-label">FORMATION</div>
-                            <div class="timeline-description">Formation utilisateurs</div>
-                        </div>
+                    <div class="frise-arrow">→</div>
 
-                        <!-- Étape 5 -->
-                        <div class="timeline-item">
-                            <div class="timeline-step">
-                                <div class="timeline-number">5️⃣</div>
-                            </div>
-                            <div class="timeline-label">LIVRABLE</div>
-                            <div class="timeline-description">Mise en production</div>
-                        </div>
+                    <!-- Étape 3 -->
+                    <div class="frise-item">
+                        <div class="frise-icon">✅</div>
+                        <div class="frise-label">TESTER</div>
+                    </div>
 
-                        <!-- Étape 6 -->
-                        <div class="timeline-item">
-                            <div class="timeline-step">
-                                <div class="timeline-number">6️⃣</div>
-                            </div>
-                            <div class="timeline-label">RETOURS</div>
-                            <div class="timeline-description">Feedback utilisateurs</div>
-                        </div>
+                    <div class="frise-arrow">→</div>
+
+                    <!-- Étape 4 -->
+                    <div class="frise-item">
+                        <div class="frise-icon">📝</div>
+                        <div class="frise-label">FORMER</div>
+                    </div>
+
+                    <div class="frise-arrow">→</div>
+
+                    <!-- Étape 5 -->
+                    <div class="frise-item">
+                        <div class="frise-icon">🚀</div>
+                        <div class="frise-label">METTRE EN<br>PRODUCTION</div>
                     </div>
                 </div>
             </div>
 
             <!-- Explication -->
             <div class="agile-explanation">
-                <h3>📊 Processus Agile Pas à Pas</h3>
-                <p>Voici comment avance le projet étape par étape :</p>
+                <h3>📊 Le Processus Agile</h3>
+                <p>Notre méthodologie agile suit 5 étapes clés, chacune essentielle au succès du projet :</p>
                 
-                <p><strong style="color: #00CC44;">🚀 Les 6 Étapes du Cycle :</strong></p>
-                <p>1️⃣ <strong>PLANNING</strong> - L'équipe planifie et définit les objectifs du sprint<br>
-                2️⃣ <strong>DÉVELOPPEMENT</strong> - Les développeurs créent les fonctionnalités<br>
-                3️⃣ <strong>TEST</strong> - QA valide la qualité et cherche les bugs<br>
-                4️⃣ <strong>FORMATION</strong> - Formation des utilisateurs finaux<br>
-                5️⃣ <strong>LIVRABLE</strong> - Le produit est mis en production<br>
-                6️⃣ <strong>RETOURS</strong> - Collecte des retours utilisateurs pour amélioration</p>
+                <p><strong style="color: #00CC44;">📍 Les 5 Étapes :</strong></p>
+                <p>📋 <strong>PLANIFIER</strong> - Définition des objectifs et des priorités<br>
+                💻 <strong>CONCEVOIR</strong> - Développement des fonctionnalités<br>
+                ✅ <strong>TESTER</strong> - Assurance qualité et validation<br>
+                📝 <strong>FORMER</strong> - Formation des utilisateurs finaux<br>
+                🚀 <strong>METTRE EN PRODUCTION</strong> - Déploiement et lancement</p>
 
-                <p><strong style="color: #00CC44;">💡 L'Essence :</strong></p>
-                <p>✅ Chaque étape est essentielle<br>
-                ✅ Elles s'enchaînent logiquement<br>
-                ✅ Les retours créent un nouveau cycle<br>
-                ✅ Amélioration continue garantie</p>
+                <p><strong style="color: #00CC44;">💡 L'Avantage :</strong></p>
+                <p>✅ Processus clair et linéaire<br>
+                ✅ Chaque étape délivre de la valeur<br>
+                ✅ Itération et amélioration continue<br>
+                ✅ Communication transparente à chaque phase</p>
             </div>
         </div>
     </div>
 
     <div id="projets-section" class="projects-section">
-        <div class="projects-container">
+        <div class="agile-container">
             <h2>Nos <span class="highlight">Projets</span></h2>
             <div class="divider"></div>
-
-            <div class="projects-subsection">
-                <h3>⏳ Projets En Cours</h3>
-
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>Navigatio Digitalis</h3>
-                        <span class="project-status status-encours">⏳ En cours</span>
-                    </div>
-                </div>
-            </div>
+            <p style="text-align: center; color: #E8E8E8; font-size: 1.1rem; margin-top: 40px;">Retrouvez bientôt nos projets en cours et opérationnels...</p>
         </div>
     </div>
 
@@ -940,8 +552,8 @@
     <script>
         function showSection(sectionName) {
             document.getElementById('accueil-section').style.display = 'none';
-            document.getElementById('projets-section').classList.remove('active');
             document.getElementById('agile-section').classList.remove('active');
+            document.getElementById('projets-section').classList.remove('active');
 
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => link.classList.remove('active'));
