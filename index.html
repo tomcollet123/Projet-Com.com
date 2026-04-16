@@ -16,6 +16,9 @@
             color: #FFFFFF;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            background-image: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            background-attachment: fixed;
+            background-size: cover;
         }
 
         @keyframes fadeIn { 
@@ -75,7 +78,7 @@
             justify-content: center;
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(0, 31, 63, 0.8) 0%, rgba(0, 50, 100, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 50, 100, 0.9) 100%);
             animation: fadeIn 1s ease-out;
         }
 
@@ -433,6 +436,12 @@
             padding: 0 20px;
         }
 
+        .projects-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         .agile-hero {
             text-align: center;
             margin-bottom: 60px;
@@ -442,75 +451,91 @@
             margin-bottom: 20px;
         }
 
-        /* FRISE SIMPLE */
-        .frise-container {
-            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
-            border: 3px solid #FF851B;
-            border-radius: 15px;
-            padding: 50px 30px;
-            margin: 60px auto;
-            max-width: 1000px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .frise {
+        /* SCHÉMA AVEC GRANDE FLÈCHE */
+        .schema-wrapper {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 15px;
+            justify-content: center;
+            margin: 60px auto;
+            max-width: 1100px;
+            gap: 0;
             flex-wrap: wrap;
             position: relative;
         }
 
-        .frise-item {
-            flex: 1;
-            min-width: 140px;
-            padding: 20px;
+        .schema-box {
             background: #2E5266;
             border: 3px solid #FF851B;
             border-radius: 12px;
+            padding: 25px;
             text-align: center;
-            position: relative;
-            z-index: 2;
+            min-width: 150px;
+            flex: 0 1 auto;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .frise-item.active {
-            background: #FF851B;
-            color: #001F3F;
+        .schema-box.methodologie {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(0, 31, 63, 0.8) 100%);
+            border: 3px solid #FF851B;
+            border-radius: 15px;
+            padding: 40px;
+            flex: 1;
+            min-width: 300px;
+            position: relative;
         }
 
-        .frise-item.active .frise-label {
-            color: #001F3F;
+        .schema-box.methodologie h3 {
+            color: #FF851B;
             font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
 
-        .frise-item.active .frise-icon {
-            font-size: 2.5rem;
+        .schema-box.methodologie .phases {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
-        .frise-icon {
+        .phase-item {
+            background: #2E5266;
+            border: 2px solid #00CC44;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.85rem;
+            color: #E8E8E8;
+            font-weight: 600;
+        }
+
+        .schema-icon {
             font-size: 2rem;
             margin-bottom: 10px;
             line-height: 1;
         }
 
-        .frise-label {
+        .schema-label {
             color: #FF851B;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 0.5px;
             line-height: 1.3;
         }
 
-        .frise-arrow {
-            font-size: 2.5rem;
+        .schema-arrow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 1 auto;
+        }
+
+        .schema-arrow {
+            font-size: 4rem;
             color: #FF851B;
             font-weight: 900;
-            position: relative;
-            z-index: 1;
-            flex-shrink: 0;
+            line-height: 1;
         }
 
         .agile-explanation {
@@ -539,6 +564,80 @@
             text-align: justify;
         }
 
+        .projects-subsection {
+            margin-bottom: 100px;
+        }
+
+        .projects-subsection h3 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FF851B;
+            display: inline-block;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-item {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+            border: 2px solid #FF851B;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 0 auto 40px;
+            max-width: 950px;
+            animation: slideUp 0.6s ease-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 133, 27, 0.3);
+        }
+
+        .project-header h3 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-weight: 900;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .status-encours {
+            background: rgba(255, 133, 27, 0.3);
+            color: #FF851B;
+            border: 2px solid #FF851B;
+        }
+
+        .status-operationnel {
+            background: rgba(0, 204, 68, 0.3);
+            color: #00CC44;
+            border: 2px solid #00CC44;
+        }
+
+        .project-content p {
+            color: #E8E8E8;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
         footer {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
             padding: 30px 20px;
@@ -547,26 +646,42 @@
             border-top: 2px solid #FF851B;
         }
 
-        @media (max-width: 768px) {
-            .frise {
+        @media (max-width: 1000px) {
+            .schema-wrapper {
                 flex-direction: column;
                 gap: 20px;
             }
 
-            .frise-arrow {
+            .schema-arrow {
                 transform: rotate(90deg);
             }
+        }
 
-            .frise-item {
-                width: 100%;
-            }
-
+        @media (max-width: 768px) {
             h2 {
                 font-size: 1.6rem;
             }
 
             .hero-content h1 {
                 font-size: 2.5rem;
+            }
+
+            .schema-box {
+                min-width: 140px;
+                padding: 20px;
+            }
+
+            .schema-box.methodologie {
+                padding: 30px;
+                min-width: 100%;
+            }
+
+            .schema-icon {
+                font-size: 1.5rem;
+            }
+
+            .schema-label {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -682,74 +797,119 @@
                 <div class="divider"></div>
             </div>
 
-            <div class="frise-container">
-                <div class="frise">
-                    <!-- Étape 1 -->
-                    <div class="frise-item active">
-                        <div class="frise-icon">📋</div>
-                        <div class="frise-label">PLANIFIER</div>
+            <!-- SCHÉMA AVEC GRANDE FLÈCHE -->
+            <div class="schema-wrapper">
+                <!-- PLANIFIER -->
+                <div class="schema-box">
+                    <div class="schema-icon">📋</div>
+                    <div class="schema-label">PLANIFIER</div>
+                </div>
+
+                <!-- FLÈCHE -->
+                <div class="schema-arrow-container">
+                    <div class="schema-arrow">→</div>
+                </div>
+
+                <!-- METHODOLOGIE AGILE (CENTRE) -->
+                <div class="schema-box methodologie">
+                    <h3>MÉTHODOLOGIE AGILE</h3>
+                    <div class="phases">
+                        <div class="phase-item">📝 Conception</div>
+                        <div class="phase-item">🔄 Itération</div>
+                        <div class="phase-item">✅ Test</div>
+                        <div class="phase-item">📊 Analyse</div>
                     </div>
+                </div>
 
-                    <div class="frise-arrow">→</div>
+                <!-- FLÈCHE -->
+                <div class="schema-arrow-container">
+                    <div class="schema-arrow">→</div>
+                </div>
 
-                    <!-- Étape 2 -->
-                    <div class="frise-item">
-                        <div class="frise-icon">💻</div>
-                        <div class="frise-label">CONCEVOIR</div>
-                    </div>
-
-                    <div class="frise-arrow">→</div>
-
-                    <!-- Étape 3 -->
-                    <div class="frise-item">
-                        <div class="frise-icon">✅</div>
-                        <div class="frise-label">TESTER</div>
-                    </div>
-
-                    <div class="frise-arrow">→</div>
-
-                    <!-- Étape 4 -->
-                    <div class="frise-item">
-                        <div class="frise-icon">📝</div>
-                        <div class="frise-label">FORMER</div>
-                    </div>
-
-                    <div class="frise-arrow">→</div>
-
-                    <!-- Étape 5 -->
-                    <div class="frise-item">
-                        <div class="frise-icon">🚀</div>
-                        <div class="frise-label">METTRE EN<br>PRODUCTION</div>
-                    </div>
+                <!-- METTRE EN PRODUCTION -->
+                <div class="schema-box">
+                    <div class="schema-icon">🚀</div>
+                    <div class="schema-label">METTRE EN<br>PRODUCTION</div>
                 </div>
             </div>
 
             <!-- Explication -->
             <div class="agile-explanation">
                 <h3>📊 Le Processus Agile</h3>
-                <p>Notre méthodologie agile suit 5 étapes clés, chacune essentielle au succès du projet :</p>
+                <p>Notre méthodologie suit un processus simple mais efficace :</p>
                 
-                <p><strong style="color: #00CC44;">📍 Les 5 Étapes :</strong></p>
-                <p>📋 <strong>PLANIFIER</strong> - Définition des objectifs et des priorités<br>
-                💻 <strong>CONCEVOIR</strong> - Développement des fonctionnalités<br>
-                ✅ <strong>TESTER</strong> - Assurance qualité et validation<br>
-                📝 <strong>FORMER</strong> - Formation des utilisateurs finaux<br>
-                🚀 <strong>METTRE EN PRODUCTION</strong> - Déploiement et lancement</p>
+                <p><strong style="color: #00CC44;">📍 De PLANIFIER à METTRE EN PRODUCTION :</strong></p>
+                <p>1️⃣ <strong>PLANIFIER</strong> - Définition des objectifs et priorités<br>
+                2️⃣ <strong>MÉTHODOLOGIE AGILE</strong> - Conception, itération, tests et analyse<br>
+                3️⃣ <strong>METTRE EN PRODUCTION</strong> - Déploiement et lancement</p>
 
-                <p><strong style="color: #00CC44;">💡 L'Avantage :</strong></p>
-                <p>✅ Processus clair et linéaire<br>
-                ✅ Chaque étape délivre de la valeur<br>
-                ✅ Itération et amélioration continue<br>
-                ✅ Communication transparente à chaque phase</p>
+                <p><strong style="color: #00CC44;">💡 La Méthodologie Agile Comprend :</strong></p>
+                <p>📝 <strong>Conception</strong> - Développement des fonctionnalités<br>
+                🔄 <strong>Itération</strong> - Cycles répétés d'amélioration<br>
+                ✅ <strong>Test</strong> - Assurance qualité continue<br>
+                📊 <strong>Analyse</strong> - Collecte des retours utilisateurs</p>
+
+                <p><strong style="color: #00CC44;">✨ Avantages :</strong></p>
+                <p>✅ Processus clair et compréhensible<br>
+                ✅ Flexibilité et adaptation rapide<br>
+                ✅ Qualité garantie à chaque étape<br>
+                ✅ Livraison de valeur continue</p>
             </div>
         </div>
     </div>
 
     <div id="projets-section" class="projects-section">
-        <div class="agile-container">
+        <div class="projects-container">
             <h2>Nos <span class="highlight">Projets</span></h2>
             <div class="divider"></div>
-            <p style="text-align: center; color: #E8E8E8; font-size: 1.1rem; margin-top: 40px;">Retrouvez bientôt nos projets en cours et opérationnels...</p>
+
+            <div class="projects-subsection">
+                <h3>⏳ Projets En Cours</h3>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Navigatio Digitalis</h3>
+                        <span class="project-status status-encours">⏳ En cours</span>
+                    </div>
+                    <div class="project-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Fortitudo Systematis</h3>
+                        <span class="project-status status-encours">⏳ En cours</span>
+                    </div>
+                    <div class="project-content">
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-subsection">
+                <h3>✅ Projets Opérationnels</h3>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Aurora Technologia</h3>
+                        <span class="project-status status-operationnel">✅ Opérationnel</span>
+                    </div>
+                    <div class="project-content">
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Sapientia Aeterna</h3>
+                        <span class="project-status status-operationnel">✅ Opérationnel</span>
+                    </div>
+                    <div class="project-content">
+                        <p>Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
