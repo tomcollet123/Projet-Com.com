@@ -740,8 +740,9 @@
         /* CENTRAL CIRCLE */
         .central-circle {
             position: relative;
-            width: 280px;
-            height: 200px;
+            width: 100%;
+            max-width: 350px;
+            height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -759,6 +760,9 @@
         .team-center {
             position: absolute;
             z-index: 20;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -791,54 +795,6 @@
             font-size: 1.6rem;
             border: 3px solid #FFFFFF;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-        }
-
-        /* CIRCLE PHASES - EN ARC AUTOUR */
-        .circle-phase {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            text-align: center;
-        }
-
-        .circle-phase-icon {
-            font-size: 1.8rem;
-        }
-
-        .circle-phase-label {
-            color: #FF851B;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.3px;
-            line-height: 1.2;
-            width: 80px;
-        }
-
-        .phase-circle-top {
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .phase-circle-right {
-            right: -85px;
-            top: 35%;
-            transform: translateY(-50%);
-        }
-
-        .phase-circle-bottom {
-            bottom: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .phase-circle-left {
-            left: -85px;
-            top: 35%;
-            transform: translateY(-50%);
         }
 
         /* ANALYSIS & DELIVERABLE */
@@ -956,7 +912,7 @@
             }
 
             .central-circle {
-                width: 280px;
+                max-width: 320px;
                 height: 200px;
             }
         }
@@ -977,30 +933,9 @@
             }
 
             .central-circle {
-                width: 250px;
+                max-width: 300px;
                 height: 180px;
                 margin: 20px 0;
-            }
-
-            .phase-circle-top {
-                top: -50px;
-            }
-
-            .phase-circle-bottom {
-                bottom: -50px;
-            }
-
-            .phase-circle-left {
-                left: -70px;
-            }
-
-            .phase-circle-right {
-                right: -70px;
-            }
-
-            .circle-phase-label {
-                font-size: 0.75rem;
-                width: 70px;
             }
         }
 
@@ -1094,30 +1029,9 @@
             }
 
             .central-circle {
-                width: 200px;
+                max-width: 250px;
                 height: 160px;
                 margin: 20px 0;
-            }
-
-            .phase-circle-top {
-                top: -40px;
-            }
-
-            .phase-circle-bottom {
-                bottom: -40px;
-            }
-
-            .phase-circle-left {
-                left: -60px;
-            }
-
-            .phase-circle-right {
-                right: -60px;
-            }
-
-            .circle-phase-label {
-                font-size: 0.65rem;
-                width: 60px;
             }
 
             .team-avatar {
@@ -1345,29 +1259,31 @@
 
                         <!-- CENTRAL CIRCLE WITH TEAM -->
                         <div class="central-circle">
-                            <!-- Top Phase - PLANNING -->
-                            <div class="circle-phase phase-circle-top">
-                                <div class="circle-phase-icon">📋</div>
-                                <div class="circle-phase-label">1 PLANNING</div>
-                            </div>
-
-                            <!-- Left Phase - FORMATION -->
-                            <div class="circle-phase phase-circle-left">
-                                <div class="circle-phase-icon">📝</div>
-                                <div class="circle-phase-label">2 FORMATION</div>
-                            </div>
-
-                            <!-- Bottom Phase - GESTION PROJET -->
-                            <div class="circle-phase phase-circle-bottom">
-                                <div class="circle-phase-icon">🔄</div>
-                                <div class="circle-phase-label">3 GESTION<br>PROJET</div>
-                            </div>
-
-                            <!-- Right Phase - TESTING -->
-                            <div class="circle-phase phase-circle-right">
-                                <div class="circle-phase-icon">✅</div>
-                                <div class="circle-phase-label">4 TESTING</div>
-                            </div>
+                            <!-- SVG Semi-Circle avec les étapes -->
+                            <svg class="circle-arc" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet">
+                                <!-- Semi-cercle -->
+                                <path d="M 20 180 A 160 160 0 0 1 300 180" fill="none" stroke="#FF851B" stroke-width="4" stroke-linecap="round"/>
+                                
+                                <!-- Flèche et étape TOP LEFT - PLANNING -->
+                                <line x1="60" y1="60" x2="80" y2="110" stroke="#FF851B" stroke-width="2"/>
+                                <polygon points="80,110 75,100 85,105" fill="#FF851B"/>
+                                <text x="30" y="50" font-size="12" font-weight="bold" fill="#FF851B">📋 Planning</text>
+                                
+                                <!-- Flèche et étape TOP RIGHT - FORMATION -->
+                                <line x1="260" y1="60" x2="240" y2="110" stroke="#FF851B" stroke-width="2"/>
+                                <polygon points="240,110 245,100 235,105" fill="#FF851B"/>
+                                <text x="220" y="50" font-size="12" font-weight="bold" fill="#FF851B">📝 Formation</text>
+                                
+                                <!-- Flèche et étape RIGHT - GESTION DE PROJET -->
+                                <line x1="310" y1="120" x2="280" y2="150" stroke="#FF851B" stroke-width="2"/>
+                                <polygon points="280,150 290,145 285,155" fill="#FF851B"/>
+                                <text x="265" y="105" font-size="12" font-weight="bold" fill="#FF851B">🔄 Gestion</text>
+                                
+                                <!-- Flèche et étape LEFT - PHASE DE TEST -->
+                                <line x1="10" y1="120" x2="40" y2="150" stroke="#FF851B" stroke-width="2"/>
+                                <polygon points="40,150 30,145 35,155" fill="#FF851B"/>
+                                <text x="5" y="105" font-size="12" font-weight="bold" fill="#FF851B">✅ Test</text>
+                            </svg>
 
                             <!-- Center Team -->
                             <div class="team-center">
@@ -1378,11 +1294,6 @@
                                     <div class="team-avatar">👤</div>
                                 </div>
                             </div>
-
-                            <!-- SVG Circle Arc -->
-                            <svg class="circle-arc" viewBox="0 0 300 200">
-                                <path d="M 50 180 A 130 130 0 0 1 250 180" fill="none" stroke="#FF851B" stroke-width="3" stroke-linecap="round"/>
-                            </svg>
                         </div>
 
                         <div class="arrow-big">→</div>
