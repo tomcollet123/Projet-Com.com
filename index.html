@@ -16,8 +16,9 @@
             color: #FFFFFF;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background-image: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 50, 100, 0.95) 100%);
             background-attachment: fixed;
+            min-height: 100vh;
         }
 
         @keyframes fadeIn { 
@@ -62,6 +63,7 @@
 
         nav a:hover {
             color: #FF851B;
+            text-shadow: 0 0 10px rgba(255, 133, 27, 0.6);
         }
 
         nav a.active {
@@ -179,6 +181,7 @@
         .cta-button:hover {
             background: #FFFFFF;
             transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 133, 27, 0.4);
         }
 
         .faq-section {
@@ -310,6 +313,7 @@
         .btn-submit:hover {
             background: #FFFFFF;
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 133, 27, 0.4);
         }
 
         .poc-section {
@@ -472,7 +476,7 @@
 
         /* Boîtes latérales */
         .schema-box-side {
-            background: #2E6B6B;
+            background: linear-gradient(135deg, #2E6B6B 0%, #1F4D4D 100%);
             border: 3px solid #FF851B;
             border-radius: 12px;
             padding: 25px;
@@ -480,14 +484,6 @@
             min-width: 150px;
             flex: 0 1 auto;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .schema-box-side.planifier {
-            background: linear-gradient(135deg, #2E6B6B 0%, #1F4D4D 100%);
-        }
-
-        .schema-box-side.production {
-            background: linear-gradient(135deg, #2E6B6B 0%, #1F4D4D 100%);
         }
 
         .schema-icon {
@@ -794,6 +790,10 @@
             .segment-bottom-right {
                 bottom: -50px;
             }
+
+            nav a {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -818,7 +818,7 @@
             <div class="presentation-container">
                 <h2>Qui <span class="highlight">sommes-nous ?</span></h2>
                 <div class="divider"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
         </section>
 
@@ -846,6 +846,10 @@
                     <div class="faq-item">
                         <div class="faq-question">Quomodo possum nobiscum laborare ?</div>
                         <div class="faq-answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Quid de proiectis vestris ?</div>
+                        <div class="faq-answer">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</div>
                     </div>
                 </div>
             </div>
@@ -908,7 +912,7 @@
             <div class="schema-container">
                 <div class="schema-wrapper">
                     <!-- PLANIFIER -->
-                    <div class="schema-box-side planifier">
+                    <div class="schema-box-side">
                         <div class="schema-icon">📋</div>
                         <div class="schema-label">PLANIFIER</div>
                     </div>
@@ -947,7 +951,7 @@
                     </div>
 
                     <!-- METTRE EN PRODUCTION -->
-                    <div class="schema-box-side production">
+                    <div class="schema-box-side">
                         <div class="schema-icon">📦</div>
                         <div class="schema-label">METTRE EN<br>PRODUCTION</div>
                     </div>
