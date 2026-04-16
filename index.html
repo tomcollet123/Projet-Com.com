@@ -264,7 +264,7 @@
         }
 
         .agile-container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -561,22 +561,206 @@
             margin-bottom: 20px;
         }
 
-        .schema-container {
+        .schema-box {
             background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
-            border: 3px solid #FF851B;
-            border-radius: 15px;
-            padding: 60px 40px;
+            border: 4px solid #FF851B;
+            border-radius: 20px;
+            padding: 50px;
             margin: 60px auto;
-            max-width: 1400px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            max-width: 1300px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-        svg {
-            width: 100%;
-            height: auto;
-            max-width: 1300px;
+        .process-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .process-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 25px;
+            background: rgba(0, 31, 63, 0.5);
+            border: 3px solid #FF851B;
+            border-radius: 15px;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .process-icon {
+            font-size: 3.5rem;
+            line-height: 1;
+        }
+
+        .process-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .process-arrow {
+            font-size: 2.5rem;
+            color: #FF851B;
+            font-weight: 900;
+        }
+
+        .center-circle {
+            background: rgba(255, 133, 27, 0.15);
+            border: 4px solid #FF851B;
+            border-radius: 50%;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
             margin: 0 auto;
-            display: block;
+            box-shadow: 0 0 40px rgba(255, 133, 27, 0.3);
+            position: relative;
+        }
+
+        .team-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .team-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        .team-avatars {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .phase-labels {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: stretch;
+            pointer-events: none;
+        }
+
+        .phase {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .phase-icon {
+            font-size: 1.8rem;
+        }
+
+        .phase-text {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .phase-top {
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-right {
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .phase-bottom {
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .phase-left {
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .retours-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 25px;
+            background: rgba(0, 31, 63, 0.5);
+            border: 3px solid #FF851B;
+            border-radius: 15px;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .retours-label {
+            color: #FF851B;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .retours-avatars {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .retour-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8 0%, #00CC44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 2px solid #FF851B;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
         }
 
         .agile-explanation {
@@ -614,6 +798,31 @@
             border-top: 2px solid #FF851B;
         }
 
+        @media (max-width: 1024px) {
+            .schema-box {
+                padding: 30px 20px;
+            }
+
+            .center-circle {
+                width: 240px;
+                height: 240px;
+                gap: 15px;
+            }
+
+            .process-item {
+                min-width: 120px;
+                padding: 15px;
+            }
+
+            .process-icon {
+                font-size: 2.5rem;
+            }
+
+            .process-label {
+                font-size: 0.9rem;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -630,20 +839,63 @@
 
             .hero-content h1 {
                 font-size: 2.5rem;
-                letter-spacing: 1px;
             }
 
             h2 {
                 font-size: 1.6rem;
-                letter-spacing: 1px;
             }
 
-            .schema-container {
-                padding: 30px 20px;
+            .schema-box {
+                padding: 20px;
             }
 
-            svg {
-                max-width: 100%;
+            .process-flow {
+                gap: 15px;
+                margin-bottom: 40px;
+            }
+
+            .process-item {
+                min-width: 100px;
+                padding: 12px;
+                font-size: 0.85rem;
+            }
+
+            .process-icon {
+                font-size: 2rem;
+            }
+
+            .process-label {
+                font-size: 0.85rem;
+            }
+
+            .process-arrow {
+                font-size: 1.8rem;
+            }
+
+            .center-circle {
+                width: 200px;
+                height: 200px;
+                margin: 20px auto;
+            }
+
+            .team-label {
+                font-size: 0.9rem;
+            }
+
+            .avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .retours-box {
+                min-width: 100px;
+            }
+
+            .retour-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -669,8 +921,7 @@
             <div class="presentation-container">
                 <h2>Qui <span class="highlight">sommes-nous ?</span></h2>
                 <div class="divider"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation u[...]</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia[...]</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </section>
 
@@ -689,31 +940,11 @@
                 <div class="faq-items">
                     <div class="faq-item">
                         <div class="faq-question">Quid est Lorem Ipsum ?</div>
-                        <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                        <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">Quae sunt dominii nostri ?</div>
-                        <div class="faq-answer">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quomodo possum nobiscum laborare ?</div>
-                        <div class="faq-answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quid de proiectis vestris ?</div>
-                        <div class="faq-answer">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Num servitia consultiva offeritis ?</div>
-                        <div class="faq-answer">Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quomodo ordinatae sunt turmae vestrae ?</div>
-                        <div class="faq-answer">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Quae certificationes habetis ?</div>
-                        <div class="faq-answer">Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
+                        <div class="faq-answer">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div>
                     </div>
                 </div>
             </div>
@@ -733,10 +964,6 @@
                         <input type="email" name="email" placeholder="votre@email.com" required>
                     </div>
                     <div class="form-group">
-                        <label>Sujet *</label>
-                        <input type="text" name="sujet" placeholder="Sujet du message" required>
-                    </div>
-                    <div class="form-group">
                         <label>Message *</label>
                         <textarea name="message" placeholder="Votre message..." required></textarea>
                     </div>
@@ -753,12 +980,10 @@
                     <div class="poc-card">
                         <h3>ASC A N1</h3>
                         <p><span class="poc-label">Nom</span><span class="poc-info">Alexia Rabel</span></p>
-                        <p><span class="poc-label">Numéro</span><span class="poc-info">864 73 20 056</span></p>
                     </div>
                     <div class="poc-card">
                         <h3>Lieutenant de Vaisseau</h3>
                         <p><span class="poc-label">Nom</span><span class="poc-info">Chicote</span></p>
-                        <p><span class="poc-label">Numéro</span><span class="poc-info">864 73 20 056</span></p>
                     </div>
                 </div>
                 <div class="poc-email-section">
@@ -776,136 +1001,114 @@
                 <div class="divider"></div>
             </div>
 
-            <div class="schema-container">
-                <svg viewBox="0 0 1300 400" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Labels du haut -->
-                    <text x="280" y="25" font-size="18" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial">DÉVELOPPEMENT</text>
-                    <text x="850" y="25" font-size="18" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial">PARAMÉTRAGE</text>
+            <div class="schema-box">
+                <!-- Première ligne du flux -->
+                <div class="process-flow">
+                    <div class="process-item">
+                        <div class="process-icon">👤</div>
+                        <div class="process-label">CLIENTS</div>
+                    </div>
 
-                    <!-- CLIENTS -->
-                    <circle cx="60" cy="120" r="35" fill="rgba(30, 100, 200, 0.3)" stroke="#1E64C8" stroke-width="3"/>
-                    <text x="60" y="130" font-size="28" text-anchor="middle" font-family="Arial">👤</text>
-                    <text x="60" y="180" font-size="12" font-weight="900" fill="#1E64C8" text-anchor="middle" font-family="Arial" text-transform="uppercase">CLIENTS</text>
+                    <div class="process-arrow">→</div>
 
-                    <!-- PRODUIT À LIVRER (barres) -->
-                    <g>
-                        <rect x="130" y="80" width="60" height="12" fill="#FFA500" rx="2"/>
-                        <rect x="130" y="96" width="50" height="12" fill="#FFA500" rx="2"/>
-                        <rect x="130" y="112" width="40" height="12" fill="#FFA500" rx="2"/>
-                        <rect x="130" y="128" width="30" height="12" fill="#FFA500" rx="2"/>
-                        <text x="165" y="165" font-size="12" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">PRODUIT À LIVRER</text>
-                    </g>
+                    <div class="process-item">
+                        <div class="process-icon">📦</div>
+                        <div class="process-label">PRODUIT<br>À LIVRER</div>
+                    </div>
 
-                    <!-- FLÈCHE 1 -->
-                    <path d="M 210 120 L 250 120" stroke="#FF851B" stroke-width="12" fill="none" stroke-linecap="round"/>
-                    <polygon points="250,120 235,112 235,128" fill="#FF851B"/>
+                    <div class="process-arrow">→</div>
 
-                    <!-- EN COURS (barres) -->
-                    <g>
-                        <rect x="270" y="95" width="50" height="12" fill="#FFA500" rx="2"/>
-                        <rect x="270" y="111" width="35" height="12" fill="#FFA500" rx="2"/>
-                        <text x="305" y="155" font-size="12" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">EN COURS</text>
-                    </g>
+                    <div class="process-item">
+                        <div class="process-icon">⚙️</div>
+                        <div class="process-label">EN COURS</div>
+                    </div>
 
-                    <!-- FLÈCHE 2 -->
-                    <path d="M 340 120 L 380 120" stroke="#FF851B" stroke-width="12" fill="none" stroke-linecap="round"/>
-                    <polygon points="380,120 365,112 365,128" fill="#FF851B"/>
+                    <div class="process-arrow">→</div>
+                </div>
 
-                    <!-- CERCLE PRINCIPAL -->
-                    <circle cx="565" cy="140" r="110" fill="none" stroke="#FF851B" stroke-width="18" opacity="0.8"/>
+                <!-- Cercle central avec phases -->
+                <div class="center-circle">
+                    <div class="phase-labels">
+                        <div class="phase phase-top">
+                            <div class="phase-icon">📋</div>
+                            <div class="phase-text">PLANNING</div>
+                        </div>
+                        <div class="phase phase-right">
+                            <div class="phase-icon">✅</div>
+                            <div class="phase-text">TESTING</div>
+                        </div>
+                        <div class="phase phase-bottom">
+                            <div class="phase-icon">🔄</div>
+                            <div class="phase-text">GESTION<br>PROJET</div>
+                        </div>
+                        <div class="phase phase-left">
+                            <div class="phase-icon">📝</div>
+                            <div class="phase-text">FORMATION</div>
+                        </div>
+                    </div>
 
-                    <!-- ÉQUIPE AU CENTRE -->
-                    <circle cx="565" cy="140" r="50" fill="rgba(255, 133, 27, 0.15)"/>
-                    <text x="565" y="115" font-size="11" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">ÉQUIPE</text>
-                    <text x="565" y="130" font-size="11" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">D'IMPLÉMENTATION</text>
-                    
-                    <!-- Avatars équipe -->
-                    <circle cx="540" cy="155" r="12" fill="url(#grad1)" stroke="#FFFFFF" stroke-width="2"/>
-                    <text x="540" y="160" font-size="12" text-anchor="middle">👨</text>
-                    
-                    <circle cx="565" cy="165" r="12" fill="url(#grad1)" stroke="#FFFFFF" stroke-width="2"/>
-                    <text x="565" y="170" font-size="12" text-anchor="middle">👩</text>
-                    
-                    <circle cx="590" cy="155" r="12" fill="url(#grad1)" stroke="#FFFFFF" stroke-width="2"/>
-                    <text x="590" y="160" font-size="12" text-anchor="middle">👤</text>
+                    <div class="team-info">
+                        <div class="team-label">ÉQUIPE<br>D'IMPLÉMENTATION</div>
+                        <div class="team-avatars">
+                            <div class="avatar">👨</div>
+                            <div class="avatar">👩</div>
+                            <div class="avatar">👤</div>
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- LABELS AUTOUR DU CERCLE -->
-                    <!-- Planning (top) -->
-                    <text x="565" y="10" font-size="14" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">📋 PLANNING</text>
+                <!-- Deuxième ligne du flux -->
+                <div class="process-flow">
+                    <div class="process-arrow">→</div>
 
-                    <!-- Testing (right) -->
-                    <text x="710" y="145" font-size="14" font-weight="900" fill="#FF851B" text-anchor="start" font-family="Arial" text-transform="uppercase">✅ TESTING</text>
+                    <div class="process-item">
+                        <div class="process-icon">🔍</div>
+                        <div class="process-label">ANALYSE</div>
+                    </div>
 
-                    <!-- Gestion Projet (bottom) -->
-                    <text x="565" y="280" font-size="14" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">🔄 GESTION PROJET</text>
+                    <div class="process-arrow">→</div>
 
-                    <!-- Formation (left) -->
-                    <text x="420" y="145" font-size="14" font-weight="900" fill="#FF851B" text-anchor="end" font-family="Arial" text-transform="uppercase">📝 FORMATION</text>
+                    <div class="process-item">
+                        <div class="process-icon">📮</div>
+                        <div class="process-label">LIVRABLE</div>
+                    </div>
 
-                    <!-- FLÈCHE 3 -->
-                    <path d="M 700 140 L 740 140" stroke="#FF851B" stroke-width="12" fill="none" stroke-linecap="round"/>
-                    <polygon points="740,140 725,132 725,148" fill="#FF851B"/>
+                    <div class="process-arrow">→</div>
 
-                    <!-- ANALYSE -->
-                    <text x="800" y="150" font-size="12" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">ANALYSE</text>
-
-                    <!-- FLÈCHE 4 -->
-                    <path d="M 850 140 L 890 140" stroke="#FF851B" stroke-width="12" fill="none" stroke-linecap="round"/>
-                    <polygon points="890,140 875,132 875,148" fill="#FF851B"/>
-
-                    <!-- LIVRABLE (boîte) -->
-                    <rect x="910" y="105" width="70" height="70" fill="rgba(255, 165, 0, 0.2)" stroke="#FF851B" stroke-width="3" stroke-dasharray="5,5" rx="5"/>
-                    <text x="945" y="135" font-size="20" text-anchor="middle">📦</text>
-                    <text x="945" y="170" font-size="12" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">LIVRABLE</text>
-
-                    <!-- FLÈCHE 5 -->
-                    <path d="M 990 140 L 1030 140" stroke="#FF851B" stroke-width="12" fill="none" stroke-linecap="round"/>
-                    <polygon points="1030,140 1015,132 1015,148" fill="#FF851B"/>
-
-                    <!-- UTILISATEURS FINAUX (droite) -->
-                    <text x="1100" y="45" font-size="13" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">RETOURS DES</text>
-                    <text x="1100" y="62" font-size="13" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">UTILISATEURS</text>
-                    <text x="1100" y="79" font-size="13" font-weight="900" fill="#FF851B" text-anchor="middle" font-family="Arial" text-transform="uppercase">FINAUX</text>
-
-                    <!-- Avatars utilisateurs -->
-                    <circle cx="1080" cy="120" r="15" fill="url(#grad1)" stroke="#FF851B" stroke-width="2"/>
-                    <text x="1080" y="127" font-size="14" text-anchor="middle">👩</text>
-
-                    <circle cx="1110" cy="110" r="15" fill="url(#grad1)" stroke="#FF851B" stroke-width="2"/>
-                    <text x="1110" y="117" font-size="14" text-anchor="middle">👨</text>
-
-                    <circle cx="1140" cy="125" r="15" fill="url(#grad1)" stroke="#FF851B" stroke-width="2"/>
-                    <text x="1140" y="132" font-size="14" text-anchor="middle">👤</text>
-
-                    <!-- Gradient -->
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#1E64C8;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00CC44;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                </svg>
+                    <div class="retours-box">
+                        <div class="retours-label">RETOURS<br>UTILISATEURS</div>
+                        <div class="retours-avatars">
+                            <div class="retour-avatar">👩</div>
+                            <div class="retour-avatar">👨</div>
+                            <div class="retour-avatar">👤</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Explanation -->
+            <!-- Explication -->
             <div class="agile-explanation">
                 <h3>📊 Processus Agile Itératif</h3>
-                <p>La méthodologie Agile repose sur <strong>un cycle continu et itératif</strong> qui permet une adaptation rapide aux besoins et une livraison régulière de valeur.</p>
+                <p>La méthodologie Agile est un cycle continu où l'équipe implémente travaille autour de 4 phases majeures :</p>
                 
-                <p><strong style="color: #00CC44;">⏱️ Les étapes clés :</strong></p>
-                <p>1️⃣ <strong>Planning</strong> - L'équipe définit les objectifs du sprint<br>
-                2️⃣ <strong>Formation</strong> - Formation des utilisateurs<br>
-                3️⃣ <strong>Testing</strong> - Validation de la qualité<br>
-                4️⃣ <strong>Gestion de Projet</strong> - Suivi et coordination<br>
-                5️⃣ <strong>Analyse</strong> - Validation et optimisation<br>
-                6️⃣ <strong>Livrable</strong> - Mise en production</p>
+                <p><strong style="color: #00CC44;">📍 Les 4 Phases du Cycle :</strong></p>
+                <p>🎯 <strong>PLANNING</strong> - L'équipe définit les objectifs du sprint<br>
+                💻 <strong>FORMATION</strong> - Formation et mise à jour de l'équipe<br>
+                ✅ <strong>TESTING</strong> - Validation de la qualité du produit<br>
+                🔄 <strong>GESTION PROJET</strong> - Suivi et coordination des tâches</p>
+
+                <p><strong style="color: #00CC44;">🔀 Le Flux Complet :</strong></p>
+                <p>1. Les CLIENTS demandent un PRODUIT À LIVRER<br>
+                2. Le travail EN COURS commence et suit les 4 phases<br>
+                3. L'équipe d'implémentation contrôle chaque phase<br>
+                4. Résultat : LIVRABLE de qualité<br>
+                5. RETOURS des utilisateurs finaux pour amélioration continue</p>
 
                 <p><strong style="color: #00CC44;">💡 Avantages :</strong></p>
-                <p>✅ Flexibilité constante aux changements<br>
-                ✅ Feedback continu des utilisateurs<br>
-                ✅ Qualité maintenue à chaque itération<br>
-                ✅ Délais raccourcis avec livraisons régulières<br>
-                ✅ Communication efficace entre tous les acteurs</p>
+                <p>✅ Flexibilité aux changements<br>
+                ✅ Qualité constante<br>
+                ✅ Feedback utilisateur permanent<br>
+                ✅ Livraisons régulières</p>
             </div>
         </div>
     </div>
@@ -922,33 +1125,6 @@
                     <div class="project-header">
                         <h3>Navigatio Digitalis</h3>
                         <span class="project-status status-encours">⏳ En cours</span>
-                    </div>
-                    <div class="project-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-header">
-                        <h3>Fortitudo Systematis</h3>
-                        <span class="project-status status-encours">⏳ En cours</span>
-                    </div>
-                    <div class="project-content">
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="projects-subsection operationnel">
-                <h3>✅ Projets Opérationnels</h3>
-
-                <div class="project-item operationnel">
-                    <div class="project-header">
-                        <h3>Aurora Technologia</h3>
-                        <span class="project-status status-operationnel">✅ Opérationnel</span>
-                    </div>
-                    <div class="project-content">
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
                     </div>
                 </div>
             </div>
